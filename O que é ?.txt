@@ -1,0 +1,13 @@
+Pesquisar o que o codigo faz
+
+os
+shutil
+xml.etree
+imap_tools
+openpyxl
+pandas
+selenium
+
+namespaces
+
+metodo .find
