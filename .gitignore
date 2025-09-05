@@ -3,3 +3,4 @@ notas/
 config.py
 chunks/
 google-chrome-stable_current_amd64.deb
+__pycache__/
