@@ -3,4 +3,5 @@ notas/
 config.py
 chunks/
 *.deb
-__pycache__/*.deb
+__pycache__
+
