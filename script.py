@@ -106,6 +106,8 @@ produtos = pd.DataFrame(todos_produtos)
 produtos = produtos[~produtos['Fornecedor'].isin(fornecedores_pesados)]
 produtos = produtos.drop_duplicates(subset='Codigo Produto', keep='first')
 
+produtos = produtos[121:122]
+
 # 🔹 Headers para requests
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -130,14 +132,16 @@ async def get_data_playwright(url):
             return {}
 
         data = json.loads(script.string)
+
         produto = data.get("props", {}).get("pageProps", {}).get("produto", {})
+        print(produto) #AQUI ESTÁ O ERRO PRODUTO ESTÁ VOLTANDO SOZINHO 
         url_img = data.get("props", {}).get("pageProps", {}).get("seo", {}).get("imageUrl", 'Não disponível')
 
         await browser.close()
         return {
             'marca': next((p.get("desc") for p in produto.get("dimensoes", []) if p.get("label") == "MARCA"), "Não disponível"),
             'peso': produto.get("pesoBruto", "Não disponível"),
-            'codigo_barras': produto.get("codBarra", "Não disponível"),
+            'codigo_barras': produto.get("codBarra", "SEM GTIN"),
             'url_img': url_img,
         }
 
@@ -148,7 +152,7 @@ def processa_produtos(produtos, headers):
         fornecedor = produto['Fornecedor']
         codigo_produto = produto['Codigo Produto']
         descricao = produto['Descrição']
-
+        codigo_barras = ['Código de Barras']
         # Monta URL conforme fornecedor
         if fornecedor == 'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA':   
             url = f'https://www.construdigi.com.br/produto/{codigo_produto}/{descricao}'
@@ -168,14 +172,16 @@ def processa_produtos(produtos, headers):
             data = json.loads(script.string) if script else {}
 
             extrai = data.get("props", {}).get("pageProps", {}).get("produto", {})
+ 
             url_img = data.get("props", {}).get("pageProps", {}).get("seo", {}).get("imageUrl", '')
-
+            
             marca = next((p.get("desc") for p in extrai.get("dimensoes", []) if p.get("label") == "MARCA"), "")
             peso = extrai.get("pesoBruto", "")
-            codigo_barras = extrai.get("codBarra", "")
+            if codigo_barras == 'SEM GTIN':
+                codigo_barras = extrai.get("codBarra", "SEM GTIN")
 
             # Se não conseguiu pegar nada → fallback Playwright
-            if not (marca or peso or codigo_barras):
+            if extrai == {}:
                 print(f"⚠️ Fallback Playwright para {descricao}")
                 dados = asyncio.run(get_data_playwright(url))
                 marca = dados["marca"]
@@ -199,5 +205,5 @@ def processa_produtos(produtos, headers):
 processa_produtos(produtos, headers)
 
 # 🔹 Salvar Excel final
-produtos.to_excel("produtos.xlsx", index=False)
+produtos.to_excel("produtos2.xlsx", index=False)
 print("📁 Arquivo 'produtos.xlsx' gerado com sucesso!")
