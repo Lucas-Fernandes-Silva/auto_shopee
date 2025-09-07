@@ -123,6 +123,7 @@ async def get_data_playwright(url):
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
         await page.goto(url, wait_until="networkidle")
+        print(url)
 
         html = await page.content()
         soup = BeautifulSoup(html, "html.parser")
@@ -132,9 +133,7 @@ async def get_data_playwright(url):
             return {}
 
         data = json.loads(script.string)
-
         produto = data.get("props", {}).get("pageProps", {}).get("produto", {})
-        print(produto) #AQUI ESTÁ O ERRO PRODUTO ESTÁ VOLTANDO SOZINHO 
         url_img = data.get("props", {}).get("pageProps", {}).get("seo", {}).get("imageUrl", 'Não disponível')
 
         await browser.close()
@@ -155,11 +154,11 @@ def processa_produtos(produtos, headers):
         codigo_barras = ['Código de Barras']
         # Monta URL conforme fornecedor
         if fornecedor == 'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA':   
-            url = f'https://www.construdigi.com.br/produto/{codigo_produto}/{descricao}'
+            url = f'https://www.construdigi.com.br/produto/{codigo_produto}/{codigo_produto}'
         elif fornecedor == 'M.S.B. COMERCIO DE MATERIAIS PARA CONSTRUCAO':
-            url = f'https://msbitaqua.com.br/produto/{codigo_produto}/{descricao}'
+            url = f'https://msbitaqua.com.br/produto/{codigo_produto}/{codigo_produto}'
         elif fornecedor == "CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU":
-            url = f'https://www.construja.com.br/produto/{codigo_produto}/{descricao}'
+            url = f'https://www.construja.com.br/produto/{codigo_produto}/{codigo_produto}'
         else:
             print('Indisponível')
             continue
@@ -195,7 +194,7 @@ def processa_produtos(produtos, headers):
             produtos.at[index, "Marca"] = marca or "Não disponível"
             produtos.at[index, 'Url Imagem'] = url_img or "Não disponível"
 
-            print("✅", descricao)
+            print("✅", produtos)
 
         except Exception as e:
             print("❌ Erro:", e)
