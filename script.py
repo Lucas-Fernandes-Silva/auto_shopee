@@ -17,7 +17,7 @@ import xml.etree.ElementTree as ET
 import pandas as pd
 from imap_tools import MailBox, AND
 from config import pwd, user
-from datetime import date
+from datetime import date, datetime
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -49,21 +49,27 @@ def extrai_dados(caminho_arquivo):
     tree = ET.parse(caminho_arquivo)
     root = tree.getroot()
     ns = {"ns": "http://www.portalfiscal.inf.br/nfe"}
+    data_str = root.find(".//ns:ide/ns:dhEmi", ns).text
+    data_emissao = datetime.fromisoformat(data_str).replace(tzinfo=None)
 
+    
     natOp = root.find(".//ns:ide/ns:natOp", ns)
     if natOp is not None and natOp.text.strip().upper() == 'BONIFICACAO, DOACAO OU BRINDE':
         return [] 
-
+    
     for det in root.findall(".//ns:det", ns):   
         produto = {}
-        produto['Codigo Produto'] = det.find("./ns:prod/ns:cProd", ns).text
-        produto['Descrição'] = det.find("./ns:prod/ns:xProd", ns).text
-        produto['Valor_unitário'] = det.find("./ns:prod/ns:vUnCom", ns).text
-        produto['Código de Barras'] = det.find("./ns:prod/ns:cEAN", ns).text 
-        produto['Sku'] = produto['Código de Barras']
+        temp_codigo = det.find("./ns:prod/ns:cProd", ns).text
+        if not "-" in temp_codigo:
+            produto ['Codigo Produto'] = temp_codigo
+        produto ['Descrição'] = det.find("./ns:prod/ns:xProd", ns).text
+        produto ['Valor_unitário'] = det.find("./ns:prod/ns:vUnCom", ns).text
+        produto ['Código de Barras'] = det.find("./ns:prod/ns:cEAN", ns).text 
+        produto ['Sku'] = produto['Código de Barras']
         if produto['Sku'] == 'SEM GTIN':
             produto['Sku'] = produto['Descrição']
-        produto['Fornecedor'] = root.find(".//ns:emit/ns:xNome", ns).text
+        produto ['Fornecedor'] = root.find(".//ns:emit/ns:xNome", ns).text
+        produto ['Data Emissão'] = data_emissao
         produtos.append(produto)
     return produtos
         
@@ -104,9 +110,9 @@ fornecedores_pesados = [
 # 🔹 DataFrame inicial
 produtos = pd.DataFrame(todos_produtos)
 produtos = produtos[~produtos['Fornecedor'].isin(fornecedores_pesados)]
-produtos = produtos.drop_duplicates(subset='Codigo Produto', keep='first')
+produtos = produtos.sort_values(by="Data Emissão", ascending=False)
 
-produtos = produtos[121:122]
+produtos = produtos.drop_duplicates(subset='Codigo Produto', keep='first')
 
 # 🔹 Headers para requests
 headers = {
@@ -123,7 +129,6 @@ async def get_data_playwright(url):
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
         await page.goto(url, wait_until="networkidle")
-        print(url)
 
         html = await page.content()
         soup = BeautifulSoup(html, "html.parser")
@@ -151,7 +156,7 @@ def processa_produtos(produtos, headers):
         fornecedor = produto['Fornecedor']
         codigo_produto = produto['Codigo Produto']
         descricao = produto['Descrição']
-        codigo_barras = ['Código de Barras']
+        codigo_barras = produto['Código de Barras']
         # Monta URL conforme fornecedor
         if fornecedor == 'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA':   
             url = f'https://www.construdigi.com.br/produto/{codigo_produto}/{codigo_produto}'
@@ -194,15 +199,19 @@ def processa_produtos(produtos, headers):
             produtos.at[index, "Marca"] = marca or "Não disponível"
             produtos.at[index, 'Url Imagem'] = url_img or "Não disponível"
 
-            print("✅", produtos)
+            print("✅", descricao)
 
         except Exception as e:
-            print("❌ Erro:", e)
+            print("❌ Erro:", e )
+            lista_erros = []
+            lista_erros.append(descricao)
+            print(lista_erros)
 
 
 # 🔹 Executar
 processa_produtos(produtos, headers)
 
 # 🔹 Salvar Excel final
-produtos.to_excel("produtos2.xlsx", index=False)
+produtos.to_excel("produtos.xlsx", index=False)
 print("📁 Arquivo 'produtos.xlsx' gerado com sucesso!")
+
