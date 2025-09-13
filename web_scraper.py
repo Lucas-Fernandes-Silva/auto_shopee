@@ -1,81 +1,131 @@
-
+import requests
 from bs4 import BeautifulSoup
-import json, requests, asyncio
+import json
+import os
+from concurrent.futures import ThreadPoolExecutor
+import asyncio
 from playwright.async_api import async_playwright
 
 class WebScraper:
-    def __init__(self, headers):
-        self.headers = headers
+    def __init__(self, headers=None, cache_file="cache/produtos.json"):
+        self.headers = headers or {"User-Agent": "Mozilla/5.0"}
+        self.cache_file = cache_file
+        self.cache = self._carregar_cache()
 
-    def _processar_um_produto(self, index, produto, produtos_df):
-        fornecedor = produto['Fornecedor']
-        codigo_produto = produto['Codigo Produto']
-        descricao = produto['Descrição']
-        codigo_barras = produto['Código de Barras']
+    # ----------------- CACHE -----------------
+    def _carregar_cache(self):
+        if os.path.exists(self.cache_file):
+            with open(self.cache_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        return {}
 
-        if fornecedor == 'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA':   
-            url = f'https://www.construdigi.com.br/produto/{codigo_produto}/{codigo_produto}'
-        elif fornecedor == 'M.S.B. COMERCIO DE MATERIAIS PARA CONSTRUCAO':
-            url = f'https://msbitaqua.com.br/produto/{codigo_produto}/{codigo_produto}'
-        elif fornecedor == "CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU":
-            url = f'https://www.construja.com.br/produto/{codigo_produto}/{codigo_produto}'
-        else:
-            return  # pula
+    def _salvar_cache(self):
+        os.makedirs(os.path.dirname(self.cache_file), exist_ok=True)
+        with open(self.cache_file, "w", encoding="utf-8") as f:
+            json.dump(self.cache, f, ensure_ascii=False, indent=2)
 
-        try:
-            response = requests.get(url, headers=self.headers, timeout=10)
-            soup = BeautifulSoup(response.text, "html.parser")
-            script = soup.find("script", type="application/json")
-            data = json.loads(script.string) if script else {}
+    # ----------------- REQUESTS -----------------
+    def _processar_com_requests(self, produto):
+        url = self._montar_url(produto)
+        if not url:
+            return {}
 
-            extrai = data.get("props", {}).get("pageProps", {}).get("produto", {})
-            url_img = data.get("props", {}).get("pageProps", {}).get("seo", {}).get("imageUrl", '')
+        response = requests.get(url, headers=self.headers, timeout=10)
+        soup = BeautifulSoup(response.text, "html.parser")
+        script = soup.find("script", type="application/json")
+        if not script:
+            return {}
 
-            marca = next((p.get("desc") for p in extrai.get("dimensoes", []) if p.get("label") == "MARCA"), "")
-            peso = extrai.get("pesoBruto", "")
-            if codigo_barras == 'SEM GTIN':
-                codigo_barras = extrai.get("codBarra", "SEM GTIN")
+        data = json.loads(script.string)
+        return self._extrair_dados(data)
 
-            if extrai == {}:
-                self.logger.warning(f"Fallback Playwright para {descricao}")
-                dados = asyncio.run(self.get_data_playwright(url))
-                marca = dados["marca"]
-                peso = dados["peso"]
-                codigo_barras = dados["codigo_barras"]
-                url_img = dados["url_img"]
+    # ----------------- PLAYWRIGHT -----------------
+    async def _processar_com_playwright(self, produto):
 
-            produtos_df.at[index, 'Código de Barras'] = codigo_barras or "Não disponível"
-            produtos_df.at[index, 'Peso'] = peso or "Não disponível"
-            produtos_df.at[index, "Marca"] = marca or "Não disponível"
-            produtos_df.at[index, 'Url Imagem'] = url_img or "Não disponível"
+        url = self._montar_url(produto)
+        if not url:
+            return {}
 
-            self.logger.info(f"✅ {descricao}")
-
-        except Exception as e:
-            self.logger.error(f"❌ Erro {descricao}: {e}")
-
-    async def get_data_playwright(self, url):
         async with async_playwright() as p:
             browser = await p.chromium.launch(headless=True)
             page = await browser.new_page()
             await page.goto(url, wait_until="networkidle")
-
             html = await page.content()
             soup = BeautifulSoup(html, "html.parser")
             script = soup.find("script", id="__NEXT_DATA__")
-            if not script:
-                await browser.close()
-                return {}
-
-            data = json.loads(script.string)
-            produto = data.get("props", {}).get("pageProps", {}).get("produto", {})
-            url_img = data.get("props", {}).get("pageProps", {}).get("seo", {}).get("imageUrl", 'Não disponível')
-
             await browser.close()
-            return {
-                'marca': next((p.get("desc") for p in produto.get("dimensoes", []) if p.get("label") == "MARCA"), "Não disponível"),
-                'peso': produto.get("pesoBruto", "Não disponível"),
-                'codigo_barras': produto.get("codBarra", "SEM GTIN"),
-                'url_img': url_img,
-            }
 
+            if not script:
+                return {}
+            data = json.loads(script.string)
+            return self._extrair_dados(data)
+
+    # ----------------- AUXILIARES -----------------
+    def _montar_url(self, produto):
+    
+        fornecedor = produto.get("Fornecedor")
+        codigo = produto.get("Codigo Produto")
+
+        if fornecedor == 'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA':
+            return f'https://www.construdigi.com.br/produto/{codigo}/{codigo}'
+        elif fornecedor == 'M.S.B. COMERCIO DE MATERIAIS PARA CONSTRUCAO':
+            return f'https://msbitaqua.com.br/produto/{codigo}/{codigo}'
+        elif fornecedor == "CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU":
+            return f'https://www.construja.com.br/produto/{codigo}/{codigo}'
+        else:
+            return None
+
+    def _extrair_dados(self, data):
+ 
+        produto = data.get("props", {}).get("pageProps", {}).get("produto", {})
+        seo = data.get("props", {}).get("pageProps", {}).get("seo", {})
+
+        return {
+            "marca": next((p.get("desc") for p in produto.get("dimensoes", []) if p.get("label") == "MARCA"), "Não disponível"),
+            "peso": produto.get("pesoBruto", "Não disponível"),
+            "codigo_barras": produto.get("codBarra", "SEM GTIN"),
+            "url_img": seo.get("imageUrl", "Não disponível")
+        }
+
+    # ----------------- LOOP PRINCIPAL -----------------
+    def enriquecer_dataframe(self, df, paralelo=True):
+
+        produtos = df.to_dict("records")
+
+        if paralelo:
+            with ThreadPoolExecutor(max_workers=5) as executor:
+                resultados = list(executor.map(self._processar_produto, produtos))
+        else:
+            resultados = [self._processar_produto(p) for p in produtos]
+
+        # Atualizar DataFrame com os resultados
+        for i, dados in enumerate(resultados):
+            df.at[i, "Marca"] = dados.get("marca", "")
+            df.at[i, "Peso"] = dados.get("peso", "")
+            df.at[i, "Código de Barras"] = dados.get("codigo_barras", "")
+            df.at[i, "Url Imagem"] = dados.get("url_img", "")
+
+        # Salvar cache atualizado
+        self._salvar_cache()
+
+        return df
+
+    def _processar_produto(self, produto):
+
+        codigo = produto.get("Codigo Produto")
+
+        # 1. Verifica cache
+        if codigo in self.cache:
+            return self.cache[codigo]
+
+        # 2. Tenta com requests
+        dados = self._processar_com_requests(produto)
+
+        # 3. Se não conseguiu nada → fallback Playwright
+        if not dados:
+            print(f"⚠️ Fallback Playwright para {produto.get('Descrição')}")
+            dados = asyncio.run(self._processar_com_playwright(produto))
+
+        # 4. Atualiza cache
+        self.cache[codigo] = dados
+        return dados

@@ -1,18 +1,59 @@
-import datetime
+from concurrent.futures import ProcessPoolExecutor
 import xml.etree.ElementTree as ET
-import os 
-import shutil
-from processo import ProcessadorNotas
+from datetime import datetime
+import os
 
 class XMLProcessor:
-       def __init__(self, pasta_notas):
-           self.pasta_notas = pasta_notas
-           
-       def extrai_dados(self, caminho_arquivo):
+    def __init__(self, pasta_xml, fornecedores_bloqueados=None):
+        self.pasta_xml = pasta_xml
+        self.fornecedores_bloqueados = fornecedores_bloqueados or []
+
+    def processar_todos(self, paralelo=True):
+        arquivos = self._listar_arquivos_xml()
+
+        if paralelo:
+
+            with ProcessPoolExecutor() as executor:
+                resultados = list(executor.map(self._processar_arquivo, arquivos))
+        else:
+            resultados = [self._processar_arquivo(a) for a in arquivos]
+
+
+        produtos = [p for lista in resultados for p in lista]
+        return produtos
+
+
+    def _listar_arquivos_xml(self):
+        return [
+            os.path.join(self.pasta_xml, nome)
+            for nome in os.listdir(self.pasta_xml)
+            if nome.lower().endswith(".xml")
+        ]
+
+
+    def _processar_arquivo(self, caminho_arquivo):
+
+        try:
+            tree = ET.parse(caminho_arquivo)
+            root = tree.getroot()
+            ns = {"ns": "http://www.portalfiscal.inf.br/nfe"}
+
+            cnpj_emitente = root.find(".//ns:emit/ns:CNPJ", ns)
+            if cnpj_emitente is None:
+                print(f"⚠️ CNPJ não encontrado em {caminho_arquivo}")
+                return []
+
+            produtos = self._extrair_dados(root, ns)
+            return produtos
+
+        except Exception as e:
+            print(f"Erro ao processar {caminho_arquivo}: {e}")
+            return []
+        
+
+    def _extrair_dados(self, root, ns):
         produtos = []
-        tree = ET.parse(caminho_arquivo)
-        root = tree.getroot()
-        ns = {"ns": "http://www.portalfiscal.inf.br/nfe"}
+
         data_str = root.find(".//ns:ide/ns:dhEmi", ns).text
         data_emissao = datetime.fromisoformat(data_str).replace(tzinfo=None)
 
@@ -22,42 +63,20 @@ class XMLProcessor:
 
         for det in root.findall(".//ns:det", ns):   
             produto = {}
+
             temp_codigo = det.find("./ns:prod/ns:cProd", ns).text
             if "-" not in temp_codigo:
                 produto['Codigo Produto'] = temp_codigo
             produto['Descrição'] = det.find("./ns:prod/ns:xProd", ns).text
             produto['Valor_unitário'] = det.find("./ns:prod/ns:vUnCom", ns).text
-            produto['Código de Barras'] = det.find("./ns:prod/ns:cEAN", ns).text 
-            produto['Sku'] = produto['Código de Barras']
+            cEAN = det.find("./ns:prod/ns:cEAN", ns).text 
+            produto['Código de Barras'] = cEAN
+            produto['Sku'] = cEAN
             if produto['Sku'] == 'SEM GTIN':
                 produto['Sku'] = produto['Descrição']
             produto['Fornecedor'] = root.find(".//ns:emit/ns:xNome", ns).text
             produto['Data Emissão'] = data_emissao
+            
             produtos.append(produto)
         return produtos
-
-def processar_xmls(self):
-    ProcessadorNotas.logger.info("🔹 Processando XMLs da pasta…")
-    for arquivo in os.listdir(self.save_folder):
-        if arquivo.lower().endswith(".xml"):
-            caminho_arquivo = os.path.join(self.save_folder, arquivo)
-            try:
-                tree = ET.parse(caminho_arquivo)
-                root = tree.getroot()
-                ns = {"ns": "http://www.portalfiscal.inf.br/nfe"}
-
-                cnpj_emitente = root.find(".//ns:emit/ns:CNPJ", ns)
-                if cnpj_emitente is None:
-                    self.logger.warning(f"CNPJ não encontrado em {arquivo}")
-                    continue
-
-                produtos_xml = self.extrai_dados(caminho_arquivo)
-                ProcessadorNotas.todos_produtos.extend(produtos_xml)
-
-                pasta_destino = os.path.join("notas/nfes")
-                os.makedirs(pasta_destino, exist_ok=True)
-                shutil.copy(caminho_arquivo, pasta_destino)
-
-            except Exception as e:
-                ProcessadorNotas.logger.error(f"{arquivo}: {e}")
 
