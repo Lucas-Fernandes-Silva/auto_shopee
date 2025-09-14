@@ -12,7 +12,6 @@ class WebScraper:
         self.cache_file = cache_file
         self.cache = self._carregar_cache()
 
-    # ----------------- CACHE -----------------
     def _carregar_cache(self):
         if os.path.exists(self.cache_file):
             with open(self.cache_file, "r", encoding="utf-8") as f:
@@ -24,7 +23,6 @@ class WebScraper:
         with open(self.cache_file, "w", encoding="utf-8") as f:
             json.dump(self.cache, f, ensure_ascii=False, indent=2)
 
-    # ----------------- REQUESTS -----------------
     def _processar_com_requests(self, produto):
         url = self._montar_url(produto)
         if not url:
@@ -39,7 +37,6 @@ class WebScraper:
         data = json.loads(script.string)
         return self._extrair_dados(data)
 
-    # ----------------- PLAYWRIGHT -----------------
     async def _processar_com_playwright(self, produto):
 
         url = self._montar_url(produto)
@@ -60,7 +57,6 @@ class WebScraper:
             data = json.loads(script.string)
             return self._extrair_dados(data)
 
-    # ----------------- AUXILIARES -----------------
     def _montar_url(self, produto):
     
         fornecedor = produto.get("Fornecedor")
@@ -87,7 +83,6 @@ class WebScraper:
             "url_img": seo.get("imageUrl", "Não disponível")
         }
 
-    # ----------------- LOOP PRINCIPAL -----------------
     def enriquecer_dataframe(self, df, paralelo=True):
 
         produtos = df.to_dict("records")
@@ -98,14 +93,12 @@ class WebScraper:
         else:
             resultados = [self._processar_produto(p) for p in produtos]
 
-        # Atualizar DataFrame com os resultados
         for i, dados in enumerate(resultados):
             df.at[i, "Marca"] = dados.get("marca", "")
             df.at[i, "Peso"] = dados.get("peso", "")
             df.at[i, "Código de Barras"] = dados.get("codigo_barras", "")
             df.at[i, "Url Imagem"] = dados.get("url_img", "")
 
-        # Salvar cache atualizado
         self._salvar_cache()
 
         return df
@@ -114,18 +107,15 @@ class WebScraper:
 
         codigo = produto.get("Codigo Produto")
 
-        # 1. Verifica cache
         if codigo in self.cache:
             return self.cache[codigo]
 
-        # 2. Tenta com requests
         dados = self._processar_com_requests(produto)
 
-        # 3. Se não conseguiu nada → fallback Playwright
         if not dados:
             print(f"⚠️ Fallback Playwright para {produto.get('Descrição')}")
             dados = asyncio.run(self._processar_com_playwright(produto))
 
-        # 4. Atualiza cache
         self.cache[codigo] = dados
         return dados
+

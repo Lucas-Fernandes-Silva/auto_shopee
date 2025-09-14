@@ -76,7 +76,7 @@ class XMLProcessor:
                 produto['Sku'] = produto['Descrição']
             produto['Fornecedor'] = root.find(".//ns:emit/ns:xNome", ns).text
             produto['Data Emissão'] = data_emissao
-            
+
             produtos.append(produto)
         return produtos
 

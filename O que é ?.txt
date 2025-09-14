@@ -7,7 +7,8 @@ imap_tools
 openpyxl
 pandas
 selenium
-
+concurrent.futures
+ThreadPoolExecutor
 namespaces
 
 metodo .find
