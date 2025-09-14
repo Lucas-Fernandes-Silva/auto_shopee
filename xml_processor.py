@@ -80,3 +80,4 @@ class XMLProcessor:
             produtos.append(produto)
         return produtos
 
+print("xml Encerrado")
