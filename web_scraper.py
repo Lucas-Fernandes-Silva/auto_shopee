@@ -23,10 +23,11 @@ class WebScraper:
         os.makedirs(os.path.dirname(self.cache_file), exist_ok=True)
         with open(self.cache_file, "w", encoding="utf-8") as f:
             json.dump(self.cache, f, ensure_ascii=False, indent=2)
-            logger.info("cache criado")
 
     def _processar_com_requests(self, produto):
+        logger.info(f'Aqui está o produto {produto}')
         url = self._montar_url(produto)
+        logger.info(f'Aqui está o url {url}')
         if not url:
             return {}
 
@@ -74,41 +75,42 @@ class WebScraper:
             return None
 
     def _extrair_dados(self, data):
-        try:
             produto = data.get("props", {}).get("pageProps", {}).get("produto", {})
             seo = data.get("props", {}).get("pageProps", {}).get("seo", {})
-
-            return {
-                "marca": next((p.get("desc") for p in produto.get("dimensoes", []) if p.get("label") == "MARCA"), "Não disponível"),
-                "peso": produto.get("pesoBruto", "Não disponível"),
-                "codigo_barras": produto.get("codBarra", "SEM GTIN"),
-                "url_img": seo.get("imageUrl", "Não disponível")
-            }
-        except Exception as e:
-            print(e)
+            try:
+                return {
+                    "marca": next((p.get("desc") for p in produto.get("dimensoes", []) if p.get("label") == "MARCA"), "Não disponível"),
+                    "peso": produto.get("pesoBruto", "Não disponível"),
+                    "codigo_barras": produto.get("codBarra", "SEM GTIN"),
+                    "url_img": seo.get("imageUrl", "Não disponível"),   
+                }
+            except Exception as e:
+                logger.info(e, produto)
 
     def enriquecer_dataframe(self, df, paralelo=True):
+            produtos = df.to_dict("records")
 
-        produtos = df.to_dict("records")
+            if paralelo:
+                with ThreadPoolExecutor(max_workers=5) as executor:
+                    resultados = list(executor.map(self._processar_produto, produtos))
+            else:
+                resultados = [self._processar_produto(p) for p in produtos]
 
-        if paralelo:
-            with ThreadPoolExecutor(max_workers=5) as executor:
-                resultados = list(executor.map(self._processar_produto, produtos))
-        else:
-            resultados = [self._processar_produto(p) for p in produtos]
 
-        for i, dados in enumerate(resultados):
-            df.at[i, "Marca"] = dados.get("marca", "")
-            df.at[i, "Peso"] = dados.get("peso", "")
-            df.at[i, "Código de Barras"] = dados.get("codigo_barras", "")
-            df.at[i, "Url Imagem"] = dados.get("url_img", "")
+            for i, dados in enumerate(resultados):                
+                df.at[i, "Marca"] = dados.get("marca") or "Não Disponivel"
+                df.at[i, "Peso"] = dados.get("peso") or "Não Disponivel"
+                df.at[i, "Código de Barras"] = dados.get("codigo_barras") or "Não Disponivel"
+                df.at[i, "Url Imagem"] = dados.get("url_img") or "Não Disponivel"
 
-        self._salvar_cache()
+               
 
-        return df
+            self._salvar_cache()
+
+            return df
+
 
     def _processar_produto(self, produto):
-
         codigo = produto.get("Codigo Produto")
 
         if codigo in self.cache:
@@ -122,4 +124,5 @@ class WebScraper:
 
         self.cache[codigo] = dados
         return dados
+
 

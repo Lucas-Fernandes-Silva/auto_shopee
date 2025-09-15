@@ -1,3 +1,15 @@
-2025-09-15 10:20:10,095 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 10:23:29,078 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 10:28:33,984 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 15:49:41,636 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 15:52:46,895 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 15:53:32,197 - logger - INFO - Aqui está o produto {'Codigo Produto': nan, 'Descrição': 'ESPACADOR 3,0MM', 'Valor_unitário': '1.6810000000', 'Código de Barras': '7897901800159', 'Sku': '7897901800159', 'Fornecedor': 'CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU', 'Data Emissão': Timestamp('2020-07-18 02:07:00')}
+2025-09-15 15:53:32,204 - logger - INFO - Aqui está o url https://www.construja.com.br/produto/nan/nan
+2025-09-15 15:58:16,529 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:04:05,802 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:07:29,815 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:08:39,723 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:10:53,389 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:12:16,339 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:15:16,150 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:18:37,604 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:20:09,332 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
+2025-09-15 16:20:53,301 - logger - INFO - Aqui está o produto {'Codigo Produto': nan, 'Descrição': 'ESPACADOR 3,0MM', 'Valor_unitário': '1.6810000000', 'Código de Barras': '7897901800159', 'Sku': '7897901800159', 'Fornecedor': 'CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU', 'Data Emissão': Timestamp('2020-07-18 02:07:00')}
+2025-09-15 16:20:53,320 - logger - INFO - Aqui está o url https://www.construja.com.br/produto/nan/nan

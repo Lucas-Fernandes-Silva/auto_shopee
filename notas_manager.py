@@ -4,15 +4,15 @@ import shutil, os
 
 
 class NotasManager:
-    def __init__(self, fornecedores_bloqueados=None):
-        self.fornecedores_bloqueados = fornecedores_bloqueados or []
+    def __init__(self, fornecedores=None):
+        self.fornecedores = fornecedores or []
 
     
     def cria_dataframe(self, lista_produtos):
         df = pd.DataFrame(lista_produtos)
 
         if 'Fornecedor' in df.columns:
-            df = df[~df['Fornecedor'].isin(self.fornecedores_bloqueados)]
+            df = df[~df['Fornecedor'].isin(self.fornecedores[0])]
 
 
         if 'Data Emissão' in df.columns:
@@ -21,8 +21,14 @@ class NotasManager:
 
         if 'Codigo Produto' in df.columns:
             df = df.drop_duplicates(subset='Codigo Produto', keep='first')
+        
         return df
 
+    def separando_fornecedor(self, df, fornecedores):
+        web = df.query(f'Fornecedor == {fornecedores[1]}')
+        noweb = df.query(f'Fornecedor == {fornecedores[2]}')
+        
+        return web
 
     def salvar_excel(self, df, caminho):
         df.to_excel(f'{caminho}', index=False)
@@ -35,4 +41,4 @@ class NotasManager:
                 if arquivo.lower().endswith(".xml"):
                     shutil.copy(os.path.join(pasta_origem, arquivo), pasta_destino)
 
-print("notas encerrado")
+
