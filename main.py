@@ -19,7 +19,7 @@ df_produtos = manager.cria_dataframe(lista_produtos)
 
 manager.copiar_xmls('notas', 'notas/nfes')
 
-manager.salvar_excel(lista_produtos, "produtos.xlsx")
+manager.salvar_excel(df_produtos, "produtos.xlsx")
 
 
 scraper = WebScraper(env.headers)

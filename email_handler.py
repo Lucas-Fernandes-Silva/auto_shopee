@@ -3,6 +3,7 @@ import os
 import logging
 from imap_tools import MailBox, AND 
 from datetime import date, timedelta
+from logger import logger
 
 class EmailHandler:
     def __init__(self, email_user, email_pwd, save_folder="notas/"):
@@ -10,10 +11,9 @@ class EmailHandler:
         self.email_pwd = email_pwd
         self.save_folder = save_folder
         os.makedirs(self.save_folder, exist_ok=True)
-        self.logger = logging.getLogger(__name__)
 
     def baixar_anexos(self, data_inicio):
-        self.logger.info("🔹 Baixando anexos XML do e-mail…")
+        logger.info("🔹 Baixando anexos XML do e-mail…")
         with MailBox("imap.gmail.com").login(self.email_user, self.email_pwd, initial_folder="INBOX") as mailbox:
             list_mail = mailbox.fetch(criteria=AND(date_gte=(data_inicio - timedelta(7))))
             for email in list_mail:
@@ -23,7 +23,7 @@ class EmailHandler:
                         if not os.path.exists(file_path):
                             with open(file_path, "wb") as f:
                                 f.write(anexo.payload)
-                            self.logger.info(f"Arquivo salvo: {file_path}")
+                            logger.info(f"Arquivo salvo: {file_path}")
 
 
 print("EmailHandler_Encerrado")

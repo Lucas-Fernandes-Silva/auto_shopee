@@ -5,6 +5,7 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 import asyncio
 from playwright.async_api import async_playwright
+from logger import logger
 
 class WebScraper:
     def __init__(self, headers=None, cache_file="cache/produtos.json"):
@@ -22,6 +23,7 @@ class WebScraper:
         os.makedirs(os.path.dirname(self.cache_file), exist_ok=True)
         with open(self.cache_file, "w", encoding="utf-8") as f:
             json.dump(self.cache, f, ensure_ascii=False, indent=2)
+            logger.info("cache criado")
 
     def _processar_com_requests(self, produto):
         url = self._montar_url(produto)
@@ -72,16 +74,18 @@ class WebScraper:
             return None
 
     def _extrair_dados(self, data):
- 
-        produto = data.get("props", {}).get("pageProps", {}).get("produto", {})
-        seo = data.get("props", {}).get("pageProps", {}).get("seo", {})
+        try:
+            produto = data.get("props", {}).get("pageProps", {}).get("produto", {})
+            seo = data.get("props", {}).get("pageProps", {}).get("seo", {})
 
-        return {
-            "marca": next((p.get("desc") for p in produto.get("dimensoes", []) if p.get("label") == "MARCA"), "Não disponível"),
-            "peso": produto.get("pesoBruto", "Não disponível"),
-            "codigo_barras": produto.get("codBarra", "SEM GTIN"),
-            "url_img": seo.get("imageUrl", "Não disponível")
-        }
+            return {
+                "marca": next((p.get("desc") for p in produto.get("dimensoes", []) if p.get("label") == "MARCA"), "Não disponível"),
+                "peso": produto.get("pesoBruto", "Não disponível"),
+                "codigo_barras": produto.get("codBarra", "SEM GTIN"),
+                "url_img": seo.get("imageUrl", "Não disponível")
+            }
+        except Exception as e:
+            print(e)
 
     def enriquecer_dataframe(self, df, paralelo=True):
 

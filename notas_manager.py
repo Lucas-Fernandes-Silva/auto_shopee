@@ -25,7 +25,7 @@ class NotasManager:
 
 
     def salvar_excel(self, df, caminho):
-        df = (caminho, index=False)
+        df.to_excel(f'{caminho}', index=False)
         print(f"📁 Arquivo {caminho} gerado com sucesso!")
 
     def copiar_xmls(self, pasta_origem, pasta_destino):
