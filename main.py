@@ -4,7 +4,7 @@ from web_scraper import WebScraper
 from notas_manager import NotasManager
 from datetime import date
 import env
-
+from logger import logger
 
 email = EmailHandler(env.user, env.pwd)
 email.baixar_anexos(date.today())
@@ -17,13 +17,14 @@ manager = NotasManager(env.fornecedores)
 
 df_produtos = manager.cria_dataframe(lista_produtos)
 
-teste = manager.separando_fornecedor(df_produtos)
-print(teste)
+separados = manager.separando_fornecedor(df_produtos, env.fornecedores)
+logger.info(separados)
+logger.info(type(separados))
 
 manager.copiar_xmls('notas', 'notas/nfes')
 
-manager.salvar_excel(df_produtos, "produtos.xlsx")
+manager.salvar_excel(separados, '.xlsx')
 
-scraper = WebScraper(env.headers)
-df_enriquecido = scraper.enriquecer_dataframe(df_produtos, paralelo=True)
-manager.salvar_excel(df_enriquecido, "produtos_enriquecido.xlsx")
+# scraper = WebScraper(env.headers)
+# df_enriquecido = scraper.enriquecer_dataframe(df_produtos, paralelo=True)
+# manager.salvar_excel(df_enriquecido, "produtos_enriquecido.xlsx")

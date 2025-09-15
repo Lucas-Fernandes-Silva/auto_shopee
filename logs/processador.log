@@ -1,15 +1,86 @@
-2025-09-15 15:49:41,636 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 15:52:46,895 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 15:53:32,197 - logger - INFO - Aqui está o produto {'Codigo Produto': nan, 'Descrição': 'ESPACADOR 3,0MM', 'Valor_unitário': '1.6810000000', 'Código de Barras': '7897901800159', 'Sku': '7897901800159', 'Fornecedor': 'CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU', 'Data Emissão': Timestamp('2020-07-18 02:07:00')}
-2025-09-15 15:53:32,204 - logger - INFO - Aqui está o url https://www.construja.com.br/produto/nan/nan
-2025-09-15 15:58:16,529 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:04:05,802 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:07:29,815 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:08:39,723 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:10:53,389 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:12:16,339 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:15:16,150 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:18:37,604 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:20:09,332 - logger - INFO - 🔹 Baixando anexos XML do e-mail…
-2025-09-15 16:20:53,301 - logger - INFO - Aqui está o produto {'Codigo Produto': nan, 'Descrição': 'ESPACADOR 3,0MM', 'Valor_unitário': '1.6810000000', 'Código de Barras': '7897901800159', 'Sku': '7897901800159', 'Fornecedor': 'CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU', 'Data Emissão': Timestamp('2020-07-18 02:07:00')}
-2025-09-15 16:20:53,320 - logger - INFO - Aqui está o url https://www.construja.com.br/produto/nan/nan
+2025-09-15 18:21:07,181 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py
+2025-09-15 18:21:47,222 - logger - INFO - {'web':      Codigo Produto                                Descrição  ...                                         Fornecedor        Data Emissão
+7750         153822                     ENGATE TRANC INOX 60  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7758          10422                          TUBO PVC ESG 75  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7749         180748          TESOURA CORTA VERGALHAO CRV 08*  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7751         104218                        JOELHO ESG 100X90  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7752         104145                        LUVA AZUL 3/4X1/2  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+...             ...                                      ...  ...                                                ...                 ...
+590          188244  GARRAFAO TERM 5L VD MILITAR SUPERTERMO*  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-03-13 05:25:00
+591          188227           GARRAFAO TERM 5L CZ SUPERTERMO  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-03-13 05:25:00
+3542         199460                           GESSO COLA 1KG  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+3520         137248                        FECH EXT CR BELLA  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+3528         174759       ESMERIL PROF 41/2X650WX220V G650B2  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+
+[1980 rows x 7 columns], 'noweb':      Codigo Produto                                 Descrição  ...                                         Fornecedor        Data Emissão
+1959         110450       PORCA TORNEADA JMC ZINC B 5/32 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1966         279340   SACO P/AREIA E PEDRA 40X60 RECICLE C/5K  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1965         376663   BARRA ROSQ.JOMARCA 1MT ZINC C 5/16 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1964         376655    BARRA ROSQ.JOMARCA 1MT ZINC B 1/4 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1963         399410                SUPORTE TV PIX  FIXO 10/85  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+...             ...                                       ...  ...                                                ...                 ...
+3188         249033              CHAVE PHIL.FOXLUX  1/4  X  6  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3209         319503  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3217          70270              TRINCHA CONDOR 700 C 1 PRETA  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3216          70262            TRINCHA CONDOR 700 B 3/4 PRETA  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+5288         321044    JUNCAO ESGOTO CORR PLASTIK  50 X 50 BR  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-05 03:50:44
+
+[2388 rows x 7 columns]} - main.py
+2025-09-15 18:21:47,294 - logger - INFO - <class 'dict'> - main.py
+2025-09-15 18:21:47,744 - logger - INFO -      Codigo Produto                                Descrição  ...                                         Fornecedor        Data Emissão
+7750         153822                     ENGATE TRANC INOX 60  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7758          10422                          TUBO PVC ESG 75  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7749         180748          TESOURA CORTA VERGALHAO CRV 08*  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7751         104218                        JOELHO ESG 100X90  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7752         104145                        LUVA AZUL 3/4X1/2  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+...             ...                                      ...  ...                                                ...                 ...
+590          188244  GARRAFAO TERM 5L VD MILITAR SUPERTERMO*  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-03-13 05:25:00
+591          188227           GARRAFAO TERM 5L CZ SUPERTERMO  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-03-13 05:25:00
+3542         199460                           GESSO COLA 1KG  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+3520         137248                        FECH EXT CR BELLA  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+3528         174759       ESMERIL PROF 41/2X650WX220V G650B2  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+
+[1980 rows x 7 columns] - notas_manager.py
+2025-09-15 18:21:47,778 - logger - INFO -      Codigo Produto                                 Descrição  ...                                         Fornecedor        Data Emissão
+1959         110450       PORCA TORNEADA JMC ZINC B 5/32 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1966         279340   SACO P/AREIA E PEDRA 40X60 RECICLE C/5K  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1965         376663   BARRA ROSQ.JOMARCA 1MT ZINC C 5/16 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1964         376655    BARRA ROSQ.JOMARCA 1MT ZINC B 1/4 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1963         399410                SUPORTE TV PIX  FIXO 10/85  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+...             ...                                       ...  ...                                                ...                 ...
+3188         249033              CHAVE PHIL.FOXLUX  1/4  X  6  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3209         319503  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3217          70270              TRINCHA CONDOR 700 C 1 PRETA  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3216          70262            TRINCHA CONDOR 700 B 3/4 PRETA  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+5288         321044    JUNCAO ESGOTO CORR PLASTIK  50 X 50 BR  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-05 03:50:44
+
+[2388 rows x 7 columns] - notas_manager.py
+2025-09-15 18:23:47,308 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py
+2025-09-15 18:24:22,630 - logger - INFO - {'web':      Codigo Produto                                Descrição  ...                                         Fornecedor        Data Emissão
+7750         153822                     ENGATE TRANC INOX 60  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7758          10422                          TUBO PVC ESG 75  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7749         180748          TESOURA CORTA VERGALHAO CRV 08*  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7751         104218                        JOELHO ESG 100X90  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+7752         104145                        LUVA AZUL 3/4X1/2  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
+...             ...                                      ...  ...                                                ...                 ...
+590          188244  GARRAFAO TERM 5L VD MILITAR SUPERTERMO*  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-03-13 05:25:00
+591          188227           GARRAFAO TERM 5L CZ SUPERTERMO  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-03-13 05:25:00
+3542         199460                           GESSO COLA 1KG  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+3520         137248                        FECH EXT CR BELLA  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+3528         174759       ESMERIL PROF 41/2X650WX220V G650B2  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
+
+[1980 rows x 7 columns], 'noweb':      Codigo Produto                                 Descrição  ...                                         Fornecedor        Data Emissão
+1959         110450       PORCA TORNEADA JMC ZINC B 5/32 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1966         279340   SACO P/AREIA E PEDRA 40X60 RECICLE C/5K  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1965         376663   BARRA ROSQ.JOMARCA 1MT ZINC C 5/16 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1964         376655    BARRA ROSQ.JOMARCA 1MT ZINC B 1/4 (NC)  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+1963         399410                SUPORTE TV PIX  FIXO 10/85  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-07-17 03:48:43
+...             ...                                       ...  ...                                                ...                 ...
+3188         249033              CHAVE PHIL.FOXLUX  1/4  X  6  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3209         319503  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3217          70270              TRINCHA CONDOR 700 C 1 PRETA  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+3216          70262            TRINCHA CONDOR 700 B 3/4 PRETA  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
+5288         321044    JUNCAO ESGOTO CORR PLASTIK  50 X 50 BR  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-05 03:50:44
+
+[2388 rows x 7 columns]} - main.py
+2025-09-15 18:24:22,709 - logger - INFO - <class 'dict'> - main.py

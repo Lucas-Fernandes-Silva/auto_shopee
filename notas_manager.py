@@ -1,6 +1,6 @@
 import pandas as pd
 import shutil, os
-
+from logger import logger
 
 
 class NotasManager:
@@ -28,11 +28,12 @@ class NotasManager:
         web = df.query(f'Fornecedor == {fornecedores[1]}')
         noweb = df.query(f'Fornecedor == {fornecedores[2]}')
         
-        return web
-
-    def salvar_excel(self, df, caminho):
-        df.to_excel(f'{caminho}', index=False)
-        print(f"📁 Arquivo {caminho} gerado com sucesso!")
+        return {"web":web, "noweb":noweb}
+    
+    def salvar_excel(self,separado, caminho):
+        for i in separado:
+            separado[i].to_excel(f'{i}.xlsx', index=False)
+            print(f"📁 Arquivo {i} gerado com sucesso!")
 
     def copiar_xmls(self, pasta_origem, pasta_destino):
 

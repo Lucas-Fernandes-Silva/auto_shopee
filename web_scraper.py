@@ -25,9 +25,7 @@ class WebScraper:
             json.dump(self.cache, f, ensure_ascii=False, indent=2)
 
     def _processar_com_requests(self, produto):
-        logger.info(f'Aqui está o produto {produto}')
         url = self._montar_url(produto)
-        logger.info(f'Aqui está o url {url}')
         if not url:
             return {}
 

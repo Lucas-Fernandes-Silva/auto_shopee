@@ -18,7 +18,7 @@ logger.setLevel(logging.DEBUG)  # ou INFO, WARNING...
 if not logger.handlers:
     # Formato
     formatter = logging.Formatter(
-        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s - %(filename)s'
     )
 
     # Handler para arquivo (com rotação)
