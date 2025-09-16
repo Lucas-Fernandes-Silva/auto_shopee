@@ -4,6 +4,7 @@ from web_scraper import WebScraper
 from notas_manager import NotasManager
 from datetime import date
 import env
+import pandas as pd
 from logger import logger
 
 email = EmailHandler(env.user, env.pwd)
@@ -25,6 +26,8 @@ manager.copiar_xmls('notas', 'notas/nfes')
 
 manager.salvar_excel(separados, '.xlsx')
 
+web = pd.read_excel('web.xlsx')
+type(web)
 # scraper = WebScraper(env.headers)
-# df_enriquecido = scraper.enriquecer_dataframe(df_produtos, paralelo=True)
+# df_enriquecido = scraper.enriquecer_dataframe(web, paralelo=True)
 # manager.salvar_excel(df_enriquecido, "produtos_enriquecido.xlsx")
