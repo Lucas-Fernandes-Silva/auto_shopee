@@ -11,6 +11,7 @@ class NotasManager:
     def cria_dataframe(self, lista_produtos):
         df = pd.DataFrame(lista_produtos)
 
+
         if 'Fornecedor' in df.columns:
             df = df[~df['Fornecedor'].isin(self.fornecedores[0])]
 
@@ -21,19 +22,18 @@ class NotasManager:
 
         if 'Codigo Produto' in df.columns:
             df = df.drop_duplicates(subset='Codigo Produto', keep='first')
-        
+
         return df
 
     def separando_fornecedor(self, df, fornecedores):
         web = df.query(f'Fornecedor == {fornecedores[1]}')
         noweb = df.query(f'Fornecedor == {fornecedores[2]}')
         
-        return {"web":web, "noweb":noweb}
+        return [web, noweb]
     
-    def salvar_excel(self,separado, caminho):
-        for i in separado:
-            separado[i].to_excel(f'{i}.xlsx', index=False)
-            print(f"📁 Arquivo {i} gerado com sucesso!")
+    def salvar_excel(self,arquivos):
+        arquivos[0].to_excel(f'web.xlsx', index=False)
+        arquivos[1].to_excel(f'noweb.xlsx', index=False)
 
     def copiar_xmls(self, pasta_origem, pasta_destino):
 

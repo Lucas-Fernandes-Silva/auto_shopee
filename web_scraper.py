@@ -38,30 +38,32 @@ class WebScraper:
         data = json.loads(script.string)
         return self._extrair_dados(data)
 
-    async def _processar_com_playwright(self, produto):
+    # async def _processar_com_playwright(self, produto):
 
-        url = self._montar_url(produto)
-        if not url:
-            return {}
+    #     url = self._montar_url(produto)
+    #     print(url)
+    #     if not url:
+    #         return {}
 
-        async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True)
-            page = await browser.new_page()
-            await page.goto(url, wait_until="networkidle")
-            html = await page.content()
-            soup = BeautifulSoup(html, "html.parser")
-            script = soup.find("script", id="__NEXT_DATA__")
-            await browser.close()
+    #     async with async_playwright() as p:
+    #         browser = await p.chromium.launch(headless=True)
+    #         page = await browser.new_page()
+    #         await page.goto(url, wait_until="networkidle")
+    #         html = await page.content()
+    #         soup = BeautifulSoup(html, "html.parser")
+    #         script = soup.find("script", id="__NEXT_DATA__")
+    #         await browser.close()
 
-            if not script:
-                return {}
-            data = json.loads(script.string)
-            return self._extrair_dados(data)
+    #         if not script:
+    #             return {}
+    #         data = json.loads(script.string)
+    #         return self._extrair_dados(data)
 
     def _montar_url(self, produto):
     
         fornecedor = produto.get("Fornecedor")
         codigo = produto.get("Codigo Produto")
+        logger.info(produto)
 
         if fornecedor == 'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA':
             return f'https://www.construdigi.com.br/produto/{codigo}/{codigo}'
@@ -71,22 +73,42 @@ class WebScraper:
             return f'https://www.construja.com.br/produto/{codigo}/{codigo}'
         else:
             return None
+       
+
+
+    def _get_nested(self, data, keys, default=None):
+        try:
+            for k in keys:
+                if isinstance(data, dict):
+                    data = data.get(k, default)
+                elif isinstance(data, list) and isinstance(k, int):
+                    data = data[k]
+                else:
+                    return default
+            return data
+        
+        except Exception:
+            return default
 
     def _extrair_dados(self, data):
-            produto = data.get("props", {}).get("pageProps", {}).get("produto", {})
-            seo = data.get("props", {}).get("pageProps", {}).get("seo", {})
-            try:
-                return {
-                    "marca": next((p.get("desc") for p in produto.get("dimensoes", []) if p.get("label") == "MARCA"), "Não disponível"),
-                    "peso": produto.get("pesoBruto", "Não disponível"),
-                    "codigo_barras": produto.get("codBarra", "SEM GTIN"),
-                    "url_img": seo.get("imageUrl", "Não disponível"),   
-                }
-            except Exception as e:
-                logger.info(e, produto)
+            produto = self._get_nested(data, ["props", "pageProps"], {})
+            
+            seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
+            marca = next((p.get("desc") for p in produto.get("dimensoes", [])
+                if isinstance(p,dict) and p.get("label")== "MARCA"), "Não disponivel")
+            peso = produto.get("pesoBruto")
+            codigo_barras = produto.get("codBarra")
+            url_img = seo.get("imageUrl")
+
+            return {
+                    "marca": marca,
+                    "peso": peso,
+                    "codigo_barras":codigo_barras,
+                    "url_img": url_img
+            }
 
     def enriquecer_dataframe(self, df, paralelo=True):
-            produtos = df.to_dict("records")
+            produtos = df.to_dict("records") #Produtos
 
             if paralelo:
                 with ThreadPoolExecutor(max_workers=5) as executor:
@@ -95,11 +117,12 @@ class WebScraper:
                 resultados = [self._processar_produto(p) for p in produtos]
 
 
+
             for i, dados in enumerate(resultados):                
-                df.at[i, "Marca"] = dados.get("marca") or "Não Disponivel"
-                df.at[i, "Peso"] = dados.get("peso") or "Não Disponivel"
-                df.at[i, "Código de Barras"] = dados.get("codigo_barras") or "Não Disponivel"
-                df.at[i, "Url Imagem"] = dados.get("url_img") or "Não Disponivel"
+                df.at[i, "Marca"] = dados.get("marca")
+                df.at[i, "Peso"] = dados.get("peso") 
+                df.at[i, "Código de Barras"] = dados.get("codigo_barras") 
+                df.at[i, "Url Imagem"] = dados.get("url_img")
 
                
 
@@ -116,9 +139,9 @@ class WebScraper:
 
         dados = self._processar_com_requests(produto)
 
-        if not dados:
-            print(f"⚠️ Fallback Playwright para {produto.get('Descrição')}")
-            dados = asyncio.run(self._processar_com_playwright(produto))
+        # if not dados:
+        #     print(f"⚠️ Fallback Playwright para {produto.get('Descrição')}")
+        #     dados = asyncio.run(self._processar_com_playwright(produto))
 
         self.cache[codigo] = dados
         return dados

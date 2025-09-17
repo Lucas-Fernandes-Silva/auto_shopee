@@ -1,29 +1,4 @@
-2025-09-16 18:04:50,037 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py
-2025-09-16 18:05:24,272 - logger - INFO - {'web':      Codigo Produto                           Descrição  ...                                         Fornecedor        Data Emissão
-7758          10422                     TUBO PVC ESG 75  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
-7749         180748     TESOURA CORTA VERGALHAO CRV 08*  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
-7750         153822                ENGATE TRANC INOX 60  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
-7751         104218                   JOELHO ESG 100X90  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
-7752         104145                   LUVA AZUL 3/4X1/2  ...  CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CO... 2025-09-11 04:14:00
-...             ...                                 ...  ...                                                ...                 ...
-591          188227      GARRAFAO TERM 5L CZ SUPERTERMO  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-03-13 05:25:00
-585          199620         ROLO LA 23 S/RESPINGO 1423*  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-03-13 05:25:00
-3528         174759  ESMERIL PROF 41/2X650WX220V G650B2  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
-3542         199460                      GESSO COLA 1KG  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
-3520         137248                   FECH EXT CR BELLA  ...           CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU 2020-02-06 03:36:00
-
-[1980 rows x 7 columns], 'noweb':      Codigo Produto                                 Descrição  ...                                         Fornecedor        Data Emissão
-9025         379395        CHAVE COMBINADA CATRACADA EDA 11MM  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-09-16 07:15:03
-9028          52841          CHAVE ESTRELA TRAMONTINA 12 X 13  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-09-16 07:15:03
-9026         379417        CHAVE COMBINADA CATRACADA EDA 13MM  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-09-16 07:15:03
-9038         376590      BARRA ROSQ.JOMARCA 1MT POLI D 3/8 NC  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-09-16 07:15:03
-9037         376582     BARRA ROSQ.JOMARCA 1MT POLI C 5/16 NC  ...  MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTR... 2025-09-16 07:15:03
-...             ...                                       ...  ...                                                ...                 ...
-3188         249033              CHAVE PHIL.FOXLUX  1/4  X  6  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
-3209         319503  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
-3217          70270              TRINCHA CONDOR 700 C 1 PRETA  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
-3216          70262            TRINCHA CONDOR 700 B 3/4 PRETA  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-17 07:41:05
-5288         321044    JUNCAO ESGOTO CORR PLASTIK  50 X 50 BR  ...         MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA 2019-12-05 03:50:44
-
-[2398 rows x 7 columns]} - main.py
-2025-09-16 18:05:24,323 - logger - INFO - <class 'dict'> - main.py
+2025-09-17 12:12:48,451 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py
+2025-09-17 12:14:25,388 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py
+2025-09-17 12:23:00,046 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py
+2025-09-17 12:24:18,295 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py
