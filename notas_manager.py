@@ -46,4 +46,3 @@ class NotasManager:
 
     def salvar_enriquecido(self, arquivo):
         arquivo.to_excel('produtos_enriquecido.xlsx', index=False)
-        print('DF Enriquecido Salvo')

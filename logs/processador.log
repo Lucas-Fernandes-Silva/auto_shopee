@@ -1,0 +1,14 @@
+
+2025-09-29 15:32:32,179 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-09-29 15:33:13,913 - logger - INFO - [{'Codigo Produto': '10422', 'Descrição': 'TUBO PVC ESG 75', 'Valor_unitário': '65.9400000000', 'Código de Barras': '7898394632067', 'Sku': '7898394632067', 'Fornecedor': 'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA', 'Data Emissão': Timestamp('2025-09-11 04:14:00')}] - web_scraper.py - 121:
+2025-09-29 15:33:13,916 - logger - INFO - [{'marca': 'MULTILIT', 'peso': '1.88600000', 'codigo_barras': '7898394632067', 'url_img': 'https://cdn.construdigi.com.br/produtos/10422/10422.jpg'}] - web_scraper.py - 132:
+2025-09-29 15:33:13,917 - logger - INFO - Cache salvo. - web_scraper.py - 27:
+2025-09-29 15:47:53,272 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-09-29 15:48:34,290 - logger - INFO - [{'marca': 'MULTILIT', 'peso': '1.88600000', 'codigo_barras': '7898394632067', 'url_img': 'https://cdn.construdigi.com.br/produtos/10422/10422.jpg'}] - web_scraper.py - 131:
+2025-09-29 15:53:53,752 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-09-29 15:54:37,747 - logger - INFO - <class 'list'> - web_scraper.py - 131:
+2025-09-29 15:56:59,142 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-09-29 15:57:41,811 - logger - INFO - <class 'list'> - web_scraper.py - 131:
+2025-09-29 15:58:48,825 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-09-29 15:59:28,405 - logger - INFO - <class 'list'> - web_scraper.py - 131:
+2025-09-29 15:59:28,436 - logger - INFO - Cache salvo. - web_scraper.py - 27:

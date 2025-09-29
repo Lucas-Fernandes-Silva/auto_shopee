@@ -97,20 +97,23 @@ class WebScraper:
             return default
 
     def _extrair_dados(self, data):
-        produto = self._get_nested(data, ["props", "pageProps"], {})
-        seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
+        produto = self._get_nested(data, ["props", "pageProps", "produto"], {})
+        peso = produto.get("pesoBruto")
+        codigo_barras = produto.get("codBarra")
+        logger.info(f'peso{peso} codigo{codigo_barras}')
 
+        seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
+        url_img = seo.get("imageUrl")
         marca = next(
             (p.get("desc") for p in produto.get("dimensoes", [])
-             if isinstance(p, dict) and p.get("label") == "MARCA"),
-            None
+             if isinstance(p, dict) and p.get("label") == "MARCA"), None
+        
         )
-
         return {
             "marca": marca,
-            "peso": produto.get("pesoBruto"),
-            "codigo_barras": produto.get("codBarra"),
-            "url_img": seo.get("imageUrl")
+            "peso": peso,
+            "codigo_barras": codigo_barras,
+            "url_img": url_img
         }
 
     def enriquecer_dataframe(self, df, paralelo=True):
@@ -122,10 +125,14 @@ class WebScraper:
         else:
             resultados = [self._processar_produto(p) for p in produtos]
 
-        for i, dados in enumerate(resultados):
+        
+
+        for i, dados in enumerate(resultados):            
             df.at[i, "Marca"] = dados.get("marca")
             df.at[i, "Peso"] = dados.get("peso")
-            df.at[i, "Código de Barras"] = dados.get("codigo_barras")
+            gtin = produtos[0].get('Código de Barras')
+            if gtin == 'SEM GTIN':
+                df.at[i, "Código de Barras"] = dados.get("codigo_barras")
             df.at[i, "Url Imagem"] = dados.get("url_img")
 
         self._salvar_cache()
@@ -137,7 +144,6 @@ class WebScraper:
             return self.cache[codigo]
 
         dados = self._processar_com_requests(produto)
-        logger.info(f"Resultado Requests para {codigo}: {dados}")
 
         # Fallback se não veio nada do requests
         if any(v is None or v == '' for v in (dados['marca'], dados['peso'], dados['codigo_barras'])):

@@ -28,5 +28,7 @@ teste = arquivos[0].copy()
 sliced = teste[:1].copy()
 
 scraper = WebScraper(env.headers)
-df_enriquecido = scraper.enriquecer_dataframe(sliced, paralelo=True)
+enriquecer_df = scraper.enriquecer_dataframe(sliced, paralelo=True)
+
+df_enriquecido = pd.DataFrame(enriquecer_df)
 manager.salvar_enriquecido(df_enriquecido)
