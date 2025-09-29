@@ -34,6 +34,7 @@ class NotasManager:
     def salvar_excel(self,arquivos):
         arquivos[0].to_excel(f'web.xlsx', index=False)
         arquivos[1].to_excel(f'noweb.xlsx', index=False)
+        
 
     def copiar_xmls(self, pasta_origem, pasta_destino):
 
@@ -43,3 +44,6 @@ class NotasManager:
                     shutil.copy(os.path.join(pasta_origem, arquivo), pasta_destino)
 
 
+    def salvar_enriquecido(self, arquivo):
+        arquivo.to_excel('produtos_enriquecido.xlsx', index=False)
+        print('DF Enriquecido Salvo')
