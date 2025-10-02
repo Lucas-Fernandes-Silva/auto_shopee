@@ -6,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 import asyncio
 from playwright.async_api import async_playwright
 from logger import logger
+import pandas as pd
 
 
 class WebScraper:
@@ -100,7 +101,6 @@ class WebScraper:
         produto = self._get_nested(data, ["props", "pageProps", "produto"], {})
         peso = produto.get("pesoBruto")
         codigo_barras = produto.get("codBarra")
-        logger.info(f'peso{peso} codigo{codigo_barras}')
 
         seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
         url_img = seo.get("imageUrl")
@@ -116,44 +116,60 @@ class WebScraper:
             "url_img": url_img
         }
 
-    def enriquecer_dataframe(self, df, paralelo=True):
-        produtos = df.to_dict("records")
-
-        if paralelo:
-            with ThreadPoolExecutor(max_workers=5) as executor:
-                resultados = list(executor.map(self._processar_produto, produtos))
-        else:
-            resultados = [self._processar_produto(p) for p in produtos]
-
-        
-
-        for i, dados in enumerate(resultados):            
-            df.at[i, "Marca"] = dados.get("marca")
-            df.at[i, "Peso"] = dados.get("peso")
-            gtin = produtos[0].get('Código de Barras')
-            if gtin == 'SEM GTIN':
-                df.at[i, "Código de Barras"] = dados.get("codigo_barras")
-            df.at[i, "Url Imagem"] = dados.get("url_img")
-
-        self._salvar_cache()
-        return df
 
     def _processar_produto(self, produto):
         codigo = produto.get("Codigo Produto")
         if codigo in self.cache:
-            return self.cache[codigo]
+            return codigo, self.cache[codigo]
 
-        dados = self._processar_com_requests(produto)
+        try:
+            dados = self._processar_com_requests(produto)
+        except Exception as e:
+            logger.error(f"Erro inesperado no requests para {produto.get('Descrição')} ({codigo}): {e}")
+            self.cache[codigo] = {}
+            return codigo, {}
 
-        # Fallback se não veio nada do requests
-        if any(v is None or v == '' for v in (dados['marca'], dados['peso'], dados['codigo_barras'])):
+    # Fallback se não veio nada do requests
+        if any(v is None or v == '' for v in (dados.get('marca'), dados.get('peso'), dados.get('codigo_barras'))):
             logger.info(f"Fallback Playwright para {produto.get('Descrição')}")
             try:
                 dados = asyncio.run(self._processar_com_playwright(produto))
             except RuntimeError:
-                # Se já existe loop rodando, crie tarefa
                 loop = asyncio.get_event_loop()
                 dados = loop.run_until_complete(self._processar_com_playwright(produto))
 
         self.cache[codigo] = dados
-        return dados
+        return codigo, dados   # <-- retorna chave + valor
+
+
+    def enriquecer_dataframe(self, df, paralelo=True):
+        for col in ["Marca", "Peso", "Url Imagem"]:
+            if col not in df.columns:
+                df[col] = None
+
+            if paralelo:
+                with ThreadPoolExecutor(max_workers=5) as executor:
+                    resultados = dict(executor.map(self._processar_produto, df.to_dict("records")))
+            else:
+                resultados = dict(self._processar_produto(p) for p in df.to_dict("records"))
+
+        def processar_linha(row):
+            codigo = row["Codigo Produto"]
+            dados = resultados.get(codigo, {}) or {}
+            return pd.Series({
+                "Marca": dados.get("marca"),
+                "Peso": dados.get("peso"),
+                "Url Imagem": dados.get("url_img"),
+                "Código de Barras": (
+                    dados.get("codigo_barras")
+                    if row.get("Código de Barras") == "SEM GTIN"
+                    else row.get("Código de Barras")
+                )
+            })
+
+        df_novos = df.apply(processar_linha, axis=1)
+        df.update(df_novos)
+        self._salvar_cache()
+        return df
+
+

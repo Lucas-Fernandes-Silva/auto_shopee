@@ -23,12 +23,12 @@ manager.copiar_xmls('notas', 'notas/nfes')
 
 manager.salvar_excel(arquivos)
 
-teste = arquivos[0].copy()
+arquivo = arquivos[0].copy()
 
-sliced = teste[:1].copy()
+copia = arquivo[1438:1439].copy()
 
 scraper = WebScraper(env.headers)
-enriquecer_df = scraper.enriquecer_dataframe(sliced, paralelo=True)
+enriquecer_df = scraper.enriquecer_dataframe(copia, paralelo=True)
 
 df_enriquecido = pd.DataFrame(enriquecer_df)
 manager.salvar_enriquecido(df_enriquecido)

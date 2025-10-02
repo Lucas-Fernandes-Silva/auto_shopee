@@ -4,5 +4,29 @@
     "peso": "1.88600000",
     "codigo_barras": "7898394632067",
     "url_img": "https://cdn.construdigi.com.br/produtos/10422/10422.jpg"
+  },
+  "104145": {
+    "marca": "MULTILIT",
+    "peso": "0.02600000",
+    "codigo_barras": "7890001041451",
+    "url_img": "https://cdn.construdigi.com.br/produtos/104145/104145.jpg"
+  },
+  "180748": {
+    "marca": "EDA",
+    "peso": "0.33200000",
+    "codigo_barras": "7895315017187",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180748/180748.jpg"
+  },
+  "104218": {
+    "marca": "MULTILIT",
+    "peso": "0.26800000",
+    "codigo_barras": "7898394632630",
+    "url_img": "https://cdn.construdigi.com.br/produtos/104218/104218.jpg"
+  },
+  "153822": {
+    "marca": "ALPHA",
+    "peso": "0.18200000",
+    "codigo_barras": "7898538961114",
+    "url_img": "https://cdn.construdigi.com.br/produtos/153822/153822.jpg"
   }
 }
