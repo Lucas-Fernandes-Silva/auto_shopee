@@ -98,24 +98,33 @@ class WebScraper:
             return default
 
     def _extrair_dados(self, data):
-        produto = self._get_nested(data, ["props", "pageProps", "produto"], {})
-        peso = produto.get("pesoBruto")
-        codigo_barras = produto.get("codBarra")
+        try:
+            produto = self._get_nested(data, ["props", "pageProps", "produto"], {})
+            if isinstance(produto, list):  
+                logger.warning("Produto veio como lista, pegando o primeiro elemento.")
+                produto = produto[0] if produto else {}
 
-        seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
-        url_img = seo.get("imageUrl")
-        marca = next(
-            (p.get("desc") for p in produto.get("dimensoes", [])
-             if isinstance(p, dict) and p.get("label") == "MARCA"), None
-        
-        )
-        return {
-            "marca": marca,
-            "peso": peso,
-            "codigo_barras": codigo_barras,
-            "url_img": url_img
+            if not isinstance(produto, dict):
+                logger.error(f"Formato inesperado de produto: {type(produto)}")
+                return {}
+            peso = produto.get("pesoBruto")
+            codigo_barras = produto.get("codBarra")
+
+            seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
+            url_img = seo.get("imageUrl")
+            marca = next(
+                (p.get("desc") for p in produto.get("dimensoes", [])
+                if isinstance(p, dict) and p.get("label") == "MARCA"), None
+            
+            )
+            return {
+                "marca": marca,
+                "peso": peso,
+                "codigo_barras": codigo_barras,
+                "url_img": url_img
         }
-
+        except Exception as e:
+            logger.info(f'Produto não encontrado{e}')
 
     def _processar_produto(self, produto):
         codigo = produto.get("Codigo Produto")
@@ -123,20 +132,23 @@ class WebScraper:
             return codigo, self.cache[codigo]
 
         try:
-            dados = self._processar_com_requests(produto)
+            dados = self._processar_com_requests(produto) or {}
         except Exception as e:
             logger.error(f"Erro inesperado no requests para {produto.get('Descrição')} ({codigo}): {e}")
             self.cache[codigo] = {}
             return codigo, {}
 
-    # Fallback se não veio nada do requests
+
         if any(v is None or v == '' for v in (dados.get('marca'), dados.get('peso'), dados.get('codigo_barras'))):
             logger.info(f"Fallback Playwright para {produto.get('Descrição')}")
             try:
-                dados = asyncio.run(self._processar_com_playwright(produto))
+                dados = asyncio.run(self._processar_com_playwright(produto)) or {}
             except RuntimeError:
                 loop = asyncio.get_event_loop()
                 dados = loop.run_until_complete(self._processar_com_playwright(produto))
+            except Exception as e:
+                logger.error(f"Erro no Playwright para {produto.get('Descrição')} ({codigo}): {e}")
+                dados = {}
 
         self.cache[codigo] = dados
         return codigo, dados   # <-- retorna chave + valor
