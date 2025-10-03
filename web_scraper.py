@@ -154,34 +154,43 @@ class WebScraper:
         return codigo, dados   # <-- retorna chave + valor
 
 
-    def enriquecer_dataframe(self, df, paralelo=True):
-        for col in ["Marca", "Peso", "Url Imagem"]:
-            if col not in df.columns:
-                df[col] = None
+    def enriquecer_dataframe(self, df_produtos,fornecedores, paralelo=True):
+            
+            df_resultado = df_produtos.copy()
 
-            if paralelo:
-                with ThreadPoolExecutor(max_workers=5) as executor:
-                    resultados = dict(executor.map(self._processar_produto, df.to_dict("records")))
-            else:
-                resultados = dict(self._processar_produto(p) for p in df.to_dict("records"))
+            df_filtrado = df_resultado[df_resultado["Fornecedor"].isin(fornecedores[1])].copy()
 
-        def processar_linha(row):
-            codigo = row["Codigo Produto"]
-            dados = resultados.get(codigo, {}) or {}
-            return pd.Series({
-                "Marca": dados.get("marca") or "NÃO DISPONIVEL",
-                "Peso": dados.get("peso") or "NÃO DISPONIVEL",
-                "Url Imagem": dados.get("url_img") or "NÃO DISPONIVEL",
-                "Código de Barras": (
-                    dados.get("codigo_barras")
-                    if row.get("Código de Barras") == "SEM GTIN"
-                    else row.get("Código de Barras")
-                )
-            })
+            if df_filtrado.empty:
+                logger.info("Nenhum fornecedor da lista de web scrapping encontrado no DataFrame.")
+                return df_resultado
+            
+            for col in ["Marca", "Peso", "Url Imagem"]:
+                if col not in df_resultado.columns:
+                    df_resultado[col] = None
 
-        df_novos = df.apply(processar_linha, axis=1)
-        df.update(df_novos)
-        self._salvar_cache()
-        return df
+                if paralelo:
+                    with ThreadPoolExecutor(max_workers=5) as executor:
+                        resultados = dict(executor.map(self._processar_produto, df_filtrado.to_dict("records")))
+                else:
+                    resultados = dict(self._processar_produto(p) for p in df_filtrado.to_dict("records"))
+
+            def processar_linha(row):
+                codigo = row["Codigo Produto"]
+                dados = resultados.get(codigo, {}) or {}
+                return pd.Series({
+                    "Marca": dados.get("marca") or "NÃO DISPONIVEL",
+                    "Peso": dados.get("peso") or "NÃO DISPONIVEL",
+                    "Url Imagem": dados.get("url_img") or "NÃO DISPONIVEL",
+                    "Código de Barras": (
+                        dados.get("codigo_barras")
+                        if row.get("Código de Barras") == "SEM GTIN"
+                        else row.get("Código de Barras")
+                    )
+                })
+
+            df_novo = df_filtrado.apply(processar_linha, axis=1)
+            df_resultado.update(df_novo)
+            self._salvar_cache()
+            return df_resultado
 
 

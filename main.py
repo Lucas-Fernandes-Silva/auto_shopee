@@ -17,18 +17,8 @@ manager = NotasManager(env.fornecedores)
 
 df_produtos = manager.cria_dataframe(lista_produtos)
 
-arquivos = manager.separando_fornecedor(df_produtos, env.fornecedores)
-
 manager.copiar_xmls('notas', 'notas/nfes')
 
-manager.salvar_excel(arquivos)
-
-arquivo = arquivos[0].copy()
-
-
-
 scraper = WebScraper(env.headers)
-enriquecer_df = scraper.enriquecer_dataframe(arquivo, paralelo=True)
-
-df_enriquecido = pd.DataFrame(enriquecer_df)
-manager.salvar_enriquecido(df_enriquecido)
+df_enriquecido = scraper.enriquecer_dataframe(df_produtos, env.fornecedores, paralelo=True)
+manager.salvar_excel(df_enriquecido)

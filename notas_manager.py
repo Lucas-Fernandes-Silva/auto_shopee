@@ -24,18 +24,7 @@ class NotasManager:
             df = df.drop_duplicates(subset='Codigo Produto', keep='first')
 
         return df
-
-    def separando_fornecedor(self, df, fornecedores):
-        web = df.query(f'Fornecedor == {fornecedores[1]}')
-        noweb = df.query(f'Fornecedor == {fornecedores[2]}')
-        
-        return [web, noweb]
     
-    def salvar_excel(self,arquivos):
-        arquivos[0].to_excel(f'web.xlsx', index=False)
-        arquivos[1].to_excel(f'noweb.xlsx', index=False)
-        
-
     def copiar_xmls(self, pasta_origem, pasta_destino):
 
             os.makedirs(pasta_destino, exist_ok=True)
@@ -44,5 +33,5 @@ class NotasManager:
                     shutil.copy(os.path.join(pasta_origem, arquivo), pasta_destino)
 
 
-    def salvar_enriquecido(self, arquivo):
-        arquivo.to_excel('produtos_enriquecido.xlsx', index=False)
+    def salvar_excel(self, df_produtos):
+        df_produtos.to_excel('produtos.xlsx', index=False)
