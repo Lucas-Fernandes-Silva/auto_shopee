@@ -169,9 +169,9 @@ class WebScraper:
             codigo = row["Codigo Produto"]
             dados = resultados.get(codigo, {}) or {}
             return pd.Series({
-                "Marca": dados.get("marca"),
-                "Peso": dados.get("peso"),
-                "Url Imagem": dados.get("url_img"),
+                "Marca": dados.get("marca") or "NÃO DISPONIVEL",
+                "Peso": dados.get("peso") or "NÃO DISPONIVEL",
+                "Url Imagem": dados.get("url_img") or "NÃO DISPONIVEL",
                 "Código de Barras": (
                     dados.get("codigo_barras")
                     if row.get("Código de Barras") == "SEM GTIN"

@@ -25,10 +25,10 @@ manager.salvar_excel(arquivos)
 
 arquivo = arquivos[0].copy()
 
-copia = arquivo[1438:1439].copy()
+
 
 scraper = WebScraper(env.headers)
-enriquecer_df = scraper.enriquecer_dataframe(copia, paralelo=True)
+enriquecer_df = scraper.enriquecer_dataframe(arquivo, paralelo=True)
 
 df_enriquecido = pd.DataFrame(enriquecer_df)
 manager.salvar_enriquecido(df_enriquecido)
