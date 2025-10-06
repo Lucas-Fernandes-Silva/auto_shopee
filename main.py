@@ -13,12 +13,13 @@ email.baixar_anexos(date.today())
 xml_proc = XMLProcessor("notas/nfes")
 lista_produtos = xml_proc.processar_todos(paralelo=True)
 
-# manager = NotasManager(env.fornecedores)
+manager = NotasManager(env.fornecedores)
 
-# df_produtos = manager.cria_dataframe(lista_produtos)
+df_produtos = manager.cria_dataframe(lista_produtos)
 
-# manager.copiar_xmls('notas', 'notas/nfes')
+manager.copiar_xmls('notas', 'notas/nfes')
 
-# scraper = WebScraper(env.headers)
-# df_enriquecido = scraper.enriquecer_dataframe(df_produtos, env.fornecedores, paralelo=True)
-# manager.salvar_excel(df_enriquecido)
+scraper = WebScraper(env.headers)
+df_enriquecido = scraper.enriquecer_dataframe(df_produtos, env.fornecedores, paralelo=True)
+df_enriquecido
+manager.salvar_excel(df_enriquecido)

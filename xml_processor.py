@@ -78,7 +78,8 @@ class XMLProcessor:
             produto['Fornecedor'] = root.find(".//ns:emit/ns:xNome", ns).text
             produto['Data Emissão'] = data_emissao
             produto['NCM'] = det.find("./ns:prod/ns:NCM", ns).text
-            logger.info(produto)
+            # produto['CEST'] = det.find("./ns:prod/ns:CEST", ns).text
+
 
             produtos.append(produto)
         return produtos

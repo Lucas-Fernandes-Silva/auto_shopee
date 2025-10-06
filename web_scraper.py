@@ -34,6 +34,12 @@ class WebScraper:
 
         try:
             response = requests.get(url, headers=self.headers, timeout=10)
+            if response.status_code == 404:
+                logger.warning(f"Produto não encontrado (404): {url}")
+                return {}
+            if not response.text.strip():
+                logger.warning(f"Página vazia para {url}")
+                return {}
             soup = BeautifulSoup(response.text, "html.parser")
             script = soup.find("script", type="application/json")
             if not script:
@@ -100,10 +106,12 @@ class WebScraper:
     def _extrair_dados(self, data):
         try:
             produto = self._get_nested(data, ["props", "pageProps", "produto"], {})
-            if isinstance(produto, list):  
+            if not produto:
+                logger.warning("Produto vazio no JSON — pulando item.")
+                return {}
+            if isinstance(produto, list): 
                 logger.warning("Produto veio como lista, pegando o primeiro elemento.")
                 produto = produto[0] if produto else {}
-
             if not isinstance(produto, dict):
                 logger.error(f"Formato inesperado de produto: {type(produto)}")
                 return {}
@@ -177,8 +185,13 @@ class WebScraper:
             def processar_linha(row):
                 codigo = row["Codigo Produto"]
                 dados = resultados.get(codigo, {}) or {}
+                descricao = str(row.get("Descrição", "")).strip()
+                marca_tupla = (dados.get("marca")),
+                marca = marca_tupla[0]
+                descrição_completa = f'{descricao} {marca}'.strip()
                 return pd.Series({
-                    "Marca": dados.get("marca") or "NÃO DISPONIVEL",
+                    "Marca": marca or '',
+                    "Descrição": descrição_completa,
                     "Peso": dados.get("peso") or "NÃO DISPONIVEL",
                     "Url Imagem": dados.get("url_img") or "NÃO DISPONIVEL",
                     "Código de Barras": (
