@@ -25,5 +25,3 @@ class EmailHandler:
                                 f.write(anexo.payload)
                             logger.info(f"Arquivo salvo: {file_path}")
 
-
-print("EmailHandler_Encerrado")

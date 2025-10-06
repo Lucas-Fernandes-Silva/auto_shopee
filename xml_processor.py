@@ -2,6 +2,7 @@ from concurrent.futures import ProcessPoolExecutor
 import xml.etree.ElementTree as ET
 from datetime import datetime
 import os
+from logger import logger
 
 class XMLProcessor:
     def __init__(self, pasta_xml, fornecedores_bloqueados=None):
@@ -76,8 +77,8 @@ class XMLProcessor:
                 produto['Sku'] = produto['Descrição']
             produto['Fornecedor'] = root.find(".//ns:emit/ns:xNome", ns).text
             produto['Data Emissão'] = data_emissao
+            produto['NCM'] = det.find("./ns:prod/ns:NCM", ns).text
+            logger.info(produto)
 
             produtos.append(produto)
         return produtos
-
-print("xml Encerrado")
