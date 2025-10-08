@@ -185,12 +185,14 @@ class WebScraper:
             def processar_linha(row):
                 codigo = row["Codigo Produto"]
                 dados = resultados.get(codigo, {}) or {}
-                descricao = str(row.get("Descrição", "")).strip()
-                marca_tupla = (dados.get("marca")),
-                marca = marca_tupla[0]
-                descrição_completa = f'{descricao} {marca}'.strip()
+                descricao = str(row.get("Descrição")).strip()
+                marca = dados.get('marca') 
+                if marca is not None:
+                    descrição_completa = f'{descricao} {marca}'.strip() 
+                else:
+                    descrição_completa = descricao
                 return pd.Series({
-                    "Marca": marca or '',
+                    "Marca": marca or descrição_completa.split()[0],
                     "Descrição": descrição_completa,
                     "Peso": dados.get("peso") or "NÃO DISPONIVEL",
                     "Url Imagem": dados.get("url_img") or "NÃO DISPONIVEL",
