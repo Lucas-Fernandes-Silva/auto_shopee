@@ -44,22 +44,14 @@ def extrair_fornecedores(pasta_origem):
     return fornecedores
 
 
-# Exemplo de uso
 if __name__ == "__main__":
-    pasta_origem = "notas/nfes/"  # coloque o caminho da pasta
+    pasta_origem = "notas/nfes/"
     dados_fornecedores = extrair_fornecedores(pasta_origem)
-
-    print(f"Foram encontrados {len(dados_fornecedores)} fornecedores únicos:\n")
-    for f in dados_fornecedores:
-        print(f)
-
 
 df = pd.DataFrame(dados_fornecedores)
 df.columns.tolist()
 
-dados_fornecedores
 colunas_bling = pd.read_csv('fornecedores.csv', sep=';').columns.tolist()
-
 
 arquivo_csv = "contatos_bling_completo.csv"
 
@@ -70,89 +62,35 @@ def formatar_cnpj(cnpj):
     cnpj_n = normalizar_cnpj(cnpj)
     return f"{cnpj_n[:2]}.{cnpj_n[2:5]}.{cnpj_n[5:8]}/{cnpj_n[8:12]}-{cnpj_n[12:]}"
 
-def criar_linha(item):
+def criar_linha(item, colunas_bling):
+    linha = {col: "" for col in colunas_bling}
+
     cnpj_formatado = formatar_cnpj(item.get("CNPJ", ""))
-    return {
-        "ID": "",
-        "Código": "",
+
+    mapa = {
         "Nome": item.get("RazaoSocial", ""),
         "Fantasia": item.get("NomeFantasia", ""),
         "Endereço": item.get("Logradouro", ""),
         "Número": item.get("Numero", ""),
-        "Complemento": "",
         "Bairro": item.get("Bairro", ""),
         "CEP": item.get("CEP", ""),
         "Cidade": item.get("Municipio", ""),
         "UF": item.get("UF", ""),
-        "Contatos": "",
         "Fone": item.get("Telefone", ""),
-        "Fax": "",
-        "Celular": "",
-        "E-mail": "",
-        "Web Site": "",
         "Tipo pessoa": "Pessoa Jurídica",
         "CNPJ / CPF": cnpj_formatado,
         "IE / RG": item.get("IE", ""),
         "IE isento": "N",
         "Situação": "Ativo",
-        "Observações": "",
-        "Estado civil": "",
-        "Profissão": "",
-        "Sexo": "",
-        "Data nascimento": "",
-        "Naturalidade": "",
-        "Nome pai": "",
-        "CPF pai": "",
-        "Nome mãe": "",
-        "CPF mãe": "",
-        "Segmento": "",
         "Vendedor": item.get("NomeFantasia", "") or item.get("RazaoSocial"),
         "Tipo contato": "Fornecedor",
-        "E-mail para envio NFe": "",
-        "Limite de crédito": "",
-        "Cliente desde": "",
-        "Próxima visita": "",
-        "Condição de pagamento": "",
-        "Regime tributário": ""
     }
 
-# Carrega CSV existente
-csv_existente = {}
-if os.path.exists(arquivo_csv):
-    with open(arquivo_csv, 'r', encoding='utf-8-sig', newline='') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            cnpj_norm = normalizar_cnpj(row["CNPJ / CPF"])
-            csv_existente[cnpj_norm] = row
+    linha.update(mapa)
+    return linha
 
-# Adiciona ou atualiza
-atualizados = 0
-novos = 0
 
-for item in dados_fornecedores: 
-    cnpj_norm = normalizar_cnpj(item["CNPJ"])
-    nova_linha = criar_linha(item)
-    
-    if cnpj_norm in csv_existente:
-        linha_atual = csv_existente[cnpj_norm]
-        mudou = False
-        campos_verificar = ["Nome", "Fantasia", "Endereço", "Número", "Bairro", "CEP", "Cidade", "UF", "Fone", "IE / RG", "Vendedor", "Situação", "Tipo pessoa", "Tipo contato"]
-        for campo in campos_verificar:
-            if linha_atual.get(campo, "") != nova_linha[campo]:
-                linha_atual[campo] = nova_linha[campo]
-                mudou = True
-        if mudou:
-            atualizados += 1
-    else:
-        csv_existente[cnpj_norm] = nova_linha
-        novos += 1
-
-# Salva CSV final
-with open(arquivo_csv, 'w', encoding='utf-8-sig', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=colunas_bling)
-    writer.writeheader()
-    for linha in csv_existente.values():
-        writer.writerow(linha)
-
-print(f"✅ {novos} novos contatos adicionados e {atualizados} contatos atualizados no '{arquivo_csv}'!")
+linhas_bling = [criar_linha(row, colunas_bling) for _, row in df.iterrows()]
+bling_df = pd.DataFrame(linhas_bling, columns=colunas_bling)
+bling_df.to_csv("fornecedores_bling.csv", sep=";", index=False, encoding="utf-8-sig")
 
