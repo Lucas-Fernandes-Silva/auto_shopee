@@ -33,7 +33,7 @@ def extrair_fornecedores(pasta_origem):
                     }
 
                     # Verifica se o fornecedor já existe na lista (pelo CNPJ)
-                    if not any(f['CNPJ'] == fornecedor['CNPJ'] for f in fornecedores):
+                    if not any(f['RazaoSocial'] == fornecedor['RazaoSocial'] for f in fornecedores):
                         fornecedores.append(fornecedor)
 
             except ET.ParseError:
@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
 df = pd.DataFrame(dados_fornecedores)
 df.columns.tolist()
-
+print(dados_fornecedores)
 colunas_bling = pd.read_csv('fornecedores.csv', sep=';').columns.tolist()
 
 arquivo_csv = "contatos_bling_completo.csv"
