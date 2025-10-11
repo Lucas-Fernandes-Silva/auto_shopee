@@ -23,3 +23,4 @@ scraper = WebScraper(env.headers)
 df_enriquecido = scraper.enriquecer_dataframe(df_produtos, env.fornecedores, paralelo=True)
 df_enriquecido
 manager.salvar_excel(df_enriquecido)
+
