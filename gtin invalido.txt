@@ -1,0 +1,222 @@
+Produto CJ STYLUS 4X2 BR (TOM 10A) 20140 ILUMI com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CJ STYLUS 4X2 BR (TOM 10A) 20140 ILUMI com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto MANG GAS OFICIAL 1,25M IBIRA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto MANG GAS OFICIAL 1,25M IBIRA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto sem descrição.
+Produto %s sem preço.
+Produto CORANTE LIQUIDO AMARELO 50ML XADREZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO AMARELO 50ML XADREZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO PRETO 50ML XADREZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO PRETO 50ML XADREZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO VERDE 50ML XADREZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO VERDE 50ML XADREZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO VERMELHO 50ML XADREZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO VERMELHO 50ML XADREZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO OCRE 50ML XADREZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO OCRE 50ML XADREZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO LARANJA 50ML XADREZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO LARANJA 50ML XADREZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO MARROM 50ML XADREZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO MARROM 50ML XADREZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO VIOLETA 50ML XADREZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CORANTE LIQUIDO VIOLETA 50ML XADREZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ASSENTO HERC TAMPA ENVOLVENTE BRANC 3385 com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto ASSENTO HERC TAMPA ENVOLVENTE BRANC 3385 com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto PARAF R MAQ LENTILHA S/TRAVA 1/4X3/4 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF R MAQ LENTILHA S/TRAVA 1/4X3/4 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF R MAQ LENTILHA S/TRAVA 1/4X1 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF R MAQ LENTILHA S/TRAVA 1/4X1 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF R MAQ LENTILHA S/TRAVA 1/4X5/8 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF R MAQ LENTILHA S/TRAVA 1/4X5/8 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CADEADO LATAO 35 PADO com GTIN/EAN inválido, motivo: Tipo de GTIN não suportado.
+Produto CADEADO LATAO 35 PADO com GTIN/EAN tributário inválido, motivo: Tipo de GTIN não suportado.
+Produto CADEADO LATAO 20 PADO com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CADEADO LATAO 20 PADO com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CADEADO LATAO 25 PADO com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CADEADO LATAO 25 PADO com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CADEADO PADO 30 com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto CADEADO PADO 30 com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto CADEADO LATAO 50 PAPAIZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CADEADO LATAO 50 PAPAIZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CADEADO LATAO 25 PAPAIZ com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CADEADO LATAO 25 PAPAIZ com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PULVER MULTI SPRAY 2L 0NT EDA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-12.
+Produto PULVER MULTI SPRAY 2L 0NT EDA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-12.
+Produto FITA EMBALAGEM MAR 48X50 3M com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto FITA EMBALAGEM MAR 48X50 3M com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BARRA ROSQ.JOMARCA 1MT POLI C 5/16 NC com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto BARRA ROSQ.JOMARCA 1MT POLI C 5/16 NC com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto JOELHO ESG 75X90 MULTILIT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO ESG 75X90 MULTILIT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA ESG 75 MULTILIT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA ESG 75 MULTILIT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO ESG 100X45 MULTILIT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO ESG 100X45 MULTILIT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO ESG 40X90 MULTILIT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO ESG 40X90 MULTILIT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JUNCAO ESG 75 MULTILIT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JUNCAO ESG 75 MULTILIT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA AZUL 3/4X1/2 MULTILIT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA AZUL 3/4X1/2 MULTILIT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO AZUL 3/4X1/2 MULTILIT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO AZUL 3/4X1/2 MULTILIT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/FLANGEADA PHS BICR 3,5X25 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/FLANGEADA PHS BICR 3,5X25 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/FLANGEADA PHS BICR 3,5X16 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/FLANGEADA PHS BICR 3,5X16 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 6,0X 65 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 6,0X 65 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 6,0X 50 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 6,0X 50 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 5,0X35 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 5,0X35 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 5,0X50-B8 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 5,0X50-B8 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 5,0X40 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 5,0X40 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,5X45 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,5X45 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,5X30 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,5X30 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,5X35 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,5X35 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,5X30-B5 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,5X30-B5 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,5X40 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,5X40 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,5X14 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,5X14 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,5X12 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,5X12 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,0X50 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,0X50 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,0X40-B6 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 4,0X40-B6 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,0X16 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,0X16 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,0X14 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,0X14 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,0X10 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/CHATA PHS BICR 3,0X10 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/FLANGEADA PHS BICR 3,5X20 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF CHIPB C/FLANGEADA PHS BICR 3,5X20 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF DRYWALL FLANG AGULHA PHS RI 4,2X13 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF DRYWALL FLANG AGULHA PHS RI 4,2X13 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA LL 11/2 KRONA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA LL 11/2 KRONA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 75MM FERJA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 75MM FERJA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 100MM FERJA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 100MM FERJA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 150MM FERJA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 150MM FERJA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 75MM AMANCO com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 75MM AMANCO com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 100MM AMANCO com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ANEL BORRACHA 100MM AMANCO com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF A.BROCANTE FLANG PHS ZINC 08X1/2 NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PARAF A.BROCANTE FLANG PHS ZINC 08X1/2 NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto SOQUETE C/RABICHO E27 NYLON ILUMI com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto SOQUETE C/RABICHO E27 NYLON ILUMI com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto RESIST BELLO/MAXI ULTRA 5500X220 065A LORENZETTI com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto RESIST BELLO/MAXI ULTRA 5500X220 065A LORENZETTI com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CHAVE FIXA 10X11MM TRAMON com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CHAVE FIXA 10X11MM TRAMON com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P 20A PT 14031 ILUMI com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P 20A PT 14031 ILUMI com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P 10A PT 14030 ILUMI com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P 10A PT 14030 ILUMI com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P+T 10A PT 14070 ILUMI com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P+T 10A PT 14070 ILUMI com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P+T10A CZ 14050 ILUMI com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P+T10A CZ 14050 ILUMI com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P+T 20A CZ 14051 ILUMI com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PLUG MACHO PRENSA CABO 2P+T 20A CZ 14051 ILUMI com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto GAS BUTANO CARTUCHO 227G CAMPGAS NAUTIKA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto GAS BUTANO CARTUCHO 227G CAMPGAS NAUTIKA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto DISJ DIN UNIP 20A CURVA C STECK com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto DISJ DIN UNIP 20A CURVA C STECK com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CX DAGUA C/TAMPA 500L FORTLEV com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CX DAGUA C/TAMPA 500L FORTLEV com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ESPACADOR NIVELADOR 2,0MM C/50PCS CORTAG com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ESPACADOR NIVELADOR 2,0MM C/50PCS CORTAG com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA LL 3/4 KRONA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA LL 3/4 KRONA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA LR 3/4 KRONA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA LR 3/4 KRONA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA MAO TRIC PIGM 3F BR 09CM (G) KALIPSO com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA MAO TRIC PIGM 3F BR 09CM (G) KALIPSO com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ESPATULA LAMIN C/PLAST 08 FERJA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ESPATULA LAMIN C/PLAST 08 FERJA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ESPATULA LAMIN C/PLAST 10 FERJA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ESPATULA LAMIN C/PLAST 10 FERJA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto DISCO CORTE INOX 41/2X1,0X7/8 STARRETT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto DISCO CORTE INOX 41/2X1,0X7/8 STARRETT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto COLA INST 2G SUPER COLA TEK BOND com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto COLA INST 2G SUPER COLA TEK BOND com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ESPATULA LAMIN C/PLAST 08 THOMPSON com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-14.
+Produto ESPATULA LAMIN C/PLAST 08 THOMPSON com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-14.
+Produto ESPATULA LAMIN C/PLAST 06 THOMPSON com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-14.
+Produto ESPATULA LAMIN C/PLAST 06 THOMPSON com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-14.
+Produto JOELHO ESG 100X90 KRONA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO ESG 100X90 KRONA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO ESG 40X90 KRONA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto JOELHO ESG 40X90 KRONA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto REJUNTE CERAMICA CZ ARTICO 1K C/15-QUART QUARTZOLIT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-14.
+Produto REJUNTE CERAMICA CZ ARTICO 1K C/15-QUART QUARTZOLIT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-14.
+Produto PORTA MADEIRA 60X210 DIR CASTAN BAT.ALUM ESQUADRIVAX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-12.
+Produto PORTA MADEIRA 60X210 DIR CASTAN BAT.ALUM ESQUADRIVAX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-12.
+Produto PORTA MADEIRA 60X210 ESQ CASTAN BAT.ALUM ESQUADRIVAX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-12.
+Produto PORTA MADEIRA 60X210 ESQ CASTAN BAT.ALUM ESQUADRIVAX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-12.
+Produto LUVA ESGOTO SHIVA 50 X 50 BR com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto LUVA ESGOTO SHIVA 50 X 50 BR com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto PORCA TORNEADA ZINC F 3/8 NC NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PORCA TORNEADA ZINC F 3/8 NC NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PORCA TORNEADA ZINC D 1/4 NC NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PORCA TORNEADA ZINC D 1/4 NC NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PORCA TORNEADA ZINC B 5/32 NC NEW-FIX com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto PORCA TORNEADA ZINC B 5/32 NC NEW-FIX com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto SACO P/AREIA E PEDRA 40X60 RECICLE C/5K com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto SACO P/AREIA E PEDRA 40X60 RECICLE C/5K com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto BROCA ACO RAPIDO 5,5MM IRWIN com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA ACO RAPIDO 5,5MM IRWIN com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA ACO RAPIDO 6,0MM IRWIN com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA ACO RAPIDO 6,0MM IRWIN com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA ACO RAPIDO 8,0MM IRWIN com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA ACO RAPIDO 8,0MM IRWIN com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA ACO RAPIDO 4,0MM IRWIN com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA ACO RAPIDO 4,0MM IRWIN com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA VIDEA 6,0MM 5/64 IRWIN com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA VIDEA 6,0MM 5/64 IRWIN com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto CAIXA P/BACIA ACOP DECA IZY BR D/F 3/6L com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto CAIXA P/BACIA ACOP DECA IZY BR D/F 3/6L com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto CHAVE PHIL.TRAM. F 1/4 X 6 com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto CHAVE PHIL.TRAM. F 1/4 X 6 com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto COTOVELO ESGOTO FORTLEV C 75 X 90 BR com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto COTOVELO ESGOTO FORTLEV C 75 X 90 BR com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto VEDA ROSCA POLYFITA 3/4X10 com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto VEDA ROSCA POLYFITA 3/4X10 com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto VEDA ROSCA POLYFITA 3/4X25 com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto VEDA ROSCA POLYFITA 3/4X25 com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto VEDA ROSCA 3/4X10 POLYFITA com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto VEDA ROSCA 3/4X10 POLYFITA com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto COLA SILICONE 50G SOUDAL TRANSP BISNAGA com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto COLA SILICONE 50G SOUDAL TRANSP BISNAGA com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto PARAF CHIPBOARD CHATA PHS 4.0 X 60 NEW F com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto PARAF CHIPBOARD CHATA PHS 4.0 X 60 NEW F com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto LUVA ESG CORRER 75 KRONA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA ESG CORRER 75 KRONA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA ESG CORRER 50 KRONA com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LUVA ESG CORRER 50 KRONA com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LAMINA SERRA ACO CARBONO 18D THOMPSON com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto LAMINA SERRA ACO CARBONO 18D THOMPSON com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto SERRA ACO CARBONO THOMPSON 24D com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto SERRA ACO CARBONO THOMPSON 24D com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto SERRA ACO CARBONO THOMPSON 18D com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto SERRA ACO CARBONO THOMPSON 18D com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
+Produto LAMP LED ALTA POT 20W-1600LM 6500K AVANT com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-12.
+Produto LAMP LED ALTA POT 20W-1600LM 6500K AVANT com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-12.
+Produto BROCA VIDEA 10,0MM 13/32 IRWIN com GTIN/EAN inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto BROCA VIDEA 10,0MM 13/32 IRWIN com GTIN/EAN tributário inválido, motivo: Dígito verificador inválido para o formato GTIN/EAN-13.
+Produto ASSENTO HERC ALMOFADADO BRANCO com GTIN/EAN inválido, motivo: Comprimento de código inválido.
+Produto ASSENTO HERC ALMOFADADO BRANCO com GTIN/EAN tributário inválido, motivo: Comprimento de código inválido.
