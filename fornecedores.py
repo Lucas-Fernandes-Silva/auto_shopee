@@ -49,8 +49,8 @@ if __name__ == "__main__":
     dados_fornecedores = extrair_fornecedores(pasta_origem)
 
 df = pd.DataFrame(dados_fornecedores)
-df.columns.tolist()
-print(dados_fornecedores)
+
+
 colunas_bling = pd.read_csv('fornecedores.csv', sep=';').columns.tolist()
 
 arquivo_csv = "contatos_bling_completo.csv"

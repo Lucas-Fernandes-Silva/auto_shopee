@@ -19023,3 +19023,4 @@ requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='www.construja.com.
 2025-10-08 12:30:30,878 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
 2025-10-08 12:30:31,871 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
 2025-10-08 12:30:37,943 - logger - INFO - Cache salvo. - web_scraper.py - 28:
+2025-10-11 17:21:10,266 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
