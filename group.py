@@ -1,49 +1,57 @@
 import pandas as pd
+import re
 
-# === 1. Ler o arquivo com os grupos já criados ===
+# === 1. Ler o arquivo atualizado ===
 arquivo = "todos_produtos.xlsx"
 df = pd.read_excel(arquivo)
 
-# === 2. Validar colunas necessárias ===
-colunas_necessarias = ["Grupo", "Variação"]
-for col in colunas_necessarias:
+# === 2. Garantir colunas esperadas ===
+for col in ["Variação", "Grupo", "SKU Principal", "SKU Variação"]:
     if col not in df.columns:
-        raise ValueError(f"A planilha deve conter a coluna '{col}' (execute o script de agrupamento antes)")
+        raise ValueError(f"A planilha deve conter a coluna '{col}' (execute os scripts anteriores antes).")
 
-# === 3. Detectar a coluna de SKU automaticamente ===
-col_sku = None
-for nome in df.columns:
-    if "SKU" in nome.upper():
-        col_sku = nome
-        break
+# === 3. Funções auxiliares ===
+def detectar_tipo_variacao(var):
+    if pd.isna(var) or str(var).strip() == "":
+        return "", ""
+    
+    var = str(var).upper().strip()
+    tem_numero = bool(re.search(r"\d", var))
+    tem_letra = bool(re.search(r"[A-Z]", var))
 
-if not col_sku:
-    raise ValueError("A planilha precisa ter uma coluna com o SKU (nome contendo 'SKU')")
+    # Códigos de cores comuns
+    cores = ["AM", "PT", "AZ", "VM", "VD", "BC", "PR", "CZ", "BR", "RS", "BE", "CO", "LA", "MA"]
+    partes = var.split()
+    contem_cor = any(p in cores for p in partes)
 
-# === 4. Criar coluna 'SKU Principal' ===
-# Primeiro: obter o primeiro SKU de cada grupo
-sku_principal = df.groupby("Grupo")[col_sku].transform("first")
+    if tem_numero and contem_cor:
+        return "Tamanho + Cor", var
+    elif tem_numero:
+        return "Tamanho", var
+    elif contem_cor:
+        return "Cor", var
+    else:
+        return "Outros", var
 
-# Verifica grupos únicos (sem variação)
-tamanho_grupo = df.groupby("Grupo")[col_sku].transform("count")
+# === 4. Criar colunas de variação ===
+tipos, valores = zip(*df["Variação"].map(detectar_tipo_variacao))
+df["Nome da variante 1"] = tipos
+df["Valor da variante 1"] = valores
 
-# Se o grupo tiver só 1 item, o SKU principal é o próprio SKU
-df["SKU Principal"] = sku_principal
-df.loc[tamanho_grupo == 1, "SKU Principal"] = df.loc[tamanho_grupo == 1, col_sku]
+# === 5. Coluna “É Variação” ===
+df["É Variação"] = df.groupby("Grupo")["Grupo"].transform("count").apply(lambda x: "Sim" if x > 1 else "Não")
 
-# === 5. Renomear SKU atual para 'SKU Variação' (opcional, para clareza)
-df = df.rename(columns={col_sku: "SKU Variação"})
-
-# === 6. Reordenar colunas: colocar SKU Principal logo após Variação ===
+# === 6. Reordenar colunas para melhor visualização ===
 cols = df.columns.tolist()
-if "Variação" in cols and "SKU Principal" in cols:
-    idx_var = cols.index("Variação")
-    cols.insert(idx_var + 1, cols.pop(cols.index("SKU Principal")))
+if "Variação" in cols and "Nome da variante 1" in cols:
+    idx = cols.index("Variação")
+    for c in ["Nome da variante 1", "Valor da variante 1", "É Variação"]:
+        if c in cols:
+            cols.insert(idx + 1, cols.pop(cols.index(c)))
+            idx += 1
     df = df[cols]
 
-# === 7. Salvar no mesmo arquivo ===
+# === 7. Salvar novamente no mesmo arquivo ===
 df.to_excel(arquivo, index=False)
 
-print(f"✅ Coluna 'SKU Principal' adicionada com sucesso ao arquivo '{arquivo}'!")
-print("   - Se o produto tiver grupo único, o SKU principal será igual ao SKU da própria linha.")
-print("   - Caso tenha variações, todas compartilham o mesmo SKU principal do primeiro item.")
+print(f"✅ Colunas de variação adicionadas com sucesso no arquivo '{arquivo}'!")
