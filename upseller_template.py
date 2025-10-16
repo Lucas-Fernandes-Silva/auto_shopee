@@ -6,6 +6,13 @@ upseller = pd.read_excel(arquivo)
 produtos= pd.read_excel('todos_produtos.xlsx')
 upseller_colunas = upseller.columns.tolist()
 
+
+produtos = produtos[
+    (produtos["Peso"].astype(str).str.upper() != "NÃO DISPONIVEL") &
+    (produtos["Url Imagem"].astype(str).str.upper() != "NÃO DISPONIVEL")
+]
+
+
 def criar_linha(item, colunas_bling):
     linha = {col: "" for col in colunas_bling}
 
@@ -44,6 +51,8 @@ if os.path.exists(arquivo):
     df_final = pd.concat([df_existente, bling_df], ignore_index=True)
 else:
     df_final = bling_df
+
+
 
 # Salva tudo de novo (mantém todas as linhas)
 df_final.to_excel('upseller_template.xlsx', index=False)
