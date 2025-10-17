@@ -120,14 +120,19 @@ class WebScraper:
             altura = produto.get("altura")
             largura = produto.get("largura")
             comprimento = produto.get("comprimento")
+            
             seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
             url_img = seo.get("imageUrl")
             marca = next(
                 (p.get("desc") for p in produto.get("dimensoes", [])
-                if isinstance(p, dict) and p.get("label") == "MARCA"), None
+                if isinstance(p, dict) and p.get("label") == "MARCA"), None)
+            cartegoria = next(
+                (p.get("desc") for p in produto.get("dimensoes", [])
+                if isinstance(p, dict) and p.get("label") == "SUB CATEGORIA"), None
             
             )
             return {
+                "categoria": cartegoria,
                 "marca": marca,
                 "peso": peso,
                 "codigo_barras": codigo_barras,
@@ -177,7 +182,7 @@ class WebScraper:
                 logger.info("Nenhum fornecedor da lista de web scrapping encontrado no DataFrame.")
                 return df_resultado
             
-            for col in ["Marca", "Peso", "Url Imagem", "Largura","Altura","Comprimento"]:
+            for col in ["Marca", "Peso", "Url Imagem", "Largura","Altura","Comprimento", "Categoria"]:
                 if col not in df_resultado.columns:
                     df_resultado[col] = None
 
@@ -201,6 +206,7 @@ class WebScraper:
                     "Largura": dados.get("largura"),
                     "Comprimento": dados.get("comprimento"),
                     "Marca": marca or descrição_completa.split()[0],
+                    "Categoria": dados.get("categoria"),
                     "Descrição": descrição_completa,
                     "Peso": dados.get("peso") or "NÃO DISPONIVEL",
                     "Url Imagem": dados.get("url_img") or "NÃO DISPONIVEL",
@@ -213,8 +219,12 @@ class WebScraper:
 
             df_novo = df_filtrado.apply(processar_linha, axis=1)
             df_resultado.update(df_novo)
-            logger.info(df_resultado)
-            logger.info(df_resultado.keys())
+            df_resultado['Peso'] = df_resultado['Peso'].fillna(1)
+            df_resultado = df_resultado[
+                (df_resultado["Peso"].astype(str).str.upper() != "NÃO DISPONIVEL") &
+                (df_resultado["Url Imagem"].astype(str).str.upper() != "NÃO DISPONIVEL")
+            ]
+
             self._salvar_cache()
             return df_resultado
 

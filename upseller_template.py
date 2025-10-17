@@ -1,16 +1,10 @@
 import pandas as pd
 import os
 
-arquivo = 'upseller.xlsx'
+arquivo = 'colunas_upseller.xlsx'
 upseller = pd.read_excel(arquivo)
-produtos= pd.read_excel('todos_produtos.xlsx')
+produtos = pd.read_excel('produtos.xlsx')
 upseller_colunas = upseller.columns.tolist()
-
-
-produtos = produtos[
-    (produtos["Peso"].astype(str).str.upper() != "NÃO DISPONIVEL") &
-    (produtos["Url Imagem"].astype(str).str.upper() != "NÃO DISPONIVEL")
-]
 
 
 def criar_linha(item, colunas_bling):
