@@ -117,7 +117,9 @@ class WebScraper:
                 return {}
             peso = produto.get("pesoBruto")
             codigo_barras = produto.get("codBarra")
-
+            altura = produto.get("altura")
+            largura = produto.get("largura")
+            comprimento = produto.get("comprimento")
             seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
             url_img = seo.get("imageUrl")
             marca = next(
@@ -129,7 +131,10 @@ class WebScraper:
                 "marca": marca,
                 "peso": peso,
                 "codigo_barras": codigo_barras,
-                "url_img": url_img
+                "url_img": url_img,
+                "largura": largura,
+                "altura": altura,
+                "comprimento": comprimento
         }
         except Exception as e:
             logger.info(f'Produto não encontrado{e}')
@@ -172,7 +177,7 @@ class WebScraper:
                 logger.info("Nenhum fornecedor da lista de web scrapping encontrado no DataFrame.")
                 return df_resultado
             
-            for col in ["Marca", "Peso", "Url Imagem"]:
+            for col in ["Marca", "Peso", "Url Imagem", "Largura","Altura","Comprimento"]:
                 if col not in df_resultado.columns:
                     df_resultado[col] = None
 
@@ -192,6 +197,9 @@ class WebScraper:
                 else:
                     descrição_completa = descricao
                 return pd.Series({
+                    "Altura": dados.get("altura"),
+                    "Largura": dados.get("largura"),
+                    "Comprimento": dados.get("comprimento"),
                     "Marca": marca or descrição_completa.split()[0],
                     "Descrição": descrição_completa,
                     "Peso": dados.get("peso") or "NÃO DISPONIVEL",
@@ -205,6 +213,8 @@ class WebScraper:
 
             df_novo = df_filtrado.apply(processar_linha, axis=1)
             df_resultado.update(df_novo)
+            logger.info(df_resultado)
+            logger.info(df_resultado.keys())
             self._salvar_cache()
             return df_resultado
 
