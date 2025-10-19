@@ -125,7 +125,7 @@ class WebScraper:
             url_img = seo.get("imageUrl")
             marca = next(
                 (p.get("desc") for p in produto.get("dimensoes", [])
-                if isinstance(p, dict) and p.get("label") == "MARCA"), None)
+                if isinstance(p, dict) and p.get("label") == "MARCA"), '')
             cartegoria = next(
                 (p.get("desc") for p in produto.get("dimensoes", [])
                 if isinstance(p, dict) and p.get("label") == "SUB CATEGORIA"), None
@@ -205,7 +205,7 @@ class WebScraper:
                     "Altura": dados.get("altura"),
                     "Largura": dados.get("largura"),
                     "Comprimento": dados.get("comprimento"),
-                    "Marca": marca or descrição_completa.split()[0],
+                    "Marca": marca,
                     "Categoria": dados.get("categoria"),
                     "Descrição": descrição_completa,
                     "Peso": dados.get("peso") or "NÃO DISPONIVEL",
