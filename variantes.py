@@ -17,12 +17,11 @@ df = pd.read_excel("produtos_com_categorias_e_variacoes.xlsx")
 # --- Cria chave composta com as 3 colunas ---
 df["chave"] = (
     df["Descrição"].apply(normalizar) + " " +
-    df["Marca"].apply(normalizar) + " " +
     df["Categoria"].apply(normalizar)
 )
 
 # --- Parâmetro de similaridade ---
-LIMIAR = 85
+LIMIAR = 90
 
 # --- Inicializa controle ---
 df["ID_Variacao"] = None
@@ -61,8 +60,9 @@ for i, linha in tqdm(df.iterrows(), total=len(df)):
 # --- Ordena resultado ---
 df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_index(drop=True)
 
+
 # --- Salva resultado ---
-arquivo_saida = "produtos_agrupados_com_variacoes.xlsx"
+arquivo_saida = "pai_filho_variantes.xlsx"
 df.to_excel(arquivo_saida, index=False)
 
 print(f"✅ Agrupamento concluído com sucesso!")

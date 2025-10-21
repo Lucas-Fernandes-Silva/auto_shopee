@@ -3,7 +3,7 @@ import os
 
 arquivo = 'colunas_upseller.xlsx'
 upseller = pd.read_excel(arquivo)
-produtos = pd.read_excel('produtos.xlsx')
+produtos = pd.read_excel('produtos_agrupados_variacoes.xlsx')
 upseller_colunas = upseller.columns.tolist()
 
 

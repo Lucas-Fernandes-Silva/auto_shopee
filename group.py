@@ -59,7 +59,7 @@ colunas_remover = ["Descricao_norm", "Categoria_norm", "Categoria_Preenchida"]
 df_final = df_final.drop(columns=colunas_remover)
 
 # === Exportar ===
-with pd.ExcelWriter("produtos_com_categorias_e_variacoes.xlsx") as writer:
+with pd.ExcelWriter("produtos_categorias.xlsx") as writer:
     df_final.to_excel(writer, sheet_name="Produtos", index=False)
 
-print("✅ Arquivo gerado: produtos_com_categorias_e_variacoes.xlsx")
+print("✅ Arquivo gerado: produtos_categorias.xlsx")
