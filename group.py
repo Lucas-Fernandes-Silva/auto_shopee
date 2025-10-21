@@ -44,13 +44,9 @@ for desc in sem_categoria["Descricao_norm"]:
         similares.append("")
 
 sem_categoria["Categoria_Preenchida"] = preenchidas
-sem_categoria["Similaridade"] = scores
-sem_categoria["Descricao_Referencia"] = similares
 
 # Copiar dados para com_categoria
 com_categoria["Categoria_Preenchida"] = com_categoria["Categoria"]
-com_categoria["Similaridade"] = 100
-com_categoria["Descricao_Referencia"] = com_categoria["Descrição"]
 
 # === Unir novamente ===
 df_final = pd.concat([com_categoria, sem_categoria], ignore_index=True)
