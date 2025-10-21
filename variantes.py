@@ -12,7 +12,7 @@ def normalizar(texto):
     return texto
 
 # --- Carrega o Excel ---
-df = pd.read_excel("produtos_com_categorias_e_variacoes.xlsx")
+df = pd.read_excel("produtos_categorias.xlsx")
 
 # --- Cria chave composta com as 3 colunas ---
 df["chave"] = (
