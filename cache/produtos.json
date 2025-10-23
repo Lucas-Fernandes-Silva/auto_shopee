@@ -20404,5 +20404,165 @@
     "comprimento": "8"
   },
   "NaN": {},
+  "16784": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "FAMASTIL",
+    "peso": "0.04700000",
+    "codigo_barras": "7898105776288",
+    "url_img": "https://cdn.construja.com.br/produtos/16784/16784.jpg",
+    "largura": "4",
+    "altura": "2.5",
+    "comprimento": "4"
+  },
+  "112342": {
+    "categoria": "TOMADAS INTERRUPTORES PINOS",
+    "marca": "ILUMI",
+    "peso": "0.07300000",
+    "codigo_barras": "7898493992291",
+    "url_img": "https://cdn.construja.com.br/produtos/112342/112342.jpg",
+    "largura": "6",
+    "altura": "10",
+    "comprimento": "6"
+  },
+  "112345": {
+    "categoria": "TOMADAS INTERRUPTORES PINOS",
+    "marca": "ILUMI",
+    "peso": "0.07200000",
+    "codigo_barras": "7898493992369",
+    "url_img": "https://cdn.construja.com.br/produtos/112345/112345.jpg",
+    "largura": "7",
+    "altura": "5",
+    "comprimento": "7"
+  },
+  "17393": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "FOX/FAMASTIL",
+    "peso": "0.04800000",
+    "codigo_barras": "7890000173931",
+    "url_img": "https://cdn.construja.com.br/produtos/17393/17393.jpg",
+    "largura": "4",
+    "altura": "2",
+    "comprimento": "4"
+  },
+  "112341": {
+    "categoria": "TOMADAS INTERRUPTORES PINOS",
+    "marca": "ILUMI",
+    "peso": "0.07300000",
+    "codigo_barras": "7898493992284",
+    "url_img": "https://cdn.construja.com.br/produtos/112341/112341.jpg",
+    "largura": "7",
+    "altura": "5",
+    "comprimento": "7"
+  },
+  "112350": {
+    "categoria": "TOMADAS INTERRUPTORES PINOS",
+    "marca": "ILUMI",
+    "peso": "0.06000000",
+    "codigo_barras": "7898322642533",
+    "url_img": "https://cdn.construja.com.br/produtos/112350/112350.jpg",
+    "largura": "7",
+    "altura": "5",
+    "comprimento": "7"
+  },
+  "101080": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "POLIFIO",
+    "peso": "0.05980000",
+    "codigo_barras": "7898090990133",
+    "url_img": "https://cdn.construja.com.br/produtos/101080/101080.jpg",
+    "largura": "8.5",
+    "altura": "3.5",
+    "comprimento": "8.5"
+  },
+  "101081": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "POLIFIO",
+    "peso": "0.03800000",
+    "codigo_barras": "7898090990140",
+    "url_img": "https://cdn.construja.com.br/produtos/101081/101081.jpg",
+    "largura": "7",
+    "altura": "3.5",
+    "comprimento": "7"
+  },
+  "15550": {
+    "categoria": "DIVERSOS - HIDRÁULICA",
+    "marca": "OVERTIME",
+    "peso": "0.06900000",
+    "codigo_barras": "7896202400426",
+    "url_img": "https://cdn.construja.com.br/produtos/15550/15550.jpg",
+    "largura": "9",
+    "altura": "5.5",
+    "comprimento": "9"
+  },
+  "112344": {
+    "categoria": "TOMADAS INTERRUPTORES PINOS",
+    "marca": "ILUMI",
+    "peso": "0.05500000",
+    "codigo_barras": "7898493992338",
+    "url_img": "https://cdn.construja.com.br/produtos/112344/112344.jpg",
+    "largura": "7",
+    "altura": "5",
+    "comprimento": "7"
+  },
+  "136102": {
+    "categoria": "DIVERSOS-UD",
+    "marca": "SANLIMP",
+    "peso": "1.17200000",
+    "codigo_barras": "7897515590019",
+    "url_img": "https://cdn.construja.com.br/produtos/136102/136102.jpg",
+    "largura": "9",
+    "altura": "26",
+    "comprimento": "9"
+  },
+  "153360": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "BALDEBRAS",
+    "peso": "0.80100000",
+    "codigo_barras": "7898932103011",
+    "url_img": "https://cdn.construja.com.br/produtos/153360/153360.jpg",
+    "largura": "2.792",
+    "altura": "33.5",
+    "comprimento": "2.792"
+  },
+  "153361": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "BALDEBRAS",
+    "peso": "0.80100000",
+    "codigo_barras": "7898932103028",
+    "url_img": "https://cdn.construja.com.br/produtos/153361/153361.jpg",
+    "largura": "2.792",
+    "altura": "33.5",
+    "comprimento": "2.792"
+  },
+  "107370": {
+    "categoria": "LÂMPADAS",
+    "marca": "FOXLUX",
+    "peso": "0.15600000",
+    "codigo_barras": "7898586134454",
+    "url_img": "https://cdn.construdigi.com.br/produtos/107370/107370.jpg",
+    "largura": "12",
+    "altura": "16",
+    "comprimento": "12"
+  },
+  "107227": {
+    "categoria": "REFLETOR",
+    "marca": "FOXLUX",
+    "peso": "0.70500000",
+    "codigo_barras": "7898586131385",
+    "url_img": "https://cdn.construdigi.com.br/produtos/107227/107227.jpg",
+    "largura": "24",
+    "altura": "3",
+    "comprimento": "24"
+  },
+  "107241": {
+    "categoria": "LÂMPADAS",
+    "marca": "FOXLUX",
+    "peso": "0.09000000",
+    "codigo_barras": "7898586132122",
+    "url_img": "https://cdn.construdigi.com.br/produtos/107241/107241.jpg",
+    "largura": "12.5",
+    "altura": "12.5",
+    "comprimento": "12.5"
+  },
   "NaN": {}
 }

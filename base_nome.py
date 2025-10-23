@@ -17,7 +17,7 @@ def normalizar(texto):
     return texto
 
 # --- Carrega o Excel ---
-df = pd.read_excel("pai_filhos_variantes.xlsx")
+df = pd.read_excel("pai_filho_variantes.xlsx")
 
 # --- Cria chave composta ---
 df["Chave"] = (

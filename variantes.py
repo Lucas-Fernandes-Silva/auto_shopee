@@ -30,15 +30,12 @@ df["SKU_Pai"] = None
 grupo_id = 1
 usados = set()
 
-# --- Loop principal de agrupamento ---
-print("🔄 Agrupando variações...")
-
 for i, linha in tqdm(df.iterrows(), total=len(df)):
     if i in usados:
         continue
 
-    chave_ref = linha["chave"]
-    similares = df.index[df["chave"].apply(lambda x: fuzz.token_sort_ratio(chave_ref, x) >= LIMIAR)].tolist()
+    chave_ref = linha["Chave"]
+    similares = df.index[df["Chave"].apply(lambda x: fuzz.token_sort_ratio(chave_ref, x) >= LIMIAR)].tolist()
 
     # Define o produto principal (primeiro do grupo)
     sku_pai = linha.get("Sku", linha.get("Código", i))  # usa coluna SKU ou índice
