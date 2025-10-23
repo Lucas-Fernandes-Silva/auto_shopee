@@ -7,7 +7,7 @@ from tqdm import tqdm
 def normalizar(texto):
     if pd.isna(texto):
         return ""
-    texto = str(texto).lower().strip()
+    texto = str(texto).upper().strip()
     texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
     return texto
 
@@ -15,7 +15,7 @@ def normalizar(texto):
 df = pd.read_excel("produtos_categorias.xlsx")
 
 # --- Cria chave composta com as 3 colunas ---
-df["chave"] = (
+df["Chave"] = (
     df["Descrição"].apply(normalizar) + " " +
     df["Categoria"].apply(normalizar)
 )

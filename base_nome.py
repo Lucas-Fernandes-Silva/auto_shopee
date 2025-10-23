@@ -12,7 +12,7 @@ SENSIBILIDADE = 0.4  # sensibilidade da parte comum (0 a 1)
 def normalizar(texto):
     if pd.isna(texto):
         return ""
-    texto = str(texto).lower().strip()
+    texto = str(texto).upper().strip()
     texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
     return texto
 
@@ -20,7 +20,7 @@ def normalizar(texto):
 df = pd.read_excel("pai_filhos_variantes.xlsx")
 
 # --- Cria chave composta ---
-df["chave"] = (
+df["Chave"] = (
     df["Descrição"].apply(normalizar) + " " +
     df["Categoria"].apply(normalizar)
 )
@@ -62,7 +62,6 @@ df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_in
 
 # --- Função com controle de sensibilidade ---
 def parte_comum(strings, sensibilidade=SENSIBILIDADE):
-    """Encontra parte comum entre strings com controle de sensibilidade (0 a 1)."""
     if not strings:
         return ""
     base = strings[0]
@@ -84,18 +83,18 @@ def parte_comum(strings, sensibilidade=SENSIBILIDADE):
 
 # --- Cria colunas base e variante ---
 print("🧩 Gerando colunas base e variante...")
-df["base"] = ""
-df["variante"] = ""
+df["Base"] = ""
+df["Variante"] = ""
 
 for gid, grupo in tqdm(df.groupby("ID_Variacao"), total=df["ID_Variacao"].nunique()):
-    chaves = grupo["chave"].tolist()
+    chaves = grupo["Chave"].tolist()
     comum = parte_comum(chaves, SENSIBILIDADE)
 
     for idx, linha in grupo.iterrows():
-        texto = linha["chave"]
+        texto = linha["Chave"]
         variante = texto.replace(comum, "").strip()
-        df.at[idx, "base"] = comum
-        df.at[idx, "variante"] = variante
+        df.at[idx, "Base"] = comum
+        df.at[idx, "Variante"] = variante
 
 # --- Salva ---
 arquivo_saida = "base_nome.xlsx"
