@@ -193,3 +193,44 @@
 4455  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO DIVER...  ...                                        
 
 [4456 rows x 3 columns] - base_nome.py - 101:
+2025-10-24 13:32:51,109 - logger - INFO -                                                   Chave                                               Base       Variante
+0           FITA CREPE 24X50 USO GERAL ADERE FITA CREPE                     X50 USO GERAL ADERE FITA CREPE  FITA CREPE 24
+1           FITA CREPE 18X50 USO GERAL ADERE FITA CREPE                     X50 USO GERAL ADERE FITA CREPE  FITA CREPE 18
+2           FITA CREPE 48X50 USO GERAL ADERE FITA CREPE                     X50 USO GERAL ADERE FITA CREPE  FITA CREPE 48
+3       FITA CREPE 24X50 USO GERAL* TEK BOND FITA CREPE    FITA CREPE 24X50 USO GERAL* TEK BOND FITA CREPE               
+4            FITA CREPE 48X50 USO GERAL MASK FITA CREPE                      X50 USO GERAL MASK FITA CREPE  FITA CREPE 48
+...                                                 ...                                                ...            ...
+4451  LUVA ESG CORR PLASTIK  50 X 50 BR S/ANEL ACESS...  LUVA ESG CORR PLASTIK  50 X 50 BR S/ANEL ACESS...               
+4452   LUVA P/COND.CORRUG.CORR PLASTIK 3/4=25 CORRUGADO   LUVA P/COND.CORRUG.CORR PLASTIK 3/4=25 CORRUGADO               
+4453        PEDRA AFIAR COMBINADA 6" STARFER AUTOMOTIVA        PEDRA AFIAR COMBINADA 6" STARFER AUTOMOTIVA               
+4454  ESPUMA DE POLIURETANO CHEMICOLOR 500ML SELANTE...  ESPUMA DE POLIURETANO CHEMICOLOR 500ML SELANTE...               
+4455  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO DIVER...  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO DIVER...               
+
+[4456 rows x 3 columns] - base_nome.py - 101:
+2025-10-24 15:29:48,629 - logger - INFO -                                                   Chave  \
+0           FITA CREPE 24X50 USO GERAL ADERE FITA CREPE   
+1           FITA CREPE 18X50 USO GERAL ADERE FITA CREPE   
+2           FITA CREPE 48X50 USO GERAL ADERE FITA CREPE   
+3       FITA CREPE 24X50 USO GERAL* TEK BOND FITA CREPE   
+4            FITA CREPE 48X50 USO GERAL MASK FITA CREPE   
+...                                                 ...   
+4451  LUVA ESG CORR PLASTIK  50 X 50 BR S/ANEL ACESS...   
+4452   LUVA P/COND.CORRUG.CORR PLASTIK 3/4=25 CORRUGADO   
+4453        PEDRA AFIAR COMBINADA 6" STARFER AUTOMOTIVA   
+4454  ESPUMA DE POLIURETANO CHEMICOLOR 500ML SELANTE...   
+4455  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO DIVER...   
+
+                                                   Base       Variante  
+0                        X50 USO GERAL ADERE FITA CREPE  FITA CREPE 24  
+1                        X50 USO GERAL ADERE FITA CREPE  FITA CREPE 18  
+2                        X50 USO GERAL ADERE FITA CREPE  FITA CREPE 48  
+3       FITA CREPE 24X50 USO GERAL* TEK BOND FITA CREPE                 
+4                         X50 USO GERAL MASK FITA CREPE  FITA CREPE 48  
+...                                                 ...            ...  
+4451  LUVA ESG CORR PLASTIK  50 X 50 BR S/ANEL ACESS...                 
+4452   LUVA P/COND.CORRUG.CORR PLASTIK 3/4=25 CORRUGADO                 
+4453        PEDRA AFIAR COMBINADA 6" STARFER AUTOMOTIVA                 
+4454  ESPUMA DE POLIURETANO CHEMICOLOR 500ML SELANTE...                 
+4455  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO DIVER...                 
+
+[4456 rows x 3 columns] - 179265348.py - 101:
