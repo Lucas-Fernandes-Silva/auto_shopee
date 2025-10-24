@@ -21,7 +21,7 @@ df["Chave"] = (
 )
 
 # --- Parâmetro de similaridade ---
-LIMIAR = 90
+LIMIAR = 85
 
 # --- Inicializa controle ---
 df["ID_Variacao"] = None

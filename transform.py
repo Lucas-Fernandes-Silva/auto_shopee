@@ -222,5 +222,6 @@ for gid, grupo in tqdm(df.groupby("ID_Variacao"), total=df["ID_Variacao"].nuniqu
         df.at[idx, "Variante"] = variante
 
 
-arquivo_saida = "final.xlsx"
-df.to_excel(arquivo_saida, index=False)
+print(df)
+# arquivo_saida = "final.xlsx"
+# df.to_excel(arquivo_saida, index=False)

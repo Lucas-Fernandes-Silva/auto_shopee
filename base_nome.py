@@ -3,9 +3,10 @@ from rapidfuzz import fuzz
 import unicodedata
 from tqdm import tqdm
 from difflib import SequenceMatcher
+from logger import logger
 
 # --- Parâmetro ajustável ---
-LIMIAR = 90          # similaridade entre chaves (fuzz)
+LIMIAR = 89          # similaridade entre chaves (fuzz)
 SENSIBILIDADE = 0.4  # sensibilidade da parte comum (0 a 1)
 
 # --- Função para normalizar textos ---
@@ -39,8 +40,8 @@ for i, linha in tqdm(df.iterrows(), total=len(df)):
     if i in usados:
         continue
 
-    chave_ref = linha["chave"]
-    similares = df.index[df["chave"].apply(lambda x: fuzz.token_sort_ratio(chave_ref, x) >= LIMIAR)].tolist()
+    chave_ref = linha["Chave"]
+    similares = df.index[df["Chave"].apply(lambda x: fuzz.token_sort_ratio(chave_ref, x) >= LIMIAR)].tolist()
 
     sku_pai = linha.get("Sku", linha.get("Código", i))
     df.at[i, "Tipo"] = "PAI"
@@ -96,10 +97,13 @@ for gid, grupo in tqdm(df.groupby("ID_Variacao"), total=df["ID_Variacao"].nuniqu
         df.at[idx, "Base"] = comum
         df.at[idx, "Variante"] = variante
 
-# --- Salva ---
-arquivo_saida = "base_nome.xlsx"
-df.to_excel(arquivo_saida, index=False)
 
-print("✅ Agrupamento concluído com sucesso!")
-print(f"📂 Arquivo salvo como: {arquivo_saida}")
-print(f"📦 Total de grupos de variações criados: {grupo_id - 1}")
+logger.info(df[['Chave','Base','Variante']])
+
+# # --- Salva ---
+# arquivo_saida = "base_nome.xlsx"
+# df.to_excel(arquivo_saida, index=False)
+
+# print("✅ Agrupamento concluído com sucesso!")
+# print(f"📂 Arquivo salvo como: {arquivo_saida}")
+# print(f"📦 Total de grupos de variações criados: {grupo_id - 1}")
