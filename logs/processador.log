@@ -234,3 +234,34 @@
 4455  OTTO B.VEDAPREN PAREDE BR GL 3,6KG GALAO DIVER...                 
 
 [4456 rows x 3 columns] - 179265348.py - 101:
+2025-10-25 12:21:34,565 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-10-25 12:22:19,572 - logger - INFO - Arquivo salvo: notas/35251001637895026280550060001581381255710691-procNFe.xml - email_handler.py - 26:
+2025-10-25 12:22:44,701 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:22:44,715 - logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 161:
+2025-10-25 12:23:01,305 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:23:08,933 - logger - INFO - Cache salvo. - web_scraper.py - 28:
+2025-10-25 12:31:38,457 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-10-25 12:32:45,798 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:32:45,823 - logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 161:
+2025-10-25 12:32:56,848 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:33:00,627 - logger - INFO - Cache salvo. - web_scraper.py - 28:
+2025-10-25 12:35:46,234 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-10-25 12:36:44,528 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:36:44,549 - logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 161:
+2025-10-25 12:36:50,117 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:36:52,411 - logger - INFO - Cache salvo. - web_scraper.py - 28:
+2025-10-25 12:52:00,746 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-10-25 12:52:52,684 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:52:52,688 - logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 161:
+2025-10-25 12:52:55,524 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:52:57,620 - logger - INFO - Cache salvo. - web_scraper.py - 28:
+2025-10-25 12:58:32,566 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-10-25 12:59:22,726 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:59:22,729 - logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 161:
+2025-10-25 12:59:26,668 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 12:59:29,382 - logger - INFO - Cache salvo. - web_scraper.py - 28:
+2025-10-25 13:05:25,716 - logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 16:
+2025-10-25 13:06:26,077 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 13:06:26,082 - logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 161:
+2025-10-25 13:06:31,840 - logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 110:
+2025-10-25 13:06:33,460 - logger - INFO - Cache salvo. - web_scraper.py - 28:

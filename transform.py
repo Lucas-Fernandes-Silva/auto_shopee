@@ -6,7 +6,10 @@ from dados import marcas_adicionais, marca_variacoes
 from main import df_enriquecido
 from rapidfuzz import fuzz, process
 from tqdm import tqdm
-from difflib import SequenceMatcher
+from rapidfuzz import fuzz
+import itertools
+from collections import Counter
+
 
 df = df_enriquecido
 
@@ -149,71 +152,94 @@ for i, linha in tqdm(df.iterrows(), total=len(df)):
 
 df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_index(drop=True)
 
+def normalizar(texto):
+    if pd.isna(texto):
+        return ""
+    texto = str(texto).upper().strip()
+    texto = ''.join(c for c in unicodedata.normalize('NFD', texto)
+                    if unicodedata.category(c) != 'Mn')
+    texto = re.sub(r'[^A-Z0-9 ]', '', texto)
+    texto = re.sub(r'\s+', ' ', texto).strip()
+    return texto
 
-LIMIAR = 90         
-SENSIBILIDADE = 0.4  
-
-df["Chave"] = (
-    df["Descrição"].apply(normalizar) + " " +
-    df["Categoria"].apply(normalizar)
-)
-
-df["ID_Variacao"] = None
-df["Tipo"] = None
-df["SKU_Pai"] = None
-grupo_id = 1
-usados = set()
-
-for i, linha in tqdm(df.iterrows(), total=len(df)):
-    if i in usados:
-        continue
-
-    chave_ref = linha["Chave"]
-    similares = df.index[df["Chave"].apply(lambda x: fuzz.token_sort_ratio(chave_ref, x) >= LIMIAR)].tolist()
-
-    sku_pai = linha.get("Sku", linha.get("Código", i))
-    df.at[i, "Tipo"] = "PAI"
-    df.at[i, "SKU_Pai"] = sku_pai
-    df.at[i, "ID_Variacao"] = grupo_id
-
-    for idx in similares:
-        if idx not in usados:
-            if idx != i:
-                df.at[idx, "Tipo"] = "FILHO"
-                df.at[idx, "SKU_Pai"] = sku_pai
-            df.at[idx, "ID_Variacao"] = grupo_id
-            usados.add(idx)
-
-    grupo_id += 1
+def similaridade_media(strings):
+    """Calcula a similaridade média do grupo"""
+    pares = list(itertools.combinations(strings, 2))
+    if not pares:
+        return 1.0
+    scores = [fuzz.token_set_ratio(a, b) / 100 for a, b in pares]
+    return sum(scores) / len(scores)
 
 
-df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_index(drop=True)
-
-def parte_comum(strings, sensibilidade=SENSIBILIDADE):
+def parte_comum(strings, sensibilidade=0.7):
+    """Extrai tokens comuns entre descrições, ignorando tamanhos e códigos numéricos"""
     if not strings:
         return ""
-    base = strings[0]
-    for s in strings[1:]:
-        seq = SequenceMatcher(None, base, s)
-        match = seq.find_longest_match(0, len(base), 0, len(s))
-        comum = base[match.a: match.a + match.size]
 
-        tamanho_medio = (len(base) + len(s)) / 2
-        proporcao = len(comum) / tamanho_medio
+    # Tokeniza e normaliza
+    token_lists = [normalizar(s).split() for s in strings]
+    todas_palavras = set(sum(token_lists, []))
 
-        if proporcao >= sensibilidade:
-            base = comum
-        else:
-            base = comum[:int(len(comum) * sensibilidade)]
+    # Remove tokens que são medidas ou números (ex: 3/4, 48X50)
+    def eh_medida(p):
+        return bool(re.match(r"^\d+[Xx/]\d+$", p)) or p.isdigit()
 
-    return base.strip()
+    todas_palavras = {p for p in todas_palavras if not eh_medida(p)}
 
+    contagem = Counter()
+    for palavra in todas_palavras:
+        for tokens in token_lists:
+            similar = any(fuzz.ratio(palavra, t) / 100 >= sensibilidade for t in tokens)
+            if similar:
+                contagem[palavra] += 1
+
+    limite = max(1, int(len(strings) * 0.8))
+    comuns = [w for w, c in contagem.items() if c >= limite]
+
+    primeira = token_lists[0]
+    base_ordenada = [
+        t for t in primeira
+        if any(fuzz.ratio(t, w) / 100 >= sensibilidade for w in comuns)
+    ]
+
+    base = " ".join(base_ordenada).strip()
+    base = re.sub(r'\b\d+([Xx/]\d+)?\b', '', base).strip()
+    base = re.sub(r'\s+', ' ', base).strip()
+
+    return base
+
+# --- Normaliza chave ---
+df["Chave"] = np.where(
+    df["Categoria"].isin(["CONEXÕES ESGOTO", "CONEXÕES ÁGUA"]),
+    df["Categoria"].apply(normalizar) + " " + df["Descrição"].apply(normalizar),
+    df["Descrição"].apply(normalizar)
+)
+
+# --- Ordena ---
+df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_index(drop=True)
+
+# --- Cria colunas ---
 df["Base"] = ""
 df["Variante"] = ""
 
-for gid, grupo in tqdm(df.groupby("ID_Variacao"), total=df["ID_Variacao"].nunique()):
+
+for gid, grupo in tqdm(df.groupby("ID_Variacao", group_keys=False)):
     chaves = grupo["Chave"].tolist()
-    comum = parte_comum(chaves, SENSIBILIDADE)
+    media = similaridade_media(chaves)
+
+    # Sensibilidade dinâmica
+    if media >= 0.9:
+        sensibilidade = 0.85
+    elif media >= 0.8:
+        sensibilidade = 0.75
+    else:
+        sensibilidade = 0.65
+
+    comum = parte_comum(chaves, sensibilidade)
+
+    # Se o grupo tiver só um item, usa a descrição completa como base
+    if len(grupo) == 1 or not comum:
+        comum = normalizar(grupo["Descrição"].iloc[0])
 
     for idx, linha in grupo.iterrows():
         texto = linha["Chave"]
@@ -222,6 +248,6 @@ for gid, grupo in tqdm(df.groupby("ID_Variacao"), total=df["ID_Variacao"].nuniqu
         df.at[idx, "Variante"] = variante
 
 
-print(df)
-# arquivo_saida = "final.xlsx"
-# df.to_excel(arquivo_saida, index=False)
+
+# --- Resultado ---
+df.to_excel('final.xlsx',index=False)
