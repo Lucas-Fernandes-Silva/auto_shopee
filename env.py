@@ -19,14 +19,14 @@ fornecedores_bloqueados = [
     'MAGAZINE LUIZA SA',
 ]
 
-fornecedores_web_scapping = [
+fornecedores_web_scraping = [
     'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA',
     'CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU',
     'M.S.B. COMERCIO DE MATERIAIS PARA CONSTRUCAO',
 ]
 
 
-fornecedores_noweb_scapping = [
+fornecedores_noweb_scraping = [
     'MJLESTE DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA',
     'MJR CUNHA DISTRIBUIDORA DE MAT.CONSTR LTDA',
     'SOOPER HOLDING LTDA', 'SOPREMA LTDA',
@@ -37,5 +37,5 @@ fornecedores_noweb_scapping = [
 
 ]
 
-fornecedores = [fornecedores_bloqueados, fornecedores_web_scapping, fornecedores_noweb_scapping]
+fornecedores = [fornecedores_bloqueados, fornecedores_web_scraping, fornecedores_noweb_scraping]
 

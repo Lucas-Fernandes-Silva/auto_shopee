@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import re
 import unicodedata
-from env import fornecedores_noweb_scapping
+from env import fornecedores_noweb_scraping
 
 # === 1. Carregar o arquivo ===
 df = pd.read_excel('produtos.xlsx')

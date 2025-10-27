@@ -9,9 +9,35 @@ from tqdm import tqdm
 from rapidfuzz import fuzz
 import itertools
 from collections import Counter
+from env import fornecedores_web_scraping
 
 
 df = df_enriquecido
+
+
+def gtin(codigo):
+    return codigo.isdigit() and len(codigo) in [8, 12, 13, 14]
+
+df['GTIN_Válido'] = df['Código de Barras'].astype(str).apply(gtin)
+
+df_validos = df[df['GTIN_Válido']].copy()
+
+def escolher_prioritario(grupo):
+    if len(grupo) == 1:
+        return grupo
+    fornecedores = grupo['Fornecedor'].tolist()
+
+    if any(f in fornecedores_web_scraping for f in fornecedores):
+        return grupo[grupo['Fornecedor'].isin(fornecedores_web_scraping)].head(1)
+
+    return grupo.head(1)
+
+df_filtrado = df_validos.groupby('Código de Barras', group_keys=False).apply(escolher_prioritario)
+
+df_final = pd.concat([df_filtrado, df[~df['GTIN_Válido']]], ignore_index=True)
+
+df = df_final.reset_index(drop=True)
+
 
 def limpar_texto(txt):
     if not isinstance(txt, str):
@@ -111,7 +137,6 @@ df_final["Categoria"] = df_final["Categoria_Preenchida"]
 colunas_remover = ["Descricao_norm", "Categoria_norm", "Categoria_Preenchida"]
 df_final = df_final.drop(columns=colunas_remover)
 
-df_final
 
 df = df_final
 
@@ -246,7 +271,6 @@ for gid, grupo in tqdm(df.groupby("ID_Variacao", group_keys=False)):
         variante = texto.replace(comum, "").strip()
         df.at[idx, "Base"] = comum
         df.at[idx, "Variante"] = variante
-
 
 
 # --- Resultado ---
