@@ -62,6 +62,6 @@ df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_in
 arquivo_saida = "pai_filho_variantes.xlsx"
 df.to_excel(arquivo_saida, index=False)
 
-print(f"✅ Agrupamento concluído com sucesso!")
+print("✅ Agrupamento concluído com sucesso!")
 print(f"📂 Arquivo salvo como: {arquivo_saida}")
 print(f"📦 Total de grupos de variações criados: {grupo_id - 1}")

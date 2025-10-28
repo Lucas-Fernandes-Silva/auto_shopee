@@ -1,6 +1,5 @@
 import os
 import xml.etree.ElementTree as ET
-import csv
 import re
 import pandas as pd
 

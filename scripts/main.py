@@ -4,8 +4,6 @@ from src.web_scraper import WebScraper
 from src.notas_manager import NotasManager
 from datetime import date
 import src.env as env
-import pandas as pd
-from src.logger import logger
 
 email = EmailHandler(env.user, env.pwd)
 email.baixar_anexos(date.today())

@@ -2,7 +2,7 @@ from concurrent.futures import ProcessPoolExecutor
 import xml.etree.ElementTree as ET
 from datetime import datetime
 import os
-from src.logger import logger
+
 
 class XMLProcessor:
     def __init__(self, pasta_xml, fornecedores_bloqueados=None):
