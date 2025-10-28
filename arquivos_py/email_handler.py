@@ -1,9 +1,7 @@
-
 import os
-import logging
 from imap_tools import MailBox, AND 
-from datetime import date, timedelta
-from logger import logger
+from datetime import  timedelta
+from arquivos_py.logger import logger
 
 class EmailHandler:
     def __init__(self, email_user, email_pwd, save_folder="notas/"):

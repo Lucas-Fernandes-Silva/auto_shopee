@@ -5,7 +5,7 @@ import os
 from concurrent.futures import ThreadPoolExecutor
 import asyncio
 from playwright.async_api import async_playwright
-from logger import logger
+from arquivos_py.logger import logger
 import pandas as pd
 
 

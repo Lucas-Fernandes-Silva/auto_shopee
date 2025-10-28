@@ -6,10 +6,9 @@ from rapidfuzz import fuzz, process
 from tqdm import tqdm
 from collections import Counter
 import itertools
-from dados import marcas_adicionais, marca_variacoes
+from arquivos_py.dados import marcas_adicionais, marca_variacoes
 from env import fornecedores_web_scraping
 from main import df_enriquecido
-
 
 
 def normalizar(texto: str) -> str:

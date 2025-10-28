@@ -1,11 +1,11 @@
-from email_handler import EmailHandler
-from xml_processor import XMLProcessor
-from web_scraper import WebScraper
-from notas_manager import NotasManager
+from arquivos_py.email_handler import EmailHandler
+from arquivos_py.xml_processor import XMLProcessor
+from arquivos_py.web_scraper import WebScraper
+from arquivos_py.notas_manager import NotasManager
 from datetime import date
 import env
 import pandas as pd
-from logger import logger
+from arquivos_py.logger import logger
 
 email = EmailHandler(env.user, env.pwd)
 email.baixar_anexos(date.today())
