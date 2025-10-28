@@ -7,15 +7,20 @@ import itertools
 from collections import Counter
 import numpy as np
 
+
 def normalizar(texto):
     if pd.isna(texto):
         return ""
     texto = str(texto).upper().strip()
-    texto = ''.join(c for c in unicodedata.normalize('NFD', texto)
-                    if unicodedata.category(c) != 'Mn')
-    texto = re.sub(r'[^A-Z0-9 ]', '', texto)
-    texto = re.sub(r'\s+', ' ', texto).strip()
+    texto = "".join(
+        c
+        for c in unicodedata.normalize("NFD", texto)
+        if unicodedata.category(c) != "Mn"
+    )
+    texto = re.sub(r"[^A-Z0-9 ]", "", texto)
+    texto = re.sub(r"\s+", " ", texto).strip()
     return texto
+
 
 def similaridade_media(strings):
     """Calcula a similaridade média do grupo"""
@@ -53,13 +58,14 @@ def parte_comum(strings, sensibilidade=0.7):
 
     primeira = token_lists[0]
     base_ordenada = [
-        t for t in primeira
+        t
+        for t in primeira
         if any(fuzz.ratio(t, w) / 100 >= sensibilidade for w in comuns)
     ]
 
     base = " ".join(base_ordenada).strip()
-    base = re.sub(r'\b\d+([Xx/]\d+)?\b', '', base).strip()
-    base = re.sub(r'\s+', ' ', base).strip()
+    base = re.sub(r"\b\d+([Xx/]\d+)?\b", "", base).strip()
+    base = re.sub(r"\s+", " ", base).strip()
 
     return base
 
@@ -73,16 +79,17 @@ df = df.head(20)
 df["Chave"] = np.where(
     df["Categoria"].isin(["CONEXÕES ESGOTO", "CONEXÕES ÁGUA"]),
     df["Categoria"].apply(normalizar) + " " + df["Descrição"].apply(normalizar),
-    df["Descrição"].apply(normalizar)
+    df["Descrição"].apply(normalizar),
 )
 
 # --- Ordena ---
-df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_index(drop=True)
+df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_index(
+    drop=True
+)
 
 # --- Cria colunas ---
 df["Base"] = ""
 df["Variante"] = ""
-
 
 
 for gid, grupo in tqdm(df.groupby("ID_Variacao", group_keys=False)):

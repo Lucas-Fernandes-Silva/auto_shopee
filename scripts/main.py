@@ -8,17 +8,18 @@ import src.env as env
 email = EmailHandler(env.user, env.pwd)
 email.baixar_anexos(date.today())
 
-xml_proc = XMLProcessor("notas")
+xml_proc = XMLProcessor("dados")
 lista_produtos = xml_proc.processar_todos(paralelo=True)
 
 manager = NotasManager(env.fornecedores)
 
 df_produtos = manager.cria_dataframe(lista_produtos)
 
-manager.copiar_xmls('notas', 'notas')
+manager.copiar_xmls("dados", "dados")
 
 scraper = WebScraper(env.headers)
-df_enriquecido = scraper.enriquecer_dataframe(df_produtos, env.fornecedores, paralelo=True)
-df_enriquecido
-manager.salvar_excel(df_enriquecido)
+df_enriquecido = scraper.enriquecer_dataframe(
+    df_produtos, env.fornecedores, paralelo=True
+)
 
+manager.salvar_excel(df_enriquecido)

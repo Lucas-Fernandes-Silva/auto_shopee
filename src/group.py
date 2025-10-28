@@ -1,13 +1,20 @@
 import pandas as pd
 from rapidfuzz import fuzz, process
 import unicodedata
+from logger import logger
+
 
 def normalizar(texto):
     if pd.isna(texto):
         return ""
     texto = str(texto).lower().strip()
-    texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
+    texto = "".join(
+        c
+        for c in unicodedata.normalize("NFD", texto)
+        if unicodedata.category(c) != "Mn"
+    )
     return texto
+
 
 # === Ler arquivo ===
 df = pd.read_excel("produtos_com_marcas.xlsx")
@@ -25,9 +32,7 @@ preenchidas, scores, similares = [], [], []
 # === Preencher categorias vazias ===
 for desc in sem_categoria["Descricao_norm"]:
     match = process.extractOne(
-        desc,
-        com_categoria["Descricao_norm"],
-        scorer=fuzz.token_sort_ratio
+        desc, com_categoria["Descricao_norm"], scorer=fuzz.token_sort_ratio
     )
     if match:
         nome_similar, score, idx = match
@@ -62,4 +67,4 @@ df_final = df_final.drop(columns=colunas_remover)
 with pd.ExcelWriter("produtos_categorias.xlsx") as writer:
     df_final.to_excel(writer, sheet_name="Produtos", index=False)
 
-print("✅ Arquivo gerado: produtos_categorias.xlsx")
+logger.info("✅ Arquivo gerado: produtos_categorias.xlsx")

@@ -2,22 +2,28 @@ import pandas as pd
 from rapidfuzz import fuzz
 import unicodedata
 from tqdm import tqdm
+from logger import logger
+
 
 # --- Função para normalizar textos ---
 def normalizar(texto):
     if pd.isna(texto):
         return ""
     texto = str(texto).upper().strip()
-    texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
+    texto = "".join(
+        c
+        for c in unicodedata.normalize("NFD", texto)
+        if unicodedata.category(c) != "Mn"
+    )
     return texto
+
 
 # --- Carrega o Excel ---
 df = pd.read_excel("produtos_categorias.xlsx")
 
 # --- Cria chave composta com as 3 colunas ---
 df["Chave"] = (
-    df["Descrição"].apply(normalizar) + " " +
-    df["Categoria"].apply(normalizar)
+    df["Descrição"].apply(normalizar) + " " + df["Categoria"].apply(normalizar)
 )
 
 # --- Parâmetro de similaridade ---
@@ -35,7 +41,9 @@ for i, linha in tqdm(df.iterrows(), total=len(df)):
         continue
 
     chave_ref = linha["Chave"]
-    similares = df.index[df["Chave"].apply(lambda x: fuzz.token_sort_ratio(chave_ref, x) >= LIMIAR)].tolist()
+    similares = df.index[
+        df["Chave"].apply(lambda x: fuzz.token_sort_ratio(chave_ref, x) >= LIMIAR)
+    ].tolist()
 
     # Define o produto principal (primeiro do grupo)
     sku_pai = linha.get("Sku", linha.get("Código", i))  # usa coluna SKU ou índice
@@ -55,13 +63,15 @@ for i, linha in tqdm(df.iterrows(), total=len(df)):
     grupo_id += 1
 
 # --- Ordena resultado ---
-df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_index(drop=True)
+df = df.sort_values(by=["ID_Variacao", "Tipo"], ascending=[True, True]).reset_index(
+    drop=True
+)
 
 
 # --- Salva resultado ---
 arquivo_saida = "pai_filho_variantes.xlsx"
 df.to_excel(arquivo_saida, index=False)
 
-print("✅ Agrupamento concluído com sucesso!")
-print(f"📂 Arquivo salvo como: {arquivo_saida}")
-print(f"📦 Total de grupos de variações criados: {grupo_id - 1}")
+logger.info("✅ Agrupamento concluído com sucesso!")
+logger.info(f"📂 Arquivo salvo como: {arquivo_saida}")
+logger.info(f"📦 Total de grupos de variações criados: {grupo_id - 1}")

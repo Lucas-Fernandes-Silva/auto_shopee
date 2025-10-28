@@ -1,10 +1,10 @@
 # Análise automática do projeto
 
-**Local:** `/mnt/data/projeto_unzipped`  
+**Local:** `/mnt/data/projeto_unzipped`
 
-**Total de arquivos:** 1181  
+**Total de arquivos:** 1181
 
-**Tamanho total (bytes):** 33130553  
+**Tamanho total (bytes):** 33130553
 
 
 ## Top-level directories

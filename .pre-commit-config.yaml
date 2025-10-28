@@ -1,0 +1,32 @@
+repos:
+  # Ruff linter
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.14.2
+    hooks:
+      - id: ruff
+        stages: [commit]
+        exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
+
+  # Check JSON files
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-json
+        stages: [commit]
+        exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
+
+  # Remove trailing whitespace
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        stages: [commit]
+        exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
+
+  # Ensure files end with a newline
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+        stages: [commit]
+        exclude: ^(notebooks/.*\.ipynb$|.*\.json$)

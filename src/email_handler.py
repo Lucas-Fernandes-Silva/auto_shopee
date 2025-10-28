@@ -1,7 +1,8 @@
 import os
-from imap_tools import MailBox, AND 
-from datetime import  timedelta
+from imap_tools import MailBox, AND
+from datetime import timedelta
 from src.logger import logger
+
 
 class EmailHandler:
     def __init__(self, email_user, email_pwd, save_folder="notas/"):
@@ -12,8 +13,12 @@ class EmailHandler:
 
     def baixar_anexos(self, data_inicio):
         logger.info("🔹 Baixando anexos XML do e-mail…")
-        with MailBox("imap.gmail.com").login(self.email_user, self.email_pwd, initial_folder="INBOX") as mailbox:
-            list_mail = mailbox.fetch(criteria=AND(date_gte=(data_inicio - timedelta(7))))
+        with MailBox("imap.gmail.com").login(
+            self.email_user, self.email_pwd, initial_folder="INBOX"
+        ) as mailbox:
+            list_mail = mailbox.fetch(
+                criteria=AND(date_gte=(data_inicio - timedelta(7)))
+            )
             for email in list_mail:
                 for anexo in email.attachments:
                     if anexo.filename.lower().endswith(".xml"):
@@ -22,4 +27,3 @@ class EmailHandler:
                             with open(file_path, "wb") as f:
                                 f.write(anexo.payload)
                             logger.info(f"Arquivo salvo: {file_path}")
-

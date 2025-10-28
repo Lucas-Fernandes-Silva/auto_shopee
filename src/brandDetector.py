@@ -1,6 +1,7 @@
 from src.normalizer import Normalizer
 import numpy as np
 
+
 class BrandDetector:
     def __init__(self, df, marcas_adicionais, marca_variacoes):
         self.df = df
@@ -10,8 +11,10 @@ class BrandDetector:
 
     def _compilar_marcas(self):
         marcas = set(self.marcas_adicionais)
-        marcas_planilha = {Normalizer.normalize(m) for m in self.df['Marca'].dropna().astype(str)}
-        marcas_planilha.discard('5+')
+        marcas_planilha = {
+            Normalizer.normalize(m) for m in self.df["Marca"].dropna().astype(str)
+        }
+        marcas_planilha.discard("5+")
         marcas |= marcas_planilha
 
         for marca, variacoes in self.marca_variacoes.items():
@@ -30,5 +33,9 @@ class BrandDetector:
         return np.nan
 
     def aplicar(self):
-        self.df['Marca'] = self.df['Marca'].fillna(self.df['Descrição'].map(self.detectar)).fillna('GENÉRICO')
+        self.df["Marca"] = (
+            self.df["Marca"]
+            .fillna(self.df["Descrição"].map(self.detectar))
+            .fillna("GENÉRICO")
+        )
         return self.df

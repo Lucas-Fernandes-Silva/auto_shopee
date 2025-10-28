@@ -81,12 +81,12 @@ class WebScraper:
         fornecedor = produto.get("Fornecedor")
         codigo = produto.get("Codigo Produto")
 
-        if fornecedor == 'CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA':
-            return f'https://www.construdigi.com.br/produto/{codigo}/{codigo}'
-        elif fornecedor == 'M.S.B. COMERCIO DE MATERIAIS PARA CONSTRUCAO':
-            return f'https://msbitaqua.com.br/produto/{codigo}/{codigo}'
+        if fornecedor == "CONSTRUDIGI DISTRIBUIDORA DE MATERIAIS PARA CONSTRUCAO LTDA":
+            return f"https://www.construdigi.com.br/produto/{codigo}/{codigo}"
+        elif fornecedor == "M.S.B. COMERCIO DE MATERIAIS PARA CONSTRUCAO":
+            return f"https://msbitaqua.com.br/produto/{codigo}/{codigo}"
         elif fornecedor == "CONSTRUJA DISTR. DE MATERIAIS P/ CONSTRU":
-            return f'https://www.construja.com.br/produto/{codigo}/{codigo}'
+            return f"https://www.construja.com.br/produto/{codigo}/{codigo}"
         else:
             return None
 
@@ -109,7 +109,7 @@ class WebScraper:
             if not produto:
                 logger.warning("Produto vazio no JSON — pulando item.")
                 return {}
-            if isinstance(produto, list): 
+            if isinstance(produto, list):
                 logger.warning("Produto veio como lista, pegando o primeiro elemento.")
                 produto = produto[0] if produto else {}
             if not isinstance(produto, dict):
@@ -120,16 +120,24 @@ class WebScraper:
             altura = produto.get("altura")
             largura = produto.get("largura")
             comprimento = produto.get("comprimento")
-            
+
             seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
             url_img = seo.get("imageUrl")
             marca = next(
-                (p.get("desc") for p in produto.get("dimensoes", [])
-                if isinstance(p, dict) and p.get("label") == "MARCA"), '')
+                (
+                    p.get("desc")
+                    for p in produto.get("dimensoes", [])
+                    if isinstance(p, dict) and p.get("label") == "MARCA"
+                ),
+                "",
+            )
             cartegoria = next(
-                (p.get("desc") for p in produto.get("dimensoes", [])
-                if isinstance(p, dict) and p.get("label") == "SUB CATEGORIA"), None
-            
+                (
+                    p.get("desc")
+                    for p in produto.get("dimensoes", [])
+                    if isinstance(p, dict) and p.get("label") == "SUB CATEGORIA"
+                ),
+                None,
             )
             return {
                 "categoria": cartegoria,
@@ -139,10 +147,10 @@ class WebScraper:
                 "url_img": url_img,
                 "largura": largura,
                 "altura": altura,
-                "comprimento": comprimento
-        }
+                "comprimento": comprimento,
+            }
         except Exception as e:
-            logger.info(f'Produto não encontrado{e}')
+            logger.info(f"Produto não encontrado{e}")
 
     def _processar_produto(self, produto):
         codigo = produto.get("Codigo Produto")
@@ -152,12 +160,16 @@ class WebScraper:
         try:
             dados = self._processar_com_requests(produto) or {}
         except Exception as e:
-            logger.error(f"Erro inesperado no requests para {produto.get('Descrição')} ({codigo}): {e}")
+            logger.error(
+                f"Erro inesperado no requests para {produto.get('Descrição')} ({codigo}): {e}"
+            )
             self.cache[codigo] = {}
             return codigo, {}
 
-
-        if any(v is None or v == '' for v in (dados.get('marca'), dados.get('peso'), dados.get('codigo_barras'))):
+        if any(
+            v is None or v == ""
+            for v in (dados.get("marca"), dados.get("peso"), dados.get("codigo_barras"))
+        ):
             logger.info(f"Fallback Playwright para {produto.get('Descrição')}")
             try:
                 dados = asyncio.run(self._processar_com_playwright(produto)) or {}
@@ -165,43 +177,62 @@ class WebScraper:
                 loop = asyncio.get_event_loop()
                 dados = loop.run_until_complete(self._processar_com_playwright(produto))
             except Exception as e:
-                logger.error(f"Erro no Playwright para {produto.get('Descrição')} ({codigo}): {e}")
+                logger.error(
+                    f"Erro no Playwright para {produto.get('Descrição')} ({codigo}): {e}"
+                )
                 dados = {}
 
         self.cache[codigo] = dados
-        return codigo, dados   # <-- retorna chave + valor
+        return codigo, dados  # <-- retorna chave + valor
 
+    def enriquecer_dataframe(self, df_produtos, fornecedores, paralelo=True):
+        df_resultado = df_produtos.copy()
 
-    def enriquecer_dataframe(self, df_produtos,fornecedores, paralelo=True):
-            
-            df_resultado = df_produtos.copy()
+        df_filtrado = df_resultado[
+            df_resultado["Fornecedor"].isin(fornecedores[1])
+        ].copy()
 
-            df_filtrado = df_resultado[df_resultado["Fornecedor"].isin(fornecedores[1])].copy()
+        if df_filtrado.empty:
+            logger.info(
+                "Nenhum fornecedor da lista de web scrapping encontrado no DataFrame."
+            )
+            return df_resultado
 
-            if df_filtrado.empty:
-                logger.info("Nenhum fornecedor da lista de web scrapping encontrado no DataFrame.")
-                return df_resultado
-            
-            for col in ["Marca", "Peso", "Url Imagem", "Largura","Altura","Comprimento", "Categoria"]:
-                if col not in df_resultado.columns:
-                    df_resultado[col] = None
+        for col in [
+            "Marca",
+            "Peso",
+            "Url Imagem",
+            "Largura",
+            "Altura",
+            "Comprimento",
+            "Categoria",
+        ]:
+            if col not in df_resultado.columns:
+                df_resultado[col] = None
 
-                if paralelo:
-                    with ThreadPoolExecutor(max_workers=5) as executor:
-                        resultados = dict(executor.map(self._processar_produto, df_filtrado.to_dict("records")))
-                else:
-                    resultados = dict(self._processar_produto(p) for p in df_filtrado.to_dict("records"))
+            if paralelo:
+                with ThreadPoolExecutor(max_workers=5) as executor:
+                    resultados = dict(
+                        executor.map(
+                            self._processar_produto, df_filtrado.to_dict("records")
+                        )
+                    )
+            else:
+                resultados = dict(
+                    self._processar_produto(p) for p in df_filtrado.to_dict("records")
+                )
 
-            def processar_linha(row):
-                codigo = row["Codigo Produto"]
-                dados = resultados.get(codigo, {}) or {}
-                descricao = str(row.get("Descrição")).strip()
-                marca = dados.get('marca') 
-                if marca is not None:
-                    descrição_completa = f'{descricao} {marca}'.strip() 
-                else:
-                    descrição_completa = descricao
-                return pd.Series({
+        def processar_linha(row):
+            codigo = row["Codigo Produto"]
+            dados = resultados.get(codigo, {}) or {}
+            descricao = str(row.get("Descrição")).strip()
+            marca = dados.get("marca")
+            if marca is not None:
+                descrição_completa = f"{descricao} {marca}".strip()
+            else:
+                descrição_completa = descricao
+            return pd.Series(
+                {
                     "Altura": dados.get("altura"),
                     "Largura": dados.get("largura"),
                     "Comprimento": dados.get("comprimento"),
@@ -214,18 +245,17 @@ class WebScraper:
                         dados.get("codigo_barras")
                         if row.get("Código de Barras") == "SEM GTIN"
                         else row.get("Código de Barras")
-                    )
-                })
+                    ),
+                }
+            )
 
-            df_novo = df_filtrado.apply(processar_linha, axis=1)
-            df_resultado.update(df_novo)
-            df_resultado['Peso'] = df_resultado['Peso'].fillna(1)
-            df_resultado = df_resultado[
-                (df_resultado["Peso"].astype(str).str.upper() != "NÃO DISPONIVEL") &
-                (df_resultado["Url Imagem"].astype(str).str.upper() != "NÃO DISPONIVEL")
-            ]
+        df_novo = df_filtrado.apply(processar_linha, axis=1)
+        df_resultado.update(df_novo)
+        df_resultado["Peso"] = df_resultado["Peso"].fillna(1)
+        df_resultado = df_resultado[
+            (df_resultado["Peso"].astype(str).str.upper() != "NÃO DISPONIVEL")
+            & (df_resultado["Url Imagem"].astype(str).str.upper() != "NÃO DISPONIVEL")
+        ]
 
-            self._salvar_cache()
-            return df_resultado
-
-
+        self._salvar_cache()
+        return df_resultado
