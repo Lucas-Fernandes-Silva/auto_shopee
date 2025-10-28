@@ -11,4 +11,7 @@ concurrent.futures
 ThreadPoolExecutor
 namespaces
 
+
+função apply
+
 metodo .find
