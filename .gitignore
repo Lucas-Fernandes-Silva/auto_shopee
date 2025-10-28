@@ -1,8 +1,5 @@
 venv/
-
-
-chunks/
-*.deb
 __pycache__
-
+notas/
 O que é ?.txt
+projeto.zip
