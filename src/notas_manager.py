@@ -1,6 +1,6 @@
 import pandas as pd
 import shutil, os
-from arquivos_py.logger import logger
+
 
 
 class NotasManager:

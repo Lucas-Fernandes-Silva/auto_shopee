@@ -1,4 +1,4 @@
-from normalizer import Normalizer
+from src.normalizer import Normalizer
 from tqdm import tqdm
 from rapidfuzz import fuzz
 class VariationGrouper:

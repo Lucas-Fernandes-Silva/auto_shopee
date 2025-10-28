@@ -1,7 +1,7 @@
 import numpy as np
 from rapidfuzz import fuzz
 import itertools
-from normalizer import Normalizer
+from src.normalizer import Normalizer
 from collections import Counter
 import re
 from tqdm import tqdm

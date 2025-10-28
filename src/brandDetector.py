@@ -1,4 +1,4 @@
-from normalizer import Normalizer
+from src.normalizer import Normalizer
 import numpy as np
 
 class BrandDetector:

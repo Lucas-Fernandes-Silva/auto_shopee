@@ -1,4 +1,4 @@
-from normalizer import Normalizer
+from src.normalizer import Normalizer
 import pandas as pd
 from rapidfuzz import process, fuzz
 
