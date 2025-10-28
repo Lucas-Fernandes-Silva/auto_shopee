@@ -9,8 +9,6 @@ import numpy as np
 
 
 def normalizar(texto):
-    if pd.isna(texto):
-        return ""
     texto = str(texto).upper().strip()
     texto = "".join(
         c
@@ -19,6 +17,8 @@ def normalizar(texto):
     )
     texto = re.sub(r"[^A-Z0-9 ]", "", texto)
     texto = re.sub(r"\s+", " ", texto).strip()
+    if texto == 'NaN':
+        texto = ""
     return texto
 
 
