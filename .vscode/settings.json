@@ -1,18 +1,15 @@
 {
-  // --- Formatação e correções automáticas ---
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit",        // executa ações de correção
-    "source.fixAll.ruff": "explicit"    // aplica Ruff corretamente
+    "source.fixAll": "explicit",
+    "source.fixAll.ruff": "explicit"
   },
 
-  // --- Linting com Ruff ---
   "ruff.enable": true,
   "ruff.lintOnSave": true,
   "ruff.organizeImports": true,
   "ruff.fixAll": true,
 
-  // --- Outras boas práticas ---
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "python.analysis.autoImportCompletions": true,
