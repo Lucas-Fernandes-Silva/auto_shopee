@@ -1,6 +1,9 @@
 import os
-from imap_tools import MailBox, AND
 from datetime import timedelta
+
+from imap_tools.mailbox import MailBox
+from imap_tools.query import AND
+
 from src.logger import logger
 
 

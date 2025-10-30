@@ -1,11 +1,12 @@
+import itertools
+import re
+import unicodedata
+from collections import Counter
+
+import numpy as np
 import pandas as pd
 from rapidfuzz import fuzz
-import unicodedata
-import re
 from tqdm import tqdm
-import itertools
-from collections import Counter
-import numpy as np
 
 
 def normalizar(texto):
@@ -17,7 +18,7 @@ def normalizar(texto):
     )
     texto = re.sub(r"[^A-Z0-9 ]", "", texto)
     texto = re.sub(r"\s+", " ", texto).strip()
-    if texto == 'NaN':
+    if texto == "NaN":
         texto = ""
     return texto
 
@@ -71,7 +72,7 @@ def parte_comum(strings, sensibilidade=0.7):
 
 
 # --- Carrega base ---
-df = pd.read_excel("pai_filho_variantes.xlsx")
+df = pd.read_excel("planilhas/pai_filho_variantes.xlsx")
 df = df.head(20)
 
 
@@ -106,15 +107,11 @@ for gid, grupo in tqdm(df.groupby("ID_Variacao", group_keys=False)):
 
     comum = parte_comum(chaves, sensibilidade)
 
-    # Se o grupo tiver só um item, usa a descrição completa como base
-    if len(grupo) == 1 or not comum:
-        comum = normalizar(grupo["Descrição"].iloc[0])
+if len(grupo) == 1 or not comum:
+    comum = normalizar(grupo["Descrição"].iloc[0])
 
-    for idx, linha in grupo.iterrows():
-        texto = linha["Chave"]
-        variante = texto.replace(comum, "").strip()
-        df.at[idx, "Base"] = comum
-        df.at[idx, "Variante"] = variante
+grupo["Variante"] = grupo["Chave"].str.replace(comum, "", regex=False).str.strip()
+grupo["Base"] = comum
 
-
+df.loc[grupo.index, ["Base", "Variante"]] = grupo[["Base", "Variante"]]
 df[["ID_Variacao", "Descrição", "Base", "Variante"]]

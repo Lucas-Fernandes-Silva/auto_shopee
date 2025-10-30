@@ -13,7 +13,7 @@
 - cache
 - logs
 - notas
-- planilhas dados
+- planilhas
 
 ## Extensões de arquivo (contagem)
 
@@ -30,15 +30,15 @@
 
 ## Maiores arquivos (por tamanho)
 
-- `planilhas dados/colunas_upseller.xlsx` — 2961689 bytes
-- `planilhas dados/base_nome.xlsx` — 584622 bytes
+- `planilhas/colunas_upseller.xlsx` — 2961689 bytes
+- `planilhas/base_nome.xlsx` — 584622 bytes
 - `cache/produtos.json` — 581015 bytes
 - `final.xlsx` — 546161 bytes
-- `planilhas dados/pai_filho_variantes.xlsx` — 509713 bytes
-- `planilhas dados/upseller_template.xlsx` — 476777 bytes
-- `planilhas dados/produtos_categorias.xlsx` — 458270 bytes
-- `planilhas dados/produtos_com_marcas.xlsx` — 454258 bytes
-- `planilhas dados/produtos.xlsx` — 438224 bytes
+- `planilhas/pai_filho_variantes.xlsx` — 509713 bytes
+- `planilhas/upseller_template.xlsx` — 476777 bytes
+- `planilhas/produtos_categorias.xlsx` — 458270 bytes
+- `planilhas/produtos_com_marcas.xlsx` — 454258 bytes
+- `planilhas/produtos.xlsx` — 438224 bytes
 - `notas/NFe35220804648461000207550020024869481171119118.xml` — 64959 bytes
 - `notas/nfes/NFe35220804648461000207550020024869481171119118.xml` — 64959 bytes
 - `notas/NFe35250804648461000207550020032778231142130220.xml` — 63400 bytes

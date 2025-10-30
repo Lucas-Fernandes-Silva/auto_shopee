@@ -1,12 +1,14 @@
-import requests
-from bs4 import BeautifulSoup
+import asyncio
 import json
 import os
 from concurrent.futures import ThreadPoolExecutor
-import asyncio
-from playwright.async_api import async_playwright
-from src.logger import logger
+
 import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+from playwright.async_api import async_playwright
+
+from src.logger import logger
 
 
 class WebScraper:
@@ -45,7 +47,7 @@ class WebScraper:
             if not script:
                 logger.warning(f"Script JSON não encontrado na URL: {url}")
                 return {}
-            data = json.loads(script.string)
+            data = json.loads(script.text)
             return self._extrair_dados(data)
 
         except requests.RequestException as e:
@@ -74,7 +76,7 @@ class WebScraper:
 
             if not script:
                 return {}
-            data = json.loads(script.string)
+            data = json.loads(script.text)
             return self._extrair_dados(data)
 
     def _montar_url(self, produto):
@@ -122,7 +124,7 @@ class WebScraper:
             comprimento = produto.get("comprimento")
 
             seo = self._get_nested(data, ["props", "pageProps", "seo"], {})
-            url_img = seo.get("imageUrl")
+            url_img = seo.get("imageUrl") if seo else None
             marca = next(
                 (
                     p.get("desc")
