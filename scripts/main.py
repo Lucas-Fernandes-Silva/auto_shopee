@@ -1,9 +1,10 @@
-from src.email_handler import EmailHandler
-from src.xml_processor import XMLProcessor
-from src.web_scraper import WebScraper
-from src.notas_manager import NotasManager
 from datetime import date
-import src.env as env
+
+import dados.env as env
+from extract.email_handler import EmailHandler
+from extract.web_scraper import WebScraper
+from extract.xml_processor import XMLProcessor
+from load.notas_manager import NotasManager
 
 email = EmailHandler(env.user, env.pwd)
 email.baixar_anexos(date.today())

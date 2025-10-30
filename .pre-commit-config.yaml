@@ -1,32 +1,29 @@
 repos:
-  # Ruff linter
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.14.2
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
     hooks:
       - id: ruff
+        name: Ruff (lint)
         stages: [commit]
         exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
+        args: []
 
-  # Check JSON files
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: check-json
+        name: Verificar JSONs válidos
         stages: [commit]
         exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
 
-  # Remove trailing whitespace
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
-    hooks:
       - id: trailing-whitespace
+        name: Remover espaços em branco no fim das linhas
         stages: [commit]
         exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
 
-  # Ensure files end with a newline
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v6.0.0
-    hooks:
       - id: end-of-file-fixer
+        name: Garantir quebra de linha no fim dos arquivos
         stages: [commit]
         exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
