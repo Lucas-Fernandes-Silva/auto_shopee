@@ -8,7 +8,7 @@ from utils.logger import logger
 
 
 class EmailHandler:
-    def __init__(self, email_user, email_pwd, save_folder="notas/"):
+    def __init__(self, email_user, email_pwd, save_folder="nfes/"):
         self.email_user = email_user
         self.email_pwd = email_pwd
         self.save_folder = save_folder
