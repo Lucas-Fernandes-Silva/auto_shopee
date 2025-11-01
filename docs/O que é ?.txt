@@ -1,0 +1,17 @@
+Pesquisar o que o codigo faz
+
+os
+shutil
+xml.etree
+imap_tools
+openpyxl
+pandas
+selenium
+concurrent.futures
+ThreadPoolExecutor
+namespaces
+
+
+função apply
+
+metodo .find

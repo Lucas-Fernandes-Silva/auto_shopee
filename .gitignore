@@ -1,6 +1,6 @@
 venv/
-__pycache__
-dados/
-O que é ?.txt
-cache/
-*.xml
+# __pycache__
+# dados/
+# O que é ?.txt
+# cache/
+# *.xml
