@@ -1,11 +1,11 @@
 repos:
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.6.9
+    rev: v0.14.3
     hooks:
       - id: ruff
         name: Ruff (lint)
-        stages: [commit]
+        stages: [pre-commit]
         exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
         args: []
 
@@ -15,15 +15,15 @@ repos:
     hooks:
       - id: check-json
         name: Verificar JSONs válidos
-        stages: [commit]
+        stages: [pre-commit]
         exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
 
       - id: trailing-whitespace
         name: Remover espaços em branco no fim das linhas
-        stages: [commit]
+        stages: [pre-commit]
         exclude: ^(notebooks/.*\.ipynb$|.*\.json$)
 
       - id: end-of-file-fixer
         name: Garantir quebra de linha no fim dos arquivos
-        stages: [commit]
+        stages: [pre-commit]
         exclude: ^(notebooks/.*\.ipynb$|.*\.json$)

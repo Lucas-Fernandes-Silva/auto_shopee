@@ -1,7 +1,7 @@
 import pandas as pd
 from rapidfuzz import fuzz, process
 
-from utils.normalizer import Normalizer
+from src.utils.normalizer import Normalizer
 
 
 class CategoryFiller:

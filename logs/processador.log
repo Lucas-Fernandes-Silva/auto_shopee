@@ -2,3 +2,13 @@
 2025-11-01 13:02:43,824 - src.utils.logger - INFO -  - main.py - 45:
 2025-11-01 13:02:45,298 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
 2025-11-01 13:02:45,677 - src.utils.logger - INFO -  - main.py - 45:
+2025-11-01 14:32:05,664 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-01 14:32:05,967 - src.utils.logger - INFO -  - main.py - 46:
+2025-11-01 14:33:41,319 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-01 14:33:41,581 - src.utils.logger - INFO -  - main.py - 46:
+2025-11-01 14:42:32,838 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-01 14:42:33,900 - src.utils.logger - INFO - <class 'method'> - main.py - 51:
+2025-11-01 14:43:03,412 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-01 14:43:03,628 - src.utils.logger - INFO - <class 'pandas.core.frame.DataFrame'> - main.py - 51:
+2025-11-01 14:44:13,273 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-01 14:44:13,529 - src.utils.logger - INFO - <class 'pandas.core.frame.DataFrame'> - main.py - 51:
