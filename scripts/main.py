@@ -3,11 +3,10 @@ import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-
-from datetime import date
-
+# from datetime import date
 from dados import dados, env
-from src.extract.email_handler import EmailHandler
+
+# from src.extract.email_handler import EmailHandler
 from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
 from src.load.notas_manager import NotasManager
@@ -15,8 +14,8 @@ from src.transform.brand_detector import BrandDetector
 from src.utils.gtin_validator import GTINValidator
 from src.utils.logger import logger
 
-email = EmailHandler(env.user, env.pwd)
-email.baixar_anexos(date.today())
+# email = EmailHandler(env.user, env.pwd)
+# email.baixar_anexos(date.today())
 
 xml_proc = XMLProcessor("dados/dados_exemplo")
 lista_produtos = xml_proc.processar_todos(paralelo=True)
