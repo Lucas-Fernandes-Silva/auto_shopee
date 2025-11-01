@@ -1,6 +1,6 @@
 import numpy as np
 
-from utils.normalizer import Normalizer
+from src.utils.normalizer import Normalizer
 
 
 class BrandDetector:

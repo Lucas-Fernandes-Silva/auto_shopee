@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 from concurrent.futures import ProcessPoolExecutor
 from datetime import datetime
 
-from utils.logger import logger
+from src.utils.logger import logger
 
 
 class XMLProcessor:

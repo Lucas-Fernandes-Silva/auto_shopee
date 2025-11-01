@@ -8,7 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
-from utils.logger import logger
+from src.utils.logger import logger
 
 
 class WebScraper:

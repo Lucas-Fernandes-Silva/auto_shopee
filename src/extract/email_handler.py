@@ -4,7 +4,7 @@ from datetime import timedelta
 from imap_tools.mailbox import MailBox
 from imap_tools.query import AND
 
-from utils.logger import logger
+from src.utils.logger import logger
 
 
 class EmailHandler:
