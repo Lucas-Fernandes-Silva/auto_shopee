@@ -29,4 +29,4 @@ class NotasManager:
                 shutil.copy(os.path.join(pasta_origem, arquivo), pasta_destino)
 
     def salvar_excel(self, df_produtos):
-        df_produtos.to_excel("teste.xlsx", index=False)
+        df_produtos.to_excel("planilhas/outputs/final.xlsx", index=False)

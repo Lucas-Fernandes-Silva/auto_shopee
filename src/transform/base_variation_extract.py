@@ -6,7 +6,7 @@ import numpy as np
 from rapidfuzz import fuzz
 from tqdm import tqdm
 
-from utils.normalizer import Normalizer
+from src.utils.normalizer import Normalizer
 
 
 class BaseVariantExtractor:

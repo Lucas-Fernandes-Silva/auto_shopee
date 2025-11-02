@@ -4,7 +4,7 @@ import pandas as pd
 class GTINValidator:
     def __init__(self, df, fornecedores_web_scraping):
         self.df = df
-        self.fornecedores_web_scraping = fornecedores_web_scraping
+        self.fornecedores_web_scraping = set(fornecedores_web_scraping)
 
     def is_valid_gtin(self, codigo):
         return str(codigo).isdigit() and len(str(codigo)) in [8, 12, 13, 14]
@@ -13,20 +13,25 @@ class GTINValidator:
         df = self.df.copy()
         df["GTIN_Válido"] = df["Código de Barras"].astype(str).apply(self.is_valid_gtin)
 
-        def escolher_prioritario(grupo):
-            fornecedores = grupo["Fornecedor"].tolist()
-            preferidos = [
-                f for f in fornecedores if f in self.fornecedores_web_scraping
-            ]
-            return (
-                grupo[grupo["Fornecedor"].isin(preferidos)].head(1)
-                if preferidos
-                else grupo.head(1)
-            )
+        # Marca os fornecedores que estão na lista de scraping
+        df["Fornecedor_Preferido"] = df["Fornecedor"].isin(self.fornecedores_web_scraping)
 
-        df_validos = df[df["GTIN_Válido"]]
-        df_filtrado = df_validos.groupby("Código de Barras", group_keys=False).apply(
-            escolher_prioritario
+        # Separa válidos e inválidos
+        df_validos = df[df["GTIN_Válido"]].copy()
+        df_invalidos = df[~df["GTIN_Válido"]].copy()
+
+        # Ordena de modo que fornecedores preferidos venham primeiro
+        df_validos = df_validos.sort_values(
+            by=["Código de Barras", "Fornecedor_Preferido"], ascending=[True, False]
         )
-        df_final = pd.concat([df_filtrado, df[~df["GTIN_Válido"]]], ignore_index=True)
+
+        # Mantém apenas o primeiro fornecedor por GTIN (preferido se existir)
+        df_filtrado = df_validos.drop_duplicates(subset=["Código de Barras"], keep="first")
+
+        # Junta de volta os inválidos
+        df_final = pd.concat([df_filtrado, df_invalidos], ignore_index=True)
+
+        # Limpa colunas auxiliares
+        df_final = df_final.drop(columns=["Fornecedor_Preferido"])
+
         return df_final.reset_index(drop=True)
