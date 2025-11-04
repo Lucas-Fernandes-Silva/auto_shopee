@@ -15,7 +15,7 @@ class BrandDetector:
         marcas_planilha = {
             Normalizer.normalize(m) for m in self.df["Marca"].dropna().astype(str)
         }
-        marcas_planilha.discard("5+")
+        marcas_planilha.discard("5")
         marcas |= marcas_planilha
 
         for marca, variacoes in self.marca_variacoes.items():

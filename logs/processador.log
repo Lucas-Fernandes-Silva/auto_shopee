@@ -40,3 +40,20 @@
 2025-11-02 11:12:43,694 - src.utils.logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 175:
 2025-11-02 11:12:48,264 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
 2025-11-02 11:12:49,738 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-04 12:21:18,535 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-04 12:21:44,696 - src.utils.logger - INFO - Arquivo salvo: nfes/35251101637895026280550060001602181124345675-procNFe.xml - email_handler.py - 32:
+2025-11-04 12:21:59,191 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-04 12:21:59,799 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-04 12:21:59,894 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-04 12:22:01,217 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-04 12:22:01,220 - src.utils.logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 175:
+2025-11-04 12:22:07,494 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-04 12:22:12,125 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-04 12:30:00,041 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-04 12:30:30,741 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-04 12:30:31,522 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-04 12:30:31,637 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-04 12:30:34,355 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-04 12:30:34,367 - src.utils.logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 175:
+2025-11-04 12:30:37,560 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-04 12:30:40,134 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:

@@ -13,6 +13,7 @@ from src.load.notas_manager import NotasManager
 from src.transform.base_variation_extract import BaseVariantExtractor
 from src.transform.brand_detector import BrandDetector
 from src.transform.category_filter import CategoryFiller
+from src.transform.market_price import PrecoVenda
 from src.transform.variation_grouper import VariationGrouper
 from src.utils.gtin_validator import GTINValidator
 
@@ -36,6 +37,9 @@ df_enriquecido = scraper.enriquecer_dataframe(
 
 gtin = GTINValidator(df_enriquecido, dados.fornecedores_web_scraping)
 df = gtin.filter_priority()
+
+preco = PrecoVenda(df)
+df = preco.aplicar()
 
 marca = BrandDetector(df, dados.marcas_adicionais, dados.marca_variacoes)
 df = marca.aplicar()
