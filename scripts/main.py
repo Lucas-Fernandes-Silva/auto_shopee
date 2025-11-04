@@ -37,6 +37,7 @@ df_enriquecido = scraper.enriquecer_dataframe(
 
 gtin = GTINValidator(df_enriquecido, dados.fornecedores_web_scraping)
 df = gtin.filter_priority()
+df = gtin.gerar_gtins_aleatorios(df)
 
 preco = PrecoVenda(df)
 df = preco.aplicar()
