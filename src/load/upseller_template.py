@@ -2,35 +2,37 @@ import os
 
 import pandas as pd
 
-arquivo = "colunas_upseller.xlsx"
+arquivo = "/home/lucas-silva/auto_shopee/planilhas/input/colunas_produtos_upseller.xlsx"
 upseller = pd.read_excel(arquivo)
-produtos = pd.read_excel("produtos_agrupados_variacoes.xlsx")
+produtos = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/final_com_imagens.xlsx")
 upseller_colunas = upseller.columns.tolist()
 
+teste = produtos[503:506]
+produtos = teste.copy()
 
 def criar_linha(item, colunas_bling):
     linha = {col: "" for col in colunas_bling}
 
     mapa = {
         "Nome do Produto*": item.get("Base", ""),
-        "SKU Principal": item.get("SKU Principal", ""),
+        "SKU Principal": item.get("SKU_Pai", ""),
         "Descrição*": item.get("Descrição", ""),
         "Categoria ID": "101197",
-        "Nome Variante1": item.get("Nome da variante 1", ""),
-        "Opção por Variante1": item.get("Variação", ""),
-        "Imagem por Variante": item.get("Url Imagem", ""),
-        "SKU": item.get("SKU Variação", ""),
+        "Nome Variante1": "Variação",
+        "Opção por Variante1": item.get("Variante", ""),
+        "Imagem por Variante": item.get("URL Drive Imagem 1", ""),
+        "SKU": item.get("Sku", ""),
         "Preço*": item.get("Valor_unitário", ""),
         "Quantidade*": "0",
         "GTIN": item.get("Código de Barras", ""),
-        "Imagem de Capa": item.get("Url Imagem", ""),
-        "Item da Imagem1": item.get("Url Imagem", ""),
-        "Item da Imagem2": item.get("Url Imagem", ""),
+        "Imagem de Capa": item.get("URL Drive Imagem 1", ""),
+        "Item da Imagem1": item.get("URL Drive Imagem 2", ""),
+        "Item da Imagem2": item.get("URL Drive Imagem 3", ""),
         "Item da Imagem3": item.get("Url Imagem", ""),
         "Peso (kg)*": item.get("Peso", "1"),
-        "Comprimento (cm)": "10",
-        "Largura (cm)": "10",
-        "Altura (cm)": "10",
+        "Comprimento (cm)":item.get("Comprimento",""),
+        "Largura (cm)": item.get("Largura",""),
+        "Altura (cm)": item.get("Altura","")
     }
 
     linha.update(mapa)
@@ -50,4 +52,4 @@ else:
 
 
 # Salva tudo de novo (mantém todas as linhas)
-df_final.to_excel("upseller_template.xlsx", index=False)
+df_final.to_excel("teste.xlsx", index=False)
