@@ -1,12 +1,19 @@
 import itertools
+import os
 import re
+import sys
 from collections import Counter
 
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+
 import numpy as np
+import pandas as pd
 from rapidfuzz import fuzz
 from tqdm import tqdm
 
-from src.utils.normalizer import Normalizer
+# from src.utils.normalizer import Normalizer
+from utils.normalizer import Normalizer
 
 
 class BaseVariantExtractor:
@@ -56,12 +63,23 @@ class BaseVariantExtractor:
         ):
             chaves = grupo["Chave"].tolist()
             media = self.similaridade_media(chaves)
+
             sens = 0.85 if media >= 0.9 else 0.75 if media >= 0.8 else 0.65
             comum = self.parte_comum(chaves, sens) or Normalizer.normalize(
                 grupo["Descrição"].iloc[0]
             )
+            print(comum)
             df.loc[grupo.index, "Base"] = comum
             df.loc[grupo.index, "Variante"] = grupo["Chave"].map(
-                lambda x: x.replace(comum, "").strip()
+                lambda x: x.replace(comum, "").strip() #Extrair a parte comum e substituir por vazio
             )
         return df
+
+
+
+df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/final.xlsx')
+df = df[:1].copy()
+nome = BaseVariantExtractor()
+df = nome.aplicar(df)
+
+df.to_excel('teste.xlsx')
