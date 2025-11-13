@@ -8,3 +8,4 @@ client_secrets.json
 credentials.json
 .env
 imagens/
+imagens_otimizadas/
