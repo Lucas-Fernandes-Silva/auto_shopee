@@ -30,7 +30,7 @@ class PrecoVenda:
         tx = self.taxa_transacao
         m = self.margem
 
-        if custo <= 8:
+        if custo <= 2.18:
             f = 0.5  # 50% do preço
             denom = 1 - f - com - tx
             if denom <= 0:

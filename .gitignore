@@ -8,4 +8,8 @@ client_secrets.json
 credentials.json
 .env
 imagens/
+<<<<<<< HEAD
 imagens_otimizadas
+=======
+imagens_otimizadas/
+>>>>>>> main

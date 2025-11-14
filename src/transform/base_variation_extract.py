@@ -6,17 +6,17 @@ from collections import Counter
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-
 import numpy as np
-import pandas as pd
 from rapidfuzz import fuzz
 from tqdm import tqdm
 
-# from src.utils.normalizer import Normalizer
 from utils.normalizer import Normalizer
 
 
 class BaseVariantExtractor:
+    # --------------------------------------------------------
+    # SIMILARIDADE MÉDIA
+    # --------------------------------------------------------
     @staticmethod
     def similaridade_media(strings):
         pares = list(itertools.combinations(strings, 2))
@@ -24,6 +24,9 @@ class BaseVariantExtractor:
             return 1.0
         return np.mean([fuzz.token_set_ratio(a, b) / 100 for a, b in pares])
 
+    # --------------------------------------------------------
+    # PARTE COMUM
+    # --------------------------------------------------------
     @staticmethod
     def parte_comum(strings, sensibilidade=0.7):
         token_lists = [Normalizer.normalize(s).split() for s in strings if s]
@@ -56,8 +59,32 @@ class BaseVariantExtractor:
         )
         return re.sub(r"\b\d+([Xx/]\d+)?\b", "", base).strip()
 
+    # --------------------------------------------------------
+    # ✔ REMOVE BASE TOKEN A TOKEN (com fuzzy)
+    # --------------------------------------------------------
+    @staticmethod
+    def remover_comum_tokens(chave, comum, threshold=80):
+        chave_norm = Normalizer.normalize(chave)
+        comum_norm = Normalizer.normalize(comum)
+
+        c_tokens = comum_norm.split()
+        x_tokens = chave_norm.split()
+
+        restantes = []
+
+        for token in x_tokens:
+            # Mantém o token se ele NÃO é similar a nenhum token da base
+            if not any(fuzz.ratio(token, ct) >= threshold for ct in c_tokens):
+                restantes.append(token)
+
+        return " ".join(restantes)
+
+    # --------------------------------------------------------
+    # EXECUTA APLICAÇÃO
+    # --------------------------------------------------------
     def aplicar(self, df):
         df["Base"], df["Variante"] = "", ""
+
         for gid, grupo in tqdm(
             df.groupby("ID_Variacao", group_keys=False), desc="Gerando bases"
         ):
@@ -65,21 +92,17 @@ class BaseVariantExtractor:
             media = self.similaridade_media(chaves)
 
             sens = 0.85 if media >= 0.9 else 0.75 if media >= 0.8 else 0.65
+
             comum = self.parte_comum(chaves, sens) or Normalizer.normalize(
                 grupo["Descrição"].iloc[0]
             )
-            print(comum)
+
+            print("Base encontrada:", comum)
+
             df.loc[grupo.index, "Base"] = comum
+
             df.loc[grupo.index, "Variante"] = grupo["Chave"].map(
-                lambda x: x.replace(comum, "").strip() #Extrair a parte comum e substituir por vazio
+                lambda x: self.remover_comum_tokens(x, comum)
             )
+
         return df
-
-
-
-df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/final.xlsx')
-df = df[:1].copy()
-nome = BaseVariantExtractor()
-df = nome.aplicar(df)
-
-df.to_excel('teste.xlsx')
