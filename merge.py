@@ -11,29 +11,19 @@ final_df = pd.read_excel(EXCEL_PATH)
 
 # === 2. Extrair o código numérico e número da imagem, de forma segura ===
 # Exemplo: "0000_1_FITA_DUREX_TRANSP_12X50"
-urls_df["codigo"] = (
-    urls_df["arquivo"]
-    .astype(str)
-    .str.extract(r"^(\d+)_")[0]
-)
+urls_df["codigo"] = urls_df["arquivo"].astype(str).str.extract(r"^(\d+)_")[0]
 
 # Converte para número, ignorando erros
 urls_df["codigo"] = pd.to_numeric(urls_df["codigo"], errors="coerce")
 
 # Extrai o número da imagem (ex: 1, 2, 3)
-urls_df["num_imagem"] = (
-    urls_df["arquivo"]
-    .astype(str)
-    .str.extract(r"_(\d+)_")[0]
-)
+urls_df["num_imagem"] = urls_df["arquivo"].astype(str).str.extract(r"_(\d+)_")[0]
 urls_df["num_imagem"] = pd.to_numeric(urls_df["num_imagem"], errors="coerce").fillna(0).astype(int)
 
-# Remove linhas que não têm código numérico válido
-urls_df = urls_df.dropna(subset=["codigo"]).copy()
-urls_df["codigo"] = urls_df["codigo"].astype(int)
-
 # === 3. Pivotar as URLs em colunas Url_Imagem1, Url_Imagem2, etc ===
-urls_pivot = urls_df.pivot_table(index="codigo", columns="num_imagem", values="url", aggfunc="first")
+urls_pivot = urls_df.pivot_table(
+    index="codigo", columns="num_imagem", values="url", aggfunc="first"
+)
 urls_pivot.columns = [f"Url_Imagem{i}" for i in urls_pivot.columns]
 
 # === 4. Garantir que o índice da planilha principal é numérico ===
