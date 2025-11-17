@@ -65,3 +65,11 @@
 2025-11-04 12:59:49,652 - src.utils.logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 175:
 2025-11-04 13:00:06,593 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
 2025-11-04 13:00:08,760 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-17 11:42:00,608 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-17 11:43:04,799 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-17 11:43:05,042 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-17 11:43:05,105 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-17 11:43:06,319 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-17 11:43:06,332 - src.utils.logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 175:
+2025-11-17 11:43:11,163 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-17 11:43:15,893 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:

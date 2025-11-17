@@ -4,11 +4,9 @@ import pandas as pd
 
 arquivo = "/home/lucas-silva/auto_shopee/planilhas/input/colunas_produtos_upseller.xlsx"
 upseller = pd.read_excel(arquivo)
-produtos = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/final_com_imagens.xlsx")
+produtos = pd.read_excel("/home/lucas-silva/auto_shopee/final_com_urls.xlsx")
 upseller_colunas = upseller.columns.tolist()
 
-teste = produtos[503:506]
-produtos = teste.copy()
 
 def criar_linha(item, colunas_bling):
     linha = {col: "" for col in colunas_bling}
@@ -20,19 +18,19 @@ def criar_linha(item, colunas_bling):
         "Categoria ID": "101197",
         "Nome Variante1": "Variação",
         "Opção por Variante1": item.get("Variante", ""),
-        "Imagem por Variante": item.get("URL Drive Imagem 1", ""),
+        "Imagem por Variante": item.get("Url_Imagem1.0", ""),
         "SKU": item.get("Sku", ""),
         "Preço*": item.get("Valor_unitário", ""),
         "Quantidade*": "0",
         "GTIN": item.get("Código de Barras", ""),
-        "Imagem de Capa": item.get("URL Drive Imagem 1", ""),
-        "Item da Imagem1": item.get("URL Drive Imagem 2", ""),
-        "Item da Imagem2": item.get("URL Drive Imagem 3", ""),
+        "Imagem de Capa": item.get("Url_Imagem1.0", ""),
+        "Item da Imagem1": item.get("Url_Imagem2.0", ""),
+        "Item da Imagem2": item.get("Url_Imagem3.0", ""),
         "Item da Imagem3": item.get("Url Imagem", ""),
         "Peso (kg)*": item.get("Peso", "1"),
-        "Comprimento (cm)":item.get("Comprimento",""),
-        "Largura (cm)": item.get("Largura",""),
-        "Altura (cm)": item.get("Altura","")
+        "Comprimento (cm)": item.get("Comprimento", ""),
+        "Largura (cm)": item.get("Largura", ""),
+        "Altura (cm)": item.get("Altura", ""),
     }
 
     linha.update(mapa)

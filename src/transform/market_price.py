@@ -64,7 +64,7 @@ class PrecoVenda:
         return self.df
 
 
-df = pd.read_excel("/home/lucas-silva/auto_shopee/final_com_urls.xlsx")
+df = pd.read_excel("/home/lucas-silva/auto_shopee/teste.xlsx")
 preco = PrecoVenda(df)
 df = preco.aplicar()
 

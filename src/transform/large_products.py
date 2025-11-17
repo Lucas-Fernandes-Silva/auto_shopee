@@ -1,36 +1,55 @@
 import re
 
-import pandas as pd
 
-df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/final.xlsx')
+class HeavyClassifier:
+    """
+    Classificador de produtos 'pesados' baseado em palavras-chave,
+    exceções e regras específicas (como tinta 18L, massas leves etc.).
+    """
 
-coluna_desc = "Base"   # <-- Agora usando Base
+    def __init__(self, df, column, heavy_keywords, exclude_keywords):
+        self.df = df
+        self.column = column
+        self.heavy_keywords = heavy_keywords
+        self.exclude_keywords = exclude_keywords
 
-palavras_grande = [
-    r"\bporta\b", r"\btelha\b", r"\btubo\b", r"\bgabinete\b", r"\bvaso\b",
-    r"\blavatorio\b", r"\bcaixa d'?agua\b", r"\btela\b", r"\bviveiro\b",
-    r"\bcimento\b", r"\bargamassa\b", r"\bmassa corrida\b", r"\btinta\b",
-    r"\btanque\b", r"\bpia\b", r"\bdescarga\b", r"\bpá\b", r"\benxada\b",
-    r"\bforcado\b", r"\bcavadeira\b", r"\bcabo\b", r"\bcalha\b",
-    r"\brodo\b", r"\bvassoura\b", r"\bextensor\b", r"\bvaral\b",
-    r"\bvedatop\b", r"\bcarrinho de mão\b", r"\bescada\b",
-    r"\brégua\b", r"\bcantoneira\b"
-]
+        # Resultados finais
+        self.df_pesados = None
+        self.df_restante = None
 
-excecoes = [
-    r"\bparafuso\b",
-    r"\bsuporte\b",
-    r"\bfixador\b",
-    r"\bmini\b",
-    r"\bkit\b"
-]
+    def classify(self):
+        pesados_dict = {}
 
-regex_grande = "|".join(palavras_grande)
-regex_excecao = "|".join(excecoes)
+        for idx, desc in self.df[self.column].items():
+            d = str(desc).upper()
 
-df_grande = df[
-    df[coluna_desc].str.contains(regex_grande, flags=re.IGNORECASE, na=False)
-    & ~df[coluna_desc].str.contains(regex_excecao, flags=re.IGNORECASE, na=False)
-]
+            # 1 — Exclusões diretas
+            if any(ex in d for ex in self.exclude_keywords):
+                continue
 
-df_restante = df.drop(df_grande.index)
+            # 2 — Massa corrida ou massa acrílica leve
+            if ("MASSA CORRIDA" in d or "MASSA ACR" in d) and any(
+                x in d for x in ["1KG", "900G", "500G", "3.6KG"]
+            ):
+                continue
+
+            # 3 — Tintas pesadas somente 15/18/20L
+            if "TINTA" in d and not any(x in d for x in ["15", "18L", "20L"]):
+                continue
+
+            # 4 — Checagem principal (regex)
+            if any(re.search(k, d) for k in self.heavy_keywords):
+                pesados_dict[idx] = desc
+
+        # Criação dos DataFrames
+        self.df_pesados = self.df.loc[self.df.index.isin(pesados_dict.keys())].copy()
+        self.df_restante = self.df.loc[~self.df.index.isin(pesados_dict.keys())].copy()
+
+        return self.df_pesados, self.df_restante
+
+    def save(self, pesados_path=None, restante_path=None):
+        """Salvar arquivos excel opcionalmente."""
+        if pesados_path:
+            self.df_pesados.to_excel(pesados_path, index=False) # type: ignore
+        if restante_path:
+            self.df_restante.to_excel(restante_path, index=False) # type: ignore
