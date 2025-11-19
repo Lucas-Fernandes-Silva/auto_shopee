@@ -1,3 +1,4 @@
+import json
 import os
 
 import cloudinary
@@ -6,11 +7,12 @@ import pandas as pd
 from PIL import Image, ImageOps
 from tqdm import tqdm
 
-# === CONFIGURAÇÃO DO CLOUDINARY ===
+with open('src/extract/img_extract/cloudinary_config.json', 'r', encoding='utf-8') as f:
+    secrets = json.load(f)
 cloudinary.config(
-    cloud_name="dbpq32fiq",
-    api_key="728699121312431",
-    api_secret="pzmdaYjFR0lDCwJhpFAXNJ0OV9Y"
+    cloud_name=secrets['cloud_name'],
+    api_key=secrets['api_key'],
+    api_secret=secrets['api_secret']
 )
 
 # === CAMINHOS ===
@@ -63,11 +65,7 @@ for file in tqdm(arquivos, desc="Processando imagens", unit="img"):
 
         # === SALVAR CSV ===
         df = pd.DataFrame(resultados)
-        df.to_csv("urls_cloudinary.csv", index=False)
+        df.to_csv("/home/lucas-silva/auto_shopee/planilhas/input/urls_cloudinary.csv", index=False)
 
     except Exception as e:
         print(e)
-
-print("\n✅ Finalizado com sucesso!")
-print(f"{len(resultados)} imagens redimensionadas, otimizadas e enviadas.")
-print("📄 URLs salvas em: urls_cloudinary.csv")

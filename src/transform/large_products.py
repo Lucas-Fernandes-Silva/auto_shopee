@@ -1,19 +1,16 @@
 import re
 
+from dados import dados
+
 
 class HeavyClassifier:
-    """
-    Classificador de produtos 'pesados' baseado em palavras-chave,
-    exceções e regras específicas (como tinta 18L, massas leves etc.).
-    """
 
-    def __init__(self, df, column, heavy_keywords, exclude_keywords):
+    def __init__(self, df):
         self.df = df
-        self.column = column
-        self.heavy_keywords = heavy_keywords
-        self.exclude_keywords = exclude_keywords
+        self.column = 'Descrição'
+        self.heavy_keywords = dados.heavy_keywords
+        self.exclude_keywords = dados.exclude_keywords
 
-        # Resultados finais
         self.df_pesados = None
         self.df_restante = None
 
