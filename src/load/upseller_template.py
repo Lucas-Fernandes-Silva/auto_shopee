@@ -4,7 +4,7 @@ import pandas as pd
 
 arquivo = "/home/lucas-silva/auto_shopee/planilhas/input/colunas_produtos_upseller.xlsx"
 upseller = pd.read_excel(arquivo)
-produtos = pd.read_excel("/home/lucas-silva/auto_shopee/final_com_urls.xlsx")
+produtos = pd.read_excel('taxas_corrigidas.xlsx')
 upseller_colunas = upseller.columns.tolist()
 
 
@@ -20,7 +20,7 @@ def criar_linha(item, colunas_bling):
         "Opção por Variante1": item.get("Variante", ""),
         "Imagem por Variante": item.get("Url_Imagem1.0", ""),
         "SKU": item.get("Sku", ""),
-        "Preço*": item.get("Valor_unitário", ""),
+        "Preço*": item.get("Preço Final", ""),
         "Quantidade*": "0",
         "GTIN": item.get("Código de Barras", ""),
         "Imagem de Capa": item.get("Url_Imagem1.0", ""),
