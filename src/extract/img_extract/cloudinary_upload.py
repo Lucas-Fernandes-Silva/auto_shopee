@@ -1,5 +1,6 @@
 import json
 import os
+from pathlib import Path
 
 import cloudinary
 import cloudinary.uploader
@@ -7,8 +8,26 @@ import pandas as pd
 from PIL import Image, ImageOps
 from tqdm import tqdm
 
+home = Path.home()
+
+paths = [
+    home / "github" / "auto_shopee",
+    home / "auto_shopee",
+]
+
+# escolhe o primeiro existente
+for p in paths:
+    if p.exists():
+        PROJECT_DIR = p
+        break
+else:
+    raise FileNotFoundError("Nenhum diretório auto_shopee encontrado.")
+
+FILE_PATH = PROJECT_DIR
+
 with open('src/extract/img_extract/cloudinary_config.json', 'r', encoding='utf-8') as f:
     secrets = json.load(f)
+
 cloudinary.config(
     cloud_name=secrets['cloud_name'],
     api_key=secrets['api_key'],
@@ -16,8 +35,8 @@ cloudinary.config(
 )
 
 # === CAMINHOS ===
-input_folder = "/home/lucas-silva/auto_shopee/notebooks/imagens"
-optimized_folder = "/home/lucas-silva/auto_shopee/notebooks/imagens_otimizadas"
+input_folder = f"{FILE_PATH}/notebooks/imagens"
+optimized_folder = f"{FILE_PATH}/notebooks/imagens_otimizadas"
 os.makedirs(optimized_folder, exist_ok=True)
 
 # === PARÂMETROS ===

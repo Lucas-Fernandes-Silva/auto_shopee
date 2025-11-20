@@ -3,10 +3,9 @@ import os
 import re
 import time
 
+import pandas as pd
 import requests
 from tqdm import tqdm
-
-from dados import dados
 
 
 class Download:
@@ -108,7 +107,7 @@ class Download:
                 api_key = self.keys[current_key_index]
 
                 try:
-                    imagens = self.buscar_imagens(query, api_key, dados.SEARCH_ENGINE_ID, num=3)
+                    imagens = self.buscar_imagens(query, api_key, cx='532347d8c03cc4861', num=3)
 
                     if not imagens:
                         print(f"⚠️ Nenhum resultado para: {produto}")
@@ -154,3 +153,17 @@ class Download:
             self.salvar_progresso(self.progress)
 
             time.sleep(1)
+
+df = pd.read_excel('/home/lucas-silva/auto_shopee/teste_download.xlsx')
+
+
+if __name__ == "__main__":
+
+    downloader = Download(
+        df=df,
+        progress="/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/progresso.json",
+        keys_file="/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/api_keys.json",
+        output_folder="/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens"
+    )
+
+    downloader.run()
