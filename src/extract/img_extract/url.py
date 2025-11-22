@@ -3,25 +3,38 @@ import os
 import re
 import time
 
-import pandas as pd
 import requests
 from tqdm import tqdm
 
+from src.extract.img_extract.cloudinary_upload import ImageOptimizerUploader
+
 
 class Download:
-    def __init__(self, df, progress='progresso.json', keys_file='api_keys.json',
-                 output_folder="notebooks/imagens"):
+    def __init__(
+        self,
+        df,
+        progress="/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/progresso.json",
+        keys_file="/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/api_keys.json",
+        output_folder="/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens",
+    ):
+
         self.df = df.drop_duplicates(subset=["Descrição"], keep="first").reset_index(drop=True)
         self.progress_file = progress
         self.keys_file_path = keys_file
         self.output_folder = output_folder
+        self.cols_imgs = ["Url_Imagem1.0", "Url_Imagem2.0", "Url_Imagem3.0", "Url Imagem"]
+
+        # 🔥 Cria colunas se não existirem
+        for col in self.cols_imgs:
+            if col not in self.df.columns:
+                self.df[col] = None
+
 
         os.makedirs(self.output_folder, exist_ok=True)
 
         # Carregamentos iniciais
         self.progress = self.carregar_progresso()
         self.keys = self.carregar_chaves()
-
 
     def carregar_progresso(self):
         if os.path.exists(self.progress_file):
@@ -40,7 +53,6 @@ class Download:
     def salvar_progresso(self, data):
         with open(self.progress_file, "w") as f:
             json.dump(data, f)
-
 
     def carregar_chaves(self):
         if not os.path.exists(self.keys_file_path):
@@ -72,7 +84,6 @@ class Download:
         response.raise_for_status()
         return data.get("items", [])
 
-
     def baixar_imagem(self, url, save_path):
         response = requests.get(url, stream=True, timeout=10)
         if response.status_code == 200:
@@ -82,8 +93,12 @@ class Download:
             return True
         return False
 
-
     def run(self):
+
+
+
+
+
         current_key_index = self.progress["current_key_index"]
         last_index = self.progress["last_index"]
 
@@ -96,6 +111,20 @@ class Download:
             produto = str(self.df.loc[i, "Descrição"]).strip()
             query = produto
 
+            # 🛑 Verifica se as 4 colunas estão vazias
+            linha_imgs = self.df.loc[i, self.cols_imgs]
+
+            # Se ALGUMA imagem existir → pular
+            if linha_imgs.notnull().any():
+                print(f"⏩ Pulando {produto}: já possui imagens.")
+                self.progress = {
+                    "last_index": i + 1,
+                    "current_key_index": current_key_index,
+                }
+                self.salvar_progresso(self.progress)
+                continue
+
+            # Se TODAS são vazias → baixa imagens
             tentativa = 0
 
             while True:
@@ -107,7 +136,7 @@ class Download:
                 api_key = self.keys[current_key_index]
 
                 try:
-                    imagens = self.buscar_imagens(query, api_key, cx='532347d8c03cc4861', num=3)
+                    imagens = self.buscar_imagens(query, api_key, cx="532347d8c03cc4861", num=3)
 
                     if not imagens:
                         print(f"⚠️ Nenhum resultado para: {produto}")
@@ -119,7 +148,7 @@ class Download:
                             continue
 
                         nome_limpo = re.sub(r'[\\/*?:"<>|]', "_", produto[:40])
-                        nome_arquivo = f"{i:04d}_{j+1}_{nome_limpo.replace(' ', '_')}.jpg"
+                        nome_arquivo = f"{j+1}_{nome_limpo.replace(' ', '_')}.jpg"
                         caminho = os.path.join(self.output_folder, nome_arquivo)
 
                         try:
@@ -154,16 +183,10 @@ class Download:
 
             time.sleep(1)
 
-df = pd.read_excel('/home/lucas-silva/auto_shopee/teste_download.xlsx')
 
 
-if __name__ == "__main__":
+processor = ImageOptimizerUploader()
 
-    downloader = Download(
-        df=df,
-        progress="/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/progresso.json",
-        keys_file="/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/api_keys.json",
-        output_folder="/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens"
-    )
-
-    downloader.run()
+processor.processar_imagens(
+    output_csv_path="/home/lucas-silva/auto_shopee/planilhas/input/urls_cloudinary.csv"
+)

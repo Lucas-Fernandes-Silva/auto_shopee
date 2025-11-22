@@ -1,65 +1,60 @@
 import os
 import sys
 
+import pandas as pd
+
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from datetime import date
 
-from dados import dados, env
-from src.extract.email_handler import EmailHandler
-from src.extract.web_scraper import WebScraper
-from src.extract.xml_processor import XMLProcessor
-from src.load.notas_manager import NotasManager
-from src.transform.base_variation_extract import BaseVariantExtractor
-from src.transform.brand_detector import BrandDetector
-from src.transform.category_filter import CategoryFiller
-from src.transform.large_products import HeavyClassifier
-from src.transform.market_price import PrecoVenda
-from src.transform.variation_grouper import VariationGrouper
-from src.utils.gtin_validator import GTINValidator
+from src.extract.img_extract.url import Download
 
-email = EmailHandler(env.user, env.pwd)
-email.baixar_anexos(date.today())
+# email = EmailHandler(env.user, env.pwd)
+# email.baixar_anexos(date.today())
 
-xml_proc = XMLProcessor("dados/nfes")
-lista_produtos = xml_proc.processar_todos(paralelo=True)
+# xml_proc = XMLProcessor("dados/nfes")
+# lista_produtos = xml_proc.processar_todos(paralelo=True)
 
-manager = NotasManager(dados.fornecedores)
+# manager = NotasManager(dados.fornecedores)
 
-df_produtos = manager.cria_dataframe(lista_produtos)
+# df_produtos = manager.cria_dataframe(lista_produtos)
 
-manager.copiar_xmls("dados/nfes", "dados/processados")
+# manager.copiar_xmls("dados/nfes", "dados/processados")
 
-scraper = WebScraper(env.headers)
-df_enriquecido = scraper.enriquecer_dataframe(
-    df_produtos, dados.fornecedores, paralelo=True
-)
+# scraper = WebScraper(env.headers)
+# df_enriquecido = scraper.enriquecer_dataframe(df_produtos, dados.fornecedores, paralelo=True)
 
 
-gtin = GTINValidator(df_enriquecido, dados.fornecedores_web_scraping)
-df = gtin.filter_priority()
-df = gtin.gerar_gtins_aleatorios(df)
+# gtin = GTINValidator(df_enriquecido, dados.fornecedores_web_scraping)
+# df = gtin.filter_priority()
+# df = gtin.gerar_gtins_aleatorios(df)
 
 
-preco = PrecoVenda(df)
-df = preco.aplicar()
+# preco = PrecoVenda(df)
+# df = preco.aplicar()
 
-marca = BrandDetector(df, dados.marcas_adicionais, dados.marca_variacoes)
-df = marca.aplicar()
+# marca = BrandDetector(df, dados.marcas_adicionais, dados.marca_variacoes)
+# df = marca.aplicar()
 
-categoria = CategoryFiller(df)
-df = categoria.aplicar()
+# categoria = CategoryFiller(df)
+# df = categoria.aplicar()
 
-variacao = VariationGrouper(df)
-df = variacao.aplicar()
+# variacao = VariationGrouper(df)
+# df = variacao.aplicar()
 
-nome = BaseVariantExtractor()
-df = nome.aplicar(df)
+# nome = BaseVariantExtractor()
+# df = nome.aplicar(df)
 
-manager.salvar_excel(df)
+# manager.salvar_excel(df)
 
 
-classifier = HeavyClassifier(df)
-df_pesados, df_restante = classifier.classify()
-classifier.save(restante_path="produtos_padrao.xlsx")
-classifier.save(pesados_path='grandes.xlsx')
+# classifier = HeavyClassifier(df)
+# df_pesados, df_restante = classifier.classify()
+# classifier.save(restante_path="produtos_padrao.xlsx")
+# classifier.save(pesados_path="grandes.xlsx")
+
+
+grandes = pd.read_excel("/home/lucas-silva/auto_shopee/grandes.xlsx")
+df = grandes[-1:]
+print(df)
+download = Download(df)
+download.run()
