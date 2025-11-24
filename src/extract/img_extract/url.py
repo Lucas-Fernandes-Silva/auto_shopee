@@ -6,8 +6,7 @@ import time
 import requests
 from tqdm import tqdm
 
-from src.extract.img_extract.cloudinary_upload import ImageOptimizerUploader
-
+# from src.extract.img_extract.cloudinary_upload import ImageOptimizerUploader
 
 class Download:
     def __init__(
@@ -95,10 +94,6 @@ class Download:
 
     def run(self):
 
-
-
-
-
         current_key_index = self.progress["current_key_index"]
         last_index = self.progress["last_index"]
 
@@ -183,10 +178,10 @@ class Download:
 
             time.sleep(1)
 
+        return self.df
 
+# processor = ImageOptimizerUploader()
 
-processor = ImageOptimizerUploader()
-
-processor.processar_imagens(
-    output_csv_path="/home/lucas-silva/auto_shopee/planilhas/input/urls_cloudinary.csv"
-)
+# processor.processar_imagens(
+#     output_csv_path="/home/lucas-silva/auto_shopee/planilhas/input/urls_cloudinary.csv"
+# )

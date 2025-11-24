@@ -6,6 +6,7 @@ import pandas as pd
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 
+from src.extract.img_extract.merge import Merge
 from src.extract.img_extract.url import Download
 
 # email = EmailHandler(env.user, env.pwd)
@@ -55,6 +56,12 @@ from src.extract.img_extract.url import Download
 
 grandes = pd.read_excel("/home/lucas-silva/auto_shopee/grandes.xlsx")
 df = grandes[-1:]
-print(df)
+
 download = Download(df)
-download.run()
+df = download.run()
+
+print(df)
+merge = Merge(df)
+juntos = merge.run()
+
+juntos.to_excel('teste_merge')

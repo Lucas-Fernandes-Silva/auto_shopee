@@ -1,6 +1,5 @@
 import json
 import os
-from pathlib import Path
 
 import cloudinary
 import cloudinary.uploader
@@ -20,32 +19,16 @@ class ImageOptimizerUploader:
         self.qualidade = qualidade
         self.tamanho_padrao = tamanho_padrao
 
-        self.project_dir = self._find_project_dir()
-        self.input_folder = f"{self.project_dir}/notebooks/imagens"
-        self.optimized_folder = f"{self.project_dir}/notebooks/imagens_otimizadas"
+        self.project_dir = '/home/lucas-silva/auto_shopee'
+        self.input_folder = f"{self.project_dir}/src/extract/img_extract/imagens"
+        self.optimized_folder = f"{self.project_dir}/src/extract/img_extract/imagens"
         os.makedirs(self.optimized_folder, exist_ok=True)
 
         self._load_cloudinary_config()
         self.resultados = []
 
-    # ======================================================
-    # Busca o diretório do projeto
-    # ======================================================
-    def _find_project_dir(self):
-        home = Path.home()
-        paths = [
-            home / "github" / "auto_shopee",
-            home / "auto_shopee",
-        ]
-        for p in paths:
-            if p.exists():
-                return p
 
-        raise FileNotFoundError("Nenhum diretório auto_shopee encontrado.")
 
-    # ======================================================
-    # Carrega config do Cloudinary
-    # ======================================================
     def _load_cloudinary_config(self):
         with open(self.cloudinary_config_path, "r", encoding="utf-8") as f:
             secrets = json.load(f)
@@ -56,9 +39,6 @@ class ImageOptimizerUploader:
             api_secret=secrets["api_secret"],
         )
 
-    # ======================================================
-    # Processar todas as imagens
-    # ======================================================
     def processar_imagens(self, output_csv_path=None):
         arquivos = [
             f
@@ -69,14 +49,11 @@ class ImageOptimizerUploader:
         for file in tqdm(arquivos, desc="Processando imagens", unit="img"):
             self._processar_imagem(file)
 
-            # salva o CSV continuamente
             if output_csv_path:
                 df = pd.DataFrame(self.resultados)
                 df.to_csv(output_csv_path, index=False)
 
-    # ======================================================
-    # Processar imagem individual
-    # ======================================================
+
     def _processar_imagem(self, file):
         try:
             caminho = os.path.join(self.input_folder, file)
@@ -109,3 +86,10 @@ class ImageOptimizerUploader:
 
         except Exception as e:
             print(f"❌ Erro ao processar {file}: {e}")
+
+
+processor = ImageOptimizerUploader()
+
+processor.processar_imagens(
+    output_csv_path="/home/lucas-silva/auto_shopee/planilhas/input/urls_cloudinary.csv"
+)
