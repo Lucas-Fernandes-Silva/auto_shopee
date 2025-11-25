@@ -1,11 +1,10 @@
 venv/
 __pycache__
-dados/
 O que é ?.txt
 cache/
-*.xml
 client_secrets.json
 credentials.json
 .env
 imagens/
 imagens_otimizadas
+dados/

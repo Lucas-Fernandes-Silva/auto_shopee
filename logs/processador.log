@@ -73,3 +73,70 @@
 2025-11-17 11:43:06,332 - src.utils.logger - INFO - Fallback Playwright para ESPACADOR 2,0MM - web_scraper.py - 175:
 2025-11-17 11:43:11,163 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
 2025-11-17 11:43:15,893 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-25 10:01:31,780 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-25 10:02:30,407 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-25 10:05:09,589 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251138203316000234550020001146951158147113.xml - email_handler.py - 32:
+2025-11-25 10:05:11,555 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251138203316000234550020001146961124214150.xml - email_handler.py - 32:
+2025-11-25 10:05:16,277 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251104648461000207550020033430381251752079.xml - email_handler.py - 32:
+2025-11-25 10:05:18,057 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251104648461000207550020033430391220209192.xml - email_handler.py - 32:
+2025-11-25 10:07:24,116 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-25 10:07:42,756 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250803928279000166550010003209281250149131.xml - email_handler.py - 32:
+2025-11-25 10:07:54,069 - src.utils.logger - INFO - Arquivo salvo: nfes/35250861064838016137550010000623901665106890.xml - email_handler.py - 32:
+2025-11-25 10:08:01,725 - src.utils.logger - INFO - Arquivo salvo: nfes/35250861064838016137550010000624961118558926.xml - email_handler.py - 32:
+2025-11-25 10:08:02,595 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250803928279000166550010003216211899217511.xml - email_handler.py - 32:
+2025-11-25 10:08:15,120 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe-35250801637895026280550060001468191676462879.XML - email_handler.py - 32:
+2025-11-25 10:08:26,016 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250838203316000234550020001061021227746213.xml - email_handler.py - 32:
+2025-11-25 10:08:26,700 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250838203316000234550020001061031146706812.xml - email_handler.py - 32:
+2025-11-25 10:08:27,520 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250804648461000207550020032778231142130220.xml - email_handler.py - 32:
+2025-11-25 10:08:56,254 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250904648461000207550020032820651362416043.xml - email_handler.py - 32:
+2025-11-25 10:09:11,896 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe-35250901637895026280550060001494801230684370.XML - email_handler.py - 32:
+2025-11-25 10:09:48,835 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250904648461000207550020032893561756097396.xml - email_handler.py - 32:
+2025-11-25 10:09:49,479 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250904648461000207550020032893571122209244.xml - email_handler.py - 32:
+2025-11-25 10:09:50,010 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250938203316000234550020001076711862185412.xml - email_handler.py - 32:
+2025-11-25 10:09:50,657 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35250938203316000234550020001076721701121690.xml - email_handler.py - 32:
+2025-11-25 10:10:22,790 - src.utils.logger - INFO - Arquivo salvo: nfes/35250913571969000164550010029172161373399680-nfe-env.xml - email_handler.py - 32:
+2025-11-25 10:10:40,585 - src.utils.logger - INFO - Arquivo salvo: nfes/35250901637895026280550060001516691762908583-procNFe.xml - email_handler.py - 32:
+2025-11-25 10:12:14,916 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251038203316000234550020001099261902532320.xml - email_handler.py - 32:
+2025-11-25 10:12:18,639 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251004648461000207550020033060421254151236.xml - email_handler.py - 32:
+2025-11-25 10:13:54,148 - src.utils.logger - INFO - Arquivo salvo: nfes/35251001637895026280550060001558521220871706-procNFe.xml - email_handler.py - 32:
+2025-11-25 10:14:18,891 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251004648461000207550020033164301210882442.xml - email_handler.py - 32:
+2025-11-25 10:14:35,493 - src.utils.logger - INFO - Arquivo salvo: nfes/BANDFATELBT06_196012509567.xml - email_handler.py - 32:
+2025-11-25 10:14:52,264 - src.utils.logger - INFO - Arquivo salvo: nfes/35251061064838016137550010000653201111252663.xml - email_handler.py - 32:
+2025-11-25 10:14:54,321 - src.utils.logger - INFO - Arquivo salvo: nfes/35251048534759000180570110000028511000285190.xml - email_handler.py - 32:
+2025-11-25 10:15:01,815 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251004648461000207550020033202271110602812.xml - email_handler.py - 32:
+2025-11-25 10:15:02,470 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251004648461000207550020033202281261139213.xml - email_handler.py - 32:
+2025-11-25 10:15:03,069 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251038203316000234550020001117191102978229.xml - email_handler.py - 32:
+2025-11-25 10:15:17,665 - src.utils.logger - INFO - Arquivo salvo: nfes/35251001637895026280550060001581381255710691-procNFe.xml - email_handler.py - 32:
+2025-11-25 10:15:25,257 - src.utils.logger - INFO - Arquivo salvo: nfes/BANDFATELBT08_292000035265.xml - email_handler.py - 32:
+2025-11-25 10:15:50,839 - src.utils.logger - INFO - Arquivo salvo: nfes/NFe35251003928279000166550010003287121105183102.xml - email_handler.py - 32:
+2025-11-25 10:16:09,208 - src.utils.logger - INFO - Arquivo salvo: nfes/35251101637895026280550060001602181124345675-procNFe.xml - email_handler.py - 32:
+2025-11-25 10:16:24,863 - src.utils.logger - INFO - Arquivo salvo: nfes/35251101637895026280550060001606531797998115-procNFe.xml - email_handler.py - 32:
+2025-11-25 10:18:48,444 - src.utils.logger - INFO - Arquivo salvo: nfes/BANDFATELBT02_284000054050.xml - email_handler.py - 32:
+2025-11-25 10:20:27,354 - src.utils.logger - INFO - Arquivo salvo: nfes/35251161064838016137550010000665271480850774.xml - email_handler.py - 32:
+2025-11-25 10:20:35,574 - src.utils.logger - INFO - Arquivo salvo: nfes/35251148534759000180570110000030191000301991.xml - email_handler.py - 32:
+2025-11-25 10:37:06,476 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-25 10:47:32,685 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-11-25 10:47:33,068 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-25 10:47:33,363 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-11-25 10:47:33,511 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-25 10:47:33,602 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-25 11:42:17,955 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-25 11:43:03,443 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-11-25 11:43:03,702 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-25 11:43:04,254 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-11-25 11:43:04,764 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-25 11:43:05,036 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-25 11:43:24,314 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-25 11:43:24,343 - src.utils.logger - INFO - Fallback Playwright para JOELHO ESG 75X90 - web_scraper.py - 175:
+2025-11-25 11:43:36,900 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-25 11:43:40,775 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-25 12:03:14,203 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-25 12:03:53,201 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-11-25 12:03:53,410 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-25 12:03:53,653 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-11-25 12:03:53,731 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-25 12:03:53,800 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-25 12:03:54,938 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-25 12:03:54,944 - src.utils.logger - INFO - Fallback Playwright para JOELHO ESG 75X90 - web_scraper.py - 175:
+2025-11-25 12:03:58,924 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-25 12:04:00,793 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:

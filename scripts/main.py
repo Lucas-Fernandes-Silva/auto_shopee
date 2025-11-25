@@ -2,8 +2,13 @@ import os
 import sys
 from datetime import date
 
-import pandas as pd
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
+
+from dados import dados, env
+from src.extract.email_handler import EmailHandler
+from src.extract.img_extract.merge import Merge
+from src.extract.img_extract.url import Download
 from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
 from src.load.notas_manager import NotasManager
@@ -14,14 +19,6 @@ from src.transform.large_products import HeavyClassifier
 from src.transform.market_price import PrecoVenda
 from src.transform.variation_grouper import VariationGrouper
 from src.utils.gtin_validator import GTINValidator
-
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-
-
-from dados import dados, env
-from src.extract.email_handler import EmailHandler
-from src.extract.img_extract.merge import Merge
-from src.extract.img_extract.url import Download
 
 email = EmailHandler(env.user, env.pwd)
 email.baixar_anexos(date.today())
@@ -67,15 +64,8 @@ df_pesados, df_restante = classifier.classify()
 classifier.save(restante_path="produtos_padrao.xlsx")
 classifier.save(pesados_path="grandes.xlsx")
 
-
-grandes = pd.read_excel("/home/lucas-silva/auto_shopee/grandes.xlsx")
-df = grandes[-1:]
-
 download = Download(df)
 df = download.run()
 
-print(df)
-merge = Merge(df)
+merge = Merge(df_restante)
 df = merge.run()
-
-print(df)
