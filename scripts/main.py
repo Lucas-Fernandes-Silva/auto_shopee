@@ -7,7 +7,6 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from dados import dados, env
 from src.extract.email_handler import EmailHandler
-from src.extract.img_extract.merge import Merge
 from src.extract.img_extract.url import Download
 from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
@@ -33,12 +32,10 @@ df_produtos = manager.cria_dataframe(lista_produtos)
 manager.copiar_xmls("dados/nfes", "dados/processados")
 
 scraper = WebScraper(env.headers)
-df_enriquecido = scraper.enriquecer_dataframe(df_produtos, dados.fornecedores, paralelo=True)
+df = scraper.enriquecer_dataframe(df_produtos, dados.fornecedores, paralelo=True)
 
-
-gtin = GTINValidator(df_enriquecido, dados.fornecedores_web_scraping)
-df = gtin.filter_priority()
-df = gtin.gerar_gtins_aleatorios(df)
+gtin = GTINValidator(df, dados.fornecedores_web_scraping)
+df = gtin.filter_priority(), gtin.gerar_gtins_aleatorios(df)
 
 
 preco = PrecoVenda(df)
@@ -67,5 +64,5 @@ classifier.save(pesados_path="grandes.xlsx")
 download = Download(df)
 df = download.run()
 
-merge = Merge(df_restante)
-df = merge.run()
+# merge = Merge(df_restante)
+# df = merge.run()
