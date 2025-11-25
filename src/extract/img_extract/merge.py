@@ -11,118 +11,131 @@ class Merge:
         self.df = df
         self.project_path = project_path
         self.url_cloud = f"{self.project_path}/urls_cloudinary.csv"
-        self.output_path = f"{self.project_path}planilhas/outputs/final_com_urls.xlsx"
+        self.output_path = f"{self.project_path}planilhas/outputs/final_com_urls.xlsx" #Salvar em DF
         self.debug = debug
 
-        # Normaliza descrição da planilha principal
+        # Normalização da descrição da base principal
         self.df["Descrição"] = (
             self.df["Descrição"]
             .astype(str)
             .apply(Normalizer.normalize)
         )
 
-        # Carrega URLs do Cloudinary
+        # Carrega URLs já enviadas ao Cloudinary
         self.urls_df = pd.read_csv(self.url_cloud, header=None, names=["arquivo", "url"])
 
+        # Colunas criadas no url.py
+        self.cols_imgs = ["Url_Imagem1.0", "Url_Imagem2.0", "Url_Imagem3.0", "Url Imagem"]
+
+        # Garante que existem no dataframe
+        for col in self.cols_imgs:
+            if col not in self.df.columns:
+                self.df[col] = None
+
     # ============================================================
-    # 1. Extrair informações do nome do arquivo
+    # Extrair informações do nome do arquivo
     # ============================================================
     @staticmethod
     def extrair_info(arquivo):
         arquivo = str(arquivo)
 
-        # Número da imagem
+        # Numero da imagem: "_1_", "_2_", ...
         num_img = re.search(r"_(\d+)_", arquivo)
         num_img = int(num_img.group(1)) if num_img else None
 
         # Remove prefixos como "123_1_"
         desc_raw = re.sub(r"^\d+_\d+_", "", arquivo)
 
-        # Trata underline e normaliza
+        # Normaliza a parte limpa
         descricao = Normalizer.normalize(desc_raw.replace("_", " "))
 
         return pd.Series([descricao, num_img])
 
     # ============================================================
-    # 2. Fuzzy Matching
+    # Fuzzy Match Para Encontrar Produto na Base
     # ============================================================
     def melhor_match(self, descricao, limiar=70):
         desc_norm = Normalizer.normalize(descricao)
 
-        # Listas pré-processadas
-        descs_final = self.descs_final
-        descs_norm = self.descs_norm
+        if desc_norm in self.descs_norm:
+            idx = self.descs_norm.index(desc_norm)
+            return self.descs_final[idx]
 
-        # Se bate exatamente, usa direto
-        if desc_norm in descs_norm:
-            idx = descs_norm.index(desc_norm)
-            return descs_final[idx]
-
-        # Caso contrário, fuzzy match
-        match = process.extractOne(
-            desc_norm,
-            descs_norm,
-            scorer=fuzz.ratio
-        )
+        # Caso não seja match exato, usa fuzzy
+        match = process.extractOne(desc_norm, self.descs_norm, scorer=fuzz.ratio)
 
         if self.debug:
             print("DEBUG:", descricao, "→", match)
 
-        if match is None:
+        if not match:
             return None
 
-        best_norm, score, idx = match
-
+        _, score, idx = match
         if score < limiar:
             return None
 
-        return descs_final[idx]
+        return self.descs_final[idx]
 
     # ============================================================
-    # 3. Pipeline completo
+    # EXECUÇÃO COMPLETA
     # ============================================================
     def run(self):
-        # Extrai infos
+        # Extrai dados do nome do arquivo
         self.urls_df[["descricao_extraida", "num_imagem"]] = \
             self.urls_df["arquivo"].apply(self.extrair_info)
 
         self.urls_df = self.urls_df.dropna(subset=["descricao_extraida"])
 
-        # Prepara listas de comparação
-        self.descs_final = self.df['Descrição'].unique().tolist()
+        # Listas para comparação
+        self.descs_final = self.df["Descrição"].unique().tolist()
         self.descs_norm = [Normalizer.normalize(x) for x in self.descs_final]
 
-        # Aplica fuzzy match
-        self.urls_df["descricao_final"] = self.urls_df["descricao_extraida"].apply(
-            self.melhor_match
-        )
+        # Fuzzy match
+        self.urls_df["descricao_final"] = \
+            self.urls_df["descricao_extraida"].apply(self.melhor_match)
 
+        # Remove imagens sem match
         self.urls_df = self.urls_df.dropna(subset=["descricao_final"])
 
-        # Pivot com URLs
-        urls_pivot = self.urls_df.pivot_table(
-            index="descricao_final",
-            columns="num_imagem",
-            values="url",
-            aggfunc="first"
-        )
+        # ============================================================
+        # Preencher colunas originais criadas no url.py
+        # ============================================================
 
-        # Renomeia colunas (Url_Imagem1, Url_Imagem2, ...)
-        urls_pivot.columns = [f"Url_Imagem{i}" for i in urls_pivot.columns]
-        urls_pivot = urls_pivot.reset_index()
+        # Mapeia número da imagem para a coluna exata
+        map_colunas = {
+            1: "Url_Imagem1.0",
+            2: "Url_Imagem2.0",
+            3: "Url_Imagem3.0",
+            None: "Url Imagem"
+        }
 
-        # Merge final
-        merged_df = self.df.merge(
-            urls_pivot,
-            left_on="Descrição",
-            right_on="descricao_final",
-            how="left"
-        ).drop(columns=["descricao_final"])
+        # Dicionário: {descricao_final: {coluna: url}}
+        urls_dict = {}
 
-        # Salva
-        merged_df.to_excel(self.output_path, index=False)
+        for _, row in self.urls_df.iterrows():
+            desc = row["descricao_final"]
+            num = row["num_imagem"]
+            url = row["url"]
 
-        print("✅ URLs adicionadas com sucesso!")
+            coluna = map_colunas.get(num)
+
+            if desc not in urls_dict:
+                urls_dict[desc] = {}
+
+            urls_dict[desc][coluna] = url
+
+        # Preenche no df principal
+        for idx, row in self.df.iterrows():
+            desc = row["Descrição"]
+
+            if desc in urls_dict:
+                for coluna, valor in urls_dict[desc].items():
+                    self.df.at[idx, coluna] = valor
+
+        # Salvar arquivo final
+        self.df.to_excel(self.output_path, index=False)
+
+        print("🔥 URLs preenchidas nas colunas originais do url.py!")
         print(f"📄 Arquivo salvo em: {self.output_path}")
 
-        return merged_df
+        return self.df
