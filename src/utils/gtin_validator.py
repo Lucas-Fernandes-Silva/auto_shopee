@@ -40,11 +40,11 @@ class GTINValidator:
         return df_final.reset_index(drop=True)
 
     # --- Novo método com seed interno ---
-    def gerar_gtins_aleatorios(self, df_filtrado, seed=42):
+    def gerar_gtins_aleatorios(self, df_final, seed=42):
         # Garante resultados repetíveis
         random.seed(seed)
 
-        df = df_filtrado.copy()
+        df = df_final.copy()
 
         # Coleta GTINs válidos existentes
         gtins_existentes = set(

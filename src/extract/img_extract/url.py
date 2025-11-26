@@ -126,7 +126,8 @@ class Download:
                 if tentativa >= len(self.keys):
                     print("🚫 Todas as chaves atingiram o limite diário.")
                     self.salvar_progresso({"last_index": i, "current_key_index": current_key_index})
-                    return
+                    print("DEBUG: Saindo por falta de chaves!")
+                    return self.df
 
                 api_key = self.keys[current_key_index]
 
