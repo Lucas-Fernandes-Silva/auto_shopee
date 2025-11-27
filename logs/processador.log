@@ -216,3 +216,15 @@
 2025-11-25 21:40:55,324 - src.utils.logger - INFO - Fallback Playwright para DISCO CORTE FERRO 2T 41/2X1/8X7/8 - web_scraper.py - 175:
 2025-11-25 21:40:59,317 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
 2025-11-25 21:41:00,496 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-26 12:05:03,958 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-26 12:05:36,782 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251138203316000234550020001150851219242183.xml - email_handler.py - 32:
+2025-11-26 12:05:37,338 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251104648461000207550020033454741532512052.xml - email_handler.py - 32:
+2025-11-26 12:05:47,035 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-11-26 12:05:47,355 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-26 12:05:47,619 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-11-26 12:05:47,824 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-26 12:05:47,968 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-26 12:05:52,258 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-26 12:05:52,262 - src.utils.logger - INFO - Fallback Playwright para BIANCO A 1L - web_scraper.py - 175:
+2025-11-26 12:06:04,812 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-26 12:06:08,163 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:

@@ -21124,5 +21124,235 @@
     "altura": "1",
     "comprimento": "1"
   },
+  "133273": {
+    "categoria": "REGISTROS",
+    "marca": "DECA",
+    "peso": "0.69300000",
+    "codigo_barras": "7894200053422",
+    "url_img": "https://cdn.construja.com.br/produtos/133273/133273.jpg",
+    "largura": "7",
+    "altura": "5",
+    "comprimento": "7"
+  },
+  "16130": {
+    "categoria": "DIVERSOS ELETRICA",
+    "marca": "INCA",
+    "peso": "1.87700000",
+    "codigo_barras": "7893537018210",
+    "url_img": "https://cdn.construja.com.br/produtos/16130/16130.jpg",
+    "largura": "23",
+    "altura": "3",
+    "comprimento": "23"
+  },
+  "199624": {
+    "categoria": "DIVERSOS - PINTURA",
+    "marca": "COMPEL",
+    "peso": "0.05500000",
+    "codigo_barras": "7897613520154",
+    "url_img": "https://cdn.construja.com.br/produtos/199624/199624.jpg",
+    "largura": "15",
+    "altura": "4",
+    "comprimento": "15"
+  },
+  "161131": {
+    "categoria": "DIVERSOS ELETRICA",
+    "marca": "INCA",
+    "peso": "0.64600000",
+    "codigo_barras": "7893537018142",
+    "url_img": "https://cdn.construja.com.br/produtos/161131/161131.jpg",
+    "largura": "18",
+    "altura": "4",
+    "comprimento": "18"
+  },
+  "16101": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "INCA",
+    "peso": "1.25900000",
+    "codigo_barras": "7893537004398",
+    "url_img": "https://cdn.construja.com.br/produtos/16101/16101.jpg",
+    "largura": "17",
+    "altura": "3",
+    "comprimento": "17"
+  },
+  "199708": {
+    "categoria": "DIVERSOS - PINTURA",
+    "marca": "COMPEL",
+    "peso": "0.50000000",
+    "codigo_barras": "7897613509302",
+    "url_img": "https://cdn.construja.com.br/produtos/199708/199708.jpg",
+    "largura": "29",
+    "altura": "11",
+    "comprimento": "29"
+  },
+  "176261": {
+    "categoria": "DIVERSOS - PINTURA",
+    "marca": "COMPEL",
+    "peso": "0.37500000",
+    "codigo_barras": "7897613509241",
+    "url_img": "https://cdn.construja.com.br/produtos/176261/176261.jpg",
+    "largura": "29",
+    "altura": "6",
+    "comprimento": "29"
+  },
+  "138305": {
+    "categoria": "TINTA FUNDO E BASES",
+    "marca": "NOVA TINTAS",
+    "peso": "5.50500000",
+    "codigo_barras": "7898620810078",
+    "url_img": "https://cdn.construja.com.br/produtos/138305/138305.jpg",
+    "largura": "20",
+    "altura": "19",
+    "comprimento": "20"
+  },
+  "138306": {
+    "categoria": "TINTA FUNDO E BASES",
+    "marca": "NOVA TINTAS",
+    "peso": "21.27000000",
+    "codigo_barras": "7898620811129",
+    "url_img": "https://cdn.construja.com.br/produtos/138306/138306.jpg",
+    "largura": "30",
+    "altura": "28",
+    "comprimento": "30"
+  },
+  "14102": {
+    "categoria": "LIXAS",
+    "marca": "TRIONITE",
+    "peso": "0.06200000",
+    "codigo_barras": "7898088925048",
+    "url_img": "https://cdn.construdigi.com.br/produtos/14102/14102.jpg",
+    "largura": "23",
+    "altura": "0.1",
+    "comprimento": "23"
+  },
+  "163340": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "EUCALAR",
+    "peso": "4.85000000",
+    "codigo_barras": "7896587031666",
+    "url_img": "https://cdn.construdigi.com.br/produtos/163340/163340.jpg",
+    "largura": "18.5",
+    "altura": "18.5",
+    "comprimento": "18.5"
+  },
+  "105293": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "CASA BONITA",
+    "peso": "5.09000000",
+    "codigo_barras": "7896257520117",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105293/105293.jpg",
+    "largura": "16.5",
+    "altura": "18.7",
+    "comprimento": "16.5"
+  },
+  "105304": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "CASA BONITA",
+    "peso": "4.92000000",
+    "codigo_barras": "7896257520209",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105304/105304.jpg",
+    "largura": "16.5",
+    "altura": "18.7",
+    "comprimento": "16.5"
+  },
+  "105415": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "HYDRONORTH",
+    "peso": "25.06000000",
+    "codigo_barras": "7896257522074",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105415/105415.jpg",
+    "largura": "23.4",
+    "altura": "35",
+    "comprimento": "23.4"
+  },
+  "105440": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "HYDRONORTH",
+    "peso": "5.17000000",
+    "codigo_barras": "7896257522340",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105440/105440.jpg",
+    "largura": "16.5",
+    "altura": "18.9",
+    "comprimento": "16.5"
+  },
+  "14125": {
+    "categoria": "LIXAS",
+    "marca": "TRIONITE",
+    "peso": "0.03500000",
+    "codigo_barras": "7898088923068",
+    "url_img": "https://cdn.construdigi.com.br/produtos/14125/14125.jpg",
+    "largura": "23",
+    "altura": "0.1",
+    "comprimento": "23"
+  },
+  "105279": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "CASA BONITA",
+    "peso": "23.10000000",
+    "codigo_barras": "7896257520087",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105279/105279.jpg",
+    "largura": "23.4",
+    "altura": "35",
+    "comprimento": "23.4"
+  },
+  "180353": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "EDA",
+    "peso": "0.25000000",
+    "codigo_barras": "7895315001049",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180353/180353.jpg",
+    "largura": "7",
+    "altura": "3",
+    "comprimento": "7"
+  },
+  "105284": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "CASA BONITA",
+    "peso": "24.92000000",
+    "codigo_barras": "7896257536217",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105284/105284.jpg",
+    "largura": "23.4",
+    "altura": "35",
+    "comprimento": "23.4"
+  },
+  "105302": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "CASA BONITA",
+    "peso": "4.86000000",
+    "codigo_barras": "7896257520261",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105302/105302.jpg",
+    "largura": "16.8",
+    "altura": "18.7",
+    "comprimento": "16.8"
+  },
+  "105311": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "CASA BONITA",
+    "peso": "5.06000000",
+    "codigo_barras": "7896257536316",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105311/105311.jpg",
+    "largura": "16.5",
+    "altura": "18.7",
+    "comprimento": "16.5"
+  },
+  "163341": {
+    "categoria": "TINTA ACRÍLICA OUTLET",
+    "marca": "EUCALAR",
+    "peso": "24.92000000",
+    "codigo_barras": "7896587031673",
+    "url_img": "https://cdn.construdigi.com.br/produtos/163341/163341.jpg",
+    "largura": "25.5",
+    "altura": "36",
+    "comprimento": "25.5"
+  },
+  "105285": {
+    "categoria": "TINTA ACRÍLICA",
+    "marca": "CASA BONITA",
+    "peso": "4.96500000",
+    "codigo_barras": "7896257520193",
+    "url_img": "https://cdn.construdigi.com.br/produtos/105285/105285.jpg",
+    "largura": "16.5",
+    "altura": "18.7",
+    "comprimento": "16.5"
+  },
   "NaN": {}
 }
