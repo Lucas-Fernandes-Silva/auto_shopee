@@ -151,8 +151,10 @@ merge = Merge(df)
 juntos = merge.run()
 
 
-
 classifier = HeavyClassifier(df)
 df_pesados, df_restante = classifier.classify()
+
+print()
+
 classifier.save(restante_path="produtos_padrao.xlsx")
 classifier.save(pesados_path="grandes.xlsx")

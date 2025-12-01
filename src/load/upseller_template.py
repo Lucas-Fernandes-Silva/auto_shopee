@@ -22,7 +22,7 @@ def criar_linha(item, colunas_bling):
         "Imagem de Capa": item.get("Url_Imagem1.0", ""),
         "Item da Imagem1": item.get("Url_Imagem2.0", ""),
         "Item da Imagem2": item.get("Url_Imagem3.0", ""),
-        "Item da Imagem3": item.get("Url Imagem", ""),
+        "Item da Imagem3": "https://res.cloudinary.com/dbpq32fiq/image/upload/v1764607018/c582a9f3-faf0-4d2e-938a-e8c5e55bf15b_nys9pu.png",
         "Peso (kg)*": item.get("Peso", "1"),
         "Comprimento (cm)": item.get("Comprimento", ""),
         "Largura (cm)": item.get("Largura", ""),

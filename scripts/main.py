@@ -61,7 +61,7 @@ manager.salvar_excel(df, 'categorias')
 
 
 classifier = HeavyClassifier(df)
-df_pesados, df_restante = classifier.classify()
+df_pesados, df_restante, df_custo_baixo = classifier.classify()
 classifier.save(restante_path="produtos_padrao.xlsx")
 classifier.save(pesados_path="grandes.xlsx")
 
@@ -72,6 +72,6 @@ manager.salvar_excel(df, 'download')
 
 
 classifier = HeavyClassifier(df)
-df_pesados, df_restante = classifier.classify()
+df_pesados, df_restante, df_custo_baixo = classifier.classify()
 classifier.save(restante_path="produtos_padrao.xlsx")
 classifier.save(pesados_path="grandes.xlsx")
