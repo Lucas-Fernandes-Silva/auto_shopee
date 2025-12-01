@@ -228,6 +228,7 @@
 2025-11-26 12:05:52,262 - src.utils.logger - INFO - Fallback Playwright para BIANCO A 1L - web_scraper.py - 175:
 2025-11-26 12:06:04,812 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
 2025-11-26 12:06:08,163 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+<<<<<<< HEAD
 2025-11-28 14:57:10,521 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
 2025-11-28 14:57:19,329 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251138203316000234550020001146951158147113.xml - email_handler.py - 32:
 2025-11-28 14:57:19,614 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251138203316000234550020001146961124214150.xml - email_handler.py - 32:
@@ -264,3 +265,24 @@
 2025-12-01 12:40:25,241 - src.utils.logger - INFO - Fallback Playwright para DUCHA BELLA DUCHA BR ULTRA 6800X220 - web_scraper.py - 175:
 2025-12-01 12:40:36,059 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
 2025-12-01 12:40:41,476 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+=======
+2025-11-27 17:19:59,543 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-27 17:21:47,053 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-27 17:22:36,935 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/35251101637895026280550060001653831385866608-procNFe.xml - email_handler.py - 32:
+2025-11-27 17:22:37,549 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/35251101637895026280550060001653871599347171-procNFe.xml - email_handler.py - 32:
+2025-11-27 17:22:40,955 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-27 17:22:41,087 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-27 17:22:41,094 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-27 17:22:41,989 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-27 17:22:41,992 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-11-27 17:22:46,714 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-27 17:22:47,537 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-27 18:39:15,383 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-27 18:40:06,667 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-27 18:40:06,742 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-27 18:40:06,747 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-27 18:40:07,846 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-27 18:40:07,849 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-11-27 18:40:11,699 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-27 18:40:12,679 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+>>>>>>> cc596bd (commit local)

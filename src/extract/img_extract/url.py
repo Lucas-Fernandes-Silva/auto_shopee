@@ -109,7 +109,6 @@ class Download:
 
             # 🛑 Verifica se as 4 colunas estão vazias
             linha_imgs = self.df.loc[i, self.cols_imgs]
-
             # Se ALGUMA imagem existir → pular
             if linha_imgs.notnull().any():
                 print(f"⏩ Pulando {produto}: já possui imagens.")
