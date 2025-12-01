@@ -7,8 +7,6 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from dados import dados, env
 from src.extract.email_handler import EmailHandler
-
-# from src.extract.img_extract.merge import Merge
 from src.extract.img_extract.url import Download
 from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
@@ -59,7 +57,7 @@ df = categoria.aplicar()
 # nome = BaseVariantExtractor()
 # df = nome.aplicar(df)
 
-manager.salvar_excel(df)
+manager.salvar_excel(df, 'categorias')
 
 
 classifier = HeavyClassifier(df)
@@ -70,5 +68,5 @@ classifier.save(pesados_path="grandes.xlsx")
 download = Download(df_restante)
 df = download.run()
 
-# merge = Merge(df_restante)
-# df = merge.run()
+manager.salvar_excel(df, 'download')
+

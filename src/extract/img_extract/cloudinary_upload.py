@@ -21,7 +21,7 @@ class ImageOptimizerUploader:
 
         self.project_dir = '/home/lucas-silva/auto_shopee'
         self.input_folder = f"{self.project_dir}/src/extract/img_extract/imagens"
-        self.optimized_folder = f"{self.project_dir}/src/extract/img_extract/imagens"
+        self.optimized_folder = f"{self.project_dir}/src/extract/img_extract/imagens_otimizadas"
         os.makedirs(self.optimized_folder, exist_ok=True)
 
         self._load_cloudinary_config()
@@ -93,3 +93,6 @@ processor = ImageOptimizerUploader()
 processor.processar_imagens(
     output_csv_path="/home/lucas-silva/auto_shopee/planilhas/input/urls_cloudinary.csv"
 )
+
+
+

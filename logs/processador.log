@@ -228,3 +228,21 @@
 2025-11-26 12:05:52,262 - src.utils.logger - INFO - Fallback Playwright para BIANCO A 1L - web_scraper.py - 175:
 2025-11-26 12:06:04,812 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
 2025-11-26 12:06:08,163 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-11-28 14:57:10,521 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-11-28 14:57:19,329 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251138203316000234550020001146951158147113.xml - email_handler.py - 32:
+2025-11-28 14:57:19,614 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251138203316000234550020001146961124214150.xml - email_handler.py - 32:
+2025-11-28 14:57:19,946 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251104648461000207550020033430381251752079.xml - email_handler.py - 32:
+2025-11-28 14:57:20,320 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251104648461000207550020033430391220209192.xml - email_handler.py - 32:
+2025-11-28 14:57:38,737 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251138203316000234550020001150851219242183.xml - email_handler.py - 32:
+2025-11-28 14:57:39,053 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251104648461000207550020033454741532512052.xml - email_handler.py - 32:
+2025-11-28 14:57:46,234 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/35251101637895026280550060001653831385866608-procNFe.xml - email_handler.py - 32:
+2025-11-28 14:57:46,492 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/35251101637895026280550060001653871599347171-procNFe.xml - email_handler.py - 32:
+2025-11-28 14:57:54,341 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/BANDFATELBT08_144012802312.xml - email_handler.py - 32:
+2025-11-28 14:57:59,926 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-11-28 14:58:00,266 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-11-28 14:58:00,338 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-11-28 14:58:00,839 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-11-28 14:58:02,330 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-28 14:58:02,334 - src.utils.logger - INFO - Fallback Playwright para DUCHA BELLA DUCHA BR ULTRA 6800X220 - web_scraper.py - 175:
+2025-11-28 14:58:12,206 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-11-28 14:58:15,468 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:

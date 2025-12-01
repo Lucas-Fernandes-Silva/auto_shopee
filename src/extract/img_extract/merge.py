@@ -139,3 +139,10 @@ class Merge:
         print(f"📄 Arquivo salvo em: {self.output_path}")
 
         return self.df
+
+
+df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/baixados.xlsx')
+merge = Merge(df)
+juntos = merge.run()
+
+juntos.to_excel('juntos')
