@@ -70,3 +70,8 @@ df = download.run()
 
 manager.salvar_excel(df, 'download')
 
+
+classifier = HeavyClassifier(df)
+df_pesados, df_restante = classifier.classify()
+classifier.save(restante_path="produtos_padrao.xlsx")
+classifier.save(pesados_path="grandes.xlsx")

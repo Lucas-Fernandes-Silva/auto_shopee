@@ -1,8 +1,13 @@
+import os
 import re
+import sys
 
 import pandas as pd
 from rapidfuzz import fuzz, process
 
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+from src.transform.large_products import HeavyClassifier
 from src.utils.normalizer import Normalizer
 
 
@@ -145,4 +150,9 @@ df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/baixados.xls
 merge = Merge(df)
 juntos = merge.run()
 
-juntos.to_excel('juntos')
+
+
+classifier = HeavyClassifier(df)
+df_pesados, df_restante = classifier.classify()
+classifier.save(restante_path="produtos_padrao.xlsx")
+classifier.save(pesados_path="grandes.xlsx")

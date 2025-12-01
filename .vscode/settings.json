@@ -3,18 +3,19 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit",
     "source.fixAll.ruff": "explicit",
-
   },
-
   "ruff.enable": true,
   "ruff.lintOnSave": true,
   "ruff.organizeImports": true,
   "ruff.fixAll": true,
   "ruff.lint.fixAll": true,
   "ruff.format": "true",
-
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "python.analysis.autoImportCompletions": true,
-  "python.analysis.typeCheckingMode": "basic"
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.extraPaths": [
+    "./src/utils",
+    "./src/utils"
+  ]
 }

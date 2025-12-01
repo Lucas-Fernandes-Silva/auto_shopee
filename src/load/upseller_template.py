@@ -4,7 +4,7 @@ import pandas as pd
 
 arquivo = "/home/lucas-silva/auto_shopee/planilhas/input/colunas_produtos_upseller.xlsx"
 upseller = pd.read_excel(arquivo)
-produtos = pd.read_excel('taxas_corrigidas.xlsx')
+produtos = pd.read_excel("/home/lucas-silva/auto_shopee/produtos_padrao.xlsx")
 upseller_colunas = upseller.columns.tolist()
 
 
@@ -12,14 +12,10 @@ def criar_linha(item, colunas_bling):
     linha = {col: "" for col in colunas_bling}
 
     mapa = {
-        "Nome do Produto*": item.get("Base", ""),
-        "SKU Principal": item.get("SKU_Pai", ""),
+        "Nome do Produto*": item.get("Descrição", ""),
+        "SKU Principal": item.get("Sku", ""),
         "Descrição*": item.get("Descrição", ""),
         "Categoria ID": "101197",
-        "Nome Variante1": "Variação",
-        "Opção por Variante1": item.get("Variante", ""),
-        "Imagem por Variante": item.get("Url_Imagem1.0", ""),
-        "SKU": item.get("Sku", ""),
         "Preço*": item.get("Preço Final", ""),
         "Quantidade*": "0",
         "GTIN": item.get("Código de Barras", ""),
@@ -50,4 +46,4 @@ else:
 
 
 # Salva tudo de novo (mantém todas as linhas)
-df_final.to_excel("teste.xlsx", index=False)
+df_final.to_excel("upseller.xlsx", index=False)
