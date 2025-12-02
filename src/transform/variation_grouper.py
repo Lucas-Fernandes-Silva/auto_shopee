@@ -6,7 +6,7 @@ from rapidfuzz import fuzz
 from tqdm import tqdm
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from src.utils.normalizer import Normalizer  # ou usar sua função normalizar direto
+from src.utils.normalizer import Normalizer
 
 
 class VariationGrouper:
@@ -58,3 +58,4 @@ class VariationGrouper:
             grupo_id += 1
 
         return df.sort_values(["ID_Variacao", "Tipo"]).reset_index(drop=True)
+

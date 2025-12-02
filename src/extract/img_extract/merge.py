@@ -7,7 +7,6 @@ from rapidfuzz import fuzz, process
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from src.transform.large_products import HeavyClassifier
 from src.utils.normalizer import Normalizer
 
 
@@ -15,16 +14,14 @@ class Merge:
     def __init__(self, df, project_path="/home/lucas-silva/auto_shopee/", debug=False):
         self.df = df
         self.project_path = project_path
-        self.url_cloud = f"{self.project_path}/urls_cloudinary.csv"
-        self.output_path = f"{self.project_path}planilhas/outputs/final_com_urls.xlsx" #Salvar em DF
+        self.url_cloud = f"{self.project_path}/produtos_convertido.csv"
+        self.output_path = (
+            f"{self.project_path}planilhas/outputs/final_com_urls.xlsx"  # Salvar em DF
+        )
         self.debug = debug
 
         # Normalização da descrição da base principal
-        self.df["Descrição"] = (
-            self.df["Descrição"]
-            .astype(str)
-            .apply(Normalizer.normalize)
-        )
+        self.df["Descrição"] = self.df["Descrição"].astype(str).apply(Normalizer.normalize)
 
         # Carrega URLs já enviadas ao Cloudinary
         self.urls_df = pd.read_csv(self.url_cloud, header=None, names=["arquivo", "url"])
@@ -86,8 +83,9 @@ class Merge:
     # ============================================================
     def run(self):
         # Extrai dados do nome do arquivo
-        self.urls_df[["descricao_extraida", "num_imagem"]] = \
-            self.urls_df["arquivo"].apply(self.extrair_info)
+        self.urls_df[["descricao_extraida", "num_imagem"]] = self.urls_df["arquivo"].apply(
+            self.extrair_info
+        )
 
         self.urls_df = self.urls_df.dropna(subset=["descricao_extraida"])
 
@@ -96,8 +94,9 @@ class Merge:
         self.descs_norm = [Normalizer.normalize(x) for x in self.descs_final]
 
         # Fuzzy match
-        self.urls_df["descricao_final"] = \
-            self.urls_df["descricao_extraida"].apply(self.melhor_match)
+        self.urls_df["descricao_final"] = self.urls_df["descricao_extraida"].apply(
+            self.melhor_match
+        )
 
         # Remove imagens sem match
         self.urls_df = self.urls_df.dropna(subset=["descricao_final"])
@@ -111,7 +110,7 @@ class Merge:
             1: "Url_Imagem1.0",
             2: "Url_Imagem2.0",
             3: "Url_Imagem3.0",
-            None: "Url Imagem"
+            None: "Url Imagem",
         }
 
         # Dicionário: {descricao_final: {coluna: url}}
@@ -146,15 +145,8 @@ class Merge:
         return self.df
 
 
-df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/baixados.xlsx')
+df = pd.read_excel("/home/lucas-silva/auto_shopee/produtos_padrao.xlsx")
 merge = Merge(df)
 juntos = merge.run()
 
-
-classifier = HeavyClassifier(df)
-df_pesados, df_restante = classifier.classify()
-
-print()
-
-classifier.save(restante_path="produtos_padrao.xlsx")
-classifier.save(pesados_path="grandes.xlsx")
+juntos.to_excel('juntos.xlsx', index=False)

@@ -1,6 +1,8 @@
 import os
 import sys
 
+import pandas as pd
+
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 
@@ -9,14 +11,12 @@ from src.extract.img_extract.url import Download
 from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
 from src.load.notas_manager import NotasManager
-
-# from src.transform.base_variation_extract import BaseVariantExtractor
+from src.transform.base_variation_extract import BaseVariantExtractor
 from src.transform.brand_detector import BrandDetector
 from src.transform.category_filter import CategoryFiller
 from src.transform.large_products import HeavyClassifier
 from src.transform.market_price import PrecoVenda
-
-# from src.transform.variation_grouper import VariationGrouper
+from src.transform.variation_grouper import VariationGrouper
 from src.utils.gtin_validator import GTINValidator
 
 # email = EmailHandler(env.user, env.pwd)
@@ -49,11 +49,6 @@ df = marca.aplicar()
 categoria = CategoryFiller(df)
 df = categoria.aplicar()
 
-# variacao = VariationGrouper(df)
-# df = variacao.aplicar()
-
-# nome = BaseVariantExtractor()
-# df = nome.aplicar(df)
 
 manager.salvar_excel(df, 'categorias')
 
@@ -66,7 +61,15 @@ df = download.run()
 
 manager.salvar_excel(df, 'download')
 
-
 classifier = HeavyClassifier(df)
 df_pesados, df_restante, df_custo_baixo = classifier.classify()
 
+df = pd.read_excel('/home/lucas-silva/auto_shopee/juntos.xlsx')
+
+variacao = VariationGrouper(df)
+df = variacao.aplicar()
+
+nome = BaseVariantExtractor()
+df = nome.aplicar(df)
+
+manager.salvar_excel(df, 'variações')

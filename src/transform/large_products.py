@@ -62,7 +62,7 @@ class HeavyClassifier:
 
         # --- DF custo baixo ---
         self.df_custo_baixo = restante.loc[cond_custo_baixo].copy()
-
+        print(self.df_custo_baixo)
         # --- DF restante (tudo que não é custo baixo e não é taxa fixa) ---
         self.df_restante = restante.loc[~cond_custo_baixo & ~cond_taxa_fixa].copy()
 

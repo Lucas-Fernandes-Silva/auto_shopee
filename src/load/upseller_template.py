@@ -4,7 +4,7 @@ import pandas as pd
 
 arquivo = "/home/lucas-silva/auto_shopee/planilhas/input/colunas_produtos_upseller.xlsx"
 upseller = pd.read_excel(arquivo)
-produtos = pd.read_excel("/home/lucas-silva/auto_shopee/produtos_padrao.xlsx")
+produtos = pd.read_excel("/home/lucas-silva/auto_shopee/juntos.xlsx")
 upseller_colunas = upseller.columns.tolist()
 
 
