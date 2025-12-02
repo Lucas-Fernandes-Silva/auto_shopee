@@ -1,12 +1,10 @@
 import os
 import sys
-from datetime import date
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 
 from dados import dados, env
-from src.extract.email_handler import EmailHandler
 from src.extract.img_extract.url import Download
 from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
@@ -21,8 +19,8 @@ from src.transform.market_price import PrecoVenda
 # from src.transform.variation_grouper import VariationGrouper
 from src.utils.gtin_validator import GTINValidator
 
-email = EmailHandler(env.user, env.pwd)
-email.baixar_anexos(date.today())
+# email = EmailHandler(env.user, env.pwd)
+# email.baixar_anexos(date.today())
 
 xml_proc = XMLProcessor("dados/nfes")
 lista_produtos = xml_proc.processar_todos(paralelo=True)
@@ -62,8 +60,6 @@ manager.salvar_excel(df, 'categorias')
 
 classifier = HeavyClassifier(df)
 df_pesados, df_restante, df_custo_baixo = classifier.classify()
-classifier.save(restante_path="produtos_padrao.xlsx")
-classifier.save(pesados_path="grandes.xlsx")
 
 download = Download(df_restante)
 df = download.run()
@@ -73,5 +69,4 @@ manager.salvar_excel(df, 'download')
 
 classifier = HeavyClassifier(df)
 df_pesados, df_restante, df_custo_baixo = classifier.classify()
-classifier.save(restante_path="produtos_padrao.xlsx")
-classifier.save(pesados_path="grandes.xlsx")
+

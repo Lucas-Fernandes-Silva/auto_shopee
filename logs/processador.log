@@ -286,3 +286,1128 @@
 2025-11-27 18:40:11,699 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
 2025-11-27 18:40:12,679 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
 >>>>>>> cc596bd (commit local)
+2025-12-01 18:24:28,129 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 18:25:18,477 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/BANDFATELBT08_144012802312.xml - email_handler.py - 32:
+2025-12-01 18:25:46,708 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,708 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250338203316000234550020000899881141192392.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,711 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018799781288159700-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,735 - src.utils.logger - INFO - Erro ao processar dados/nfes/5-danfe-30981135000146-13-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,738 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-29-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,735 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024338441727158008-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,733 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087951886254151.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,754 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017786861472793966-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,760 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031291921121150112.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,764 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200313571969000164550010013308251006693222-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,776 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-27-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,778 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033202271110602812.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,779 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230838203316000234550020000329391149876231.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,783 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028469391455479829-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,786 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220204648461000207550020023440421458323712.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,789 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087971159220855.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,791 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210104648461000207550020020745981192205110.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,787 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027286921798977046-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,794 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012984081002210494-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,795 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200304648461000207550020018747621115088132.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,793 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021245351544457923-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,800 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35221104648461000207550020025414981261462188.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,800 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020150331114610963-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,801 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019457651862915733-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,803 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240204648461000207550020028707811213231633.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,804 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023276851940520182-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,807 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021362121176647005-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,809 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250513571969000164550010028162081551615046-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,811 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026271481428209685-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,813 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200704648461000207550020019428511207016714.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,814 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010023946051058736940-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,815 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018787381971675141-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,818 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 18:25:46,822 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028634431281833170.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,827 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012896711005997584-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,826 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200504648461000207550020019152031112007780.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,832 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200313571969000164550010013370251012794980-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,840 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020027091511852024060.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,843 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018496141266328200-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,846 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-23-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,847 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201113571969000164550010014946931005113998-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,847 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220420812457000108550010000004751057157724-nfe.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,849 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010024037381979616780-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,855 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022850821791631581.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,856 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 02-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,856 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020026931411193118128.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,858 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018275181345529503-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,861 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250804648461000207550020032778231142130220.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,861 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230713571969000164550010022388761888599283-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,865 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024674761167411208-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,867 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230413571969000164550010021800781646597784-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,868 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024544081403681047-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,868 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013112451008465995-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,868 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240504648461000207550020029444931150208120.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,869 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200213571969000164550010013222841009132159-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,872 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250904648461000207550020032893561756097396.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,874 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018869271083251762-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,877 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250504648461000207550020032095451542232296.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,877 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020261321577467568-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,881 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230813571969000164550010022691911242337983-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,882 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028659371489325915-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,883 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220104648461000207550020023312701451832365.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,889 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030984091157190210.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,890 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023504461542961280-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,891 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015469471013057623-nfe-canc-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,892 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200913571969000164550010014593151000506713-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,892 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210813571969000164550010017107021046512907-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,893 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250704648461000207550020032400571210140565.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,893 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021975831895322130-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,897 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012968421010629576-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,899 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251104648461000207550020033430381251752079.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,903 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-17-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,905 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230638203316000234550020000276411254133670.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,906 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014866151012785519-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,906 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026449581859738567-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,907 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200813571969000164550010014264581003280133-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,908 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033164301210882442.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,910 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002941441230501383.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,910 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018738611663677187-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,911 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002945741148661330.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,911 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210504648461000207550020021529251213115153.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,912 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017867171325788090-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,914 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211013571969000164550010017589181934727662-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,917 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031407401770250153.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,919 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230504648461000207550020026688821154437446.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,920 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019478801357053763-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,921 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020476741466356520-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,924 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220204648461000207550020023525641344424713.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,926 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231204648461000207550020028351701245315614.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,927 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022904271611301783.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,928 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210204648461000207550020020828051222352056.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,930 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014722421006535011-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,931 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230403928279000166550010002459161113235255.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,934 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024915351181881077-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,934 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019351991263913191.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,935 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240913571969000164550010026079721032043006-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,938 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240503928279000166550010002790311126899817.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,939 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028482291050001006-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,939 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024855311478974117-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,940 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-12-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,940 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-19-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,941 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250438203316000234550020000922871813664652.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,944 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019750781152672821-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,946 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031291911116341382.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,947 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012838621000600710-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,948 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250438203316000234550020000930081153191167.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,949 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019360461242129799.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,950 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241238203316000234550020000800761185727646.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,951 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200613571969000164550010013790391001057121-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,955 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-13-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,955 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-04-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,956 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030984071196916818.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,956 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017957561268188642-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,957 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230313571969000164550010021543691840745174-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,959 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018599591683981217-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,959 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241038203316000234550020000721001133177160.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,963 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-04-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,964 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230404648461000207550020026505311682301162.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,964 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024200191354401855-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,969 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025177611648117590-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,970 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028303221620333308-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,971 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028469401512438929-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,971 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240303928279000166550010002735311681271397.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,971 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231104648461000207550020028128671251194562.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,974 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200204648461000207550020018567541117458618.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,975 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250338203316000234550020000879771571652329.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,975 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250404648461000207550020031850891105241940.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,979 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,984 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250404648461000207550020031807811145296254.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,987 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031498171781069104.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,989 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201213571969000164550010015183401003113627-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,992 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,994 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241004648461000207550020030426961232722141.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:46,999 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 18:25:47,014 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015582291009598933-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,025 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe-35220801637895002267550060005137691832350553.XML: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,036 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230303928279000166550010002433551190201222.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,055 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021258481339986161-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,060 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230304648461000207550020026322631175209422.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,076 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022801191106712117.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,175 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231104648461000207550020028128681208487941.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,176 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200713571969000164550010014133931003131424-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,180 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-05-11-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,182 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241238203316000234550020000790081229122130.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,187 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028486031123194100.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,198 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026449571806819077-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,199 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031232111185205224.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,203 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027145261078128803-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,205 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231004648461000207550020027940391111707919.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,213 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220804648461000207550020024869481171119118.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,218 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025034921995271720-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,224 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200404648461000207550020018989101115242534.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,224 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025062561277903845-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,229 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 16-01-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,234 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023625221368818649-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,236 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010017991191814439040-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,237 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,237 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200704648461000207550020019531941871055200.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,240 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018722131155321383-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,243 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019802401317439847-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,246 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013032161007655948-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,246 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019478791318075890-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,247 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028555141238601351.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,248 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024203041446292800-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,249 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200613571969000164550010013818871008552258-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,250 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022850811016117124.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,252 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230113571969000164550010021034621985103569-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,253 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250238203316000234550020000863751570244213.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,254 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250413571969000164550010027962241882166407-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,255 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015469471013057623-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,259 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023656161133684164-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,259 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-28-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,259 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,261 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241104648461000207550020030778201109672115.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,263 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010018035431487454009-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,263 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240403928279000166550010002761881224238182.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,260 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018405081311180922-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,264 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220504648461000207550020024151161129402240.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,267 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012757661008571743-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,268 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019031961584916888-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,272 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220813571969000164550010019908851852017296-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,274 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240913571969000164550010026004041808739484-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,275 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020290571752801449-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,277 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023335441418037367-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,279 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087941223182228.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,282 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012914421002209313-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,283 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200904648461000207550020019859291223246311.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,284 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220304648461000207550020023791981861971881.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,287 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013081891005973504-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,287 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019538661661072361-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,288 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250313571969000164550010027590621534855249-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,291 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024516301900707867-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,292 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220513571969000164550010019255881405688761-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,292 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231213571969000164550010023694561263557282-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,293 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-20-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,295 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231213571969000164550010023894251078068204-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,296 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020209321382042769-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,301 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015759221006204170-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,303 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240403928279000166550010002764421250140620.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,305 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-29-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,306 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028596351104126651-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,308 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024458341227495501-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,311 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250413571969000164550010027969301329847388-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,312 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-02-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,316 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020559331974257188-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,319 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200713571969000164550010014030411013655802-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,321 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-13-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,321 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35221004648461000207550020025257361309858249.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,322 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025227411931826570-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,324 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020222581307914743-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,325 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230738203316000234550020000302581144153228.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,327 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026271471375646396-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,331 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030920941662202133.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,331 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,336 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020661831797199926-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,337 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230413571969000164550010021740211150561120-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,338 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230804648461000207550020027374011783011167.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,339 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018333741097467108-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,339 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021245341586968864-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,342 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028649071361397215-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,343 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021362111219391484-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,348 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250904648461000207550020032820651362416043.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,349 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230104648461000207550020025895591681512215.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,350 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031511341129119243.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,353 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231103928279000166550010002623401219172700.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,354 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-24-08-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,355 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 18:25:47,356 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250604648461000207550020032170311243112316.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,358 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 18:25:47,358 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251038203316000234550020001099261902532320.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,361 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230313571969000164550010021461361478934248-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,362 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024855301528705001-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,365 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,367 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025141291410306263-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,368 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-01-11-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,371 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240804648461000207550020030165291322081035.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,371 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018531711197365453-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,372 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014750561014040873-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,372 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220704648461000207550020024684171463511519.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,372 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240938203316000234550020000697491781122543.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,377 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023203861754227461-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,378 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-23-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,381 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017760411295864331-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,382 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250213571969000164550010027387311039353109-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,382 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210704648461000207550020022025011244254200.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,385 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021896021189616284-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,386 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250703928279000166550010003186171951331423.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,386 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002957571132502356.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,387 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019298691190156926.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,389 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020125591321083861-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,390 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015737281009637593-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,395 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35201104648461000207550020020349161971382257.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,395 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250738203316000234550020001005931229931021.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,396 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220513571969000164550010019347291865170129-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,396 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230504648461000207550020026890761193625909.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,397 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 01-01-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,399 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 03-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,399 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-31-08-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,401 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240204648461000207550020028806031236937828.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,403 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250938203316000234550020001076711862185412.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,403 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023504471589990550-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,404 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010018999751868540395-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,406 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 17-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,408 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230603928279000166550010002519431233324921.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,412 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231004648461000207550020027855611211732507.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,416 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019058381575896806-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,417 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010018035441523545207-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,417 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024578101019757982-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,418 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015624491010465674-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,419 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026452221831183521-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,419 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-19-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,419 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211004648461000207550020022640611135240932.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,424 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-08-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,424 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024224331691951150-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,424 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031645481526021716.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,425 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210413571969000164550010016076161346782722-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,430 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015492341000960289-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,431 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010022047261100269642-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,432 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026341471738450251-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,433 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230704648461000207550020027317241121411667.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,434 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220813571969000164550010020079801093784403-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,435 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 18-11-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,437 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230913571969000164550010022931751763746257-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,438 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240903928279000166550010002891541923621721.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,439 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020031057171159193327.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,440 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031596271612224616.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,440 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210713571969000164550010016992031238286852-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,443 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-17-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,443 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025319451958088499-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,450 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230813571969000164550010022716681563971560-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,451 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020479911493616950-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,451 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023386521356457805-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,450 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251104648461000207550020033454741532512052.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,452 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251138203316000234550020001146951158147113.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,453 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200204648461000207550020018673061111499583.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,454 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021974891762048133-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,456 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191047960950049724650120000010351463967326-nfe.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,457 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240304648461000207550020028892891191184300.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,459 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210204648461000207550020020853391227150197.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,460 - src.utils.logger - INFO - Erro ao processar dados/nfes/2-danfe-30981135000146-28-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,462 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230713571969000164550010022560331334310232-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,463 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023190741248730301-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,464 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250504648461000207550020032044521203266410.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,464 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35201004648461000207550020020079791219182656.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,467 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230303928279000166550010002446661221231785.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,467 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023625231321547859-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,467 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-07-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,468 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230613571969000164550010022193411449386383-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,469 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230903928279000166550010002587021581652547.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,470 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019000501720078640-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,471 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027061351350607594-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,472 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024578111970581504-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,473 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020661841755855920-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,474 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024291901055630404-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,475 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250913571969000164550010029172161373399680-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,475 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030955001179614818.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,477 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033060421254151236.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,479 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020395561097451049-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,482 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230113571969000164550010021136011261604890-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,482 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013066211003380656-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,485 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024797011422521393-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,486 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019617721558491403-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,488 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024516291949760728-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,489 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221213571969000164550010020826421781422644-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,493 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010024037391027711804-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,493 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031325721419383802.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,494 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220504648461000207550020024130001108562155.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,494 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250803928279000166550010003209281250149131.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,497 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200904648461000207550020019971391127821403.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,497 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020026913731471662519.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:47,498 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210713571969000164550010016992041272291208-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:25:48,091 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 18:27:15,665 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 18:28:41,313 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200313571969000164550010013308251006693222-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,314 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250338203316000234550020000899881141192392.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,325 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018799781288159700-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,328 - src.utils.logger - INFO - Erro ao processar dados/nfes/5-danfe-30981135000146-13-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,332 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,350 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087951886254151.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,355 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-29-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,357 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023276851940520182-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,367 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031291921121150112.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,362 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017786861472793966-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,370 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021245351544457923-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,372 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027286921798977046-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,372 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230838203316000234550020000329391149876231.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,374 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-27-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,374 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220204648461000207550020023440421458323712.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,374 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024338441727158008-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,377 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028469391455479829-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,379 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087971159220855.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,382 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020150331114610963-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,385 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012984081002210494-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,386 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026271481428209685-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,390 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210104648461000207550020020745981192205110.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,390 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240204648461000207550020028707811213231633.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,392 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021362121176647005-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,392 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018787381971675141-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,393 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35221104648461000207550020025414981261462188.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,399 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200304648461000207550020018747621115088132.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,399 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200704648461000207550020019428511207016714.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,399 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019457651862915733-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,401 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 18:28:41,401 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010023946051058736940-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,402 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033202271110602812.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,406 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200504648461000207550020019152031112007780.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,406 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250513571969000164550010028162081551615046-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,399 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028634431281833170.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,410 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012896711005997584-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,414 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020027091511852024060.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,424 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010024037381979616780-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,425 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-23-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,425 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220420812457000108550010000004751057157724-nfe.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,426 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201113571969000164550010014946931005113998-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,417 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200313571969000164550010013370251012794980-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,428 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018496141266328200-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,430 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022850821791631581.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,434 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020026931411193118128.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,436 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 02-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,439 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230713571969000164550010022388761888599283-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,441 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024544081403681047-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,442 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018869271083251762-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,442 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018275181345529503-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,443 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024674761167411208-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,444 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230413571969000164550010021800781646597784-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,444 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013112451008465995-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,443 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250804648461000207550020032778231142130220.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,447 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200213571969000164550010013222841009132159-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,449 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250904648461000207550020032893561756097396.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,449 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020261321577467568-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,451 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230813571969000164550010022691911242337983-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,446 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240504648461000207550020029444931150208120.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,452 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250504648461000207550020032095451542232296.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,457 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028659371489325915-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,458 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210813571969000164550010017107021046512907-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,459 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220104648461000207550020023312701451832365.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,460 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200913571969000164550010014593151000506713-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,462 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023504461542961280-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,462 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030984091157190210.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,465 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015469471013057623-nfe-canc-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,466 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021975831895322130-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,467 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250704648461000207550020032400571210140565.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,471 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-17-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,472 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251104648461000207550020033430381251752079.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,474 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014866151012785519-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,478 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002945741148661330.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,479 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012968421010629576-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,479 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230638203316000234550020000276411254133670.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,480 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200813571969000164550010014264581003280133-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,483 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018738611663677187-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,484 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026449581859738567-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,486 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210504648461000207550020021529251213115153.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,488 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002941441230501383.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,490 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033164301210882442.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,493 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211013571969000164550010017589181934727662-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,495 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031407401770250153.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,496 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230504648461000207550020026688821154437446.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,497 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017867171325788090-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,498 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020476741466356520-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,501 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014722421006535011-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,501 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022904271611301783.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,503 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220204648461000207550020023525641344424713.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,506 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019478801357053763-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,509 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028482291050001006-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,510 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210204648461000207550020020828051222352056.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,511 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231204648461000207550020028351701245315614.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,513 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240913571969000164550010026079721032043006-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,515 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024855311478974117-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,515 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230403928279000166550010002459161113235255.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,515 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240503928279000166550010002790311126899817.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,517 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024915351181881077-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,518 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200713571969000164550010014133931003131424-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,518 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250438203316000234550020000922871813664652.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,520 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-19-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,523 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019750781152672821-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,526 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200613571969000164550010013790391001057121-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,526 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012838621000600710-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,527 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-12-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,528 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031291911116341382.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,530 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250438203316000234550020000930081153191167.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,531 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-04-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,533 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241238203316000234550020000800761185727646.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,534 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030984071196916818.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,534 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230313571969000164550010021543691840745174-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,536 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017957561268188642-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,537 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-13-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,538 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241038203316000234550020000721001133177160.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,538 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018599591683981217-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,540 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240303928279000166550010002735311681271397.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,543 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-04-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,543 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024200191354401855-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,542 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230404648461000207550020026505311682301162.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,548 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025177611648117590-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,548 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200204648461000207550020018567541117458618.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,551 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028303221620333308-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,553 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028469401512438929-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,556 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250338203316000234550020000879771571652329.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,555 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231104648461000207550020028128671251194562.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,561 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250404648461000207550020031850891105241940.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,566 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250404648461000207550020031807811145296254.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,572 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031498171781069104.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,576 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025034921995271720-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,583 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231104648461000207550020028128681208487941.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,584 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201213571969000164550010015183401003113627-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,587 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241004648461000207550020030426961232722141.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,590 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 18:28:41,592 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018722131155321383-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,606 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015582291009598933-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,620 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe-35220801637895002267550060005137691832350553.XML: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,640 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230303928279000166550010002433551190201222.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,662 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230304648461000207550020026322631175209422.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,666 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021258481339986161-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,697 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019351991263913191.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,704 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022801191106712117.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,717 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,728 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-05-11-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,741 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019360461242129799.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,738 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028486031123194100.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,751 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031232111185205224.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,756 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026449571806819077-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,757 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,761 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027145261078128803-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,764 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231004648461000207550020027940391111707919.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,767 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 16-01-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,768 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025062561277903845-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,770 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200404648461000207550020018989101115242534.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,772 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023625221368818649-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,777 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220804648461000207550020024869481171119118.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,778 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,781 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019802401317439847-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,783 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019478791318075890-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,784 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013032161007655948-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,784 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200613571969000164550010013818871008552258-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,787 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230113571969000164550010021034621985103569-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,788 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241238203316000234550020000790081229122130.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,791 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022850811016117124.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,793 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028555141238601351.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,793 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024203041446292800-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,796 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015469471013057623-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,797 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250413571969000164550010027962241882166407-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,797 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250238203316000234550020000863751570244213.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,798 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023656161133684164-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,799 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-28-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,800 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241104648461000207550020030778201109672115.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,800 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018405081311180922-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,801 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220504648461000207550020024151161129402240.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,801 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220304648461000207550020023791981861971881.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,802 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012757661008571743-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,804 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019031961584916888-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,802 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010018035431487454009-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,805 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240403928279000166550010002761881224238182.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,807 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240913571969000164550010026004041808739484-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,811 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220813571969000164550010019908851852017296-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,811 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023335441418037367-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,814 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,816 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020290571752801449-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,817 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012914421002209313-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,819 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087941223182228.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,819 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013081891005973504-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,819 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200904648461000207550020019859291223246311.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,823 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231213571969000164550010023894251078068204-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,826 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-20-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,826 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250313571969000164550010027590621534855249-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,828 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019538661661072361-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,828 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231213571969000164550010023694561263557282-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,830 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024516301900707867-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,832 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220513571969000164550010019255881405688761-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,833 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020209321382042769-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,833 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015759221006204170-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,834 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200704648461000207550020019531941871055200.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,837 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024458341227495501-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,837 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-29-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,838 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028596351104126651-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,840 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250413571969000164550010027969301329847388-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,841 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240403928279000166550010002764421250140620.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,844 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020559331974257188-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,845 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-02-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,846 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35221004648461000207550020025257361309858249.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,847 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025227411931826570-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,847 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010017991191814439040-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,858 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200713571969000164550010014030411013655802-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,861 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020222581307914743-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,861 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230738203316000234550020000302581144153228.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,863 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026271471375646396-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,863 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030920941662202133.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,864 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-13-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,876 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,878 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230804648461000207550020027374011783011167.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,882 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018333741097467108-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,882 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021245341586968864-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,883 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230413571969000164550010021740211150561120-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,883 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028649071361397215-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,883 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020661831797199926-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,885 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021362111219391484-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,887 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031511341129119243.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,889 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231103928279000166550010002623401219172700.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,892 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230104648461000207550020025895591681512215.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,893 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250604648461000207550020032170311243112316.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,894 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 18:28:41,896 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-24-08-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,897 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250904648461000207550020032820651362416043.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,902 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230313571969000164550010021461361478934248-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,914 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-01-11-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,905 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024855301528705001-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,920 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240804648461000207550020030165291322081035.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,922 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220704648461000207550020024684171463511519.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,907 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 18:28:41,908 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025141291410306263-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,923 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018531711197365453-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,910 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,911 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251038203316000234550020001099261902532320.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,929 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014750561014040873-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,930 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023203861754227461-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,932 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017760411295864331-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,932 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021896021189616284-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,934 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210704648461000207550020022025011244254200.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,934 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250213571969000164550010027387311039353109-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,936 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240938203316000234550020000697491781122543.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,937 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019298691190156926.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,938 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-23-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,942 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250703928279000166550010003186171951331423.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,943 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002957571132502356.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,943 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015737281009637593-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,944 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220513571969000164550010019347291865170129-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,944 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020125591321083861-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,944 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230504648461000207550020026890761193625909.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,946 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35201104648461000207550020020349161971382257.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,946 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 03-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,946 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-31-08-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,947 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 01-01-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,947 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250738203316000234550020001005931229931021.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,948 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240204648461000207550020028806031236937828.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,948 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010018999751868540395-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,949 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250938203316000234550020001076711862185412.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,949 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230603928279000166550010002519431233324921.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,949 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023504471589990550-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,950 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 17-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,951 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231004648461000207550020027855611211732507.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,953 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024578101019757982-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,955 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019058381575896806-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,957 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010018035441523545207-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,959 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-19-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,961 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026452221831183521-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,962 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015624491010465674-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,962 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211004648461000207550020022640611135240932.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,965 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024224331691951150-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,969 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031645481526021716.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,973 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-08-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,974 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010022047261100269642-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,975 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210413571969000164550010016076161346782722-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,975 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 18-11-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,975 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230704648461000207550020027317241121411667.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,977 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026341471738450251-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,981 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015492341000960289-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,982 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240903928279000166550010002891541923621721.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,982 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020031057171159193327.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,983 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031596271612224616.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,983 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210713571969000164550010016992031238286852-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,984 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220813571969000164550010020079801093784403-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,985 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230913571969000164550010022931751763746257-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,987 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251104648461000207550020033454741532512052.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,988 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025319451958088499-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,989 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-17-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,991 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021974891762048133-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,991 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251138203316000234550020001146951158147113.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,991 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023386521356457805-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,992 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230813571969000164550010022716681563971560-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,996 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020479911493616950-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:41,997 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200204648461000207550020018673061111499583.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,005 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240304648461000207550020028892891191184300.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,005 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191047960950049724650120000010351463967326-nfe.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,007 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210204648461000207550020020853391227150197.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,008 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023190741248730301-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,008 - src.utils.logger - INFO - Erro ao processar dados/nfes/2-danfe-30981135000146-28-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,009 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250504648461000207550020032044521203266410.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,010 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230713571969000164550010022560331334310232-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,011 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230303928279000166550010002446661221231785.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,012 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230903928279000166550010002587021581652547.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,013 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35201004648461000207550020020079791219182656.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,014 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230613571969000164550010022193411449386383-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,014 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-07-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,015 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023625231321547859-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,018 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019000501720078640-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,020 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024578111970581504-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,020 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027061351350607594-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,023 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030955001179614818.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,024 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250913571969000164550010029172161373399680-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,025 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024291901055630404-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,025 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020661841755855920-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,027 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020395561097451049-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,029 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013066211003380656-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,029 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230113571969000164550010021136011261604890-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,029 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033060421254151236.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,032 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019617721558491403-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,035 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221213571969000164550010020826421781422644-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,036 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024797011422521393-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,038 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024516291949760728-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,039 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010024037391027711804-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,040 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210713571969000164550010016992041272291208-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,041 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200904648461000207550020019971391127821403.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,042 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031325721419383802.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,043 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250803928279000166550010003209281250149131.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,043 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220504648461000207550020024130001108562155.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,046 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020026913731471662519.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:28:42,479 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 18:30:55,864 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 18:32:06,970 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250338203316000234550020000899881141192392.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:06,970 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:06,973 - src.utils.logger - INFO - Erro ao processar dados/nfes/5-danfe-30981135000146-13-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:06,977 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018799781288159700-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:06,988 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200313571969000164550010013308251006693222-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:06,995 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-29-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:06,998 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35221104648461000207550020025414981261462188.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:06,989 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024338441727158008-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,000 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017786861472793966-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:06,996 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021245351544457923-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,008 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-27-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,009 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031291921121150112.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,015 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087951886254151.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,014 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023276851940520182-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,032 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033202271110602812.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,032 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027286921798977046-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,037 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210104648461000207550020020745981192205110.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,039 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230838203316000234550020000329391149876231.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,040 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220204648461000207550020023440421458323712.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,040 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012984081002210494-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,046 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087971159220855.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,049 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200304648461000207550020018747621115088132.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,044 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028469391455479829-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,050 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026271481428209685-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,051 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020150331114610963-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,056 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200704648461000207550020019428511207016714.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,057 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240204648461000207550020028707811213231633.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,063 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018787381971675141-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,063 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019457651862915733-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,062 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010023946051058736940-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,059 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021362121176647005-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,065 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250513571969000164550010028162081551615046-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,067 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 18:32:07,072 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200504648461000207550020019152031112007780.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,075 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012896711005997584-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,076 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028634431281833170.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,079 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018496141266328200-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,079 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200313571969000164550010013370251012794980-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,082 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010024037381979616780-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,084 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220420812457000108550010000004751057157724-nfe.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,087 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020027091511852024060.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,090 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201113571969000164550010014946931005113998-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,092 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-23-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,097 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022850821791631581.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,099 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020026931411193118128.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,102 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 02-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,106 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230713571969000164550010022388761888599283-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,107 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240504648461000207550020029444931150208120.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,109 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024544081403681047-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,111 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018275181345529503-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,111 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250804648461000207550020032778231142130220.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,113 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018869271083251762-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,114 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024674761167411208-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,117 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200213571969000164550010013222841009132159-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,117 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013112451008465995-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,117 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230413571969000164550010021800781646597784-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,118 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250504648461000207550020032095451542232296.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,119 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230813571969000164550010022691911242337983-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,121 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020261321577467568-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,123 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250904648461000207550020032893561756097396.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,126 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220104648461000207550020023312701451832365.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,127 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028659371489325915-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,127 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030984091157190210.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,131 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023504461542961280-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,131 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015469471013057623-nfe-canc-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,131 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200913571969000164550010014593151000506713-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,132 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210813571969000164550010017107021046512907-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,132 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021975831895322130-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,134 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250704648461000207550020032400571210140565.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,136 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012968421010629576-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,137 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-17-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,139 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230638203316000234550020000276411254133670.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,138 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251104648461000207550020033430381251752079.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,141 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026449581859738567-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,141 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014866151012785519-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,142 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200813571969000164550010014264581003280133-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,142 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033164301210882442.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,143 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002941441230501383.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,146 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017867171325788090-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,146 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018738611663677187-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,145 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002945741148661330.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,150 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019478801357053763-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,150 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210504648461000207550020021529251213115153.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,150 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031407401770250153.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,150 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230504648461000207550020026688821154437446.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,148 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211013571969000164550010017589181934727662-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,152 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022904271611301783.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,154 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020476741466356520-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,155 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231204648461000207550020028351701245315614.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,155 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220204648461000207550020023525641344424713.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,156 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014722421006535011-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,159 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240913571969000164550010026079721032043006-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,159 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230403928279000166550010002459161113235255.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,162 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240503928279000166550010002790311126899817.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,163 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028482291050001006-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,164 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210204648461000207550020020828051222352056.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,164 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024915351181881077-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,162 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024855311478974117-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,165 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019351991263913191.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,167 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200713571969000164550010014133931003131424-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,167 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250438203316000234550020000922871813664652.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,168 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-12-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,167 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-19-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,172 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200613571969000164550010013790391001057121-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,173 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031291911116341382.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,176 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019360461242129799.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,176 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019750781152672821-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,177 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-04-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,180 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012838621000600710-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,180 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030984071196916818.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,181 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-13-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,182 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017957561268188642-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,183 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241238203316000234550020000800761185727646.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,184 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241038203316000234550020000721001133177160.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,184 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230313571969000164550010021543691840745174-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,185 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-04-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,186 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018599591683981217-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,186 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240303928279000166550010002735311681271397.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,187 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024200191354401855-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,193 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230404648461000207550020026505311682301162.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,194 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200204648461000207550020018567541117458618.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,194 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025177611648117590-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,195 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028469401512438929-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,196 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231104648461000207550020028128671251194562.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,198 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250338203316000234550020000879771571652329.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,201 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,202 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250613571969000164550010028303221620333308-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,202 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250404648461000207550020031807811145296254.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,211 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,212 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025034921995271720-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,212 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031498171781069104.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,213 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241004648461000207550020030426961232722141.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,214 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 18:32:07,215 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220313571969000164550010018722131155321383-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,232 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015582291009598933-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,226 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe-35220801637895002267550060005137691832350553.XML: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,236 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230303928279000166550010002433551190201222.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,244 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230304648461000207550020026322631175209422.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,249 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021258481339986161-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,258 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010017991191814439040-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,263 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022801191106712117.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,359 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250438203316000234550020000930081153191167.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,364 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-05-11-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,374 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028486031123194100.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,388 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026449571806819077-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,394 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200704648461000207550020019531941871055200.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,397 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031232111185205224.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,399 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250404648461000207550020031850891105241940.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,401 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027145261078128803-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,402 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231004648461000207550020027940391111707919.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,408 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220804648461000207550020024869481171119118.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,408 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200404648461000207550020018989101115242534.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,409 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025062561277903845-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,411 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 16-01-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,413 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023625221368818649-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,417 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,420 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019802401317439847-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,421 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-03-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,422 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200613571969000164550010013818871008552258-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,422 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231104648461000207550020028128681208487941.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,426 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240104648461000207550020028555141238601351.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,426 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241238203316000234550020000790081229122130.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,427 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024203041446292800-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,428 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019478791318075890-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,430 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211104648461000207550020022850811016117124.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,430 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013032161007655948-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,433 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015469471013057623-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,434 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250413571969000164550010027962241882166407-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,434 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250238203316000234550020000863751570244213.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,434 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230113571969000164550010021034621985103569-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,436 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023656161133684164-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,436 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-28-01-2025.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,440 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018405081311180922-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,440 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241104648461000207550020030778201109672115.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,443 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191213571969000164550010012757661008571743-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,443 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240403928279000166550010002761881224238182.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,443 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220504648461000207550020024151161129402240.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,444 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010018035431487454009-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,444 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220304648461000207550020023791981861971881.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,445 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019031961584916888-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,450 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023335441418037367-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,451 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240913571969000164550010026004041808739484-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,451 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020290571752801449-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,452 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220813571969000164550010019908851852017296-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,452 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010012914421002209313-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,456 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250104648461000207550020031087941223182228.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,456 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201213571969000164550010015183401003113627-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,457 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013081891005973504-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,460 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250313571969000164550010027590621534855249-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,461 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-20-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,461 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200904648461000207550020019859291223246311.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,465 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024516301900707867-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,465 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220513571969000164550010019255881405688761-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,465 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020209321382042769-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,469 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220613571969000164550010019538661661072361-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,472 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-29-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,472 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231213571969000164550010023694561263557282-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,473 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024458341227495501-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,473 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028596351104126651-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,473 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240403928279000166550010002764421250140620.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,475 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231213571969000164550010023894251078068204-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,475 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015759221006204170-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,478 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250413571969000164550010027969301329847388-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,480 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-02-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,480 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020559331974257188-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,483 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025227411931826570-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,484 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200713571969000164550010014030411013655802-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,484 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35221004648461000207550020025257361309858249.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,489 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020222581307914743-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,489 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-13-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,489 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026271471375646396-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,490 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230738203316000234550020000302581144153228.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,491 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030920941662202133.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,499 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-10-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,500 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230804648461000207550020027374011783011167.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,501 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230413571969000164550010021740211150561120-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,503 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220113571969000164550010018333741097467108-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,505 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021245341586968864-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,507 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020661831797199926-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,509 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-24-08-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,509 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250713571969000164550010028649071361397215-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,510 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250904648461000207550020032820651362416043.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,512 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031511341129119243.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,514 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230213571969000164550010021362111219391484-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,516 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230104648461000207550020025895591681512215.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,515 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231103928279000166550010002623401219172700.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,518 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 18:32:07,522 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230313571969000164550010021461361478934248-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,523 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250604648461000207550020032170311243112316.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,524 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024855301528705001-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,525 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251038203316000234550020001099261902532320.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,528 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 18:32:07,532 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-18-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,536 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240513571969000164550010025141291410306263-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,537 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-01-11-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,539 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220213571969000164550010018531711197365453-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,539 - src.utils.logger - INFO - Erro ao processar dados/nfes/35201013571969000164550010014750561014040873-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,541 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240804648461000207550020030165291322081035.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,542 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220704648461000207550020024684171463511519.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,542 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023203861754227461-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,544 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021896021189616284-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,546 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211113571969000164550010017760411295864331-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,547 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250213571969000164550010027387311039353109-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,548 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210704648461000207550020022025011244254200.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,550 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200604648461000207550020019298691190156926.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,552 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-23-09-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,552 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240938203316000234550020000697491781122543.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,555 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241103928279000166550010002957571132502356.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,558 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015737281009637593-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,558 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250703928279000166550010003186171951331423.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,560 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35201104648461000207550020020349161971382257.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,557 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220913571969000164550010020125591321083861-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,562 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250738203316000234550020001005931229931021.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,563 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220513571969000164550010019347291865170129-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,563 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-31-08-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,566 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240204648461000207550020028806031236937828.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,567 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 01-01-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,568 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230504648461000207550020026890761193625909.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,571 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023504471589990550-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,571 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230603928279000166550010002519431233324921.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,571 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010018999751868540395-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,570 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 03-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,572 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250938203316000234550020001076711862185412.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,575 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 17-12-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,576 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019058381575896806-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,577 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35231004648461000207550020027855611211732507.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,578 - src.utils.logger - INFO - Erro ao processar dados/nfes/35211213571969000164550010018035441523545207-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,578 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024578101019757982-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,581 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210213571969000164550010015624491010465674-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,581 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026452221831183521-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,582 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024224331691951150-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,583 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-19-05-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,584 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35211004648461000207550020022640611135240932.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,588 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-08-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,590 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031645481526021716.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,592 - src.utils.logger - INFO - Erro ao processar dados/nfes/3 - danfe - 30981135000146 18-11-2023.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,594 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230704648461000207550020027317241121411667.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,595 - src.utils.logger - INFO - Erro ao processar dados/nfes/35241013571969000164550010026341471738450251-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,597 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220813571969000164550010020079801093784403-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,599 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210113571969000164550010015492341000960289-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,594 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010022047261100269642-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,600 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210413571969000164550010016076161346782722-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,601 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240903928279000166550010002891541923621721.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,602 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020031057171159193327.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,605 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240613571969000164550010025319451958088499-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,605 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251104648461000207550020033454741532512052.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,605 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250304648461000207550020031596271612224616.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,606 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210713571969000164550010016992031238286852-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,607 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-17-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,608 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230913571969000164550010022931751763746257-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,611 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023386521356457805-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,611 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251138203316000234550020001146951158147113.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,613 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230513571969000164550010021974891762048133-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,615 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230813571969000164550010022716681563971560-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,616 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200204648461000207550020018673061111499583.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,617 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35240304648461000207550020028892891191184300.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,621 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020479911493616950-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,622 - src.utils.logger - INFO - Erro ao processar dados/nfes/35191047960950049724650120000010351463967326-nfe.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,626 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250504648461000207550020032044521203266410.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,631 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35210204648461000207550020020853391227150197.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,635 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231013571969000164550010023190741248730301-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,639 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35201004648461000207550020020079791219182656.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,640 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230303928279000166550010002446661221231785.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,640 - src.utils.logger - INFO - Erro ao processar dados/nfes/2-danfe-30981135000146-28-12-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,642 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230613571969000164550010022193411449386383-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,642 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230713571969000164550010022560331334310232-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,642 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230903928279000166550010002587021581652547.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,643 - src.utils.logger - INFO - Erro ao processar dados/nfes/3-danfe-30981135000146-07-06-2024.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,644 - src.utils.logger - INFO - Erro ao processar dados/nfes/35231113571969000164550010023625231321547859-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,652 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220413571969000164550010019000501720078640-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,655 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221113571969000164550010020661841755855920-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,655 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024578111970581504-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,655 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35241204648461000207550020030955001179614818.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,655 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240213571969000164550010024291901055630404-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,656 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250913571969000164550010029172161373399680-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,659 - src.utils.logger - INFO - Erro ao processar dados/nfes/35250113571969000164550010027061351350607594-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,659 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35251004648461000207550020033060421254151236.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,660 - src.utils.logger - INFO - Erro ao processar dados/nfes/35230113571969000164550010021136011261604890-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,665 - src.utils.logger - INFO - Erro ao processar dados/nfes/35200113571969000164550010013066211003380656-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,667 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221013571969000164550010020395561097451049-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,669 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240413571969000164550010024797011422521393-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,671 - src.utils.logger - INFO - Erro ao processar dados/nfes/35220713571969000164550010019617721558491403-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,673 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240313571969000164550010024516291949760728-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,675 - src.utils.logger - INFO - Erro ao processar dados/nfes/35221213571969000164550010020826421781422644-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,677 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250204648461000207550020031325721419383802.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,677 - src.utils.logger - INFO - Erro ao processar dados/nfes/35240113571969000164550010024037391027711804-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,677 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35220504648461000207550020024130001108562155.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,678 - src.utils.logger - INFO - Erro ao processar dados/nfes/35210713571969000164550010016992041272291208-nfe-env.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,678 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35200904648461000207550020019971391127821403.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,682 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35230604648461000207550020026913731471662519.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:07,682 - src.utils.logger - INFO - Erro ao processar dados/nfes/NFe35250803928279000166550010003209281250149131.xml: 'Descriçãio' - xml_processor.py - 48:
+2025-12-01 18:32:08,125 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 18:38:03,014 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 18:39:14,780 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 18:39:14,928 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 18:39:15,360 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 18:39:15,372 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 18:39:16,594 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 18:39:16,597 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 18:39:22,708 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 18:39:24,368 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 18:42:23,100 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 18:43:31,638 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 18:43:31,757 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 18:43:31,935 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 18:43:31,938 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 18:43:32,910 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 18:43:32,913 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 18:43:37,116 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 18:43:38,002 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 18:52:59,928 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 18:53:58,980 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 18:53:59,085 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 18:53:59,763 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 18:53:59,769 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 18:54:01,432 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 18:54:01,446 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 18:54:07,671 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 18:54:08,769 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 20:45:46,304 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 20:46:52,504 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 20:46:52,660 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 20:46:52,148 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 20:46:52,151 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 20:46:53,102 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 20:46:53,105 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 20:46:57,187 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 20:46:57,968 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:00:31,262 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:02:12,034 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:02:12,187 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:02:12,393 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:02:12,396 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:02:13,352 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:02:13,355 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:02:20,640 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:02:21,702 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:07:07,635 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:08:08,633 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:08:08,761 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:08:09,103 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:08:09,105 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:08:11,095 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:08:11,100 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:08:14,934 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:08:15,777 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:11:06,387 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:12:02,617 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:12:02,870 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:12:03,160 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:12:03,162 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:12:04,329 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:12:04,332 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:12:09,297 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:12:10,525 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:15:54,398 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:16:59,714 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:16:59,850 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:17:00,158 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:17:00,196 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:17:03,199 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:17:03,204 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:17:11,073 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:17:11,992 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:18:29,566 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:19:21,897 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:19:22,039 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:19:22,403 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:19:22,413 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:19:24,502 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:19:24,505 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:19:28,407 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:19:29,425 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:23:04,679 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:24:39,261 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:24:39,427 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:24:39,694 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:24:39,703 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:24:41,548 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:24:41,553 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:24:54,645 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:24:55,736 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:30:03,450 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:31:42,109 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:31:42,284 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:31:42,754 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:31:42,763 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:31:44,505 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:31:44,507 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:31:53,666 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:31:54,936 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:35:48,668 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:36:59,007 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:36:59,289 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:36:59,786 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:36:59,791 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:37:02,030 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:37:02,033 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:37:06,808 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:37:07,799 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:41:01,228 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-01 21:42:13,483 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:42:13,645 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:42:14,071 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:42:14,086 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:42:15,278 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:42:15,281 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:42:19,898 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:42:20,864 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:
+2025-12-01 21:46:05,427 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-01 21:46:05,514 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-01 21:46:05,710 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-01 21:46:05,715 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-01 21:46:06,797 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:46:06,801 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 175:
+2025-12-01 21:46:10,291 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 112:
+2025-12-01 21:46:11,216 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 30:

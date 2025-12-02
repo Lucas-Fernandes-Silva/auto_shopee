@@ -13,9 +13,10 @@ class HeavyClassifier:
         self.heavy_keywords = dados.heavy_keywords
         self.exclude_keywords = dados.exclude_keywords
 
+
         self.df_pesados = None
         self.df_restante = None
-        self.df_custo_baixo = None   # << NOVO DF >>
+        self.df_custo_baixo = None
 
     def classify(self):
         pesados_dict = {}
@@ -41,35 +42,34 @@ class HeavyClassifier:
             if any(re.search(k, d) for k in self.heavy_keywords):
                 pesados_dict[idx] = desc
 
-        # --------------------------
+        # ----------------------------------------------------------------------
         # 5 — Separação dos DataFrames
-        # --------------------------
+        # ----------------------------------------------------------------------
         self.df_pesados = self.df.loc[self.df.index.isin(pesados_dict.keys())].copy()
         restante = self.df.loc[~self.df.index.isin(pesados_dict.keys())].copy()
 
-        # NOVOS FILTROS DE TAXA
-        cond_custo_baixo = restante['Tipo de Taxa'].astype(str).str.contains("50%", case=False)
-        cond_taxa_fixa = restante['Tipo de Taxa'].astype(str).str.contains("4.00", case=False)
+        # -------- NOME REAL DA COLUNA (AJUSTE AQUI SE NECESSÁRIO) --------------
+        col = "Tipo Taxa"     # mude para "Tipo de Taxa" se for esse o nome real
+        # ------------------------------------------------------------------------
 
-        # 5.1 — DF custo baixo
+        # Custo baixo → qualquer taxa que tenha %
+        cond_custo_baixo = restante[col] \
+            .astype(str) \
+            .str.contains(r'\d+\s*%\s*', regex=True, na=False)
+
+        # Taxa fixa → qualquer valor com 4.00
+        cond_taxa_fixa = restante[col].astype(str).str.contains(r"4\.00", regex=True, na=False)
+
+        # --- DF custo baixo ---
         self.df_custo_baixo = restante.loc[cond_custo_baixo].copy()
 
-        # 5.2 — DF restante (agora filtrado)
-        self.df_restante = restante.loc[~cond_custo_baixo].copy()
+        # --- DF restante (tudo que não é custo baixo e não é taxa fixa) ---
+        self.df_restante = restante.loc[~cond_custo_baixo & ~cond_taxa_fixa].copy()
 
-        # ainda separar os que tem taxa fixa
+        # --- Une taxa fixa ao restante ---
         df_taxa_fixa = restante.loc[cond_taxa_fixa].copy()
-
-        # junta os taxa fixa no df_restante
-        self.df_restante = pd.concat([self.df_restante, df_taxa_fixa]).drop_duplicates()
+        self.df_restante = pd.concat([self.df_restante, df_taxa_fixa], ignore_index=True).drop_duplicates()
 
         return self.df_pesados, self.df_restante, self.df_custo_baixo
 
-    def save(self, pesados_path=None, restante_path=None, custo_baixo_path=None):
-        """Salvar arquivos excel opcionalmente."""
-        if pesados_path:
-            self.df_pesados.to_excel(pesados_path, index=False) # type: ignore
-        if restante_path:
-            self.df_restante.to_excel(restante_path, index=False) # type: ignore
-        if custo_baixo_path:
-            self.df_custo_baixo.to_excel(custo_baixo_path, index=False) # type: ignore
+
