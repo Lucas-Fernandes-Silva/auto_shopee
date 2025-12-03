@@ -14,9 +14,9 @@ class Merge:
     def __init__(self, df, project_path="/home/lucas-silva/auto_shopee/", debug=False):
         self.df = df
         self.project_path = project_path
-        self.url_cloud = f"{self.project_path}/produtos_convertido.csv"
+        self.url_cloud = f"{self.project_path}/planilhas/input/final.csv"
         self.output_path = (
-            f"{self.project_path}planilhas/outputs/final_com_urls.xlsx"  # Salvar em DF
+            f"{self.project_path}planilhas/outputs/final_com_urls.xlsx"
         )
         self.debug = debug
 
@@ -24,7 +24,7 @@ class Merge:
         self.df["Descrição"] = self.df["Descrição"].astype(str).apply(Normalizer.normalize)
 
         # Carrega URLs já enviadas ao Cloudinary
-        self.urls_df = pd.read_csv(self.url_cloud, header=None, names=["arquivo", "url"])
+        self.urls_df = pd.read_csv(self.url_cloud, header=None, names=["nome", "url"])
 
         # Colunas criadas no url.py
         self.cols_imgs = ["Url_Imagem1.0", "Url_Imagem2.0", "Url_Imagem3.0", "Url Imagem"]
@@ -149,4 +149,4 @@ df = pd.read_excel("/home/lucas-silva/auto_shopee/produtos_padrao.xlsx")
 merge = Merge(df)
 juntos = merge.run()
 
-juntos.to_excel('juntos.xlsx', index=False)
+juntos.to_excel("juntos.xlsx", index=False)
