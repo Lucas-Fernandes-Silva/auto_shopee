@@ -125,6 +125,6 @@ df = conv.processar_dataframe(
     df, coluna_urls="Url Imagem", coluna_saida="Url Cloudinary", max_workers=10
 )
 
-df.to_csv("/home/lucas-silva/auto_shopee/planilhas/input/produtos_convertido.csv", index=False)
+df.to_excel("/home/lucas-silva/auto_shopee/planilhas/input/produtos_convertido.xlsx", index=False)
 
 print("✔ Processo finalizado!")
