@@ -68,6 +68,7 @@ class XMLProcessor:
             if "-" not in temp_codigo:
                 produto["Codigo Produto"] = temp_codigo
             produto["Descrição"] = det.find("./ns:prod/ns:xProd", ns).text
+            produto['Unidade'] = det.find("./ns:prod/ns:uCom", ns).text
             produto["Valor_unitário"] = det.find("./ns:prod/ns:vUnCom", ns).text
             cEAN = det.find("./ns:prod/ns:cEAN", ns).text
             produto["Código de Barras"] = cEAN

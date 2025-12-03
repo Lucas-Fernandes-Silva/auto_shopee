@@ -5,11 +5,13 @@ from concurrent.futures import ThreadPoolExecutor
 
 import pandas as pd
 import requests
+import urllib3
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
 from src.utils.logger import logger
 
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class WebScraper:
     def __init__(self, headers=None, cache_file="cache/produtos.json"):
@@ -35,7 +37,7 @@ class WebScraper:
             return {}
 
         try:
-            response = requests.get(url, headers=self.headers, timeout=10)
+            response = requests.get(url, headers=self.headers, timeout=10, verify=False)
             if response.status_code == 404:
                 logger.warning(f"Produto não encontrado (404): {url}")
                 return {}
@@ -179,9 +181,7 @@ class WebScraper:
                 loop = asyncio.get_event_loop()
                 dados = loop.run_until_complete(self._processar_com_playwright(produto))
             except Exception as e:
-                logger.error(
-                    f"Erro no Playwright para {produto.get('Descrição')} ({codigo}): {e}"
-                )
+                logger.error(f"Erro no Playwright para {produto.get('Descrição')} ({codigo}): {e}")
                 dados = {}
 
         self.cache[codigo] = dados
@@ -190,14 +190,10 @@ class WebScraper:
     def enriquecer_dataframe(self, df_produtos, fornecedores, paralelo=True):
         df_resultado = df_produtos.copy()
 
-        df_filtrado = df_resultado[
-            df_resultado["Fornecedor"].isin(fornecedores[1])
-        ].copy()
+        df_filtrado = df_resultado[df_resultado["Fornecedor"].isin(fornecedores[1])].copy()
 
         if df_filtrado.empty:
-            logger.info(
-                "Nenhum fornecedor da lista de web scrapping encontrado no DataFrame."
-            )
+            logger.info("Nenhum fornecedor da lista de web scrapping encontrado no DataFrame.")
             return df_resultado
 
         for col in [
@@ -215,9 +211,7 @@ class WebScraper:
             if paralelo:
                 with ThreadPoolExecutor(max_workers=5) as executor:
                     resultados = dict(
-                        executor.map(
-                            self._processar_produto, df_filtrado.to_dict("records")
-                        )
+                        executor.map(self._processar_produto, df_filtrado.to_dict("records"))
                     )
             else:
                 resultados = dict(
