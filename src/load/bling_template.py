@@ -54,7 +54,6 @@ def criar_linha(item, colunas_bling):
         "Descrição Complementar": item.get("Descrição", ""),
         "Produto Variação": item.get("Sku", ""),
         "Tipo Produção": "Variação",
-        # === CORRIGIDO AQUI ===
         "Código Pai": codigo_pai,
         "Código Integração": codigo_integracao,
         "Marca": item.get("Marca", ""),

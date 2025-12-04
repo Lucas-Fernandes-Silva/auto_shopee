@@ -114,7 +114,14 @@ class UniversalImageUploader:
     # PROCESSAR URL
     # -------------------------------------------------------------------------
     def _processar_url(self, url, descricao):
+        # nome visível no CSV
         nome = descricao if isinstance(descricao, str) else "sem_descricao"
+
+        # validar URL
+        if not isinstance(url, str) or (isinstance(url, float) and pd.isna(url)):
+            print(f"⚠ URL inválida ignorada: {url}")
+            return None
+
         chave = f"url_{self._hash(url)}"
 
         # Cache
@@ -211,9 +218,13 @@ uploader = UniversalImageUploader(
     cache_csv="/home/lucas-silva/auto_shopee/cache/cache_uploads.csv"
 )
 
+
+pasta_imagens = "/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens"
+
 arquivos = [
-    "/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens/produto1.jpg",
-    "/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens/produto2.png",
+    os.path.join(pasta_imagens, f)
+    for f in os.listdir(pasta_imagens)
+    if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))
 ]
 
 df_urls = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx")

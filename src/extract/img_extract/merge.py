@@ -83,7 +83,7 @@ class Merge:
     # ============================================================
     def run(self):
         # Extrai dados do nome do arquivo
-        self.urls_df[["descricao_extraida", "num_imagem"]] = self.urls_df["arquivo"].apply(
+        self.urls_df[["descricao_extraida", "num_imagem"]] = self.urls_df["nome"].apply(
             self.extrair_info
         )
 
