@@ -1,6 +1,6 @@
-import hashlib
 import json
 import os
+import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from io import BytesIO
 
@@ -29,14 +29,11 @@ class UniversalImageUploader:
         self.temp_folder = "/tmp/upload_temp"
         os.makedirs(self.temp_folder, exist_ok=True)
 
-        # Carregar Cloudinary
         self._load_cloudinary(cloudinary_config_path)
-
-        # Carregar cache
         self.cache = self._load_cache()
 
     # -------------------------------------------------------------------------
-    # CONFIGURAÇÃO CLOUDINARY
+    # CONFIG CLOUDINARY
     # -------------------------------------------------------------------------
     def _load_cloudinary(self, path):
         with open(path, "r", encoding="utf-8") as f:
@@ -46,6 +43,7 @@ class UniversalImageUploader:
             cloud_name=cfg["cloud_name"],
             api_key=cfg["api_key"],
             api_secret=cfg["api_secret"],
+            secure=True
         )
 
     # -------------------------------------------------------------------------
@@ -65,95 +63,142 @@ class UniversalImageUploader:
             df.to_csv(self.cache_csv, index=False)
 
     # -------------------------------------------------------------------------
-    # UTIL: hash único
+    # SANITIZAR TEXTO PARA PUBLIC ID
     # -------------------------------------------------------------------------
-    def _hash(self, value: str):
-        return hashlib.md5(value.encode()).hexdigest()
+    def _sanitize(self, text):
+        if not isinstance(text, str):
+            return "sem_descricao"
+
+        text = text.lower()
+        text = re.sub(r"[^a-zA-Z0-9_-]+", "_", text)
+        text = re.sub(r"_+", "_", text).strip("_")
+        return text[:120]
+
+    # -------------------------------------------------------------------------
+    # VERIFICAR SE A IMAGEM EXISTE NO CLOUDINARY (SEM USAR ADMIN API)
+    # -------------------------------------------------------------------------
+    def _existe_no_cloudinary(self, public_id):
+
+        cloud_name = cloudinary.config().cloud_name
+        url = f"https://res.cloudinary.com/{cloud_name}/image/upload/{public_id}.jpg"
+
+        try:
+            resp = requests.head(url, timeout=10)
+
+            # 200 → existe
+            return resp.status_code == 200
+
+        except Exception:
+            return False
 
     # -------------------------------------------------------------------------
     # PROCESSAR ARQUIVO LOCAL
     # -------------------------------------------------------------------------
     def _processar_local(self, file_path):
+
+        if not os.path.isfile(file_path):
+            print(f"⚠ Caminho inválido (não é arquivo): {file_path}")
+            return None
+
         nome = os.path.basename(file_path)
+        public_id = f"{self.upload_folder}/{os.path.splitext(nome)[0]}".lower()
         chave = f"local_{nome}"
 
-        # Cache
+        # cache local
         if chave in self.cache:
             return {"nome": nome, "url_cloudinary": self.cache[chave]}
 
+        # já existe no cloudinary
+        if self._existe_no_cloudinary(public_id):
+            url = cloudinary.CloudinaryImage(public_id).build_url(
+                transformation=["f_auto", "q_auto"]
+            )
+            self.cache[chave] = url
+            return {"nome": nome, "url_cloudinary": url}
+
+        # processar imagem
         try:
             img = Image.open(file_path).convert("RGB")
 
             img_otimizada = ImageOps.pad(
-                img, self.size,
+                img,
+                self.size,
                 color=(255, 255, 255),
                 method=Image.Resampling.LANCZOS,
             )
 
-            hashed_name = self._hash(nome) + ".jpg"
-            temp_path = os.path.join(self.temp_folder, hashed_name)
+            temp_path = os.path.join(self.temp_folder, nome)
             img_otimizada.save(temp_path, quality=self.quality, optimize=True)
 
             upload = cloudinary.uploader.upload(
                 temp_path,
                 folder=self.upload_folder,
-                use_filename=True,
+                public_id=os.path.splitext(nome)[0].lower(),
+                use_filename=False,
                 unique_filename=False,
             )
 
             url = upload["secure_url"].replace("/upload/", "/upload/f_auto,q_auto/")
             self.cache[chave] = url
-
             return {"nome": nome, "url_cloudinary": url}
 
         except Exception as e:
-            print(f"❌ Erro ao processar arquivo local {file_path}: {e}")
+            print(f"❌ Erro ao processar local {file_path}: {e}")
             return None
 
     # -------------------------------------------------------------------------
     # PROCESSAR URL
     # -------------------------------------------------------------------------
     def _processar_url(self, url, descricao):
-        # nome visível no CSV
-        nome = descricao if isinstance(descricao, str) else "sem_descricao"
 
-        # validar URL
-        if not isinstance(url, str) or (isinstance(url, float) and pd.isna(url)):
+        if not isinstance(url, str) or url.strip() == "":
             print(f"⚠ URL inválida ignorada: {url}")
             return None
 
-        chave = f"url_{self._hash(url)}"
+        nome = descricao if isinstance(descricao, str) else "sem_descricao"
+        clean_name = self._sanitize(nome)
 
-        # Cache
+        public_id = f"{self.upload_folder}/{clean_name}"
+        chave = f"url_{public_id}"
+
+        # cache
         if chave in self.cache:
             return {"nome": nome, "url_cloudinary": self.cache[chave]}
 
+        # já existe
+        if self._existe_no_cloudinary(public_id):
+            url_cloud = cloudinary.CloudinaryImage(public_id).build_url(
+                transformation=["f_auto", "q_auto"]
+            )
+            self.cache[chave] = url_cloud
+            return {"nome": nome, "url_cloudnary": url_cloud}
+
+        # baixar + subir
         try:
             resp = requests.get(url, timeout=15)
             resp.raise_for_status()
+
             img = Image.open(BytesIO(resp.content)).convert("RGB")
 
-            hashed = self._hash(url) + ".jpg"
-            temp_path = os.path.join(self.temp_folder, hashed)
-
+            temp_path = os.path.join(self.temp_folder, clean_name + ".jpg")
             img_otimizada = ImageOps.pad(
-                img, self.size,
+                img,
+                self.size,
                 color=(255, 255, 255),
                 method=Image.Resampling.LANCZOS,
             )
-
             img_otimizada.save(temp_path, quality=self.quality, optimize=True)
 
             upload = cloudinary.uploader.upload(
                 temp_path,
                 folder=self.upload_folder,
-                use_filename=True,
+                public_id=clean_name,
+                use_filename=False,
                 unique_filename=False,
             )
 
             url_cloud = upload["secure_url"].replace("/upload/", "/upload/f_auto,q_auto/")
             self.cache[chave] = url_cloud
-
             return {"nome": nome, "url_cloudinary": url_cloud}
 
         except Exception as e:
@@ -161,7 +206,7 @@ class UniversalImageUploader:
             return None
 
     # -------------------------------------------------------------------------
-    # PROCESSAR TUDO + SALVAR CSV FINAL COM 2 COLUNAS
+    # PROCESSAR TUDO
     # -------------------------------------------------------------------------
     def processar(
         self,
@@ -177,63 +222,55 @@ class UniversalImageUploader:
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
 
-            # Arquivos locais
+            # locais
             if arquivos_locais:
                 for f in arquivos_locais:
                     jobs.append(executor.submit(self._processar_local, f))
 
-            # URLs do dataframe
+            # urls
             if df_urls is not None:
                 for _, row in df_urls.iterrows():
-                    url = row[coluna_url]
-                    desc = row[coluna_desc] if coluna_desc else None
-
                     jobs.append(
-                        executor.submit(self._processar_url, url, desc)
+                        executor.submit(
+                            self._processar_url,
+                            row[coluna_url],
+                            row[coluna_desc] if coluna_desc else None,
+                        )
                     )
 
-            # coletar resultados
             for future in tqdm(as_completed(jobs), total=len(jobs), desc="Processando"):
                 res = future.result()
                 if res:
                     resultados.append(res)
 
-        # salvar cache
         self._save_cache()
 
-        # CSV final com apenas 2 colunas
         df_final = pd.DataFrame(resultados)[["nome", "url_cloudinary"]]
         df_final.to_csv(output_csv, index=False)
 
-        print(f"📁 CSV final salvo em: {output_csv}")
+        print(f"\n📁 CSV final salvo em: {output_csv}")
         return df_final
 
 
-# -------------------------------------------------------------------------
-# EXEMPLO DE USO
-# -------------------------------------------------------------------------
 
-uploader = UniversalImageUploader(
-    cloudinary_config_path="/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/cloudinary_config.json",
-    cache_csv="/home/lucas-silva/auto_shopee/cache/cache_uploads.csv"
+config_path = (
+    "/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/cloudinary_config.json"
 )
+upload = UniversalImageUploader(config_path)
 
-
-pasta_imagens = "/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens"
+pasta = "/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens"
 
 arquivos = [
-    os.path.join(pasta_imagens, f)
-    for f in os.listdir(pasta_imagens)
-    if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))
+    os.path.join(pasta, f)
+    for f in os.listdir(pasta)
+    if f.lower().endswith((".jpg", ".png", ".jpeg", ".webp"))
 ]
 
-df_urls = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx")
+df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx")
 
-df_final = uploader.processar(
+upload.processar(
     arquivos_locais=arquivos,
-    df_urls=df_urls,
-    coluna_url="Url Imagem",
-    coluna_desc="Descrição",
-    output_csv="/home/lucas-silva/auto_shopee/planilhas/input/final.csv",
-    max_workers=10
+    df_urls=df,
+    coluna_url=["Url Imagem"],
+    coluna_desc=["Descrição"],
 )
