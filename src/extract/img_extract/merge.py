@@ -14,7 +14,7 @@ class Merge:
     def __init__(self, df, project_path="/home/lucas-silva/auto_shopee/", debug=False):
         self.df = df
         self.project_path = project_path
-        self.url_cloud = f"{self.project_path}/planilhas/input/final.csv"
+        self.url_cloud = f"{self.project_path}resultado.csv"
         self.output_path = (
             f"{self.project_path}planilhas/outputs/final_com_urls.xlsx"
         )
@@ -110,7 +110,7 @@ class Merge:
             1: "Url_Imagem1.0",
             2: "Url_Imagem2.0",
             3: "Url_Imagem3.0",
-            None: "Url Imagem",
+            4: "Url Imagem4.0",
         }
 
         # Dicionário: {descricao_final: {coluna: url}}
