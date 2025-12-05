@@ -1,16 +1,16 @@
+import json
 import os
 import re
-import json
-from io import BytesIO
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from io import BytesIO
 
 import cloudinary
 import cloudinary.uploader
 import pandas as pd
 import requests
 from PIL import Image, ImageOps
-from tqdm import tqdm
 from rapidfuzz import fuzz, process
+from tqdm import tqdm
 
 
 # =============================================================
@@ -99,7 +99,7 @@ class UploaderAndMerge:
     def processar_local(self, file_path):
 
         nome = os.path.basename(file_path)
-        public_id = f"{self.upload_folder}/{os.path.splitext(nome)[0]}".lower()
+        public_id = f"{self.upload_folder}/{os.path.splitext(nome)[0]}".lower()  # noqa: F841
         chave = f"local_{nome}"
 
         # Cache

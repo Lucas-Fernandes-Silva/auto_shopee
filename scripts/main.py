@@ -56,7 +56,9 @@ manager.salvar_excel(df, 'categorias')
 classifier = HeavyClassifier(df)
 df_pesados, df_restante, df_custo_baixo = classifier.classify()
 
-download = Download(df_restante)
+df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/final_urls_cloudinary.xlsx')
+
+download = Download(df)
 df = download.run()
 
 manager.salvar_excel(df, 'download')

@@ -7,6 +7,8 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 
+from src.load.notas_manager import NotasManager
+
 
 class Download:
     def __init__(
@@ -17,102 +19,107 @@ class Download:
         output_folder="/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens",
     ):
 
-        # Remove duplicados por Descrição
+        # Remove duplicados por descrição
         self.df = df.drop_duplicates(subset=["Descrição"], keep="first").reset_index(drop=True)
 
         self.progress_file = progress
         self.keys_file_path = keys_file
         self.output_folder = output_folder
 
-        # Colunas que serão verificadas antes de buscar imagens
-        self.cols_imgs = [
-            "Url_Imagem1.0",
-            "Url_Imagem2.0",
-            "Url_Imagem3.0",
-            "Url Imagem"
-        ]
-
-        # Criar colunas se não existirem
+        # Colunas que indicam imagens já existentes
+        self.cols_imgs = ["Url_Imagem1.0", "Url_Imagem2.0", "Url_Imagem3.0", "Url Imagem"]
         for col in self.cols_imgs:
             if col not in self.df.columns:
                 self.df[col] = None
 
         os.makedirs(self.output_folder, exist_ok=True)
 
-        # Carregamentos iniciais
+        # Carregar estado
         self.progress = self.carregar_progresso()
         self.keys = self.carregar_chaves()
 
+        # Domínios proibidos (somente o domínio base!)
         self.blacklist = [
-        "fliphtml5.com"
-        "kdfoundation.org"
-        "percar.com.br"
-        "yumpu.com"
-        "fermat.com.br"
-        "atacadistasigma.com.br"
-        "pubhtml5.com"
-        "casadolojista.com.br"
-        "pt.aliexpress.com"
-        "ysoc.net"
-        "ccpvirtual.com.br"
-        "gfixdistribuidora.com.br"
-        "www.magiadistribuidora.com.br"
-        "pt.scribd.com"
-        "amazon.ae"
-        "https://collections.carli.illinois.edu"
-        "mackglobe.com"
-        "sciencedirect.com"
-        "ebay.com"
-        "econominet.com.br"
-        "barzel.com.br"
-        "eletroleste.com.br"
-        "comercialmaia.com.br"
-    ]
+            "scribd.com",
+            "fliphtml5.com",
+            "yumpu.com",
+            "pubhtml5.com",
+            "aliexpress.com",
+            "ebay.com",
+            "amazon.ae",
+            "mackglobe.com",
+            "sciencedirect.com",
+            "percar.com.br",
+            "atacadistasigma.com.br",
+            "casadolojista.com.br",
+            "ccpvirtual.com.br",
+            "gfixdistribuidora.com.br",
+            "econominet.com.br",
+            "barzel.com.br",
+            "eletroleste.com.br",
+            "comercialmaia.com.br",
+        ]
 
-    # =========================================================
-    # MANIPULAÇÃO DE ARQUIVOS JSON
-    # =========================================================
+    # ============================================================
+    # PROGRESSO
+    # ============================================================
     def carregar_progresso(self):
         if os.path.exists(self.progress_file):
             try:
                 with open(self.progress_file, "r") as f:
                     data = json.load(f)
-                    return {
-                        "last_index": data.get("last_index", 0),
-                        "current_key_index": data.get("current_key_index", 0),
-                    }
+                return {
+                    "produtos_processados": data.get("produtos_processados", {}),
+                    "current_key_index": data.get("current_key_index", 0),
+                }
             except Exception:
                 pass
 
-        return {"last_index": 0, "current_key_index": 0}
+        return {"produtos_processados": {}, "current_key_index": 0}
 
-    def salvar_progresso(self, data):
+    def salvar_progresso(self):
         with open(self.progress_file, "w") as f:
-            json.dump(data, f)
+            json.dump(self.progress, f, indent=2)
 
+    # ============================================================
+    # CHAVES
+    # ============================================================
     def carregar_chaves(self):
-        if not os.path.exists(self.keys_file_path):
-            raise FileNotFoundError(f"Arquivo de chaves não encontrado: {self.keys_file_path}")
-
         with open(self.keys_file_path, "r") as f:
             data = json.load(f)
-            if "keys" not in data or not isinstance(data["keys"], list):
-                raise ValueError("O arquivo de chaves deve conter uma lista chamada 'keys'.")
-            return data["keys"]
+        return data["keys"]
 
-    # =========================================================
-    # BLACKLIST
-    # =========================================================
+    # ============================================================
+    # BLACKLIST POR DOMÍNIO
+    # ============================================================
     def url_bloqueada(self, url):
         if not isinstance(url, str):
             return True
 
-        url_lower = url.lower()
-        return any(host in url_lower for host in self.blacklist)
+        try:
+            url = url.strip().lower()
 
-    # =========================================================
-    # GOOGLE SEARCH
-    # =========================================================
+            # Remove protocolo e www
+            url = url.replace("https://", "").replace("http://", "").replace("www.", "")
+
+            # Extrair domínio base
+            dominio = re.split(r"[/?#:]", url)[0].strip()
+
+            # Remover porta caso exista
+            dominio = dominio.split(":")[0]
+
+        except Exception:
+            return True
+
+        # Bloqueia se o domínio terminar com algum domínio proibido
+        return any(
+            dominio == b or dominio.endswith(b)
+            for b in self.blacklist
+        )
+
+    # ============================================================
+    # BUSCAR IMAGENS
+    # ============================================================
     def buscar_imagens(self, query, api_key, cx, num=3):
         url = "https://www.googleapis.com/customsearch/v1"
         params = {
@@ -126,127 +133,133 @@ class Download:
         response = requests.get(url, params=params, timeout=10)
         data = response.json() if response.content else {}
 
+        # Erros da API
         if response.status_code == 403 or "error" in data:
-            error_msg = data.get("error", {}).get("message", "")
-            raise Exception(f"API Error: {error_msg or '403 Forbidden'}")
+            msg = data.get("error", {}).get("message", "")
+            raise Exception(f"API Error: {msg}")
 
         response.raise_for_status()
         return data.get("items", [])
 
-    # =========================================================
-    # DOWNLOAD DA IMAGEM
-    # =========================================================
+    # ============================================================
+    # DOWNLOAD
+    # ============================================================
     def baixar_imagem(self, url, save_path):
-        response = requests.get(url, stream=True, timeout=10)
-        if response.status_code == 200:
-            with open(save_path, "wb") as f:
-                for chunk in response.iter_content(1024):
-                    f.write(chunk)
-            return True
-        return False
+        try:
+            resp = requests.get(url, stream=True, timeout=10)
+            if resp.status_code == 200:
+                with open(save_path, "wb") as f:
+                    for chunk in resp.iter_content(1024):
+                        f.write(chunk)
+                return True
+            return False
+        except Exception:
+            return False
 
-    # =========================================================
+    # ============================================================
     # EXECUÇÃO PRINCIPAL
-    # =========================================================
+    # ============================================================
     def run(self):
-
+        produtos_processados = self.progress["produtos_processados"]
         current_key_index = self.progress["current_key_index"]
-        last_index = self.progress["last_index"]
 
-        print(
-            f"🚀 Iniciando busca a partir do índice {last_index} "
-            f"com chave {current_key_index + 1}/{len(self.keys)}"
-        )
+        print(f"🚀 Iniciando busca com chave {current_key_index+1}/{len(self.keys)}")
 
-        for i in tqdm(range(last_index, len(self.df)), desc="Buscando imagens"):
+        for i in tqdm(range(len(self.df)), desc="Buscando imagens"):
 
             produto = str(self.df.loc[i, "Descrição"]).strip()
-            query = produto
+            codigo_produto = str(self.df.loc[i, "Codigo Produto"]).strip()
 
-            # -------------------------------
-            # 1) VERIFICA SE O PRODUTO JÁ POSSUI IMAGENS
-            # -------------------------------
+            # (1) Já processado antes?
+            if codigo_produto in produtos_processados:
+                continue
+
+            # (2) Já tem imagens válidas?
             tem_img_boa = any(
                 pd.notna(self.df.loc[i, col]) and str(self.df.loc[i, col]).strip() != ""
                 for col in ["Url_Imagem1.0", "Url_Imagem2.0", "Url_Imagem3.0"]
             )
 
             url_fornecedor = self.df.loc[i, "Url Imagem"]
-            tem_url_fornecedor = pd.notna(url_fornecedor) and str(url_fornecedor).strip() != ""
+            tem_fornecedor = pd.notna(url_fornecedor) and str(url_fornecedor).strip() != ""
 
             if tem_img_boa:
-                print(f"⏩ Pulando '{produto}': já tem imagens preenchidas no DF.")
-                self.progress = {"last_index": i + 1, "current_key_index": current_key_index}
-                self.salvar_progresso(self.progress)
+                produtos_processados[codigo_produto] = True
+                self.salvar_progresso()
                 continue
 
-            if tem_url_fornecedor:
-                print(f"⏩ Pulando '{produto}': possui URL do fornecedor (será tratada no upload).")
-                self.progress = {"last_index": i + 1, "current_key_index": current_key_index}
-                self.salvar_progresso(self.progress)
+            if tem_fornecedor:
+                produtos_processados[codigo_produto] = True
+                self.salvar_progresso()
                 continue
 
-            # -------------------------------
-            # 2) NÃO TEM IMAGEM → BUSCAR NO GOOGLE
-            # -------------------------------
+            # (3) Buscar imagens no Google
             tentativa = 0
 
             while True:
-                if tentativa >= len(self.keys):
-                    print("🚫 Todas as chaves atingiram o limite.")
-                    self.salvar_progresso({"last_index": i, "current_key_index": current_key_index})
-                    return self.df
-
                 api_key = self.keys[current_key_index]
 
                 try:
-                    imagens = self.buscar_imagens(query, api_key, cx="532347d8c03cc4861", num=3)
+                    imagens = self.buscar_imagens(
+                        produto,
+                        api_key,
+                        cx="532347d8c03cc4861",
+                        num=3,
+                    )
 
                     if not imagens:
-                        print(f"⚠ Nenhum resultado encontrado para: {produto}")
                         break
 
                     for j, img in enumerate(imagens):
                         link = img.get("link")
+
+                        # Link inválido
                         if not link:
                             continue
 
-                        # ---------------------------
-                        # BLACKLIST → ignorar links proibidos
-                        # ---------------------------
+                        # Blacklist por domínio
                         if self.url_bloqueada(link):
-                            print(f"⛔ Ignorando link bloqueado: {link}")
+                            print(f"⛔ BLOQUEADO: {link}")
                             continue
 
+                        # Nome do arquivo
                         nome_limpo = re.sub(r'[\\/*?:"<>|]', "_", produto[:40])
                         nome_arquivo = f"{j+1}_{nome_limpo.replace(' ', '_')}.jpg"
                         caminho = os.path.join(self.output_folder, nome_arquivo)
 
-                        try:
-                            self.baixar_imagem(link, caminho)
-                        except Exception as e:
-                            print(f"❌ Erro ao baixar imagem {j+1} de {produto}: {e}")
+                        # Baixar imagem
+                        self.baixar_imagem(link, caminho)
 
-                    break  # terminou produto
-
-                except Exception as e:
-                    erro = str(e)
-
-                    if "Quota" in erro or "403" in erro or "disabled" in erro:
-                        print(f"⚠ Limite atingido para chave {current_key_index + 1}. Trocando...")
-                        current_key_index = (current_key_index + 1) % len(self.keys)
-                        tentativa += 1
-                        continue
-
-                    print(f"❌ Erro no produto '{produto}': {erro}")
                     break
 
-            # Progresso
-            self.progress = {
-                "last_index": i + 1,
-                "current_key_index": current_key_index,
-            }
-            self.salvar_progresso(self.progress)
+                except Exception as e:
+                    err = str(e)
+
+                    # Trocar chave se limite atingido
+                    if "quota" in err.lower() or "403" in err:
+                        current_key_index = (current_key_index + 1) % len(self.keys)
+                        tentativa += 1
+
+                        if tentativa >= len(self.keys):
+                            self.salvar_progresso()
+                            return self.df
+                        continue
+
+                    break
+
+            # Marcar como processado
+            produtos_processados[codigo_produto] = True
+            self.progress["current_key_index"] = current_key_index
+            self.salvar_progresso()
+
             time.sleep(1)
 
         return self.df
+
+df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx")
+
+download = Download(df)
+df = download.run()
+
+manager = NotasManager()
+manager.salvar_excel(df, "download")
