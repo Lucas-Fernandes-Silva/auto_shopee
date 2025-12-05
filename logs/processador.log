@@ -87,3 +87,13 @@
 2025-12-03 10:19:49,635 - src.utils.logger - INFO - Fallback Playwright para DUCHA BELLA DUCHA BR ULTRA 6800X220 - web_scraper.py - 177:
 2025-12-03 10:19:56,027 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
 2025-12-03 10:19:57,997 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 32:
+2025-12-04 19:16:28,401 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-04 19:16:28,656 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-04 19:16:32,922 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-04 19:16:33,042 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-04 19:16:33,349 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-04 19:16:33,347 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-04 19:16:34,349 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-04 19:16:34,350 - src.utils.logger - INFO - Fallback Playwright para LUVA AZUL 3/4 - web_scraper.py - 177:
+2025-12-04 19:16:41,766 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-04 19:16:42,641 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 32:
