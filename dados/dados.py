@@ -240,6 +240,7 @@ heavy_keywords = [
     r"COLUNA",
     r"\bLAV\b",
     r"TELA",
+    r"CAIXA ACOP",
 ]
 
 exclude_keywords = [

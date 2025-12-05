@@ -4,7 +4,7 @@ import pandas as pd
 
 arquivo = "/home/lucas-silva/auto_shopee/planilhas/input/colunas_produtos_upseller.xlsx"
 upseller = pd.read_excel(arquivo)
-produtos = pd.read_excel("/home/lucas-silva/auto_shopee/juntos.xlsx")
+produtos = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/final_urls_cloudinary.xlsx")
 upseller_colunas = upseller.columns.tolist()
 
 
@@ -15,13 +15,14 @@ def criar_linha(item, colunas_bling):
         "Nome do Produto*": item.get("Descrição", ""),
         "SKU Principal": item.get("Sku", ""),
         "Descrição*": item.get("Descrição", ""),
-        "Categoria ID": "101197",
+        "Categoria ID": "101199",
         "Preço*": item.get("Preço Final", ""),
         "Quantidade*": "0",
         "GTIN": item.get("Código de Barras", ""),
         "Imagem de Capa": item.get("Url_Imagem1.0", ""),
         "Item da Imagem1": item.get("Url_Imagem2.0", ""),
         "Item da Imagem2": item.get("Url_Imagem3.0", ""),
+        "Item da Imagem4": item.get("Url Imagem", ""),
         "Item da Imagem3": "https://res.cloudinary.com/dbpq32fiq/image/upload/v1764623485/46ba78f5-9d01-49fb-a96f-f00aead7f851_wgbwkj.png",
         "Peso (kg)*": item.get("Peso", "1"),
         "Comprimento (cm)": item.get("Comprimento", ""),
