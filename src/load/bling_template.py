@@ -4,7 +4,9 @@ import pandas as pd
 
 arquivo = "/home/lucas-silva/auto_shopee/planilhas/input/colunas_produtos_bling.xlsx"
 bling = pd.read_excel(arquivo)
-produtos = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/variações.xlsx")
+produtos = pd.read_excel(
+    "/home/lucas-silva/auto_shopee/planilhas/outputs/final_urls_cloudinary.xlsx"
+)
 bling_colunas = bling.columns.tolist()
 
 
@@ -16,7 +18,7 @@ def criar_linha(item, colunas_bling):
         str(item.get("Url_Imagem1.0", "") or ""),
         str(item.get("Url_Imagem2.0", "") or ""),
         str(item.get("Url_Imagem3.0", "") or ""),
-        str(item.get("Url Cloudinary", "") or ""),
+        str(item.get("Url Imagem", "") or ""),
         str(
             "https://res.cloudinary.com/dbpq32fiq/image/upload/v1764623485/46ba78f5-9d01-49fb-a96f-f00aead7f851_wgbwkj.png"
         ),
