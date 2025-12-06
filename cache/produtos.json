@@ -21174,5 +21174,485 @@
     "comprimento": "5.5"
   },
   "NaN": {},
+  "166130": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "TRAMON",
+    "peso": "1.95200000",
+    "codigo_barras": "7891117023814",
+    "url_img": "https://cdn.construja.com.br/produtos/166130/166130.jpg",
+    "largura": "5",
+    "altura": "5",
+    "comprimento": "5"
+  },
+  "166427": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "TRAMON",
+    "peso": "1.70400000",
+    "codigo_barras": "7891117045694",
+    "url_img": "https://cdn.construja.com.br/produtos/166427/166427.jpg",
+    "largura": "4.5",
+    "altura": "4.5",
+    "comprimento": "4.5"
+  },
+  "13694": {
+    "categoria": "DIVERSOS - PINTURA",
+    "marca": "LINHAL",
+    "peso": "1.17400000",
+    "codigo_barras": "7898122760024",
+    "url_img": "https://cdn.construja.com.br/produtos/13694/13694.jpg",
+    "largura": "8.5",
+    "altura": "19.5",
+    "comprimento": "8.5"
+  },
+  "171176": {
+    "categoria": "AUTOMOTIVA",
+    "marca": "ADELBRAS",
+    "peso": "0.09200000",
+    "codigo_barras": "7896603806919",
+    "url_img": "https://cdn.construja.com.br/produtos/171176/171176.jpg",
+    "largura": "12",
+    "altura": "2",
+    "comprimento": "12"
+  },
+  "166562": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "TRAMON",
+    "peso": "1.78537900",
+    "codigo_barras": "7891117051763",
+    "url_img": "https://cdn.construja.com.br/produtos/166562/166562.jpg",
+    "largura": "4",
+    "altura": "4",
+    "comprimento": "4"
+  },
+  "15522": {
+    "categoria": "SUPORTES E CANTONEIRAS",
+    "marca": "OVERTIME",
+    "peso": "0.23200000",
+    "codigo_barras": "7896202400440",
+    "url_img": "https://cdn.construja.com.br/produtos/15522/15522.jpg",
+    "largura": "15.5",
+    "altura": "1.5",
+    "comprimento": "15.5"
+  },
+  "15516": {
+    "categoria": "SUPORTES E CANTONEIRAS",
+    "marca": "OVERTIME",
+    "peso": "0.13387000",
+    "codigo_barras": "7896202400365",
+    "url_img": "https://cdn.construja.com.br/produtos/15516/15516.jpg",
+    "largura": "15.5",
+    "altura": "1.5",
+    "comprimento": "15.5"
+  },
+  "155145": {
+    "categoria": "SUPORTES E CANTONEIRAS",
+    "marca": "OVERTIME",
+    "peso": "0.07133000",
+    "codigo_barras": "7896202400891",
+    "url_img": "https://cdn.construja.com.br/produtos/155145/155145.jpg",
+    "largura": "8.5",
+    "altura": "1",
+    "comprimento": "8.5"
+  },
+  "110246": {
+    "categoria": "ESCADAS",
+    "marca": "MAESTRO",
+    "peso": "4.04400000",
+    "codigo_barras": "7898113086881",
+    "url_img": "https://cdn.construja.com.br/produtos/110246/110246.jpg",
+    "largura": "47",
+    "altura": "10.5",
+    "comprimento": "47"
+  },
+  "15493": {
+    "categoria": "FECHOS FERROLHOS DOBRADIÇAS",
+    "marca": "INCA",
+    "peso": "0.06100000",
+    "codigo_barras": "7890000154931",
+    "url_img": "https://cdn.construja.com.br/produtos/15493/15493.jpg",
+    "largura": "3",
+    "altura": "3",
+    "comprimento": "3"
+  },
+  "181135": {
+    "categoria": "DIVERSOS - PINTURA",
+    "marca": "CORTAG",
+    "peso": "0.19500000",
+    "codigo_barras": "7897451466935",
+    "url_img": "https://cdn.construja.com.br/produtos/181135/181135.jpg",
+    "largura": "20",
+    "altura": "5",
+    "comprimento": "20"
+  },
+  "15524": {
+    "categoria": "SUPORTES E CANTONEIRAS",
+    "marca": "OVERTIME",
+    "peso": "0.40900000",
+    "codigo_barras": "7896202400488",
+    "url_img": "https://cdn.construja.com.br/produtos/15524/15524.jpg",
+    "largura": "26",
+    "altura": "2",
+    "comprimento": "26"
+  },
+  "15523": {
+    "categoria": "SUPORTES E CANTONEIRAS",
+    "marca": "OVERTIME",
+    "peso": "0.31670000",
+    "codigo_barras": "7896202400457",
+    "url_img": "https://cdn.construja.com.br/produtos/15523/15523.jpg",
+    "largura": "25",
+    "altura": "10",
+    "comprimento": "25"
+  },
+  "15257": {
+    "categoria": "EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL",
+    "marca": "PEGAFORTE",
+    "peso": "2.13200000",
+    "codigo_barras": "7909224158234",
+    "url_img": "https://cdn.construja.com.br/produtos/15257/15257.jpg",
+    "largura": "36",
+    "altura": "12",
+    "comprimento": "36"
+  },
+  "188281": {
+    "categoria": "EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL",
+    "marca": "IMBAT",
+    "peso": "0.02800000",
+    "codigo_barras": "7908089600094",
+    "url_img": "https://cdn.construja.com.br/produtos/188281/188281.jpg",
+    "largura": "10",
+    "altura": "1",
+    "comprimento": "10"
+  },
+  "159167": {
+    "categoria": "EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL",
+    "marca": "PEGAFORTE",
+    "peso": "1.81100000",
+    "codigo_barras": "7909224158227",
+    "url_img": "https://cdn.construja.com.br/produtos/159167/159167.jpg",
+    "largura": "33",
+    "altura": "13",
+    "comprimento": "33"
+  },
+  "16314": {
+    "categoria": "TINTA VERNIZ",
+    "marca": "POLIREX",
+    "peso": "0.26600000",
+    "codigo_barras": "7891567322987",
+    "url_img": "https://cdn.construja.com.br/produtos/16314/16314.jpg",
+    "largura": "7",
+    "altura": "7",
+    "comprimento": "7"
+  },
+  "199190": {
+    "categoria": "DIVERSOS - PINTURA",
+    "marca": "ROMA",
+    "peso": "0.00458000",
+    "codigo_barras": "7891595000833",
+    "url_img": "https://cdn.construja.com.br/produtos/199190/199190.jpg",
+    "largura": "0.1",
+    "altura": "0.1",
+    "comprimento": "0.1"
+  },
+  "156310": {
+    "categoria": "PRODUTOS QUÍMICOS",
+    "marca": "STARRETT",
+    "peso": "0.28600000",
+    "codigo_barras": "7891265020949",
+    "url_img": "https://cdn.construja.com.br/produtos/156310/156310.jpg",
+    "largura": "6",
+    "altura": "20.5",
+    "comprimento": "6"
+  },
+  "199191": {
+    "categoria": "DIVERSOS - PINTURA",
+    "marca": "ROMA",
+    "peso": "0.00500000",
+    "codigo_barras": "7891595000840",
+    "url_img": "https://cdn.construja.com.br/produtos/199191/199191.jpg",
+    "largura": "0.1",
+    "altura": "0.1",
+    "comprimento": "0.1"
+  },
+  "19963": {
+    "categoria": "DIVERSOS - PINTURA",
+    "marca": "ROMA",
+    "peso": "0.00700000",
+    "codigo_barras": "7891595000857",
+    "url_img": "https://cdn.construja.com.br/produtos/19963/19963.jpg",
+    "largura": "0.2",
+    "altura": "0.2",
+    "comprimento": "0.2"
+  },
+  "191742": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "WS",
+    "peso": "0.32800000",
+    "codigo_barras": "7898489751338",
+    "url_img": "https://cdn.construja.com.br/produtos/191742/191742.jpg",
+    "largura": "14",
+    "altura": "4",
+    "comprimento": "14"
+  },
+  "113120": {
+    "categoria": "ANTENAS E ACESSÓRIOS",
+    "marca": "INTERNEED",
+    "peso": "0.00700000",
+    "codigo_barras": "7890001131201",
+    "url_img": "https://cdn.construja.com.br/produtos/113120/113120.jpg",
+    "largura": "2",
+    "altura": "1",
+    "comprimento": "2"
+  },
+  "191757": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "WS",
+    "peso": "0.48400000",
+    "codigo_barras": "7898489751086",
+    "url_img": "https://cdn.construja.com.br/produtos/191757/191757.jpg",
+    "largura": "15",
+    "altura": "3",
+    "comprimento": "15"
+  },
+  "140168": {
+    "categoria": "AUTOMOTIVA",
+    "marca": "H7",
+    "peso": "0.56400000",
+    "codigo_barras": "7899956600715",
+    "url_img": "https://cdn.construja.com.br/produtos/140168/140168.jpg",
+    "largura": "7",
+    "altura": "21",
+    "comprimento": "7"
+  },
+  "188280": {
+    "categoria": "EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL",
+    "marca": "IMBAT",
+    "peso": "0.02700000",
+    "codigo_barras": "7908089600087",
+    "url_img": "https://cdn.construja.com.br/produtos/188280/188280.jpg",
+    "largura": "11",
+    "altura": "1",
+    "comprimento": "11"
+  },
+  "166132": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "TRAMON",
+    "peso": "0.16200000",
+    "codigo_barras": "7891117023760",
+    "url_img": "https://cdn.construja.com.br/produtos/166132/166132.jpg",
+    "largura": "4",
+    "altura": "4",
+    "comprimento": "4"
+  },
+  "181160": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "SRAFAEL",
+    "peso": "0.55000000",
+    "codigo_barras": "7891427032025",
+    "url_img": "https://cdn.construja.com.br/produtos/181160/181160.jpg",
+    "largura": "14",
+    "altura": "3",
+    "comprimento": "14"
+  },
+  "158200": {
+    "categoria": "CONEXÕES ÁGUA",
+    "marca": "AMANCO",
+    "peso": "0.01000000",
+    "codigo_barras": "7891960001397",
+    "url_img": "https://cdn.construja.com.br/produtos/158200/158200.jpg",
+    "largura": "2",
+    "altura": "2",
+    "comprimento": "2"
+  },
+  "158201": {
+    "categoria": "CONEXÕES ÁGUA",
+    "marca": "AMANCO",
+    "peso": "0.01400000",
+    "codigo_barras": "7891960708326",
+    "url_img": "https://cdn.construja.com.br/produtos/158201/158201.jpg",
+    "largura": "3",
+    "altura": "3",
+    "comprimento": "3"
+  },
+  "191342": {
+    "categoria": "PARAFUSOS",
+    "marca": "NEW-FIX",
+    "peso": "1.98400000",
+    "codigo_barras": "7890001913421",
+    "url_img": "https://cdn.construja.com.br/produtos/191342/191342.jpg",
+    "largura": "30",
+    "altura": "10",
+    "comprimento": "30"
+  },
+  "191341": {
+    "categoria": "PARAFUSOS",
+    "marca": "NEW-FIX",
+    "peso": "1.85200000",
+    "codigo_barras": "7890001913411",
+    "url_img": "https://cdn.construja.com.br/produtos/191341/191341.jpg",
+    "largura": "30.5",
+    "altura": "9.5",
+    "comprimento": "30.5"
+  },
+  "110244": {
+    "categoria": "ESCADAS",
+    "marca": "MAESTRO",
+    "peso": "3.31300000",
+    "codigo_barras": "7898113086874",
+    "url_img": "https://cdn.construja.com.br/produtos/110244/110244.jpg",
+    "largura": "35",
+    "altura": "10",
+    "comprimento": "35"
+  },
+  "110245": {
+    "categoria": "ESCADAS",
+    "marca": "MAESTRO",
+    "peso": "3.90400000",
+    "codigo_barras": "7898113086843",
+    "url_img": "https://cdn.construja.com.br/produtos/110245/110245.jpg",
+    "largura": "40",
+    "altura": "10",
+    "comprimento": "40"
+  },
+  "163462": {
+    "categoria": "TINTA FUNDO E BASES",
+    "marca": "EUCATEX",
+    "peso": "1.45000000",
+    "codigo_barras": "7896587010470",
+    "url_img": "https://cdn.construdigi.com.br/produtos/163462/163462.jpg",
+    "largura": "10.8",
+    "altura": "12.5",
+    "comprimento": "10.8"
+  },
+  "110584": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "ACQUAFLEX",
+    "peso": "2.18500000",
+    "codigo_barras": "7898162001088",
+    "url_img": "https://cdn.construdigi.com.br/produtos/110584/110584.jpg",
+    "largura": "30",
+    "altura": "14",
+    "comprimento": "30"
+  },
+  "14131": {
+    "categoria": "LIXAS",
+    "marca": "TRIONITE",
+    "peso": "0.01800000",
+    "codigo_barras": "7898088923228",
+    "url_img": "https://cdn.construdigi.com.br/produtos/14131/14131.jpg",
+    "largura": "23",
+    "altura": "0.1",
+    "comprimento": "23"
+  },
+  "163478": {
+    "categoria": "TINTA VERNIZ",
+    "marca": "EUCATEX",
+    "peso": "0.25600000",
+    "codigo_barras": "7896587020219",
+    "url_img": "https://cdn.construdigi.com.br/produtos/163478/163478.jpg",
+    "largura": "7.58",
+    "altura": "7.5",
+    "comprimento": "7.58"
+  },
+  "180285": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "EDA",
+    "peso": "0.05800000",
+    "codigo_barras": "7895315015558",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180285/180285.jpg",
+    "largura": "4.5",
+    "altura": "2",
+    "comprimento": "4.5"
+  },
+  "180282": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "EDA",
+    "peso": "0.04800000",
+    "codigo_barras": "7895315015534",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180282/180282.jpg",
+    "largura": "4.5",
+    "altura": "3",
+    "comprimento": "4.5"
+  },
+  "180284": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "EDA",
+    "peso": "0.05500000",
+    "codigo_barras": "7895315015541",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180284/180284.jpg",
+    "largura": "4.5",
+    "altura": "2.5",
+    "comprimento": "4.5"
+  },
+  "180328": {
+    "categoria": "FERRAMENTAS ELETRICAS",
+    "marca": "EDA",
+    "peso": "0.14000000",
+    "codigo_barras": "7895315004316",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180328/180328.jpg",
+    "largura": "13",
+    "altura": "5",
+    "comprimento": "13"
+  },
+  "180275": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "EDA",
+    "peso": "0.09400000",
+    "codigo_barras": "7895315015602",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180275/180275.jpg",
+    "largura": "4.5",
+    "altura": "2.5",
+    "comprimento": "4.5"
+  },
+  "180276": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "EDA",
+    "peso": "0.10000000",
+    "codigo_barras": "7895315015619",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180276/180276.jpg",
+    "largura": "4.5",
+    "altura": "2.5",
+    "comprimento": "4.5"
+  },
+  "180742": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "EDA",
+    "peso": "0.13200000",
+    "codigo_barras": "7895315004866",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180742/180742.jpg",
+    "largura": "10",
+    "altura": "3",
+    "comprimento": "10"
+  },
+  "180740": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "EDA",
+    "peso": "0.07800000",
+    "codigo_barras": "7895315006686",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180740/180740.jpg",
+    "largura": "10",
+    "altura": "1.5",
+    "comprimento": "10"
+  },
+  "180741": {
+    "categoria": "DIVERSOS - FERRAGENS",
+    "marca": "EDA",
+    "peso": "0.14200000",
+    "codigo_barras": "7895315006822",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180741/180741.jpg",
+    "largura": "10",
+    "altura": "1",
+    "comprimento": "10"
+  },
+  "180274": {
+    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
+    "marca": "EDA",
+    "peso": "0.08800000",
+    "codigo_barras": "7895315015596",
+    "url_img": "https://cdn.construdigi.com.br/produtos/180274/180274.jpg",
+    "largura": "4.5",
+    "altura": "2.5",
+    "comprimento": "4.5"
+  },
   "NaN": {}
 }

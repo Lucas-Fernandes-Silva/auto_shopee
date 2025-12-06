@@ -256,7 +256,7 @@ class UploaderAndMerge:
 # =============================================================
 if __name__ == "__main__":
 
-    df_prod = pd.read_excel("/home/lucas-silva/auto_shopee/produtos_padrao.xlsx")
+    df_prod = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx")
 
     processor = UploaderAndMerge(
         df_produtos=df_prod,

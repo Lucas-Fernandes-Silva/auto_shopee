@@ -223,7 +223,7 @@ class WebScraper:
             dados = resultados.get(codigo, {}) or {}
             descricao = str(row.get("Descrição")).strip()
             marca = dados.get("marca")
-            if marca is not None:
+            if marca is not None and marca not in descricao:
                 descrição_completa = f"{descricao} {marca}".strip()
             else:
                 descrição_completa = descricao

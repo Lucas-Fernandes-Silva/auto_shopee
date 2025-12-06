@@ -7,8 +7,6 @@ import pandas as pd
 import requests
 from tqdm import tqdm
 
-from src.load.notas_manager import NotasManager
-
 
 class Download:
     def __init__(
@@ -256,10 +254,4 @@ class Download:
 
         return self.df
 
-df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx")
 
-download = Download(df)
-df = download.run()
-
-manager = NotasManager()
-manager.salvar_excel(df, "download")

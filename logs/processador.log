@@ -1,0 +1,31 @@
+2025-12-06 10:36:26,430 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-06 10:38:52,262 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251204648461000207550020033542191206173410.xml - email_handler.py - 32:
+2025-12-06 10:38:52,906 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251204648461000207550020033542201175240864.xml - email_handler.py - 32:
+2025-12-06 10:38:53,445 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251238203316000234550020001162491209141166.xml - email_handler.py - 32:
+2025-12-06 10:38:54,080 - src.utils.logger - INFO - Arquivo salvo: dados/nfes/NFe35251238203316000234550020001162501204225575.xml - email_handler.py - 32:
+2025-12-06 10:38:57,090 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-06 10:38:57,413 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-06 10:38:57,477 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-06 10:38:58,064 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-06 10:39:02,686 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-06 10:39:02,689 - src.utils.logger - INFO - Fallback Playwright para JOELHO ESG 75X90 - web_scraper.py - 177:
+2025-12-06 10:39:08,979 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-06 10:39:11,636 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 32:
+2025-12-06 11:02:33,890 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-06 11:03:29,013 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-06 11:03:29,531 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-06 11:03:29,673 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-06 11:03:30,386 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-06 11:03:31,461 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-06 11:03:31,464 - src.utils.logger - INFO - Fallback Playwright para JOELHO ESG 75X90 - web_scraper.py - 177:
+2025-12-06 11:03:35,616 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-06 11:03:39,218 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 32:
+2025-12-06 11:12:52,967 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-06 11:14:46,458 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-06 11:14:46,751 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-06 11:14:46,827 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-06 11:14:47,164 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-06 11:14:47,968 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-06 11:14:47,971 - src.utils.logger - INFO - Fallback Playwright para JOELHO ESG 75X90 - web_scraper.py - 177:
+2025-12-06 11:14:51,024 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-06 11:14:53,080 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 32:

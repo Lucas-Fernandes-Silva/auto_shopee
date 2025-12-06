@@ -1,7 +1,8 @@
 import os
 import sys
+from datetime import date
 
-import pandas as pd
+from src.extract.email_handler import EmailHandler
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
@@ -19,8 +20,8 @@ from src.transform.market_price import PrecoVenda
 from src.transform.variation_grouper import VariationGrouper
 from src.utils.gtin_validator import GTINValidator
 
-# email = EmailHandler(env.user, env.pwd)
-# email.baixar_anexos(date.today())
+email = EmailHandler(env.user, env.pwd)
+email.baixar_anexos(date.today())
 
 xml_proc = XMLProcessor("dados/nfes")
 lista_produtos = xml_proc.processar_todos(paralelo=True)
@@ -49,29 +50,17 @@ df = marca.aplicar()
 categoria = CategoryFiller(df)
 df = categoria.aplicar()
 
-
-manager.salvar_excel(df, 'categorias')
-
-
 classifier = HeavyClassifier(df)
 df_pesados, df_restante, df_custo_baixo = classifier.classify()
 
-df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/final_urls_cloudinary.xlsx')
+# variacao = VariationGrouper(df_restante)
+# df = variacao.aplicar()
 
-download = Download(df)
+# nome = BaseVariantExtractor()
+# df = nome.aplicar(df)
+
+download = Download(df_restante)
 df = download.run()
 
-manager.salvar_excel(df, 'download')
-
-classifier = HeavyClassifier(df)
-df_pesados, df_restante, df_custo_baixo = classifier.classify()
-
-df = pd.read_excel('/home/lucas-silva/auto_shopee/juntos.xlsx')
-
-variacao = VariationGrouper(df)
-df = variacao.aplicar()
-
-nome = BaseVariantExtractor()
-df = nome.aplicar(df)
-
-manager.salvar_excel(df, 'variações')
+manager = NotasManager()
+manager.salvar_excel(df, "download")
