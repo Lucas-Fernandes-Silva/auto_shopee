@@ -29,3 +29,12 @@
 2025-12-06 11:14:47,971 - src.utils.logger - INFO - Fallback Playwright para JOELHO ESG 75X90 - web_scraper.py - 177:
 2025-12-06 11:14:51,024 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
 2025-12-06 11:14:53,080 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 32:
+2025-12-06 12:22:50,649 - src.utils.logger - INFO - 🔹 Baixando anexos XML do e-mail… - email_handler.py - 18:
+2025-12-06 12:25:09,152 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-06 12:25:13,158 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-06 12:25:13,224 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-06 12:25:13,721 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-06 12:25:14,725 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-06 12:25:14,732 - src.utils.logger - INFO - Fallback Playwright para JOELHO ESG 75X90 - web_scraper.py - 177:
+2025-12-06 12:25:20,033 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 114:
+2025-12-06 12:25:22,133 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 32:
