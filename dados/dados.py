@@ -293,6 +293,7 @@ SEARCH_ENGINE_ID = "532347d8c03cc4861"
 
 
 mapa_abreviacoes = {
+    "VM": "VERMELHO",
     "AZ": "AZUL",
     "BR": "BRANCO",
     "PT": "PRETO",
@@ -398,4 +399,6 @@ mapa_abreviacoes = {
     "FECHAD": "FECHADURA",
     "CIRC": "CIRCULAR",
     "EMBORR": "EMBORRACHADA ",
+    "CANAL": "CANALETA",
+    "COLOR": "COLORIDA",
 }
