@@ -2,11 +2,11 @@ import os
 import shutil
 
 import pandas as pd
-
+from dados import dados
 
 class NotasManager:
-    def __init__(self, fornecedores=None):
-        self.fornecedores = fornecedores or []
+    def __init__(self):
+        self.fornecedores = dados.fornecedores or []
 
     def cria_dataframe(self, lista_produtos):
         df = pd.DataFrame(lista_produtos)

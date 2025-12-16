@@ -9,6 +9,7 @@ import urllib3
 from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright
 
+from dados import dados
 from src.utils.logger import logger
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -185,9 +186,10 @@ class WebScraper:
                 dados = {}
 
         self.cache[codigo] = dados
-        return codigo, dados  # <-- retorna chave + valor
+        return codigo, dados
 
-    def enriquecer_dataframe(self, df_produtos, fornecedores, paralelo=True):
+    def enriquecer_dataframe(self, df_produtos, paralelo=True):
+        fornecedores = dados.fornecedores
         df_resultado = df_produtos.copy()
 
         df_filtrado = df_resultado[df_resultado["Fornecedor"].isin(fornecedores[1])].copy()
@@ -223,10 +225,6 @@ class WebScraper:
             dados = resultados.get(codigo, {}) or {}
             descricao = str(row.get("Descrição")).strip()
             marca = dados.get("marca")
-            if marca is not None and marca not in descricao:
-                descrição_completa = f"{descricao} {marca}".strip()
-            else:
-                descrição_completa = descricao
             return pd.Series(
                 {
                     "Altura": dados.get("altura"),
@@ -234,7 +232,7 @@ class WebScraper:
                     "Comprimento": dados.get("comprimento"),
                     "Marca": marca,
                     "Categoria": dados.get("categoria"),
-                    "Descrição": descrição_completa,
+                    "Descrição": descricao,
                     "Peso": dados.get("peso") or "NÃO DISPONIVEL",
                     "Url Imagem": dados.get("url_img") or "NÃO DISPONIVEL",
                     "Código de Barras": (
