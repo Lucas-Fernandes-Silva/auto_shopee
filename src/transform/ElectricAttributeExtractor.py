@@ -1,4 +1,5 @@
 import re
+
 import pandas as pd
 
 
@@ -9,7 +10,7 @@ class ElectricAttributeExtractor:
         linhas_eletricas=None,
     ):
         self.categoria_alvo = categoria_alvo.upper()
-        self.linhas_eletricas = {l.upper() for l in (linhas_eletricas or set())}
+        self.linhas_eletricas = {line.upper() for line in (linhas_eletricas or set())}
 
     def _categoria_valida(self, categoria):
         return categoria and categoria.upper().strip() == self.categoria_alvo
@@ -32,7 +33,7 @@ class ElectricAttributeExtractor:
         return self._regex(r"\b\d{1,2}M\b", texto)
 
     def extrair_cor(self, texto):
-        for cor in ["BRANCO", "PRETO", "CINZA", "MARROM"]:
+        for cor in ["BRANCO", "PRETO", "CINZA", "VERMELHO", "COLORIDO"]:
             if cor in texto:
                 return cor
         return None
@@ -121,22 +122,5 @@ class ElectricAttributeExtractor:
         return self.extrair_por_grupo(descricao_limpa.upper(), grupo_eletrico)
 
 
-linhas_eletricas = { "STYLUS", "MILL", "PETRA", "STECK", "INTERNEED", "FAME", "ARIA", "LIZ", "LUX", "FC", }
 
-extrator_eletrico = ElectricAttributeExtractor(
-    linhas_eletricas=linhas_eletricas
-)
-
-df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx')
-
-atributos = df.apply(
-    lambda r: extrator_eletrico.extrair(
-        r["Descricao_Limpa"],
-        r["Categoria"],
-        r["grupo_eletrico"],
-    ),
-    axis=1,
-)
-
-df = pd.concat([df, atributos.apply(pd.Series)], axis=1)
 
