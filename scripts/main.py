@@ -45,7 +45,7 @@ gtin.gerar_gtins_aleatorios(df)
 preco = PrecoVenda(df)
 df = preco.aplicar()
 
-marca = BrandDetector(df, dados.marcas_adicionais, dados.marca_variacoes)
+marca = BrandDetector(df)
 df = marca.aplicar()
 
 categoria = CategoryFiller(df)
