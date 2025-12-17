@@ -3,6 +3,7 @@ import re
 import pandas as pd
 
 from src.transform.ElectricAttributeExtractor import ElectricAttributeExtractor
+from src.transform.VariationGrouperVFinal import VariationGrouperVFinal
 
 
 class ElectricGroupClassifier:
@@ -20,9 +21,7 @@ class ElectricGroupClassifier:
             ),
             (
                 "PLACA",
-                [
-                    r"\bPLACA\b",
-                ],
+                [r"\bPLACA\b", r"\bESPELHO\b"],
             ),
             (
                 "MODULO",
@@ -33,7 +32,7 @@ class ElectricGroupClassifier:
             ),
             (
                 "PLUG",
-                [r"\bPLUG\b.*\bMACHO\b", r"\bPLUG\b"],
+                [r"\bPLUG\b.*\bMACHO\b", r"\bPLUG\b", r"\bPINO\b.*\bMACHO\b"],
             ),
             (
                 "PINO FEMÊA",
@@ -49,9 +48,7 @@ class ElectricGroupClassifier:
             ),
             (
                 "CANALETA",
-                [
-                    r"\bSISTEMA\b" r"\bCANALETA\b",
-                ],
+                [r"\bSISTEMA\b", r"\bCANALETA\b", r"\bCANAL\b"],
             ),
             (
                 "BARRA",
@@ -127,4 +124,11 @@ atributos = df.apply(
 
 df = pd.concat([df, atributos.apply(pd.Series)], axis=1)
 
-df.to_excel("Eletricos.xlsx", index=False)
+grouper = VariationGrouperVFinal(
+    sku_col="Codigo Produto",
+    categoria_alvo="TOMADAS INTERRUPTORES PINOS",
+)
+
+df = grouper.aplicar(df)
+
+df.to_excel("Eletricos_Com_Variacoes.xlsx", index=False)

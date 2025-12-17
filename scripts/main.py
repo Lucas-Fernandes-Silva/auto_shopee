@@ -21,8 +21,8 @@ from src.transform.TextNormalizer import TextNormalizer
 from src.transform.variation_grouper import VariationGrouper
 from src.utils.gtin_validator import GTINValidator
 
-email = EmailHandler(env.user, env.pwd)
-email.baixar_anexos(date.today())
+# email = EmailHandler(env.user, env.pwd)
+# email.baixar_anexos(date.today())
 
 xml_proc = XMLProcessor("dados/nfes")
 lista_produtos = xml_proc.processar_todos(paralelo=True)
