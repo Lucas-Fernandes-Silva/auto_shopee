@@ -33,8 +33,8 @@ class CategoryFiller:
         _, score, idx = match
 
         # idx aqui é o RÓTULO do índice — use .loc em vez de .iloc
-        if idx not in self.com_categoria.index or score <= 65:
-            return "Sem categoria semelhante"
+        if idx not in self.com_categoria.index or score <= 80:
+            return "SEM CATEGORIA"
 
         return self.com_categoria.loc[idx, "Categoria"]
 

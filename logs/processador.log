@@ -1920,3 +1920,16 @@ requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com
 2025-12-18 12:16:49,669 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
 2025-12-18 12:16:49,967 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
 2025-12-18 12:16:54,437 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 13:48:15,829 - src.utils.logger - INFO - Categoria_Normalizada
+Sem categoria semelhante            1218
+FERRAMENTAS MANUAIS E ACESSÓRIOS     326
+HIDRAULICA                           298
+FITAS_ADESIVOS                       229
+DIVERSOS - FERRAGENS                 185
+                                    ... 
+VASSOURAS                              1
+CORRENTES E CORDAS                     1
+CALHAS E CONDUTORES                    1
+PRODUTOS PARA PISCINA                  1
+ELEMENTOS VENTILADOS                   1
+Name: count, Length: 95, dtype: int64 - CategoryNormalizer.py - 130:
