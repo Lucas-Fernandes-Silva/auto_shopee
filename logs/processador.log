@@ -169,3 +169,1754 @@
 2025-12-17 14:21:57,781 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
 2025-12-17 14:21:58,273 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
 2025-12-17 14:22:01,559 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 33:
+2025-12-18 09:29:44,466 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 09:29:44,677 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 09:29:45,015 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 09:29:45,314 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 09:29:45,424 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 09:29:45,494 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 09:29:46,009 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 09:31:26,550 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 09:31:26,644 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 09:31:26,746 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 09:31:27,024 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 09:31:27,117 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 09:31:27,188 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 09:31:27,552 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 09:35:53,708 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 09:39:49,926 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 09:39:50,034 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 09:39:50,173 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 09:39:50,393 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 09:39:50,484 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 09:39:50,560 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 09:39:50,855 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 09:40:22,176 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/191365/191365: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191365/191365 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adad0520>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adad0520>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191365/191365 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adad0520>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191365/191365 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adad0520>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:22,783 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/18703/18703: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/18703/18703 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc6b60>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adbc6b60>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/18703/18703 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc6b60>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/18703/18703 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc6b60>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:23,097 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/191450/191450: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191450/191450 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adae2da0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adae2da0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191450/191450 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adae2da0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191450/191450 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adae2da0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:23,606 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/191378/191378: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191378/191378 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adaf9de0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adaf9de0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191378/191378 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adaf9de0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191378/191378 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adaf9de0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:24,140 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/190550/190550: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/190550/190550 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb66620>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb66620>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/190550/190550 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb66620>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/190550/190550 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb66620>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:26,493 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/132523/132523: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/132523/132523 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc77c0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adbc77c0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/132523/132523 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc77c0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/132523/132523 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc77c0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:27,147 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/181147/181147: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/181147/181147 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb65c90>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb65c90>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/181147/181147 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb65c90>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/181147/181147 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb65c90>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:28,098 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/196281/196281: HTTPSConnectionPool(host='www.construja.com.br', port=443): Read timed out. (read timeout=10) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 790, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 969, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 480, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/ssl_.py", line 524, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "/usr/lib/python3.10/ssl.py", line 513, in wrap_socket
+    return self.sslsocket_class._create(
+  File "/usr/lib/python3.10/ssl.py", line 1100, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.10/ssl.py", line 1371, in do_handshake
+    self._sslobj.do_handshake()
+TimeoutError: _ssl.c:990: The handshake operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Read timed out. (read timeout=10)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 690, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='www.construja.com.br', port=443): Read timed out. (read timeout=10)
+2025-12-18 09:40:28,161 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/13690/13690: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13690/13690 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb238e0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb238e0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13690/13690 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb238e0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13690/13690 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb238e0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:28,614 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/163403/163403: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/163403/163403 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb20100>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb20100>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/163403/163403 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb20100>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/163403/163403 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb20100>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:31,639 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/190557/190557: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/190557/190557 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb934c0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb934c0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/190557/190557 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb934c0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/190557/190557 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb934c0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:32,143 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/191661/191661: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191661/191661 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb939d0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb939d0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191661/191661 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb939d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191661/191661 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb939d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:33,820 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/191379/191379: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191379/191379 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac2236d0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5ac2236d0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191379/191379 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac2236d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191379/191379 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac2236d0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:34,382 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/191651/191651: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191651/191651 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac221ae0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5ac221ae0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191651/191651 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac221ae0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191651/191651 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac221ae0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:34,534 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/191647/191647: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191647/191647 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb7b670>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb7b670>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191647/191647 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb7b670>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/191647/191647 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb7b670>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:36,869 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/16669/16669: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16669/16669 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb784f0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb784f0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16669/16669 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb784f0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16669/16669 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb784f0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:37,792 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/16667/16667: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16667/16667 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac4c2380>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5ac4c2380>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16667/16667 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac4c2380>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16667/16667 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac4c2380>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:39,169 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/17878/17878: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17878/17878 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9ecb80>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf59e9ecb80>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17878/17878 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9ecb80>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17878/17878 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9ecb80>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:39,432 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/17880/17880: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17880/17880 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9ecb80>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf59e9ecb80>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17880/17880 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9ecb80>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17880/17880 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9ecb80>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:39,709 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/118109/118109: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/118109/118109 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9efa90>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf59e9efa90>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/118109/118109 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9efa90>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/118109/118109 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9efa90>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:41,062 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/146421/146421: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/146421/146421 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59ea062c0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf59ea062c0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/146421/146421 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59ea062c0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/146421/146421 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59ea062c0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:41,535 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/16668/16668: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16668/16668 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59ea07b80>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf59ea07b80>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16668/16668 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59ea07b80>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/16668/16668 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59ea07b80>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:43,092 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/112160/112160: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/112160/112160 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59eac3df0>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf59eac3df0>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/112160/112160 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59eac3df0>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/112160/112160 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59eac3df0>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:43,377 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/17882/17882: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17882/17882 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59eac3880>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf59eac3880>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17882/17882 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59eac3880>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/17882/17882 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59eac3880>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:43,867 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/118107/118107: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/118107/118107 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9edf30>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf59e9edf30>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/118107/118107 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9edf30>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/118107/118107 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf59e9edf30>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:45,237 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/13621/13621: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13621/13621 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac223340>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5ac223340>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13621/13621 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac223340>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13621/13621 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5ac223340>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:45,730 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/13622/13622: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13622/13622 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb7af20>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb7af20>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13622/13622 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb7af20>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/13622/13622 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb7af20>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:47,106 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/11137/11137: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/11137/11137 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb3f370>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb3f370>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/11137/11137 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb3f370>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/11137/11137 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb3f370>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:47,328 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/11122/11122: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/11122/11122 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb3f490>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adb3f490>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/11122/11122 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb3f490>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/11122/11122 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adb3f490>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:40:47,736 - src.utils.logger - ERROR - Erro no requests para https://www.construja.com.br/produto/112157/112157: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/112157/112157 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc5f30>: Failed to establish a new connection: [Errno 113] No route to host')) - web_scraper.py - 101:
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 753, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connection.py", line 213, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x7cf5adbc5f30>: Failed to establish a new connection: [Errno 113] No route to host
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/112157/112157 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc5f30>: Failed to establish a new connection: [Errno 113] No route to host'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lucas-silva/auto_shopee/src/extract/web_scraper.py", line 78, in _processar_com_requests
+    response = requests.get(
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/lucas-silva/auto_shopee/venv/lib/python3.10/site-packages/requests/adapters.py", line 677, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='www.construja.com.br', port=443): Max retries exceeded with url: /produto/112157/112157 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7cf5adbc5f30>: Failed to establish a new connection: [Errno 113] No route to host'))
+2025-12-18 09:44:38,731 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 09:44:38,795 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 09:44:38,877 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 09:44:39,079 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 09:44:39,161 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 09:44:39,252 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 09:44:39,588 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 09:47:35,240 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 09:52:42,170 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 09:52:42,238 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 09:52:42,320 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 09:52:42,522 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 09:52:42,593 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 09:52:42,653 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 09:52:43,009 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 09:52:44,465 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 10:16:00,937 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 10:16:01,016 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 10:16:01,125 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 10:16:01,382 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 10:16:01,474 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 10:16:01,580 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 10:16:02,051 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 10:16:03,999 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 10:16:46,977 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 10:16:47,041 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 10:16:47,115 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 10:16:47,373 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 10:16:47,443 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 10:16:47,505 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 10:16:47,780 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 10:16:49,346 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 10:17:05,943 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 10:17:06,021 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 10:17:06,114 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 10:17:06,356 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 10:17:06,430 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 10:17:06,481 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 10:17:06,807 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 10:17:08,309 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 10:30:51,919 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 10:30:51,993 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 10:30:52,084 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 10:30:52,320 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 10:30:52,393 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 10:30:52,443 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 10:30:52,746 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 10:30:54,560 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 11:39:50,304 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 11:39:50,390 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 11:39:50,472 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 11:39:50,764 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 11:39:50,853 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 11:39:50,923 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 11:39:51,320 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 11:39:53,148 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 11:56:44,961 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 11:56:45,344 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 11:56:45,544 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 11:56:46,447 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 11:56:46,590 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 11:56:46,678 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 11:56:47,226 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 11:59:56,622 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 12:05:59,505 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 12:05:59,575 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 12:05:59,655 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 12:05:59,939 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 12:06:00,021 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 12:06:00,083 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 12:06:00,431 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 12:06:05,601 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 12:10:04,940 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 12:10:05,005 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 12:10:05,083 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 12:10:05,345 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 12:10:05,417 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 12:10:05,467 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 12:10:05,757 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 12:10:10,234 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 12:13:35,175 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 12:13:35,297 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 12:13:35,502 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 12:13:35,795 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 12:13:35,888 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 12:13:35,947 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 12:13:36,300 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 12:13:37,973 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 12:16:07,096 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 12:16:07,187 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 12:16:07,269 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 12:16:07,858 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 12:16:07,984 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 12:16:08,046 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 12:16:08,383 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 12:16:10,598 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2025-12-18 12:16:49,080 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2025-12-18 12:16:49,170 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2025-12-18 12:16:49,244 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-18 12:16:49,525 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2025-12-18 12:16:49,611 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-18 12:16:49,669 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-18 12:16:49,967 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-18 12:16:54,437 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:

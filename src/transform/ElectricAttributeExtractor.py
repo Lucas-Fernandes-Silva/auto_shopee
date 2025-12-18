@@ -98,8 +98,7 @@ class ElectricAttributeExtractor:
                 "formato": self.extrair_formato_metragem(texto),
                 "cor": None,
                 "funcao": None,
-                "amperagem": None,
-                "polos": None,
+
             }
 
         return {
@@ -107,8 +106,7 @@ class ElectricAttributeExtractor:
             "formato": None,
             "cor": None,
             "funcao": None,
-            "amperagem": None,
-            "polos": None,
+
         }
 
     # ---------- Público ----------
