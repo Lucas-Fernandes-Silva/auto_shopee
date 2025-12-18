@@ -1,5 +1,5 @@
 venv/
-__pycache__
+__pycache__/
 O que é ?.txt
 cache/
 client_secrets.json
@@ -9,3 +9,4 @@ imagens/
 imagens_otimizadas
 dados/
 shopee_imagens/
+*.pyc

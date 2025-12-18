@@ -169,6 +169,7 @@
 2025-12-17 14:21:57,781 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
 2025-12-17 14:21:58,273 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
 2025-12-17 14:22:01,559 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 33:
+<<<<<<< HEAD
 2025-12-18 09:29:44,466 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
 2025-12-18 09:29:44,677 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
 2025-12-18 09:29:45,015 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
@@ -1933,3 +1934,21 @@ CALHAS E CONDUTORES                    1
 PRODUTOS PARA PISCINA                  1
 ELEMENTOS VENTILADOS                   1
 Name: count, Length: 95, dtype: int64 - CategoryNormalizer.py - 130:
+=======
+2025-12-17 16:26:47,343 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-17 16:26:47,475 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-17 16:26:47,724 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-17 16:26:47,726 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-17 16:26:48,746 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 115:
+2025-12-17 16:26:48,749 - src.utils.logger - INFO - Fallback Playwright para DUCHA BELLA DUCHA BR ULTRA 6800X220 - web_scraper.py - 178:
+2025-12-17 16:26:55,570 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 115:
+2025-12-17 16:26:57,557 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 33:
+2025-12-17 16:32:51,553 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2025-12-17 16:32:51,781 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2025-12-17 16:32:55,153 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2025-12-17 16:32:55,185 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2025-12-17 16:32:57,423 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 115:
+2025-12-17 16:32:57,425 - src.utils.logger - INFO - Fallback Playwright para DUCHA BELLA DUCHA BR ULTRA 6800X220 - web_scraper.py - 178:
+2025-12-17 16:33:08,454 - src.utils.logger - WARNING - Produto vazio no JSON — pulando item. - web_scraper.py - 115:
+2025-12-17 16:33:09,327 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 33:
+>>>>>>> d6846f9 (add)

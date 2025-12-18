@@ -1,42 +1,61 @@
-import numpy as np
+import re
+import pandas as pd
 
 from src.utils.normalizer import Normalizer
-
+from dados import dados
 
 class BrandDetector:
     def __init__(self, df, marca_variacoes, marcas_adicionais):
         self.df = df
-        self.marcas_adicionais = {Normalizer.normalize(m) for m in marcas_adicionais}
-        self.marca_variacoes = marca_variacoes
-        self.marcas = self._compilar_marcas()
+        self.marcas_adicionais = dados.marcas_adicionais
+        self.marca_variacoes = dados.marca_variacoes
 
-    def _compilar_marcas(self):
-        marcas = set(self.marcas_adicionais)
-        marcas_planilha = {
-            Normalizer.normalize(m) for m in self.df["Marca"].dropna().astype(str)
+        # Marca PADRÃO -> variações
+        self.marca_variacoes = {
+            Normalizer.normalize(marca): {
+                Normalizer.normalize(v) for v in variacoes
+            }
+            for marca, variacoes in self.marca_variacoes.items()
         }
-        marcas_planilha.discard("5")
-        marcas |= marcas_planilha
-        for marca, variacoes in self.marca_variacoes.items():
-            marcas.add(Normalizer.normalize(marca))
-            marcas |= {Normalizer.normalize(v) for v in variacoes}
 
-        return marcas
+        # Marcas adicionais (sem variação)
+        self.marcas_adicionais = {
+            Normalizer.normalize(m) for m in self.marcas_adicionais
+        }
 
-    def detectar(self, descricao):
+    def detectar_descricao(self, descricao):
+        if not isinstance(descricao, str) or descricao.strip() == "":
+            return None
+
         desc = Normalizer.normalize(descricao)
+
+        # 1️⃣ Prioridade: variações → marca padronizada
         for marca_padrao, variacoes in self.marca_variacoes.items():
-            if any(Normalizer.normalize(v) in desc for v in variacoes):
-                return marca_padrao
-        for marca in self.marcas:
-            if marca in desc:
+            for v in variacoes:
+                if re.search(rf"\b{re.escape(v)}\b", desc):
+                    return marca_padrao
+
+        # 2️⃣ Marcas adicionais
+        for marca in self.marcas_adicionais:
+            if re.search(rf"\b{re.escape(marca)}\b", desc):
                 return marca
-        return np.nan
+
+        return None
 
     def aplicar(self):
-        self.df["Marca"] = (
-            self.df["Marca"]
-            .fillna(self.df["Descrição"].map(self.detectar))
-            .fillna("GENÉRICO")
-        )
+        def resolver(row):
+            # tenta detectar pela descrição
+            marca_detectada = self.detectar_descricao(row["Descrição"])
+            if marca_detectada:
+                return marca_detectada
+
+            # mantém marca existente
+            marca_atual = row.get("Marca")
+            if pd.notna(marca_atual) and str(marca_atual).strip() != "":
+                return marca_atual
+
+            # fallback final
+            return "GENÉRICO"
+
+        self.df["Marca"] = self.df.apply(resolver, axis=1)
         return self.df
