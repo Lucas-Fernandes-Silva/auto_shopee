@@ -11,7 +11,7 @@ from src.load.notas_manager import NotasManager
 from src.transform.brand_detector import BrandDetector
 from src.transform.category_filter import CategoryFiller
 from src.transform.market_price import PrecoVenda
-from src.transform.TextNormalizer import TextNormalizer
+from TextNormalizer import TextNormalizer
 from src.utils.gtin_validator import GTINValidator
 
 # email = EmailHandler(env.user, env.pwd)
