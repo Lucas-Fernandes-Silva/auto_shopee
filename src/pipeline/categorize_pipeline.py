@@ -1,53 +1,93 @@
 import pandas as pd
 
-from src.categorization.DomainMapper import DomainMapper
+from src.categorization.DomainClassifier import DomainClassifier
+from src.categorization.DomainMapLoader import DomainMapLoader
 from src.categorization.ElectricAttributeExtractor import ElectricAttributeExtractor
-from src.categorization.VariationGrouper import ElectricVariationGrouper
-from src.utils.normalizer import Normalizer
+from src.categorization.ElectricGroupClassifier import ElectricGroupClassifier
 
 
 class CategorizationPipeline:
-    def __init__(self, path_categorizados: str):
-        self.mapper = DomainMapper(path_categorizados)
-        self.electric_extractor = ElectricAttributeExtractor()
-        self.variation_grouper = ElectricVariationGrouper()
+    def __init__(
+        self,
+        domain_classifier,
+        electric_group_classifier=None,
+        electric_attribute_extractor=None,
+    ):
+        self.domain_classifier = domain_classifier
+        self.electric_group_classifier = electric_group_classifier
+        self.electric_attribute_extractor = electric_attribute_extractor
 
-    def run(self, df: pd.DataFrame) -> pd.DataFrame:
-        df = df.copy()
+    def processar_linha(self, row):
+        descricao = row.get("Descricao_Limpa")
+        categoria = row.get("Categoria")
 
-        # normaliza descrição
-        df["Descricao_Limpa"] = df["Descricao"].apply(Normalizer.normalize)
+        resultado = {}
 
-        # resolve dominio / categoria
-        df[["Dominio", "Categoria_Principal", "Subcategoria"]] = df.apply(
-            lambda r: pd.Series(self.mapper.resolve(r["Descricao_Limpa"])),
-            axis=1,
-        )
+        # -------------------------
+        # 1. DOMÍNIO
+        # -------------------------
+        dominio = self.domain_classifier.classificar(descricao)
+        resultado["Dominio"] = dominio
 
-        # atributos elétricos
-        electric_attrs = df.apply(
-            lambda r: self.electric_extractor.extract(
-                r["Descricao_Limpa"], r["Categoria_Principal"]
-            ),
-            axis=1,
-        )
+        # -------------------------
+        # 2. ELÉTRICA
+        # -------------------------
+        if dominio == "ELÉTRICA" and self.electric_group_classifier:
+            grupo = self.electric_group_classifier.classify(descricao, categoria)
+            resultado["Grupo_Eletrico"] = grupo
 
-        electric_df = pd.json_normalize(electric_attrs.tolist())
-        df = pd.concat([df, electric_df], axis=1)
+            if self.electric_attribute_extractor:
+                atributos = self.electric_attribute_extractor.extrair(
+                    descricao_limpa=descricao,
+                    categoria=categoria,
+                    grupo_eletrico=grupo,
+                )
+                resultado.update(atributos)
 
-        # chave de variação
-        df["VariationKey"] = df.apply(
-            lambda r: self.variation_grouper.get_group_key(r), # type: ignore
-            axis=1,
-        )
+        # -------------------------
+        # 3. FUTUROS DOMÍNIOS
+        # -------------------------
+        # if dominio == "HIDRAULICA":
+        #     ...
 
-        return df
+        return pd.Series(resultado)
+
+    def aplicar(self, df: pd.DataFrame):
+        atributos = df.apply(self.processar_linha, axis=1)
+        return pd.concat([df, atributos], axis=1)
 
 
-df = pd.read_csv("produtos.csv")
+# ---- Domínio
+loader = DomainMapLoader("/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx")
+df_dominios = loader.carregar()
+domain_classifier = DomainClassifier(df_dominios)
 
-pipeline = CategorizationPipeline(path_categorizados="Categorizados.xlsx")
+# ---- Elétrica
+electric_group_classifier = ElectricGroupClassifier()
+electric_attribute_extractor = ElectricAttributeExtractor(
+    linhas_eletricas={
+        "STYLUS",
+        "MILL",
+        "PETRA",
+        "STECK",
+        "INTERNEED",
+        "FAME",
+        "ARIA",
+        "LIZ",
+        "LUX",
+        "FC",
+    }
+)
 
-df_final = pipeline.run(df)
+# ---- Pipeline
+pipeline = CategorizationPipeline(
+    domain_classifier=domain_classifier,
+    electric_group_classifier=electric_group_classifier,
+    electric_attribute_extractor=electric_attribute_extractor,
+)
 
-df_final.to_csv("produtos_categorizados.csv", index=False)
+# ---- Executar
+df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx")
+df_final = pipeline.aplicar(df)
+
+df_final.to_excel("Produtos_Classificados.xlsx", index=False)
