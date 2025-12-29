@@ -2,6 +2,7 @@ import re
 
 import pandas as pd
 
+from src.utils.normalizer import Normalizer
 
 class DomainClassifier:
     def __init__(self, df_dominios: pd.DataFrame):
@@ -11,7 +12,7 @@ class DomainClassifier:
         if pd.isna(descricao):
             return None
 
-        texto = descricao.upper()
+        texto = Normalizer.normalize(descricao)
 
         matches = []
 

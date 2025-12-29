@@ -10,7 +10,7 @@ class BrandDetector:
         self.marcas_adicionais = dados.marcas_adicionais
         self.marca_variacoes = dados.marca_variacoes
 
-        # Marca PADRÃO -> variações
+        # Marca PADRÃO -> variaçõese
         self.marca_variacoes = {
             Normalizer.normalize(marca): {
                 Normalizer.normalize(v) for v in variacoes

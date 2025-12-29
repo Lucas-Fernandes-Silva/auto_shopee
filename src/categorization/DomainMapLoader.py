@@ -1,5 +1,7 @@
 import pandas as pd
 
+import normalizer
+from src.utils.normalizer import Normalizer
 
 class DomainMapLoader:
     def __init__(self, path_excel):
@@ -14,8 +16,8 @@ class DomainMapLoader:
             for valor in df_raw[dominio]:
                 if pd.notna(valor):
                     registros.append({
-                        "dominio": dominio.upper().strip(),
-                        "termo": str(valor).upper().strip()
+                        "dominio": Normalizer.normalize(dominio),
+                        "termo": Normalizer.normalize(str(valor))
                     })
 
         return pd.DataFrame(registros)
