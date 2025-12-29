@@ -1,7 +1,7 @@
 import pandas as pd
 
-import normalizer
 from src.utils.normalizer import Normalizer
+
 
 class DomainMapLoader:
     def __init__(self, path_excel):

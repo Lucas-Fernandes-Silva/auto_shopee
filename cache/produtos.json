@@ -51,7 +51,7 @@
   },
   "166725": {
     "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "0.05500000",
     "codigo_barras": "7891435938074",
     "url_img": "https://cdn.construja.com.br/produtos/166725/166725.jpg",
@@ -101,7 +101,7 @@
   },
   "166731": {
     "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "0.05600000",
     "codigo_barras": "7891435938098",
     "url_img": "https://cdn.construja.com.br/produtos/166731/166731.jpg",
@@ -291,7 +291,7 @@
   },
   "166726": {
     "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "0.05600000",
     "codigo_barras": "7891435938067",
     "url_img": "https://cdn.construja.com.br/produtos/166726/166726.jpg",
@@ -301,7 +301,7 @@
   },
   "166630": {
     "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "0.05500000",
     "codigo_barras": "7891435938081",
     "url_img": "https://cdn.construja.com.br/produtos/166630/166630.jpg",
@@ -611,7 +611,7 @@
   },
   "166622": {
     "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "0.04000000",
     "codigo_barras": "7891435937626",
     "url_img": "https://cdn.construja.com.br/produtos/166622/166622.jpg",
@@ -921,7 +921,7 @@
   },
   "191341": {
     "categoria": "PARAFUSOS",
-    "marca": "NEW FIX",
+    "marca": "NEW-FIX",
     "peso": "1.85200000",
     "codigo_barras": "7890001913411",
     "url_img": "https://cdn.construja.com.br/produtos/191341/191341.jpg",
@@ -931,7 +931,7 @@
   },
   "191342": {
     "categoria": "PARAFUSOS",
-    "marca": "NEW FIX",
+    "marca": "NEW-FIX",
     "peso": "1.98400000",
     "codigo_barras": "7890001913421",
     "url_img": "https://cdn.construja.com.br/produtos/191342/191342.jpg",
@@ -991,7 +991,7 @@
   },
   "166562": {
     "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "1.78537900",
     "codigo_barras": "7891117051763",
     "url_img": "https://cdn.construja.com.br/produtos/166562/166562.jpg",
@@ -1081,7 +1081,7 @@
   },
   "166130": {
     "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "1.95200000",
     "codigo_barras": "7891117023814",
     "url_img": "https://cdn.construja.com.br/produtos/166130/166130.jpg",
@@ -1131,7 +1131,7 @@
   },
   "166427": {
     "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "1.70400000",
     "codigo_barras": "7891117045694",
     "url_img": "https://cdn.construja.com.br/produtos/166427/166427.jpg",
@@ -1241,7 +1241,7 @@
   },
   "166132": {
     "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "TRAMONTINA",
+    "marca": "TRAMON",
     "peso": "0.16200000",
     "codigo_barras": "7891117023760",
     "url_img": "https://cdn.construja.com.br/produtos/166132/166132.jpg",
@@ -2761,7 +2761,7 @@
   },
   "13716": {
     "categoria": null,
-    "marca": "TRAMONTINA",
+    "marca": "TRAMONTINA ELE",
     "peso": "0.12000000",
     "codigo_barras": "7891435983371",
     "url_img": "https://cdn.msbitaqua.com.br/produtos/13716/13716.jpg",
@@ -2801,7 +2801,7 @@
   },
   "8475": {
     "categoria": null,
-    "marca": "NEW FIX",
+    "marca": "NEW-FIX",
     "peso": "0.00100000",
     "codigo_barras": "7898423890338",
     "url_img": "https://cdn.msbitaqua.com.br/produtos/8475/8475.jpg",
@@ -2811,7 +2811,7 @@
   },
   "6133": {
     "categoria": null,
-    "marca": "NEW FIX",
+    "marca": "NEW-FIX",
     "peso": "0.00100000",
     "codigo_barras": "7898423890192",
     "url_img": "https://cdn.msbitaqua.com.br/produtos/6133/6133.jpg",
@@ -2821,7 +2821,7 @@
   },
   "6132": {
     "categoria": null,
-    "marca": "NEW FIX",
+    "marca": "NEW-FIX",
     "peso": "0.00100000",
     "codigo_barras": "7898423890185",
     "url_img": "https://cdn.msbitaqua.com.br/produtos/6132/6132.jpg",
@@ -2831,7 +2831,7 @@
   },
   "6135": {
     "categoria": null,
-    "marca": "NEW FIX",
+    "marca": "NEW-FIX",
     "peso": "0.00100000",
     "codigo_barras": "7898423890215",
     "url_img": "https://cdn.msbitaqua.com.br/produtos/6135/6135.jpg",
@@ -21875,7 +21875,7 @@
   },
   "18281": {
     "categoria": "SANITÁRIOS",
-    "marca": null,
+    "marca": "",
     "peso": "0.11800000",
     "codigo_barras": "7898901655053",
     "url_img": "https://cdn.construja.com.br/produtos/18281/18281.jpg",
@@ -22053,895 +22053,5 @@
     "altura": "12",
     "comprimento": "31"
   },
-  "18281": {
-    "categoria": "SANITÁRIOS",
-    "marca": "",
-    "peso": "0.11800000",
-    "codigo_barras": "7898901655053",
-    "url_img": "https://cdn.construja.com.br/produtos/18281/18281.jpg",
-    "largura": "5.5",
-    "altura": "5.5",
-    "comprimento": "5.5"
-  },
-  "NaN": {},
-  "166130": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "TRAMON",
-    "peso": "1.95200000",
-    "codigo_barras": "7891117023814",
-    "url_img": "https://cdn.construja.com.br/produtos/166130/166130.jpg",
-    "largura": "5",
-    "altura": "5",
-    "comprimento": "5"
-  },
-  "166427": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "TRAMON",
-    "peso": "1.70400000",
-    "codigo_barras": "7891117045694",
-    "url_img": "https://cdn.construja.com.br/produtos/166427/166427.jpg",
-    "largura": "4.5",
-    "altura": "4.5",
-    "comprimento": "4.5"
-  },
-  "13694": {
-    "categoria": "DIVERSOS - PINTURA",
-    "marca": "LINHAL",
-    "peso": "1.17400000",
-    "codigo_barras": "7898122760024",
-    "url_img": "https://cdn.construja.com.br/produtos/13694/13694.jpg",
-    "largura": "8.5",
-    "altura": "19.5",
-    "comprimento": "8.5"
-  },
-  "171176": {
-    "categoria": "AUTOMOTIVA",
-    "marca": "ADELBRAS",
-    "peso": "0.09200000",
-    "codigo_barras": "7896603806919",
-    "url_img": "https://cdn.construja.com.br/produtos/171176/171176.jpg",
-    "largura": "12",
-    "altura": "2",
-    "comprimento": "12"
-  },
-  "166562": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "TRAMON",
-    "peso": "1.78537900",
-    "codigo_barras": "7891117051763",
-    "url_img": "https://cdn.construja.com.br/produtos/166562/166562.jpg",
-    "largura": "4",
-    "altura": "4",
-    "comprimento": "4"
-  },
-  "15522": {
-    "categoria": "SUPORTES E CANTONEIRAS",
-    "marca": "OVERTIME",
-    "peso": "0.23200000",
-    "codigo_barras": "7896202400440",
-    "url_img": "https://cdn.construja.com.br/produtos/15522/15522.jpg",
-    "largura": "15.5",
-    "altura": "1.5",
-    "comprimento": "15.5"
-  },
-  "15516": {
-    "categoria": "SUPORTES E CANTONEIRAS",
-    "marca": "OVERTIME",
-    "peso": "0.13387000",
-    "codigo_barras": "7896202400365",
-    "url_img": "https://cdn.construja.com.br/produtos/15516/15516.jpg",
-    "largura": "15.5",
-    "altura": "1.5",
-    "comprimento": "15.5"
-  },
-  "155145": {
-    "categoria": "SUPORTES E CANTONEIRAS",
-    "marca": "OVERTIME",
-    "peso": "0.07133000",
-    "codigo_barras": "7896202400891",
-    "url_img": "https://cdn.construja.com.br/produtos/155145/155145.jpg",
-    "largura": "8.5",
-    "altura": "1",
-    "comprimento": "8.5"
-  },
-  "110246": {
-    "categoria": "ESCADAS",
-    "marca": "MAESTRO",
-    "peso": "4.04400000",
-    "codigo_barras": "7898113086881",
-    "url_img": "https://cdn.construja.com.br/produtos/110246/110246.jpg",
-    "largura": "47",
-    "altura": "10.5",
-    "comprimento": "47"
-  },
-  "15493": {
-    "categoria": "FECHOS FERROLHOS DOBRADIÇAS",
-    "marca": "INCA",
-    "peso": "0.06100000",
-    "codigo_barras": "7890000154931",
-    "url_img": "https://cdn.construja.com.br/produtos/15493/15493.jpg",
-    "largura": "3",
-    "altura": "3",
-    "comprimento": "3"
-  },
-  "181135": {
-    "categoria": "DIVERSOS - PINTURA",
-    "marca": "CORTAG",
-    "peso": "0.19500000",
-    "codigo_barras": "7897451466935",
-    "url_img": "https://cdn.construja.com.br/produtos/181135/181135.jpg",
-    "largura": "20",
-    "altura": "5",
-    "comprimento": "20"
-  },
-  "15524": {
-    "categoria": "SUPORTES E CANTONEIRAS",
-    "marca": "OVERTIME",
-    "peso": "0.40900000",
-    "codigo_barras": "7896202400488",
-    "url_img": "https://cdn.construja.com.br/produtos/15524/15524.jpg",
-    "largura": "26",
-    "altura": "2",
-    "comprimento": "26"
-  },
-  "15523": {
-    "categoria": "SUPORTES E CANTONEIRAS",
-    "marca": "OVERTIME",
-    "peso": "0.31670000",
-    "codigo_barras": "7896202400457",
-    "url_img": "https://cdn.construja.com.br/produtos/15523/15523.jpg",
-    "largura": "25",
-    "altura": "10",
-    "comprimento": "25"
-  },
-  "15257": {
-    "categoria": "EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL",
-    "marca": "PEGAFORTE",
-    "peso": "2.13200000",
-    "codigo_barras": "7909224158234",
-    "url_img": "https://cdn.construja.com.br/produtos/15257/15257.jpg",
-    "largura": "36",
-    "altura": "12",
-    "comprimento": "36"
-  },
-  "188281": {
-    "categoria": "EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL",
-    "marca": "IMBAT",
-    "peso": "0.02800000",
-    "codigo_barras": "7908089600094",
-    "url_img": "https://cdn.construja.com.br/produtos/188281/188281.jpg",
-    "largura": "10",
-    "altura": "1",
-    "comprimento": "10"
-  },
-  "159167": {
-    "categoria": "EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL",
-    "marca": "PEGAFORTE",
-    "peso": "1.81100000",
-    "codigo_barras": "7909224158227",
-    "url_img": "https://cdn.construja.com.br/produtos/159167/159167.jpg",
-    "largura": "33",
-    "altura": "13",
-    "comprimento": "33"
-  },
-  "16314": {
-    "categoria": "TINTA VERNIZ",
-    "marca": "POLIREX",
-    "peso": "0.26600000",
-    "codigo_barras": "7891567322987",
-    "url_img": "https://cdn.construja.com.br/produtos/16314/16314.jpg",
-    "largura": "7",
-    "altura": "7",
-    "comprimento": "7"
-  },
-  "199190": {
-    "categoria": "DIVERSOS - PINTURA",
-    "marca": "ROMA",
-    "peso": "0.00458000",
-    "codigo_barras": "7891595000833",
-    "url_img": "https://cdn.construja.com.br/produtos/199190/199190.jpg",
-    "largura": "0.1",
-    "altura": "0.1",
-    "comprimento": "0.1"
-  },
-  "156310": {
-    "categoria": "PRODUTOS QUÍMICOS",
-    "marca": "STARRETT",
-    "peso": "0.28600000",
-    "codigo_barras": "7891265020949",
-    "url_img": "https://cdn.construja.com.br/produtos/156310/156310.jpg",
-    "largura": "6",
-    "altura": "20.5",
-    "comprimento": "6"
-  },
-  "199191": {
-    "categoria": "DIVERSOS - PINTURA",
-    "marca": "ROMA",
-    "peso": "0.00500000",
-    "codigo_barras": "7891595000840",
-    "url_img": "https://cdn.construja.com.br/produtos/199191/199191.jpg",
-    "largura": "0.1",
-    "altura": "0.1",
-    "comprimento": "0.1"
-  },
-  "19963": {
-    "categoria": "DIVERSOS - PINTURA",
-    "marca": "ROMA",
-    "peso": "0.00700000",
-    "codigo_barras": "7891595000857",
-    "url_img": "https://cdn.construja.com.br/produtos/19963/19963.jpg",
-    "largura": "0.2",
-    "altura": "0.2",
-    "comprimento": "0.2"
-  },
-  "191742": {
-    "categoria": "DIVERSOS - FERRAGENS",
-    "marca": "WS",
-    "peso": "0.32800000",
-    "codigo_barras": "7898489751338",
-    "url_img": "https://cdn.construja.com.br/produtos/191742/191742.jpg",
-    "largura": "14",
-    "altura": "4",
-    "comprimento": "14"
-  },
-  "113120": {
-    "categoria": "ANTENAS E ACESSÓRIOS",
-    "marca": "INTERNEED",
-    "peso": "0.00700000",
-    "codigo_barras": "7890001131201",
-    "url_img": "https://cdn.construja.com.br/produtos/113120/113120.jpg",
-    "largura": "2",
-    "altura": "1",
-    "comprimento": "2"
-  },
-  "191757": {
-    "categoria": "DIVERSOS - FERRAGENS",
-    "marca": "WS",
-    "peso": "0.48400000",
-    "codigo_barras": "7898489751086",
-    "url_img": "https://cdn.construja.com.br/produtos/191757/191757.jpg",
-    "largura": "15",
-    "altura": "3",
-    "comprimento": "15"
-  },
-  "140168": {
-    "categoria": "AUTOMOTIVA",
-    "marca": "H7",
-    "peso": "0.56400000",
-    "codigo_barras": "7899956600715",
-    "url_img": "https://cdn.construja.com.br/produtos/140168/140168.jpg",
-    "largura": "7",
-    "altura": "21",
-    "comprimento": "7"
-  },
-  "188280": {
-    "categoria": "EQUIPAMENTO DE PROTEÇÃO INDIVIDUAL",
-    "marca": "IMBAT",
-    "peso": "0.02700000",
-    "codigo_barras": "7908089600087",
-    "url_img": "https://cdn.construja.com.br/produtos/188280/188280.jpg",
-    "largura": "11",
-    "altura": "1",
-    "comprimento": "11"
-  },
-  "166132": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "TRAMON",
-    "peso": "0.16200000",
-    "codigo_barras": "7891117023760",
-    "url_img": "https://cdn.construja.com.br/produtos/166132/166132.jpg",
-    "largura": "4",
-    "altura": "4",
-    "comprimento": "4"
-  },
-  "181160": {
-    "categoria": "DIVERSOS - FERRAGENS",
-    "marca": "SRAFAEL",
-    "peso": "0.55000000",
-    "codigo_barras": "7891427032025",
-    "url_img": "https://cdn.construja.com.br/produtos/181160/181160.jpg",
-    "largura": "14",
-    "altura": "3",
-    "comprimento": "14"
-  },
-  "158200": {
-    "categoria": "CONEXÕES ÁGUA",
-    "marca": "AMANCO",
-    "peso": "0.01000000",
-    "codigo_barras": "7891960001397",
-    "url_img": "https://cdn.construja.com.br/produtos/158200/158200.jpg",
-    "largura": "2",
-    "altura": "2",
-    "comprimento": "2"
-  },
-  "158201": {
-    "categoria": "CONEXÕES ÁGUA",
-    "marca": "AMANCO",
-    "peso": "0.01400000",
-    "codigo_barras": "7891960708326",
-    "url_img": "https://cdn.construja.com.br/produtos/158201/158201.jpg",
-    "largura": "3",
-    "altura": "3",
-    "comprimento": "3"
-  },
-  "191342": {
-    "categoria": "PARAFUSOS",
-    "marca": "NEW-FIX",
-    "peso": "1.98400000",
-    "codigo_barras": "7890001913421",
-    "url_img": "https://cdn.construja.com.br/produtos/191342/191342.jpg",
-    "largura": "30",
-    "altura": "10",
-    "comprimento": "30"
-  },
-  "191341": {
-    "categoria": "PARAFUSOS",
-    "marca": "NEW-FIX",
-    "peso": "1.85200000",
-    "codigo_barras": "7890001913411",
-    "url_img": "https://cdn.construja.com.br/produtos/191341/191341.jpg",
-    "largura": "30.5",
-    "altura": "9.5",
-    "comprimento": "30.5"
-  },
-  "110244": {
-    "categoria": "ESCADAS",
-    "marca": "MAESTRO",
-    "peso": "3.31300000",
-    "codigo_barras": "7898113086874",
-    "url_img": "https://cdn.construja.com.br/produtos/110244/110244.jpg",
-    "largura": "35",
-    "altura": "10",
-    "comprimento": "35"
-  },
-  "110245": {
-    "categoria": "ESCADAS",
-    "marca": "MAESTRO",
-    "peso": "3.90400000",
-    "codigo_barras": "7898113086843",
-    "url_img": "https://cdn.construja.com.br/produtos/110245/110245.jpg",
-    "largura": "40",
-    "altura": "10",
-    "comprimento": "40"
-  },
-  "163462": {
-    "categoria": "TINTA FUNDO E BASES",
-    "marca": "EUCATEX",
-    "peso": "1.45000000",
-    "codigo_barras": "7896587010470",
-    "url_img": "https://cdn.construdigi.com.br/produtos/163462/163462.jpg",
-    "largura": "10.8",
-    "altura": "12.5",
-    "comprimento": "10.8"
-  },
-  "110584": {
-    "categoria": "DIVERSOS - FERRAGENS",
-    "marca": "ACQUAFLEX",
-    "peso": "2.18500000",
-    "codigo_barras": "7898162001088",
-    "url_img": "https://cdn.construdigi.com.br/produtos/110584/110584.jpg",
-    "largura": "30",
-    "altura": "14",
-    "comprimento": "30"
-  },
-  "14131": {
-    "categoria": "LIXAS",
-    "marca": "TRIONITE",
-    "peso": "0.01800000",
-    "codigo_barras": "7898088923228",
-    "url_img": "https://cdn.construdigi.com.br/produtos/14131/14131.jpg",
-    "largura": "23",
-    "altura": "0.1",
-    "comprimento": "23"
-  },
-  "163478": {
-    "categoria": "TINTA VERNIZ",
-    "marca": "EUCATEX",
-    "peso": "0.25600000",
-    "codigo_barras": "7896587020219",
-    "url_img": "https://cdn.construdigi.com.br/produtos/163478/163478.jpg",
-    "largura": "7.58",
-    "altura": "7.5",
-    "comprimento": "7.58"
-  },
-  "180285": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "EDA",
-    "peso": "0.05800000",
-    "codigo_barras": "7895315015558",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180285/180285.jpg",
-    "largura": "4.5",
-    "altura": "2",
-    "comprimento": "4.5"
-  },
-  "180282": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "EDA",
-    "peso": "0.04800000",
-    "codigo_barras": "7895315015534",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180282/180282.jpg",
-    "largura": "4.5",
-    "altura": "3",
-    "comprimento": "4.5"
-  },
-  "180284": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "EDA",
-    "peso": "0.05500000",
-    "codigo_barras": "7895315015541",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180284/180284.jpg",
-    "largura": "4.5",
-    "altura": "2.5",
-    "comprimento": "4.5"
-  },
-  "180328": {
-    "categoria": "FERRAMENTAS ELETRICAS",
-    "marca": "EDA",
-    "peso": "0.14000000",
-    "codigo_barras": "7895315004316",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180328/180328.jpg",
-    "largura": "13",
-    "altura": "5",
-    "comprimento": "13"
-  },
-  "180275": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "EDA",
-    "peso": "0.09400000",
-    "codigo_barras": "7895315015602",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180275/180275.jpg",
-    "largura": "4.5",
-    "altura": "2.5",
-    "comprimento": "4.5"
-  },
-  "180276": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "EDA",
-    "peso": "0.10000000",
-    "codigo_barras": "7895315015619",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180276/180276.jpg",
-    "largura": "4.5",
-    "altura": "2.5",
-    "comprimento": "4.5"
-  },
-  "180742": {
-    "categoria": "DIVERSOS - FERRAGENS",
-    "marca": "EDA",
-    "peso": "0.13200000",
-    "codigo_barras": "7895315004866",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180742/180742.jpg",
-    "largura": "10",
-    "altura": "3",
-    "comprimento": "10"
-  },
-  "180740": {
-    "categoria": "DIVERSOS - FERRAGENS",
-    "marca": "EDA",
-    "peso": "0.07800000",
-    "codigo_barras": "7895315006686",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180740/180740.jpg",
-    "largura": "10",
-    "altura": "1.5",
-    "comprimento": "10"
-  },
-  "180741": {
-    "categoria": "DIVERSOS - FERRAGENS",
-    "marca": "EDA",
-    "peso": "0.14200000",
-    "codigo_barras": "7895315006822",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180741/180741.jpg",
-    "largura": "10",
-    "altura": "1",
-    "comprimento": "10"
-  },
-  "180274": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "EDA",
-    "peso": "0.08800000",
-    "codigo_barras": "7895315015596",
-    "url_img": "https://cdn.construdigi.com.br/produtos/180274/180274.jpg",
-    "largura": "4.5",
-    "altura": "2.5",
-    "comprimento": "4.5"
-  },
-  "166630": {
-    "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMON",
-    "peso": "0.05500000",
-    "codigo_barras": "7891435938081",
-    "url_img": "https://cdn.construja.com.br/produtos/166630/166630.jpg",
-    "largura": "8",
-    "altura": "2.5",
-    "comprimento": "8"
-  },
-  "166622": {
-    "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMON",
-    "peso": "0.04000000",
-    "codigo_barras": "7891435937626",
-    "url_img": "https://cdn.construja.com.br/produtos/166622/166622.jpg",
-    "largura": "8.5",
-    "altura": "4.5",
-    "comprimento": "8.5"
-  },
-  "116180": {
-    "categoria": "DIVERSOS ELETRICA",
-    "marca": "THOMPSON",
-    "peso": "0.03370000",
-    "codigo_barras": "7890001161801",
-    "url_img": "https://cdn.construja.com.br/produtos/116180/116180.jpg",
-    "largura": "2.5",
-    "altura": "2",
-    "comprimento": "2.5"
-  },
-  "116178": {
-    "categoria": "DIVERSOS ELETRICA",
-    "marca": "THOMPSON",
-    "peso": "0.02620000",
-    "codigo_barras": "7890001161781",
-    "url_img": "https://cdn.construja.com.br/produtos/116178/116178.jpg",
-    "largura": "20",
-    "altura": "26",
-    "comprimento": "20"
-  },
-  "101434": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "NAUTIKA",
-    "peso": "0.14800000",
-    "codigo_barras": "7898471192361",
-    "url_img": "https://cdn.construja.com.br/produtos/101434/101434.jpg",
-    "largura": "13",
-    "altura": "4",
-    "comprimento": "13"
-  },
-  "192281": {
-    "categoria": "PARAFUSOS",
-    "marca": "FERJA",
-    "peso": "0.34000000",
-    "codigo_barras": "7899932013003",
-    "url_img": "https://cdn.construja.com.br/produtos/192281/192281.jpg",
-    "largura": "12",
-    "altura": "3.5",
-    "comprimento": "12"
-  },
-  "10416": {
-    "categoria": "TUBO SOLDAVEL",
-    "marca": "MULTILIT",
-    "peso": "4.22000000",
-    "codigo_barras": "7898394632296",
-    "url_img": "https://cdn.construdigi.com.br/produtos/10416/10416.jpg",
-    "largura": "6",
-    "altura": "6",
-    "comprimento": "6"
-  },
-  "164713": {
-    "categoria": "IMPERMEABILIZANTE DE PAREDE",
-    "marca": "VIAPOL",
-    "peso": "18.75500000",
-    "codigo_barras": "7898055528906",
-    "url_img": "https://cdn.construdigi.com.br/produtos/164713/164713.jpg",
-    "largura": "29",
-    "altura": "23",
-    "comprimento": "29"
-  },
-  "166725": {
-    "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMON",
-    "peso": "0.05500000",
-    "codigo_barras": "7891435938074",
-    "url_img": "https://cdn.construja.com.br/produtos/166725/166725.jpg",
-    "largura": "8.5",
-    "altura": "3",
-    "comprimento": "8.5"
-  },
-  "166731": {
-    "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMON",
-    "peso": "0.05600000",
-    "codigo_barras": "7891435938098",
-    "url_img": "https://cdn.construja.com.br/produtos/166731/166731.jpg",
-    "largura": "8",
-    "altura": "3",
-    "comprimento": "8"
-  },
-  "136207": {
-    "categoria": "PRODUTOS QUÍMICOS",
-    "marca": "UNIPEGA",
-    "peso": "0.25500000",
-    "codigo_barras": "7898652121043",
-    "url_img": "https://cdn.construja.com.br/produtos/136207/136207.jpg",
-    "largura": "5.6",
-    "altura": "20.5",
-    "comprimento": "5.6"
-  },
-  "166726": {
-    "categoria": "TOMADAS INTERRUPTORES PINOS",
-    "marca": "TRAMON",
-    "peso": "0.05600000",
-    "codigo_barras": "7891435938067",
-    "url_img": "https://cdn.construja.com.br/produtos/166726/166726.jpg",
-    "largura": "8.5",
-    "altura": "3.5",
-    "comprimento": "8.5"
-  },
-  "180168": {
-    "categoria": "LÂMPADAS",
-    "marca": "THOMPSON",
-    "peso": "0.01900000",
-    "codigo_barras": "7898011978103",
-    "url_img": "https://cdn.construja.com.br/produtos/180168/180168.jpg",
-    "largura": "4.5",
-    "altura": "7",
-    "comprimento": "4.5"
-  },
-  "192324": {
-    "categoria": "BROCAS",
-    "marca": "FERJA",
-    "peso": "0.00500000",
-    "codigo_barras": "7890001903411",
-    "url_img": "https://cdn.construja.com.br/produtos/192324/192324.jpg",
-    "largura": "0.4",
-    "altura": "0.4",
-    "comprimento": "0.4"
-  },
-  "146655": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "KOKAY",
-    "peso": "0.19800000",
-    "codigo_barras": "7899744073219",
-    "url_img": "https://cdn.construja.com.br/produtos/146655/146655.jpg",
-    "largura": "6.5",
-    "altura": "6.5",
-    "comprimento": "6.5"
-  },
-  "192325": {
-    "categoria": "BROCAS",
-    "marca": "FERJA",
-    "peso": "0.01900000",
-    "codigo_barras": "7899932003875",
-    "url_img": "https://cdn.construja.com.br/produtos/192325/192325.jpg",
-    "largura": "0.5",
-    "altura": "0.5",
-    "comprimento": "0.5"
-  },
-  "139746": {
-    "categoria": "PLAFONIER",
-    "marca": "ANNLUX",
-    "peso": "0.13200000",
-    "codigo_barras": "7898663641820",
-    "url_img": "https://cdn.construja.com.br/produtos/139746/139746.jpg",
-    "largura": "16.5",
-    "altura": "4.5",
-    "comprimento": "16.5"
-  },
-  "182229": {
-    "categoria": "DIVERSOS-ACESSÓRIOS BANH_COZINHA",
-    "marca": "BLUKIT",
-    "peso": "0.51000000",
-    "codigo_barras": "7898550250999",
-    "url_img": "https://cdn.construja.com.br/produtos/182229/182229.jpg",
-    "largura": "20",
-    "altura": "8",
-    "comprimento": "20"
-  },
-  "139744": {
-    "categoria": "PLAFONIER",
-    "marca": "ANNLUX",
-    "peso": "0.12400000",
-    "codigo_barras": "7898663641868",
-    "url_img": "https://cdn.construja.com.br/produtos/139744/139744.jpg",
-    "largura": "15",
-    "altura": "4.5",
-    "comprimento": "15"
-  },
-  "192355": {
-    "categoria": "BROCAS",
-    "marca": "FERJA",
-    "peso": "0.05000000",
-    "codigo_barras": "7890001923551",
-    "url_img": "https://cdn.construja.com.br/produtos/192355/192355.jpg",
-    "largura": "3",
-    "altura": "3",
-    "comprimento": "3"
-  },
-  "180570": {
-    "categoria": "FERRAMENTAS MANUAIS E ACESSÓRIOS",
-    "marca": "THOMPSON",
-    "peso": "0.12700000",
-    "codigo_barras": "7898011971289",
-    "url_img": "https://cdn.construja.com.br/produtos/180570/180570.jpg",
-    "largura": "13",
-    "altura": "5",
-    "comprimento": "13"
-  },
-  "15818": {
-    "categoria": "ACESSÓRIOS HIDRÁULICA",
-    "marca": "AMANCO",
-    "peso": "0.00600000",
-    "codigo_barras": "7890000158181",
-    "url_img": "https://cdn.construja.com.br/produtos/15818/15818.jpg",
-    "largura": "45",
-    "altura": "25",
-    "comprimento": "45"
-  },
-  "5699": {
-    "categoria": null,
-    "marca": "RORATO",
-    "peso": "13.10000000",
-    "codigo_barras": "1234567014524",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/5699/5699.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "5948": {
-    "categoria": null,
-    "marca": "MULTILIT PORTAS",
-    "peso": "5.22000000",
-    "codigo_barras": "1234567003696",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/5948/5948.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "2263": {
-    "categoria": null,
-    "marca": "KRONA",
-    "peso": "0.00100000",
-    "codigo_barras": "1234567019338",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/2263/2263.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "5705": {
-    "categoria": null,
-    "marca": "RORATO",
-    "peso": "19.75000000",
-    "codigo_barras": "7898266796668",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/5705/5705.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "2267": {
-    "categoria": null,
-    "marca": "KRONA",
-    "peso": "0.00100000",
-    "codigo_barras": "789780130167",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/2267/2267.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "12246": {
-    "categoria": null,
-    "marca": "KRONA",
-    "peso": "0.05950000",
-    "codigo_barras": "7897801311977",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/12246/12246.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "2018": {
-    "categoria": null,
-    "marca": "CORRUTECH",
-    "peso": "0.00100000",
-    "codigo_barras": "1234567028729",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/2018/2018.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "8475": {
-    "categoria": null,
-    "marca": "NEW-FIX",
-    "peso": "0.00100000",
-    "codigo_barras": "7898423890338",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/8475/8475.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "11018": {
-    "categoria": null,
-    "marca": "RAYCO",
-    "peso": "1.00000000",
-    "codigo_barras": "7898338096146",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/11018/11018.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "13716": {
-    "categoria": null,
-    "marca": "TRAMONTINA ELE",
-    "peso": "0.12000000",
-    "codigo_barras": "7891435983371",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/13716/13716.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "6133": {
-    "categoria": null,
-    "marca": "NEW-FIX",
-    "peso": "0.00100000",
-    "codigo_barras": "7898423890192",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/6133/6133.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "6135": {
-    "categoria": null,
-    "marca": "NEW-FIX",
-    "peso": "0.00100000",
-    "codigo_barras": "7898423890215",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/6135/6135.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "6132": {
-    "categoria": null,
-    "marca": "NEW-FIX",
-    "peso": "0.00100000",
-    "codigo_barras": "7898423890185",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/6132/6132.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "6974": {
-    "categoria": null,
-    "marca": "OVERTIME",
-    "peso": "0.12000000",
-    "codigo_barras": "1234567012094",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/6974/6974.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "10620": {
-    "categoria": null,
-    "marca": "CALHAFORTE",
-    "peso": "1.00000000",
-    "codigo_barras": "7897871111620",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/10620/10620.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "13478": {
-    "categoria": null,
-    "marca": "SULAMERICANA",
-    "peso": "0.13000000",
-    "codigo_barras": "7898573161159",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/13478/13478.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "5946": {
-    "categoria": null,
-    "marca": "MULTILIT PORTAS",
-    "peso": "4.55000000",
-    "codigo_barras": "1234567022987",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/5946/5946.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  },
-  "8908": {
-    "categoria": null,
-    "marca": "AMAZON TAPE",
-    "peso": "1.00000000",
-    "codigo_barras": "7898573160091",
-    "url_img": "https://cdn.msbitaqua.com.br/produtos/8908/8908.jpg",
-    "largura": "1",
-    "altura": "1",
-    "comprimento": "1"
-  }
+  "NaN": {}
 }

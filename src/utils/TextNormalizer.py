@@ -41,9 +41,11 @@ class TextNormalizer:
     # Limpeza base
     # =========================
     def _remover_codigos(self, texto):
+        # remove códigos longos (SKU, códigos internos)
         return re.sub(r"\b\d{5,}\b", "", texto)
 
     def _limpar_caracteres(self, texto):
+        # mantém letras, números e símbolos técnicos
         return re.sub(r"[^\w\s\+\-\(\)\/X]", "", texto)
 
     def _normalizar_simbolos(self, texto):
@@ -52,6 +54,20 @@ class TextNormalizer:
             .replace("–", "-")
             .replace("—", "-")
         )
+
+    # =========================
+    # Ruídos semânticos
+    # =========================
+    def _remover_ruidos(self, texto):
+        """
+        Remove abreviações de ligação que não agregam significado,
+        preservando medidas técnicas como 3/4, 1/2 etc.
+        """
+        texto = re.sub(r"\bC\/\b", " ", texto)
+        texto = re.sub(r"\bP\/\b", " ", texto)
+        texto = re.sub(r"\bCOM\b", " ", texto)
+        texto = re.sub(r"\bPARA\b", " ", texto)
+        return texto
 
     # =========================
     # Marca
@@ -95,10 +111,13 @@ class TextNormalizer:
         t = self._normalizar_simbolos(t)
         t = self._remover_codigos(t)
         t = self._limpar_caracteres(t)
+
+        # 🔥 remoção de ruídos semânticos
+        t = self._remover_ruidos(t)
+
         t = self._padronizar_abreviacoes(t)
 
         if marca:
             t = self._normalizar_marca_na_descricao(t, marca)
 
         return re.sub(r"\s+", " ", t).strip()
-

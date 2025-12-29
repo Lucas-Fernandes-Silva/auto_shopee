@@ -9,9 +9,8 @@ from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
 from src.load.notas_manager import NotasManager
 from src.transform.brand_detector import BrandDetector
-from src.transform.category_filter import CategoryFiller
 from src.transform.market_price import PrecoVenda
-from TextNormalizer import TextNormalizer
+from src.utils.TextNormalizer import TextNormalizer
 from src.utils.gtin_validator import GTINValidator
 
 # email = EmailHandler(env.user, env.pwd)
@@ -40,9 +39,6 @@ preco = PrecoVenda(df)
 df = preco.aplicar()
 marca = BrandDetector(df, dados.marca_variacoes, dados.marcas_adicionais)
 df = marca.aplicar()
-
-categoria = CategoryFiller(df)
-df = categoria.aplicar()
 
 text_normalizer = TextNormalizer()
 
