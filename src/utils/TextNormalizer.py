@@ -56,7 +56,7 @@ class TextNormalizer:
         )
 
     # =========================
-    # Ruídos semânticos
+    # Ruídos    
     # =========================
     def _remover_ruidos(self, texto):
         """

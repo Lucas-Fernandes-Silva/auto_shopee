@@ -429,6 +429,7 @@ mapa_abreviacoes = {
     "CONEC": "CONECTOR",
     "ALMOF": "ALMOFADADO",
     "PHILTRAM": "PHILLIPS TRAMONTINA",
+    "REV": "REVOLVER",
 }
 
 headers = {

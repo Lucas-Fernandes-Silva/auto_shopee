@@ -1,30 +1,43 @@
 import re
+from collections import defaultdict
 
 import pandas as pd
 
-from src.utils.normalizer import Normalizer
 
 class DomainClassifier:
-    def __init__(self, df_dominios: pd.DataFrame):
-        self.df_dominios = df_dominios
+    def __init__(self, df_dominios, window_size=6, min_matches=2):
+
+        self.window_size = window_size
+        self.min_matches = min_matches
+
+        # organiza termos por domínio
+        self.dominios = defaultdict(list)
+        for _, row in df_dominios.iterrows():
+            self.dominios[row["dominio"]].append(row["termo"])
 
     def classificar(self, descricao):
         if pd.isna(descricao):
             return None
 
-        texto = Normalizer.normalize(descricao)
+        palavras = descricao.upper().split()
+        tamanho = len(palavras)
 
-        matches = []
+        pontuacao = defaultdict(int)
 
-        for _, row in self.df_dominios.iterrows():
-            termo = row["termo"]
-            dominio = row["dominio"]
+        # percorre janelas
+        for i in range(tamanho):
+            janela = " ".join(palavras[i : i + self.window_size])
 
-            if re.search(rf"\b{re.escape(termo)}\b", texto):
-                matches.append(dominio)
+            for dominio, termos in self.dominios.items():
+                matches = 0
+                for termo in termos:
+                    if re.search(rf"\b{re.escape(termo)}\b", janela):
+                        matches += 1
 
-        if not matches:
+                if matches >= self.min_matches:
+                    pontuacao[dominio] += matches
+
+        if not pontuacao:
             return None
 
-        # domínio mais frequente ganha
-        return max(set(matches), key=matches.count)
+        return max(pontuacao, key=pontuacao.get) # type: ignore
