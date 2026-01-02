@@ -51,18 +51,16 @@ class TextNormalizer:
     def _normalizar_simbolos(self, texto):
         return (
             texto.replace("×", "X")
-            .replace("–", "-")
-            .replace("—", "-")
+            .replace("+", " ")
+            .replace("-", " ")
+            .replace("—", " ")
         )
 
     # =========================
-    # Ruídos    
+    # Ruídos
     # =========================
     def _remover_ruidos(self, texto):
-        """
-        Remove abreviações de ligação que não agregam significado,
-        preservando medidas técnicas como 3/4, 1/2 etc.
-        """
+
         texto = re.sub(r"\bC\/\b", " ", texto)
         texto = re.sub(r"\bP\/\b", " ", texto)
         texto = re.sub(r"\bCOM\b", " ", texto)

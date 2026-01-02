@@ -2,13 +2,10 @@ import re
 from collections import defaultdict
 
 import pandas as pd
-
+from src.utils.logger import logger
 
 class DomainClassifier:
-    def __init__(self, df_dominios, window_size=6, min_matches=2):
-
-        self.window_size = window_size
-        self.min_matches = min_matches
+    def __init__(self, df_dominios):
 
         # organiza termos por domínio
         self.dominios = defaultdict(list)
@@ -21,12 +18,13 @@ class DomainClassifier:
 
         palavras = descricao.upper().split()
         tamanho = len(palavras)
+        logger.info(palavras)
 
         pontuacao = defaultdict(int)
 
         # percorre janelas
         for i in range(tamanho):
-            janela = " ".join(palavras[i : i + self.window_size])
+            janela = " ".join(palavras[i : i + tamanho])
 
             for dominio, termos in self.dominios.items():
                 matches = 0
@@ -34,10 +32,10 @@ class DomainClassifier:
                     if re.search(rf"\b{re.escape(termo)}\b", janela):
                         matches += 1
 
-                if matches >= self.min_matches:
+                if matches >= 1:
                     pontuacao[dominio] += matches
 
         if not pontuacao:
             return None
 
-        return max(pontuacao, key=pontuacao.get) # type: ignore
+        return max(pontuacao.items(), key=lambda x: x[1])[0]
