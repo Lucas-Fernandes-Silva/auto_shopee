@@ -25,9 +25,7 @@ class TextNormalizer:
 
             for v in sorted(todas, key=len, reverse=True):
                 padrao = rf"\b{re.escape(v)}\b"
-                regex_marcas.append(
-                    (re.compile(padrao, re.IGNORECASE), marca.upper())
-                )
+                regex_marcas.append((re.compile(padrao, re.IGNORECASE), marca.upper()))
 
         return regex_marcas
 
@@ -49,18 +47,12 @@ class TextNormalizer:
         return re.sub(r"[^\w\s\+\-\(\)\/X]", "", texto)
 
     def _normalizar_simbolos(self, texto):
-        return (
-            texto.replace("×", "X")
-            .replace("+", " ")
-            .replace("-", " ")
-            .replace("—", " ")
-        )
+        return texto.replace("×", "X").replace("+", " ").replace("-", "").replace("—", "")
 
     # =========================
     # Ruídos
     # =========================
     def _remover_ruidos(self, texto):
-
         texto = re.sub(r"\bC\/\b", " ", texto)
         texto = re.sub(r"\bP\/\b", " ", texto)
         texto = re.sub(r"\bCOM\b", " ", texto)

@@ -26,8 +26,10 @@ class CategorizationPipeline:
         # -------------------------
         # 1. DOMÍNIO
         # -------------------------
-        dominio = self.domain_classifier.classificar(descricao)
+        dominio, score_dominio = self.domain_classifier.classificar(descricao)
+
         resultado["Dominio"] = dominio
+        resultado["Score_Dominio"] = score_dominio
 
         # -------------------------
         # 2. ELÉTRICA
@@ -56,9 +58,16 @@ class CategorizationPipeline:
         atributos = df.apply(self.processar_linha, axis=1)
         return pd.concat([df, atributos], axis=1)
 
+    def get_relatorio_fallback(self):
+        """
+        Proxy para o relatório de ambiguidade do DomainClassifier
+        """
+        return self.domain_classifier.get_relatorio_fallback()
 
 # ---- Domínio
-loader = DomainMapLoader("/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx")
+loader = DomainMapLoader(
+    "/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx"
+)
 df_dominios = loader.carregar()
 domain_classifier = DomainClassifier(df_dominios)
 
@@ -87,7 +96,17 @@ pipeline = CategorizationPipeline(
 )
 
 # ---- Executar
-df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx")
-df_final = pipeline.aplicar(df)
+df = pd.read_excel(
+    "/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx"
+)
 
+df_final = pipeline.aplicar(df)
 df_final.to_excel("Produtos_Classificados.xlsx", index=False)
+
+# ---- Relatório de fallback (AMBÍGUOS)
+df_fallback = pipeline.get_relatorio_fallback()
+
+if not df_fallback.empty:
+    df_fallback.to_excel(
+        "Relatorio_Dominios_Ambiguos.xlsx", index=False
+    )

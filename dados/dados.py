@@ -430,6 +430,9 @@ mapa_abreviacoes = {
     "ALMOF": "ALMOFADADO",
     "PHILTRAM": "PHILLIPS TRAMONTINA",
     "REV": "REVOLVER",
+    "ROSQJOMARCA": "ROSCADA JOMARCA",
+    "PRESEXATRON": "PRESENÇA EXATRON",
+    "PENZEL TERM": "PENZEL TERMINAL",
 }
 
 headers = {
