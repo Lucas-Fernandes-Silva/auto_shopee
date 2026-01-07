@@ -386,7 +386,7 @@ mapa_abreviacoes = {
     "SINALIZ": "SINALIZADORA",
     "PHIL": "PHILLIPS",
     "ESP": "ESPELHO",
-    "ROSC": "ROSCADA",
+    "ROSC": "ROSCA",
     "INST": "INSTANTÂNEA",
     "REJ": "REJUNTE",
     "DOBRAD": "DOBRADIÇA",
@@ -413,7 +413,7 @@ mapa_abreviacoes = {
     "LUMI": "LUMINARIA",
     "ALET": "ALETADA",
     "ANT": "ANTENA",
-    "ESMERILHANG": "ESMERILHADEIRA ANGULAR",
+    "ESMERILH LUBRIFANTEANG": "ESMERILHADEIRA ANGULAR",
     "EL": "ELASTICA",
     "EXT NATICON": "EXTENSÃO NATICON",
     "ESPACNIVELADOR": "ESPACADOR NIVELADOR",
@@ -474,7 +474,7 @@ mapa_abreviacoes = {
     "EXT TECHNA": "EXTENSÃO TECHNA",
     "HIDR": "HIDRAULICO",
     "TON": "TONELADAS",
-    "LUBRIF": "LUBRIFANTE",
+    "LUBRIF": "LUBRIFICANTE",
     "BICOL": "BICOLOR",
     "POLIURET": "POLIURETANO",
     "POLI": "POLIURETANO",
@@ -483,6 +483,8 @@ mapa_abreviacoes = {
     "1TOM": "1 TOMADA",
     "1SIMP": "1 SIMPLES",
     "GORD": "GORDURA",
+    "ROSQ": "ROSCADA",
+    "REFLET": "REFLETOR",
 }
 
 headers = {
