@@ -10,7 +10,7 @@ class DomainClassifier:
     def __init__(
         self,
         df_dominios,
-        fuzzy_threshold=75,
+        fuzzy_threshold=95,
         peso_exato=2.0,
         peso_fuzzy=1.0,
         score_minimo=0.3,

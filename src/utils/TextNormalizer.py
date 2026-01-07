@@ -47,7 +47,13 @@ class TextNormalizer:
         return re.sub(r"[^\w\s\+\-\(\)\/X]", "", texto)
 
     def _normalizar_simbolos(self, texto):
-        return texto.replace("×", "X").replace("+", " ").replace("-", "").replace("—", "")
+        return (
+            texto.replace("×", "X")
+            .replace("+", " ")
+            .replace("-", "")
+            .replace("—", "")
+            .replace(".", " ")
+        )
 
     # =========================
     # Ruídos
