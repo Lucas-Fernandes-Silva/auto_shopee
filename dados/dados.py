@@ -413,7 +413,7 @@ mapa_abreviacoes = {
     "LUMI": "LUMINARIA",
     "ALET": "ALETADA",
     "ANT": "ANTENA",
-    "ESMERILH LUBRIFANTEANG": "ESMERILHADEIRA ANGULAR",
+    "ESMERILH ANG": "ESMERILHADEIRA ANGULAR",
     "EL": "ELASTICA",
     "EXT NATICON": "EXTENSÃO NATICON",
     "ESPACNIVELADOR": "ESPACADOR NIVELADOR",
@@ -485,6 +485,10 @@ mapa_abreviacoes = {
     "GORD": "GORDURA",
     "ROSQ": "ROSCADA",
     "REFLET": "REFLETOR",
+    "VAL": "VALVULA",
+    "FLEX": "FLEXIVEL",
+    "PRES": "PRESENÇA",
+    "ESGUI": "ESGUICHO",
 }
 
 headers = {
