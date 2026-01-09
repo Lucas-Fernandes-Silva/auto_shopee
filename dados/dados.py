@@ -489,6 +489,9 @@ mapa_abreviacoes = {
     "FLEX": "FLEXIVEL",
     "PRES": "PRESENÇA",
     "ESGUI": "ESGUICHO",
+    "ACAB": "ACABAMENTO",
+    "LUMIN": "LUMINARIA",
+    "LAT": "LATERAL",
 }
 
 headers = {
