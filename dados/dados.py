@@ -502,7 +502,10 @@ mapa_abreviacoes = {
     "MAD": "MADEIRA",
     "PRAT": "PRATELEIRA",
     "SUPORTE EXT ZINCO": "SUPORTE EXTERNO ZINCO",
-    "C.FORTE": "CALHA FORTE",
+    "MAQ LAV": "MAQUINA LAVAR",
+    "RAP": "RAPIDO",
+    "MAQ": "MAQUINA",
+    "BUCHA RED": "BUCHA REDUCAO",
 }
 
 headers = {
