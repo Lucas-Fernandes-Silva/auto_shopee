@@ -53,6 +53,8 @@ class TextNormalizer:
             .replace("-", "")
             .replace("—", "")
             .replace(".", " ")
+            .replace("(", " ")
+            .replace(")", " ")
         )
 
     # =========================
