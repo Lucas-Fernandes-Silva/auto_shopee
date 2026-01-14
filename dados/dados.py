@@ -330,7 +330,6 @@ mapa_abreviacoes = {
     "CONJ": "CONJUNTO",
     "TORN": "TORNEIRA",
     "CX": "CAIXA",
-    "MAR": "MARROM",
     "SER MAR": "SERRA MARMORE",
     "SERRA MAR": "SERRA MARMORE",
     "TRANSP": "TRANSPARENTE",
@@ -467,7 +466,8 @@ mapa_abreviacoes = {
     "EXT DANEV": "EXTENSAO DANEVA",
     "SEX": "SEXTAVADO",
     "CALHAALUMINIO280G": "CALHA ALUMINIO 280G",
-    "INTERF HDL PORT ELETR F8SN": "INTERFONE HDL PORTEIRO ELETRONICO",
+    "PORT ELETR F8SN": "PORTEIRO ELETRONICO",
+    "INTERF": "INTERFONE",
     "TELEF": "TELEFONE",
     "PERMAN": "PERMANENTE",
     "INDL": "INDUSTRIAL",
@@ -511,6 +511,8 @@ mapa_abreviacoes = {
     "RAP": "RAPIDO",
     "MAQ": "MAQUINA",
     "BUCHA RED": "BUCHA REDUCAO",
+    "2INT": "2 INTERRUPTORES",
+    "SER MARROM": "SERRA MARMORE",
 }
 
 headers = {

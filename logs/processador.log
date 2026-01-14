@@ -13825,3 +13825,43 @@
 2026-01-13 13:27:22,018 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
 2026-01-13 13:27:23,001 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
 2026-01-13 13:27:25,218 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2026-01-14 10:24:43,465 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2026-01-14 10:24:43,619 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2026-01-14 10:24:43,765 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2026-01-14 10:24:44,061 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2026-01-14 10:24:44,172 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2026-01-14 10:24:44,259 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2026-01-14 10:24:44,763 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2026-01-14 10:24:53,064 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2026-01-14 10:59:49,172 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2026-01-14 10:59:49,258 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2026-01-14 10:59:49,402 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2026-01-14 10:59:49,718 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2026-01-14 10:59:49,847 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2026-01-14 10:59:49,951 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2026-01-14 10:59:50,283 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2026-01-14 10:59:52,014 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2026-01-14 11:39:16,310 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2026-01-14 11:39:16,383 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2026-01-14 11:39:16,481 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2026-01-14 11:39:16,777 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2026-01-14 11:39:16,933 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2026-01-14 11:39:17,001 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2026-01-14 11:39:17,331 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2026-01-14 11:39:20,504 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2026-01-14 11:55:05,047 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2026-01-14 11:55:05,104 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2026-01-14 11:55:05,173 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2026-01-14 11:55:05,400 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2026-01-14 11:55:05,473 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2026-01-14 11:55:05,529 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2026-01-14 11:55:05,821 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2026-01-14 11:55:11,054 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2026-01-14 12:47:21,775 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_200012587056.xml - xml_processor.py - 41:
+2026-01-14 12:47:21,872 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251148534759000180570110000030191000301991.xml - xml_processor.py - 41:
+2026-01-14 12:47:21,982 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2026-01-14 12:47:22,238 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT02_284000054050.xml - xml_processor.py - 41:
+2026-01-14 12:47:22,315 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2026-01-14 12:47:22,368 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2026-01-14 12:47:22,672 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2026-01-14 12:47:24,471 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:

@@ -10,7 +10,7 @@ class DomainClassifier:
     def __init__(
         self,
         df_dominios,
-        fuzzy_threshold=85,
+        fuzzy_threshold=90,
         peso_exato=2.0,
         peso_fuzzy=1.0,
         score_minimo=0.3,
@@ -37,14 +37,9 @@ class DomainClassifier:
             if pd.isna(dominio) or pd.isna(termo):
                 continue
 
-            self.dominios[str(dominio).upper()].append(
-                str(termo).upper()
-            )
+            self.dominios[str(dominio).upper()].append(str(termo).upper())
 
-        self.total_termos = {
-            dominio: len(termos)
-            for dominio, termos in self.dominios.items()
-        }
+        self.total_termos = {dominio: len(termos) for dominio, termos in self.dominios.items()}
 
     def classificar(self, descricao):
         # ========= BLINDAGEM =========
@@ -73,25 +68,17 @@ class DomainClassifier:
         # 2. FUZZY (CONTROLADO)
         # =====================
         for dominio, termos in self.dominios.items():
-
             # 🚫 FIXADORES: fuzzy só se houve match exato
-            if (
-                dominio in self.dominios_sem_fuzzy
-                and matches_exatos[dominio] == 0
-            ):
+            if dominio in self.dominios_sem_fuzzy and matches_exatos[dominio] == 0:
                 continue
 
             for termo in termos:
                 score = fuzz.partial_ratio(termo, descricao_up)
                 if score >= self.fuzzy_threshold:
-                    pontuacao[dominio] += (
-                        (score / 100) * self.peso_fuzzy
-                    )
+                    pontuacao[dominio] += (score / 100) * self.peso_fuzzy
 
         if not pontuacao:
-            self._registrar_fallback(
-                descricao, None, 0.0, []
-            )
+            self._registrar_fallback(descricao, None, 0.0, [])
             return None, 0.0
 
         # =====================
@@ -106,19 +93,11 @@ class DomainClassifier:
         dominio_top1, score_bruto_top1 = ranking[0]
 
         # 🔒 Segurança extra: FIXADORES sem match exato NÃO PASSA
-        if (
-            dominio_top1 == "FIXADORES"
-            and matches_exatos["FIXADORES"] == 0
-        ):
-            self._registrar_fallback(
-                descricao, None, 0.0, ranking[:3]
-            )
+        if dominio_top1 == "FIXADORES" and matches_exatos["FIXADORES"] == 0:
+            self._registrar_fallback(descricao, None, 0.0, ranking[:3])
             return None, 0.0
 
-        normalizador = (
-            self.total_termos.get(dominio_top1, 1)
-            * self.peso_exato
-        )
+        normalizador = self.total_termos.get(dominio_top1, 1) * self.peso_exato
 
         score_top1 = min(score_bruto_top1 / normalizador, 1.0)
 
@@ -130,9 +109,7 @@ class DomainClassifier:
 
         if len(ranking) > 1:
             _, score_bruto_top2 = ranking[1]
-            score_top2 = min(
-                score_bruto_top2 / normalizador, 1.0
-            )
+            score_top2 = min(score_bruto_top2 / normalizador, 1.0)
             delta = round(score_top1 - score_top2, 3)
 
             if delta < self.delta_minimo:
@@ -154,9 +131,7 @@ class DomainClassifier:
     # =====================
     # RELATÓRIO
     # =====================
-    def _registrar_fallback(
-        self, descricao, dominio, score, ranking
-    ):
+    def _registrar_fallback(self, descricao, dominio, score, ranking):
         self.relatorios_fallback.append(
             {
                 "descricao": descricao,
@@ -184,12 +159,8 @@ class DomainClassifier:
     ):
         tqdm.pandas(desc="Classificando domínios")
 
-        resultados = df[coluna_descricao].progress_apply(
-            self.classificar
-        )
+        resultados = df[coluna_descricao].progress_apply(self.classificar)
 
-        df[[col_dominio, col_score]] = pd.DataFrame(
-            resultados.tolist(), index=df.index
-        )
+        df[[col_dominio, col_score]] = pd.DataFrame(resultados.tolist(), index=df.index)
 
         return df
