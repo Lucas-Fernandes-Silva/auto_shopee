@@ -1,5 +1,11 @@
 import pandas as pd
 
+from src.categorization.DomainClassifier import DomainClassifier
+from src.categorization.DomainMapLoader import DomainMapLoader
+from src.categorization.extratores.BuchaVariationExtractor import BuchaVariationExtractor
+from src.categorization.extratores.ParafusoVariationExtractor import ParafusoVariationExtractor
+from src.categorization.extratores.PorcaVariationExtractor import PorcaVariationExtractor
+
 
 class CategorizationPipeline:
     def __init__(self, domain_classifier):
@@ -10,13 +16,24 @@ class CategorizationPipeline:
 
         resultado = {}
 
-        dominio, score_dominio = self.domain_classifier.classificar(
-            descricao
-        )
+        dominio, score_dominio = self.domain_classifier.classificar(descricao)
 
         resultado["Dominio"] = dominio
         resultado["Score_Dominio"] = score_dominio
+        if dominio == "PARAFUSOS":
+            variacoes = {}
 
+            variacoes.update(
+                ParafusoVariationExtractor().extrair(descricao)
+            )
+            variacoes.update(
+                PorcaVariationExtractor().extrair(descricao)
+            )
+            variacoes.update(
+                BuchaVariationExtractor().extrair(descricao)
+            )
+
+        resultado.update(variacoes)
         return pd.Series(resultado)
 
     def aplicar(self, df: pd.DataFrame):
@@ -24,6 +41,32 @@ class CategorizationPipeline:
         return pd.concat([df, atributos], axis=1)
 
     def get_relatorio_fallback(self):
-
         return self.domain_classifier.get_relatorio_fallback()
+
+
+# ---- Domínios
+loader = DomainMapLoader("/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx")
+df_dominios = loader.carregar()
+
+domain_classifier = DomainClassifier(df_dominios)
+
+# ---- Pipeline
+pipeline = CategorizationPipeline(domain_classifier=domain_classifier)
+
+# ---- Executar
+df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx")
+
+df_final = pipeline.aplicar(df)
+df_final.to_excel(
+    "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx", index=False
+)
+
+# ---- Relatório de fallback
+df_fallback = pipeline.get_relatorio_fallback()
+
+if not df_fallback.empty:
+    df_fallback.to_excel(
+    "/home/lucas-silva/auto_shopee/planilhas/outputs/Relatorio_Dominios_Ambiguos.xlsx",
+        index=False,
+    )
 

@@ -512,7 +512,14 @@ mapa_abreviacoes = {
     "MAQ": "MAQUINA",
     "BUCHA RED": "BUCHA REDUCAO",
     "2INT": "2 INTERRUPTORES",
+    "ENG": "ENGATE",
+    "FLANG": "FLANGEADO",
     "SER MARROM": "SERRA MARMORE",
+    "BUCHA FIX": "BUCHA FIXACAO",
+    "TIJ": "TIJOLO",
+    "FUR": "FURADO",
+    "ZINC": "ZINCADO",
+    "A BROCANTE": "AUTO BROCANTE",
 }
 
 headers = {
