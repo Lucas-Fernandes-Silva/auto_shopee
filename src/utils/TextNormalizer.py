@@ -46,6 +46,11 @@ class TextNormalizer:
         # mantém letras, números e símbolos técnicos
         return re.sub(r"[^\w\s\+\-\(\)\/X]", "", texto)
 
+    def _normalizar_decimais(self, texto):
+        # troca ponto decimal por vírgula (ex: 4.5 -> 4,5)
+        return re.sub(r"(?<=\d)\.(?=\d)", ",", texto)
+
+
     def _normalizar_simbolos(self, texto):
         return (
             texto.replace("×", "X")
@@ -57,18 +62,13 @@ class TextNormalizer:
             .replace(")", " ")
         )
 
-    # =========================
-    # Ruídos
-    # =========================
+
     def _remover_ruidos(self, texto):
-        texto = re.sub(r"\bC\/\b", "com", texto)
-        texto = re.sub(r"\bP\/\b", "para", texto)
+        texto = re.sub(r"\bC\/\b", r"C/ ", texto)
+        texto = re.sub(r"\bP\/\b", r"P/ ", texto)
 
         return texto
 
-    # =========================
-    # Marca
-    # =========================
     def _normalizar_marca_na_descricao(self, texto, marca):
         if not marca or marca == "GENÉRICO":
             return texto
@@ -76,21 +76,16 @@ class TextNormalizer:
         texto_norm = Normalizer.normalize(texto)
         marca_norm = Normalizer.normalize(marca)
 
-        # se já contém a marca canônica, não faz nada
         if marca_norm in texto_norm:
             return texto
 
-        # remove qualquer variação da marca
         for regex, marca_padrao in self.regex_marcas:
             if marca_padrao == marca.upper():
                 texto = regex.sub("", texto)
 
-        # insere a marca no início
-        return f"{marca.upper()} {texto}".strip()
+        return f"{texto} {marca.upper()}".strip()
 
-    # =========================
-    # Abreviações
-    # =========================
+
     def _padronizar_abreviacoes(self, texto):
         for regex, valor in self.regex_abreviacoes.items():
             texto = regex.sub(valor, texto)
@@ -105,11 +100,10 @@ class TextNormalizer:
 
         t = str(descricao).upper()
 
+        t = self._normalizar_decimais(t)
         t = self._normalizar_simbolos(t)
         t = self._remover_codigos(t)
         t = self._limpar_caracteres(t)
-
-        # 🔥 remoção de ruídos semânticos
         t = self._remover_ruidos(t)
 
         t = self._padronizar_abreviacoes(t)

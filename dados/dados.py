@@ -518,6 +518,7 @@ mapa_abreviacoes = {
     "BUCHA FIX": "BUCHA FIXACAO",
     "TIJ": "TIJOLO",
     "FUR": "FURADO",
+    "FIX ALL AL": "FIX ALL ALUMINIO",
     "ZINC": "ZINCADO",
     "A BROCANTE": "AUTO BROCANTE",
 }

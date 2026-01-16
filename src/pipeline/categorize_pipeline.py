@@ -2,9 +2,13 @@ import pandas as pd
 
 from src.categorization.DomainClassifier import DomainClassifier
 from src.categorization.DomainMapLoader import DomainMapLoader
+from src.categorization.extratores import RebiteVariationExtractor
+from src.categorization.extratores.ArruelaVariationExtractor import ArruelaVariationExtractor
 from src.categorization.extratores.BuchaVariationExtractor import BuchaVariationExtractor
+from src.categorization.extratores.ChumbadorVariationExtractor import ChumbadorAncoraVariationExtractor
 from src.categorization.extratores.ParafusoVariationExtractor import ParafusoVariationExtractor
 from src.categorization.extratores.PorcaVariationExtractor import PorcaVariationExtractor
+from src.categorization.extratores.RebiteVariationExtractor import RebiteVariationExtractor
 
 
 class CategorizationPipeline:
@@ -32,6 +36,17 @@ class CategorizationPipeline:
             variacoes.update(
                 BuchaVariationExtractor().extrair(descricao)
             )
+            variacoes.update(
+                ArruelaVariationExtractor().extrair(descricao)
+            )
+            variacoes.update(
+                ChumbadorAncoraVariationExtractor().extrair(descricao)
+            )
+            variacoes.update(
+                RebiteVariationExtractor().extrair(descricao)
+            )
+
+
 
         resultado.update(variacoes)
         return pd.Series(resultado)
@@ -44,16 +59,13 @@ class CategorizationPipeline:
         return self.domain_classifier.get_relatorio_fallback()
 
 
-# ---- Domínios
 loader = DomainMapLoader("/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx")
 df_dominios = loader.carregar()
 
 domain_classifier = DomainClassifier(df_dominios)
 
-# ---- Pipeline
 pipeline = CategorizationPipeline(domain_classifier=domain_classifier)
 
-# ---- Executar
 df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx")
 
 df_final = pipeline.aplicar(df)
@@ -61,7 +73,6 @@ df_final.to_excel(
     "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx", index=False
 )
 
-# ---- Relatório de fallback
 df_fallback = pipeline.get_relatorio_fallback()
 
 if not df_fallback.empty:
