@@ -2,10 +2,11 @@ import pandas as pd
 
 from src.categorization.DomainClassifier import DomainClassifier
 from src.categorization.DomainMapLoader import DomainMapLoader
-from src.categorization.extratores import RebiteVariationExtractor
 from src.categorization.extratores.ArruelaVariationExtractor import ArruelaVariationExtractor
 from src.categorization.extratores.BuchaVariationExtractor import BuchaVariationExtractor
-from src.categorization.extratores.ChumbadorVariationExtractor import ChumbadorAncoraVariationExtractor
+from src.categorization.extratores.ChumbadorVariationExtractor import (
+    ChumbadorAncoraVariationExtractor,
+)
 from src.categorization.extratores.ParafusoVariationExtractor import ParafusoVariationExtractor
 from src.categorization.extratores.PorcaVariationExtractor import PorcaVariationExtractor
 from src.categorization.extratores.RebiteVariationExtractor import RebiteVariationExtractor
@@ -46,9 +47,7 @@ class CategorizationPipeline:
                 RebiteVariationExtractor().extrair(descricao)
             )
 
-
-
-        resultado.update(variacoes)
+            resultado.update(variacoes)
         return pd.Series(resultado)
 
     def aplicar(self, df: pd.DataFrame):

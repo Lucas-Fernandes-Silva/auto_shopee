@@ -1,5 +1,6 @@
 import re
 
+
 class RebiteVariationExtractor:
     MODELOS_VALIDOS = {
         "412", "414", "416", "525", "314", "316", "410", "306",
