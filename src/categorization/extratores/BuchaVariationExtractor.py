@@ -39,7 +39,7 @@ class BuchaVariationExtractor:
         numeros = re.findall(r"\b\d{2}\b", descricao)
         for n in numeros:
             if n in self.TAMANHOS_VALIDOS:
-                resultado["Tamanho"] = n
+                resultado["Medida"] = n
                 break
 
         return resultado

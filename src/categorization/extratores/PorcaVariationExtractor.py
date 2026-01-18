@@ -34,11 +34,11 @@ class PorcaVariationExtractor:
         fracoes = re.findall(r"\b\d+/\d+\b", descricao)
         for f in fracoes:
             if f in self.TAMANHOS_VALIDOS:
-                resultado["Tamanho"] = f
+                resultado["Medida"] = f
                 return resultado
 
         # ---------- TAMANHO (MÉTRICO) ----------
         if "M5" in descricao:
-            resultado["Tamanho"] = "M5"
+            resultado["Medida"] = "M5"
 
         return resultado
