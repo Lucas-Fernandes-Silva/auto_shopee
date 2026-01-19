@@ -9,7 +9,7 @@ class TipoTomadaExtractor:
         ("filtro", re.compile(r"\b(filtro de linha|filtro|regua)\b")),
 
         # 2️⃣ EXTENSÃO
-        ("extensao", re.compile(r"\b(extensao|prolongador|rabicho)\b")),
+        ("extensao", re.compile(r"\b(extensao|extensão|prolongador)\b")),
 
         # 3️⃣ CONJUNTO (tomada + placa)
         ("conjunto", re.compile(
@@ -18,7 +18,7 @@ class TipoTomadaExtractor:
 
         # 4️⃣ PLUG MACHO
         ("plug", re.compile(
-            r"\b(plug macho|pino macho|pino prensa|plug retangular|plug prensado)\b"
+            r"\b(plug macho|pino macho|pino prensa|plug retangular|plug prensado|plug porcelana|pino adaptador)\b"
         )),
 
         # 5️⃣ PLUG FÊMEA
@@ -31,7 +31,7 @@ class TipoTomadaExtractor:
             r"\b(barra)\b"
         )),
         ("sobrepor", re.compile(
-            r"\b(sobrepor|sistema)\b"
+            r"\b(sobrepor|sistema|ilumi ret|perlex|tomada tel)\b"
         )),
 
         ("modulo", re.compile(

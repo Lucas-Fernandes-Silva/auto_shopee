@@ -3,9 +3,17 @@ import re
 
 class PolosExtractor:
 
-    PADRAO_2P_T = re.compile(r"\b2p\s*\+\s*t\b", re.IGNORECASE)
-    PADRAO_P_T = re.compile(r"\bp\s*\+\s*t\b", re.IGNORECASE)
+    PADRAO_3P_T = re.compile(
+        r"\b3p\s*[\+\-\s]?\s*t\b", re.IGNORECASE
+    )
+    PADRAO_2P_T = re.compile(
+        r"\b2p\s*[\+\-\s]?\s*t\b", re.IGNORECASE
+    )
+    PADRAO_P_T = re.compile(
+        r"\bp\s*[\+\-\s]?\s*t\b", re.IGNORECASE
+    )
 
+    PADRAO_3P = re.compile(r"\b3p\b", re.IGNORECASE)
     PADRAO_2P = re.compile(r"\b2p\b", re.IGNORECASE)
 
     COM_TERRA = re.compile(r"\bcom\s+terra\b", re.IGNORECASE)
@@ -16,16 +24,19 @@ class PolosExtractor:
             return {"Polos": None}
 
         desc = descricao.lower()
-
         polos = None
 
-        # Casos explícitos completos
-        if self.PADRAO_2P_T.search(desc) or self.PADRAO_P_T.search(desc):
+        # Prioridade: polos + terra
+        if self.PADRAO_3P_T.search(desc):
+            polos = "3P+T"
+        elif self.PADRAO_2P_T.search(desc) or self.PADRAO_P_T.search(desc):
             polos = "2P+T"
+        elif self.PADRAO_3P.search(desc):
+            polos = "3P"
         elif self.PADRAO_2P.search(desc):
             polos = "2P"
 
-        # Ajustes por texto complementar
+        # Ajustes finais
         if polos and self.SEM_TERRA.search(desc):
             polos = polos.replace("+T", "")
 
