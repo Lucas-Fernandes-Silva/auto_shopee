@@ -1,19 +1,24 @@
 import pandas as pd
 
+from src.categorization.categorize_pipeline import CategorizationPipeline
 from src.categorization.DomainClassifier import DomainClassifier
 from src.categorization.DomainMapLoader import DomainMapLoader
-from src.categorization.VariationPipeline import VariationPipeline
-
-from src.categorization.categorize_pipeline import CategorizationPipeline
-from src.categorization.extratores.parafusos.ArruelaVariationExtractor import ArruelaVariationExtractor
+from src.categorization.extratores.parafusos.ArruelaVariationExtractor import (
+    ArruelaVariationExtractor,
+)
 from src.categorization.extratores.parafusos.BuchaVariationExtractor import BuchaVariationExtractor
 from src.categorization.extratores.parafusos.ChumbadorVariationExtractor import (
     ChumbadorAncoraVariationExtractor,
 )
-from src.categorization.extratores.parafusos.ParafusoVariationExtractor import ParafusoVariationExtractor
+from src.categorization.extratores.parafusos.ParafusoVariationExtractor import (
+    ParafusoVariationExtractor,
+)
 from src.categorization.extratores.parafusos.PorcaVariationExtractor import PorcaVariationExtractor
-from src.categorization.extratores.parafusos.RebiteVariationExtractor import RebiteVariationExtractor
-
+from src.categorization.extratores.parafusos.RebiteVariationExtractor import (
+    RebiteVariationExtractor,
+)
+from src.categorization.extratores.tomadas.TipoTomadaExtractor import TipoTomadaExtractor
+from src.categorization.VariationPipeline import VariationPipeline
 
 # ---- Domínios
 loader = DomainMapLoader(
@@ -34,6 +39,9 @@ variation_pipeline = VariationPipeline(
             BuchaVariationExtractor(),
             PorcaVariationExtractor(),
             ArruelaVariationExtractor(),
+        ],
+        "TOMADAS":[
+            TipoTomadaExtractor(),
         ]
     }
 )
