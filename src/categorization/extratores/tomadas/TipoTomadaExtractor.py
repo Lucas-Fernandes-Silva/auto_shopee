@@ -2,9 +2,7 @@ import re
 
 
 class TipoTomadaExtractor:
-    """
-    Extrai e normaliza o TIPO de itens relacionados a tomadas.
-    """
+
 
     PADROES = [
         # 1️⃣ FILTRO DE LINHA
@@ -29,10 +27,16 @@ class TipoTomadaExtractor:
         )),
 
         # 6️⃣ TOMADA (módulo ou simples)
-        ("tomada", re.compile(
-            r"\b(tomada|modulo tomada)\b"
+        ("barra", re.compile(
+            r"\b(barra)\b"
+        )),
+        ("sobrepor", re.compile(
+            r"\b(sobrepor|sistema)\b"
         )),
 
+        ("modulo", re.compile(
+            r"\b(modulo)\b"
+        )),
         # 7️⃣ ESPELHO / PLACA
         ("espelho", re.compile(
             r"\b(espelho|placa)\b"

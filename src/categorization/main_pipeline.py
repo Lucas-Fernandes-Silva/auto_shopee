@@ -17,13 +17,13 @@ from src.categorization.extratores.parafusos.PorcaVariationExtractor import Porc
 from src.categorization.extratores.parafusos.RebiteVariationExtractor import (
     RebiteVariationExtractor,
 )
+from src.categorization.extratores.tomadas.AmperagemExtractor import AmperagemExtractor
+from src.categorization.extratores.tomadas.PolosExtractor import PolosExtractor
 from src.categorization.extratores.tomadas.TipoTomadaExtractor import TipoTomadaExtractor
 from src.categorization.VariationPipeline import VariationPipeline
 
 # ---- Domínios
-loader = DomainMapLoader(
-    "/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx"
-)
+loader = DomainMapLoader("/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx")
 df_dominios = loader.carregar()
 domain_classifier = DomainClassifier(df_dominios)
 
@@ -40,16 +40,16 @@ variation_pipeline = VariationPipeline(
             PorcaVariationExtractor(),
             ArruelaVariationExtractor(),
         ],
-        "TOMADAS":[
+        "TOMADAS": [
             TipoTomadaExtractor(),
-        ]
+            AmperagemExtractor(),
+            PolosExtractor(),
+        ],
     }
 )
 
 # ---- Executar
-df = pd.read_excel(
-    "/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx"
-)
+df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx")
 
 df_dominios = categorization_pipeline.aplicar(df)
 df_final = variation_pipeline.aplicar(df_dominios)
