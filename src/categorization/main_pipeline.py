@@ -3,6 +3,7 @@ import pandas as pd
 from src.categorization.categorize_pipeline import CategorizationPipeline
 from src.categorization.DomainClassifier import DomainClassifier
 from src.categorization.DomainMapLoader import DomainMapLoader
+from src.categorization.extratores.eletrica.disjuntores.DisjuntorVariationExtractor import DisjuntorVariationExtractor
 from src.categorization.extratores.parafusos.ArruelaVariationExtractor import (
     ArruelaVariationExtractor,
 )
@@ -44,6 +45,9 @@ variation_pipeline = VariationPipeline(
             TipoTomadaExtractor(),
             AmperagemExtractor(),
             PolosExtractor(),
+        ],
+        "ELETRICA": [
+            DisjuntorVariationExtractor()
         ],
     }
 )
