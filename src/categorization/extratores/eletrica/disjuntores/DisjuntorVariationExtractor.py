@@ -1,4 +1,6 @@
-from src.categorization.extratores.eletrica.disjuntores.PolosDisjuntorExtractor import PolosDisjuntorExtractor
+from src.categorization.extratores.eletrica.disjuntores.PolosDisjuntorExtractor import (
+    PolosDisjuntorExtractor,
+)
 from src.categorization.extratores.tomadas.AmperagemExtractor import AmperagemExtractor
 
 

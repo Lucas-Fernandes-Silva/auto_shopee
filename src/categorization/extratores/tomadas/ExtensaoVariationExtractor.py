@@ -1,7 +1,7 @@
 import re
 
-from src.categorization.extratores.tomadas.PolosExtractor import PolosExtractor
 from src.categorization.extratores.tomadas.AmperagemExtractor import AmperagemExtractor
+from src.categorization.extratores.tomadas.PolosExtractor import PolosExtractor
 
 
 class ExtensaoVariationExtractor:

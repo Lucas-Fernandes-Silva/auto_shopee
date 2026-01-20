@@ -520,6 +520,7 @@ mapa_abreviacoes = {
     "FUR": "FURADO",
     "FIX ALL AL": "FIX ALL ALUMINIO",
     "ZINC": "ZINCADO",
+    "COMP": "COMPACTA",
     "A BROCANTE": "AUTO BROCANTE",
 }
 
