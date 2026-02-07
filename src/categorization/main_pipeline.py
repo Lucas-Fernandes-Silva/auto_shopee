@@ -4,6 +4,11 @@ from src.categorization.categorize_pipeline import CategorizationPipeline
 from src.categorization.DomainClassifier import DomainClassifier
 from src.categorization.DomainMapLoader import DomainMapLoader
 from src.categorization.extratores.eletrica.disjuntores.DisjuntorVariationExtractor import DisjuntorVariationExtractor
+from src.categorization.extratores.eletrica.disjuntores.PolosDisjuntorExtractor import PolosDisjuntorExtractor
+from src.categorization.extratores.eletrica.lampadas.TipoLampadaExtractor import TipoLampadaExtractor
+from src.categorization.extratores.eletrica.lampadas.FormatoLampadaExtractor import FormatoLampadaExtractor
+from src.categorization.extratores.eletrica.lampadas.PotenciaLampadaExtractor import PotenciaLampadaExtractor
+from src.categorization.extratores.eletrica.lampadas.TemperaturaCorExtractor import TemperaturaCorExtractor
 from src.categorization.extratores.parafusos.ArruelaVariationExtractor import (
     ArruelaVariationExtractor,
 )
@@ -47,7 +52,12 @@ variation_pipeline = VariationPipeline(
             PolosExtractor(),
         ],
         "ELETRICA": [
-            DisjuntorVariationExtractor()
+            DisjuntorVariationExtractor(),
+            PolosDisjuntorExtractor(),
+            FormatoLampadaExtractor(),
+            PotenciaLampadaExtractor(),
+            TemperaturaCorExtractor(),
+            TipoLampadaExtractor()
         ],
     }
 )
