@@ -25,7 +25,9 @@ class TextNormalizer:
 
             for v in sorted(todas, key=len, reverse=True):
                 padrao = rf"\b{re.escape(v)}\b"
-                regex_marcas.append((re.compile(padrao, re.IGNORECASE), marca.upper()))
+                regex_marcas.append(
+                    (re.compile(padrao, re.IGNORECASE), marca.upper())
+                )
 
         return regex_marcas
 
@@ -44,12 +46,14 @@ class TextNormalizer:
 
     def _limpar_caracteres(self, texto):
         # mantém letras, números e símbolos técnicos
-        return re.sub(r"[^\w\s\+\-\(\)\/X]", "", texto)
+        return re.sub(r"[^\w\s\+\-\(\)\/X,]", "", texto)
 
+    # =========================
+    # Normalizações específicas
+    # =========================
     def _normalizar_decimais(self, texto):
-        # troca ponto decimal por vírgula (ex: 4.5 -> 4,5)
+        # 1.50 -> 1,50
         return re.sub(r"(?<=\d)\.(?=\d)", ",", texto)
-
 
     def _normalizar_simbolos(self, texto):
         return (
@@ -57,18 +61,25 @@ class TextNormalizer:
             .replace("+", " ")
             .replace("-", "")
             .replace("—", "")
-            .replace(".", " ")
             .replace("(", " ")
             .replace(")", " ")
         )
 
+    def _remover_pontos_nao_decimais(self, texto):
+        # remove pontos de abreviações (EX: ACR. -> ACR)
+        return texto.replace(".", " ")
 
+    # =========================
+    # Ruídos
+    # =========================
     def _remover_ruidos(self, texto):
-        texto = re.sub(r"\bC\/\b", r"C/ ", texto)
-        texto = re.sub(r"\bP\/\b", r"P/ ", texto)
-
+        texto = re.sub(r"\bC\/\b", "COM", texto)
+        texto = re.sub(r"\bP\/\b", "PARA", texto)
         return texto
 
+    # =========================
+    # Marca
+    # =========================
     def _normalizar_marca_na_descricao(self, texto, marca):
         if not marca or marca == "GENÉRICO":
             return texto
@@ -76,16 +87,21 @@ class TextNormalizer:
         texto_norm = Normalizer.normalize(texto)
         marca_norm = Normalizer.normalize(marca)
 
+        # se já contém a marca canônica, não faz nada
         if marca_norm in texto_norm:
             return texto
 
+        # remove qualquer variação da marca
         for regex, marca_padrao in self.regex_marcas:
             if marca_padrao == marca.upper():
                 texto = regex.sub("", texto)
 
-        return f"{texto} {marca.upper()}".strip()
+        # insere a marca no início
+        return f"{marca.upper()} {texto}".strip()
 
-
+    # =========================
+    # Abreviações
+    # =========================
     def _padronizar_abreviacoes(self, texto):
         for regex, valor in self.regex_abreviacoes.items():
             texto = regex.sub(valor, texto)
@@ -100,12 +116,14 @@ class TextNormalizer:
 
         t = str(descricao).upper()
 
-        t = self._normalizar_decimais(t)
-        t = self._normalizar_simbolos(t)
+        # 🔥 ORDEM IMPORTANTE
+        t = self._normalizar_decimais(t)          # 1.50 -> 1,50
+        t = self._normalizar_simbolos(t)           # símbolos
+        t = self._remover_pontos_nao_decimais(t)   # ACR. -> ACR
+
         t = self._remover_codigos(t)
         t = self._limpar_caracteres(t)
         t = self._remover_ruidos(t)
-
         t = self._padronizar_abreviacoes(t)
 
         if marca:

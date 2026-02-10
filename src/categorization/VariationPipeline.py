@@ -3,7 +3,12 @@ import pandas as pd
 
 class VariationPipeline:
     def __init__(self, dominio_extractors: dict):
-
+        """
+        dominio_extractors = {
+            "PARAFUSOS": [ExtractorA(), ExtractorB()],
+            "TOMADAS": [ExtractorC()],
+        }
+        """
         self.dominio_extractors = dominio_extractors
 
     def extrair(self, descricao: str, dominio: str) -> dict:
@@ -14,12 +19,15 @@ class VariationPipeline:
         variacoes = {}
 
         for extractor in extractors:
-            try:
-                resultado = extractor.extrair(descricao)
-                if resultado:
-                    variacoes.update(resultado)
-            except Exception:
+            resultado = extractor.extrair(descricao)
+
+            if not isinstance(resultado, dict):
                 continue
+
+            for chave, valor in resultado.items():
+                # evita sobrescrever valores válidos
+                if chave not in variacoes or variacoes[chave] is None:
+                    variacoes[chave] = valor
 
         return variacoes
 
