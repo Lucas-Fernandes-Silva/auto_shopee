@@ -4,6 +4,9 @@ from src.categorization.categorize_pipeline import CategorizationPipeline
 from src.categorization.DomainClassifier import DomainClassifier
 from src.categorization.DomainMapLoader import DomainMapLoader
 from src.categorization.extratores.CorExtractor import CorExtractor
+from src.categorization.extratores.eletrica.disjuntores.CentrinhoVariationExtractor import (
+    CentrinhoVariationExtractor,
+)
 from src.categorization.extratores.eletrica.disjuntores.PolosDisjuntorExtractor import (
     PolosDisjuntorExtractor,
 )
@@ -64,6 +67,8 @@ variation_pipeline = VariationPipeline(
             MedidaExtractor(),
         ],
         "ELETRICA": [
+            CentrinhoVariationExtractor(),
+            AmperagemExtractor(),
             PolosDisjuntorExtractor(),
             FormatoLampadaExtractor(),
             PotenciaLampadaExtractor(),

@@ -3,12 +3,7 @@ import pandas as pd
 
 class VariationPipeline:
     def __init__(self, dominio_extractors: dict):
-        """
-        dominio_extractors = {
-            "PARAFUSOS": [ExtractorA(), ExtractorB()],
-            "TOMADAS": [ExtractorC()],
-        }
-        """
+    
         self.dominio_extractors = dominio_extractors
 
     def extrair(self, descricao: str, dominio: str) -> dict:
