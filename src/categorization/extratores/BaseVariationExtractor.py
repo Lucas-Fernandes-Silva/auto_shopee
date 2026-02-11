@@ -1,9 +1,15 @@
 class BaseVariationExtractor:
-    aplica_em = []  # lista de palavras-chave
+    aplica_em = []
 
     def aplica(self, descricao: str) -> bool:
+        if not descricao:
+            return False
+
+        if not self.aplica_em:
+            return True
+
         desc = descricao.lower()
-        return any(palavra in desc for palavra in self.aplica_em)
+        return any(p in desc for p in self.aplica_em)
 
     def extrair(self, descricao: str) -> dict:
         raise NotImplementedError
