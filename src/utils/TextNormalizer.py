@@ -25,9 +25,7 @@ class TextNormalizer:
 
             for v in sorted(todas, key=len, reverse=True):
                 padrao = rf"\b{re.escape(v)}\b"
-                regex_marcas.append(
-                    (re.compile(padrao, re.IGNORECASE), marca.upper())
-                )
+                regex_marcas.append((re.compile(padrao, re.IGNORECASE), marca.upper()))
 
         return regex_marcas
 
@@ -59,7 +57,7 @@ class TextNormalizer:
         return (
             texto.replace("×", "X")
             .replace("+", " ")
-            .replace("-", "")
+            .replace("-", " ")
             .replace("—", "")
             .replace("(", " ")
             .replace(")", " ")
@@ -117,9 +115,9 @@ class TextNormalizer:
         t = str(descricao).upper()
 
         # 🔥 ORDEM IMPORTANTE
-        t = self._normalizar_decimais(t)          # 1.50 -> 1,50
-        t = self._normalizar_simbolos(t)           # símbolos
-        t = self._remover_pontos_nao_decimais(t)   # ACR. -> ACR
+        t = self._normalizar_decimais(t)  # 1.50 -> 1,50
+        t = self._normalizar_simbolos(t)  # símbolos
+        t = self._remover_pontos_nao_decimais(t)  # ACR. -> ACR
 
         t = self._remover_codigos(t)
         t = self._limpar_caracteres(t)
