@@ -3,7 +3,6 @@ import pandas as pd
 
 class VariationPipeline:
     def __init__(self, dominio_extractors: dict):
-    
         self.dominio_extractors = dominio_extractors
 
     def extrair(self, descricao: str, dominio: str) -> dict:
@@ -20,7 +19,6 @@ class VariationPipeline:
                 continue
 
             for chave, valor in resultado.items():
-                # evita sobrescrever valores válidos
                 if chave not in variacoes or variacoes[chave] is None:
                     variacoes[chave] = valor
 
