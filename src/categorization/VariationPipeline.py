@@ -13,14 +13,17 @@ class VariationPipeline:
         variacoes = {}
 
         for extractor in extractors:
-            resultado = extractor.extrair(descricao)
+            try:
+                # 🔑 AQUI está o ajuste
+                if hasattr(extractor, "aplica") and not extractor.aplica(descricao):
+                    continue
 
-            if not isinstance(resultado, dict):
+                resultado = extractor.extrair(descricao)
+                if resultado:
+                    variacoes.update(resultado)
+
+            except Exception:
                 continue
-
-            for chave, valor in resultado.items():
-                if chave not in variacoes or variacoes[chave] is None:
-                    variacoes[chave] = valor
 
         return variacoes
 
