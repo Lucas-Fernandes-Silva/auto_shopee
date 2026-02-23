@@ -4,7 +4,7 @@ from src.categorization.extratores.BaseVariationExtractor import BaseVariationEx
 
 
 class CentrinhoVariationExtractor(BaseVariationExtractor):
-    aplica_em = ["centrinho", "centro"]
+    aplica_em = ["centrinho", "centro", "centri"]
     # capacidade numérica (02, 04, 08, 12)
     PADRAO_CAP_NUMERICA = re.compile(r"\b(0?[2348]|12)\b")
 

@@ -6,14 +6,14 @@ class MedidaExtractor:
     PADRAO_FORMATO_CAIXA = re.compile(r"\b(3x3|4x2|4x4)\b", re.IGNORECASE)
 
     # polegadas (conduíte, elétrica)
-    PADRAO_POLEGADA = re.compile(r"\b(1/2|3/4|1/4|1)\s*(pol|\"|')?\b", re.IGNORECASE)
+    PADRAO_POLEGADA = re.compile(r"\b(1/2|3/4|1/4|1|5/8)\s*(pol|\"|')?\b", re.IGNORECASE)
 
     # diâmetro em mm
     PADRAO_DIAMETRO_MM = re.compile(r"\b(\d+(?:[.,]\d+)?)\s*(mm|milimetros?)\b", re.IGNORECASE)
 
     # comprimento EM METROS (obrigatório ter unidade explícita)
     PADRAO_COMPRIMENTO = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)\s*(m|mt|metro|metros)\b(?![a-z])", re.IGNORECASE
+        r"\b(\d+(?:[.,]\d+)?)\s*(m|mt|metro|metros|r|rl|rl/|cabo)\b(?![a-z])", re.IGNORECASE
     )
 
     def extrair(self, descricao: str) -> dict:
@@ -48,7 +48,7 @@ class MedidaExtractor:
         # 4️⃣ comprimento (somente se tiver unidade explícita)
         match_comp = self.PADRAO_COMPRIMENTO.search(desc)
         if match_comp:
-            comprimento = match_comp.group(1).replace(",", ".")
+            comprimento = match_comp.group(1).replace(",", ".") + "m"
 
         return {
             "Diametro": diametro,
