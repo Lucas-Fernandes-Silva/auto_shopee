@@ -20,7 +20,7 @@ class MedidaExtractor:
         if not descricao:
             return {
                 "Diametro": None,
-                "Comprimento": None,
+                "Comprimento_Venda": None,
                 "Formato_Caixa": None,
             }
 
@@ -52,6 +52,6 @@ class MedidaExtractor:
 
         return {
             "Diametro": diametro,
-            "Comprimento": comprimento,
+            "Comprimento_Venda": comprimento,
             "Formato_Caixa": formato_caixa,
         }

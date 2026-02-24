@@ -1,14 +1,13 @@
 import pandas as pd
 
 COLUNAS_POR_DOMINIO = {
-
-"ELETRICA": [
+    "ELETRICA": [
         "Descricao_Limpa",
         "Score_Dominio",
         "Amperagem",
         "Polos",
         "Diametro",
-        "Comprimento",
+        "Comprimento_Venda",
         "Formato_Caixa",
         "Capacidade_Centrinho",
         "Cor",
@@ -29,9 +28,8 @@ df_final = pd.read_excel("/home/lucas-silva/auto_shopee/Teste.xlsx")
 
 with pd.ExcelWriter(
     "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados_Por_Dominio.xlsx",
-    engine="xlsxwriter"
+    engine="xlsxwriter",
 ) as writer:
-
     df_final.to_excel(writer, sheet_name="GERAL", index=False)
 
     for dominio, colunas in COLUNAS_POR_DOMINIO.items():
@@ -41,12 +39,10 @@ with pd.ExcelWriter(
             continue
 
         # mantém só colunas que existem
-        colunas_existentes = [
-            c for c in colunas if c in df_dom.columns
-        ]
+        colunas_existentes = [c for c in colunas if c in df_dom.columns]
 
         df_dom[colunas_existentes].to_excel(
             writer,
             sheet_name=dominio[:31],  # limite do Excel
-            index=False
+            index=False,
         )

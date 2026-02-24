@@ -2,21 +2,26 @@ import re
 
 import pandas as pd
 
-COLUNAS_POR_DOMINIO = {
-
-"ELETRICA": [
-        "Descricao_Limpa",
-        "Score_Dominio",
-        "Amperagem",
+COLUNAS_VARIACAO_POR_DOMINIO = {
+    "ELETRICA": [
         "Polos",
+        "Amperagem",
         "Diametro",
-        "Comprimento",
+        "Comprimento_Venda",
         "Formato_Caixa",
         "Capacidade_Centrinho",
-        "Cor",
-        "Marca",
-        "grupo_id",
-    ],
+    ]
+}
+
+COLUNAS_REMOVE_TEXTO = {
+    "ELETRICA": [
+        "Polos",
+        "Amperagem",
+        "Diametro",
+        "Comprimento_Venda",
+        "Formato_Caixa",
+        "Capacidade_Centrinho",
+    ]
 }
 
 FORMATACAO_VARIACOES = {
@@ -58,42 +63,30 @@ def gerar_nome_base(row, campos_variacao):
 
         valor_str = str(valor).upper()
 
-        texto = re.sub(
-            rf"\b{re.escape(valor_str)}\b",
-            "",
-            texto
-        )
+        texto = re.sub(rf"\b{re.escape(valor_str)}\b", "", texto)
 
-        # remove sufixos comuns (A, MM, M etc) automaticamente
-        texto = re.sub(
-            rf"\b{re.escape(valor_str)}\s*(A|MM|M|MT)?\b",
-            "",
-            texto
-        )
+        texto = re.sub(rf"\b{re.escape(valor_str)}\s*(A|MM|M|MT)?\b", "", texto)
 
     texto = re.sub(r"\s{2,}", " ", texto).strip()
     return texto
 
 
-
-df_eletrica = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados_Por_Dominio.xlsx', sheet_name='ELETRICA')
-
-
-campos = COLUNAS_POR_DOMINIO["ELETRICA"]
-
-df_eletrica["Nome_Produto_Base"] = df_eletrica.apply(
-    lambda row: gerar_nome_base(row, campos),
-    axis=1
+df_eletrica = pd.read_excel(
+    "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados_Por_Dominio.xlsx",
+    sheet_name="ELETRICA",
 )
 
-df_eletrica["Nome_Variacao"] = df_eletrica.apply(
-    lambda row: gerar_nome_variacao(
-        row,
-        campos,
-        FORMATACAO_VARIACOES
-    ),
-    axis=1
-)
+print(df_eletrica["Comprimento_Venda"])
+
+# campos_remove = COLUNAS_REMOVE_TEXTO["ELETRICA"]
+
+# df_eletrica["Nome_Produto_Base"] = df_eletrica.apply(
+#     lambda row: gerar_nome_base(row, campos_remove), axis=1
+# )
+
+# df_eletrica["Nome_Variacao"] = df_eletrica.apply(
+#     lambda row: gerar_nome_variacao(row, campos_remove, FORMATACAO_VARIACOES), axis=1
+# )
 
 
-df_eletrica.to_excel('NomeEletrica.xlsx',index=False)
+# df_eletrica.to_excel("NomeEletrica.xlsx", index=False)
