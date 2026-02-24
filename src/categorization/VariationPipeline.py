@@ -14,7 +14,6 @@ class VariationPipeline:
 
         for extractor in extractors:
             try:
-                # 🔑 AQUI está o ajuste
                 if hasattr(extractor, "aplica") and not extractor.aplica(descricao):
                     continue
 
