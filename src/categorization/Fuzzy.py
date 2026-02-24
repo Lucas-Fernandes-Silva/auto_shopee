@@ -9,13 +9,14 @@ class AgrupadorFuzzyPaiFilho:
         col_codigo="Codigo Produto",
         col_Descricao_Limpa="Descricao_Limpa",
         col_dominio="Dominio",
-        coluna_marca="Marca",  # adiconar marca como filtro
+        coluna_marca="Marca",
         threshold=80,
     ):
         self.df = df.copy()
         self.col_codigo = col_codigo
         self.col_Descricao_Limpa = col_Descricao_Limpa
         self.col_dominio = col_dominio
+        self.coluna_marca = coluna_marca   # ✅ agora está salvo
         self.threshold = threshold
 
         self.df["grupo_id"] = None
@@ -24,16 +25,19 @@ class AgrupadorFuzzyPaiFilho:
         self.df["score_fuzzy"] = None
 
     def _normalizar(self, texto: str) -> str:
-        texto = texto.lower()
+        texto = str(texto).lower()
         texto = "".join(c for c in texto if c.isalnum() or c.isspace())
         return texto.strip()
 
     def _criar_grupos(self):
         grupo_atual = 0
 
-        for dominio, df_dom in self.df.groupby(self.col_dominio):
-            indices = df_dom.index.tolist()
-            textos = df_dom[self.col_Descricao_Limpa].apply(self._normalizar).to_dict()
+        # 🔥 AGRUPANDO POR DOMINIO + MARCA
+        for (dominio, marca), df_sub in self.df.groupby(
+            [self.col_dominio, self.coluna_marca]
+        ):
+            indices = df_sub.index.tolist()
+            textos = df_sub[self.col_Descricao_Limpa].apply(self._normalizar).to_dict()
 
             visitados = set()
 
@@ -61,11 +65,12 @@ class AgrupadorFuzzyPaiFilho:
             if len(df_grupo) == 1:
                 continue
 
-            # PAI = descrição mais curta
             df_ordenado = df_grupo.copy()
             df_ordenado["len_desc"] = df_ordenado[self.col_Descricao_Limpa].str.len()
 
-            pai_idx = df_ordenado.sort_values(["len_desc", self.col_codigo]).index[0]
+            pai_idx = df_ordenado.sort_values(
+                ["len_desc", self.col_codigo]
+            ).index[0]
 
             codigo_pai = self.df.at[pai_idx, self.col_codigo]
 
@@ -82,7 +87,6 @@ class AgrupadorFuzzyPaiFilho:
         self._criar_grupos()
         self._definir_pai_filho()
         return self.df
-
 
 df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx")
 
