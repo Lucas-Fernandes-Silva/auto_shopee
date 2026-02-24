@@ -9,6 +9,7 @@ class AgrupadorFuzzyPaiFilho:
         col_codigo="Codigo Produto",
         col_Descricao_Limpa="Descricao_Limpa",
         col_dominio="Dominio",
+        coluna_marca="Marca",  # adiconar marca como filtro
         threshold=80,
     ):
         self.df = df.copy()
@@ -64,11 +65,7 @@ class AgrupadorFuzzyPaiFilho:
             df_ordenado = df_grupo.copy()
             df_ordenado["len_desc"] = df_ordenado[self.col_Descricao_Limpa].str.len()
 
-            pai_idx = (
-                df_ordenado
-                .sort_values(["len_desc", self.col_codigo])
-                .index[0]
-            )
+            pai_idx = df_ordenado.sort_values(["len_desc", self.col_codigo]).index[0]
 
             codigo_pai = self.df.at[pai_idx, self.col_codigo]
 
@@ -87,14 +84,14 @@ class AgrupadorFuzzyPaiFilho:
         return self.df
 
 
-df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx')
+df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx")
 
 agrupador = AgrupadorFuzzyPaiFilho(
     df,
     col_codigo="Codigo Produto",
     col_Descricao_Limpa="Descricao_Limpa",
     col_dominio="Dominio",
-    threshold=80
+    threshold=80,
 )
 
 df_resultado = agrupador.processar()
@@ -105,11 +102,10 @@ agrupador = AgrupadorFuzzyPaiFilho(
     col_codigo="Codigo Produto",
     col_Descricao_Limpa="Descricao_Limpa",
     col_dominio="Dominio",
-    threshold=80
+    threshold=80,
 )
 
 df_resultado = agrupador.processar()
 
 
-
-df_resultado.to_excel('Teste.xlsx', index=False)
+df_resultado.to_excel("Teste.xlsx", index=False)

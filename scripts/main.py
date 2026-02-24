@@ -49,12 +49,6 @@ df["Descricao_Limpa"] = df.apply(
 manager.salvar_excel(df, "Descrição_Norm")
 print(df.columns)
 
-# variacao = VariationGrouper(df_restante)
-# df = variacao.aplicar()
-
-# nome = BaseVariantExtractor()
-# df = nome.aplicar(df)
-
 
 # classifier = HeavyClassifier(df)
 # df_pesados, df_restante = classifier.classify()

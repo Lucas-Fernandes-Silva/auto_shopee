@@ -3,9 +3,9 @@ import re
 
 class PolosDisjuntorExtractor:
     PADROES = {
-        "1P": re.compile(r"\b(1p|unipolar)\b", re.IGNORECASE),
-        "2P": re.compile(r"\b(2p|bipolar)\b", re.IGNORECASE),
-        "3P": re.compile(r"\b(3p|tripolar)\b", re.IGNORECASE),
+        "Unipolar": re.compile(r"\b(1p|unipolar)\b", re.IGNORECASE),
+        "Bipolar": re.compile(r"\b(2p|bipolar)\b", re.IGNORECASE),
+        "Tripolar": re.compile(r"\b(3p|tripolar)\b", re.IGNORECASE),
     }
 
     def extrair(self, descricao: str) -> dict:
