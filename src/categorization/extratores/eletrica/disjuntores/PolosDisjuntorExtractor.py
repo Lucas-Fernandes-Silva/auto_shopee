@@ -1,11 +1,13 @@
 import re
 
+from src.categorization.extratores.BaseVariationExtractor import BaseVariationExtractor
 
-class PolosDisjuntorExtractor:
+
+class PolosDisjuntorExtractor(BaseVariationExtractor):
     PADROES = {
-        "Unipolar": re.compile(r"\b(1p|unipolar)\b", re.IGNORECASE),
-        "Bipolar": re.compile(r"\b(2p|bipolar)\b", re.IGNORECASE),
-        "Tripolar": re.compile(r"\b(3p|tripolar)\b", re.IGNORECASE),
+        "UNIPOLAR": re.compile(r"\b(1p|unipolar)\b", re.IGNORECASE),
+        "BIPOLAR": re.compile(r"\b(2p|bipolar)\b", re.IGNORECASE),
+        "TRIPOLAR": re.compile(r"\b(3p|tripolar)\b", re.IGNORECASE),
     }
 
     def extrair(self, descricao: str) -> dict:

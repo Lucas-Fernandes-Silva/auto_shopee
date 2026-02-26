@@ -34,8 +34,9 @@ COLUNAS_REMOVE_TEXTO = {
     ]
 }
 
+# ✅ Formatação só para NOME DA VARIAÇÃO (não influencia remoção do texto base)
 FORMATACAO_VARIACOES = {
-    "Amperagem": lambda v: str(f"{v}A"),
+    "Amperagem": lambda v: f"{_amp_to_int_str(v)}A",
     "Polos": lambda v: str(v),
     "Cor": lambda v: str(v),
     "Formato": lambda v: str(v),
@@ -43,30 +44,83 @@ FORMATACAO_VARIACOES = {
     "Temperatura_Cor": lambda v: str(v),
     "Tipo_Lampada": lambda v: str(v),
     "Diametro": lambda v: str(v),
-    "Comprimento": lambda v: str(v),
+    "Comprimento_Venda": lambda v: str(v),
     "Formato_Caixa": lambda v: str(v),
     "Capacidade_Centrinho": lambda v: str(v),
 }
 
 
+def _amp_to_int_str(valor) -> str:
+    if valor is None or (isinstance(valor, float) and pd.isna(valor)):
+        return ""
+
+    s = str(valor).strip().replace(",", ".")
+    if not s:
+        return ""
+
+    try:
+        f = float(s)
+        if f.is_integer():
+            return str(int(f))
+        return s
+    except ValueError:
+        # se vier "10A" por algum motivo
+        s = s.upper().replace("A", "").strip()
+        try:
+            f = float(s)
+            if f.is_integer():
+                return str(int(f))
+            return s
+        except ValueError:
+            return s
+
+
+def _normalizar_numero_tokens(valor) -> set[str]:
+    s = str(valor).strip()
+    if not s:
+        return set()
+
+    s_up = s.upper().replace(",", ".")
+    tokens = {s_up, s_up.replace(".", ",")}
+
+    try:
+        f = float(s_up)
+        if f.is_integer():
+            n = str(int(f))
+            tokens.add(n)
+            tokens.add(n + ".0")
+            tokens.add(n + ",0")
+    except ValueError:
+        pass
+
+    return tokens
+
+
 def gerar_tokens_equivalentes(valor, campo):
     tokens = []
 
-    v = str(valor).upper().replace(",", ".")
+    v_raw = str(valor).strip()
+    if not v_raw:
+        return []
 
-    # amperagem
+    v = v_raw.upper().replace(",", ".")
+    v_sem_aspas = v.replace('"', "")
+
     if campo == "Amperagem":
-        tokens.extend(
-            [
-                v,
-                f"{v}A",
-                f"{v} A",
-                f"{v}.0A",
-                f"{v}.0 A",
-            ]
-        )
+        for n in _normalizar_numero_tokens(valor):
+            n_up = n.upper()
+            tokens.extend(
+                [
+                    n_up,
+                    f"{n_up}A",
+                    f"{n_up} A",
+                ]
+            )
 
-    # polos
+        base_int = _amp_to_int_str(valor)
+        if base_int:
+            tokens.extend([base_int, f"{base_int}A", f"{base_int} A"])
+
     elif campo == "Polos":
         tokens.append(v)
         if v == "1P":
@@ -76,21 +130,66 @@ def gerar_tokens_equivalentes(valor, campo):
         elif v == "3P":
             tokens.append("TRIPOLAR")
 
-    # polegadas
-    elif "/" in v:
+    elif campo == "Comprimento_Venda":
+        s = v.replace("METROS", "").replace("METRO", "").replace("MT", "").replace("M", "").strip()
+        if s:
+            for n in _normalizar_numero_tokens(s):
+                n_up = n.upper()
+                tokens.extend(
+                    [
+                        f"{n_up}M",
+                        f"{n_up} M",
+                        f"{n_up}MT",
+                        f"{n_up} MT",
+                        f"{n_up}METRO",
+                        f"{n_up} METRO",
+                        f"{n_up}METROS",
+                        f"{n_up} METROS",
+                    ]
+                )
+
+    elif campo == "Diametro":
+        if "/" in v_sem_aspas:
+            tokens.extend(
+                [
+                    v_sem_aspas,
+                    f'{v_sem_aspas}"',
+                    v,
+                ]
+            )
+        for n in _normalizar_numero_tokens(v_sem_aspas.replace("MM", "").strip()):
+            n_up = n.upper()
+            tokens.extend([f"{n_up}MM", f"{n_up} MM"])
+
+        if "X" in v_sem_aspas:
+            tokens.extend(
+                [v_sem_aspas, v_sem_aspas.replace("X", "x"), v_sem_aspas.replace("X", "x") + "MM"]
+            )
+
+    elif campo == "Formato_Caixa":
         tokens.extend(
             [
                 v,
-                v.replace('"', ""),
-                f'{v}"',
+                v.replace("X", "x"),
+                v.replace("x", "X"),
             ]
         )
 
-    # genérico
+    elif campo == "Capacidade_Centrinho":
+        tokens.append(v)
+        if "/" in v_sem_aspas:
+            tokens.extend([v_sem_aspas, f'{v_sem_aspas}"'])
+
+    elif campo == "Potencia_W":
+        for n in _normalizar_numero_tokens(v_sem_aspas.replace("W", "").strip()):
+            n_up = n.upper()
+            tokens.extend([f"{n_up}W", f"{n_up} W"])
+
     else:
         tokens.append(v)
 
-    return list(set(tokens))
+    tokens = list({t for t in tokens if t and t != "NAN" and t != "NONE"})
+    return tokens
 
 
 def gerar_nome_variacao(row, campos_variacao, formatacao_map):
@@ -99,50 +198,65 @@ def gerar_nome_variacao(row, campos_variacao, formatacao_map):
     for campo in campos_variacao:
         valor = row.get(campo)
 
-        if pd.isna(valor) or valor is None:
+        if pd.isna(valor) or valor is None or str(valor).strip() == "":
             continue
 
         formatter = formatacao_map.get(campo, lambda v: str(v))
-        partes.append(formatter(valor))
+        try:
+            partes.append(str(formatter(valor)).strip())
+        except Exception:
+            partes.append(str(valor).strip())
 
-    return " ".join(partes)
+    return re.sub(r"\s{2,}", " ", " ".join(partes)).strip()
 
 
 def gerar_nome_base(row, colunas_remove):
-    if not isinstance(row["Descricao_Limpa"], str):
+    desc = row.get("Descricao_Limpa")
+    if not isinstance(desc, str) or not desc.strip():
         return None
 
-    texto = row["Descricao_Limpa"].upper()
+    texto = desc.upper()
 
     for campo in colunas_remove:
         valor = row.get(campo)
 
-        if pd.isna(valor) or valor is None:
+        if pd.isna(valor) or valor is None or str(valor).strip() == "":
             continue
 
         tokens = gerar_tokens_equivalentes(valor, campo)
 
         for token in tokens:
-            texto = re.sub(rf"\b{re.escape(token)}\b", "", texto)
+            texto = re.sub(
+                rf"(?<![A-Z0-9/]){re.escape(token)}(?![A-Z0-9/])",
+                "",
+                texto,
+                flags=re.IGNORECASE,
+            )
 
-    texto = re.sub(r"\s{2,}", " ", texto).strip()
+    # limpeza final
+    texto = re.sub(r"\s{2,}", " ", texto).strip(" -_/")
     return texto if texto else None
 
 
+# =========================
+# EXECUÇÃO
+# =========================
 df_eletrica = pd.read_excel(
     "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados_Por_Dominio.xlsx",
     sheet_name="ELETRICA",
+    dtype=str,
 )
 
-campos_remove = COLUNAS_REMOVE_TEXTO["ELETRICA"]
+dominio = "ELETRICA"
+campos_remove = COLUNAS_REMOVE_TEXTO[dominio]
+campos_variacao = COLUNAS_VARIACAO_POR_DOMINIO[dominio]
 
 df_eletrica["Nome_Produto_Base"] = df_eletrica.apply(
     lambda row: gerar_nome_base(row, campos_remove), axis=1
 )
 
 df_eletrica["Nome_Variacao"] = df_eletrica.apply(
-    lambda row: gerar_nome_variacao(row, campos_remove, FORMATACAO_VARIACOES), axis=1
+    lambda row: gerar_nome_variacao(row, campos_variacao, FORMATACAO_VARIACOES), axis=1
 )
-
 
 df_eletrica.to_excel("NomeEletrica.xlsx", index=False)
