@@ -2,22 +2,42 @@ import re
 
 
 class PolosExtractor:
-
-    PADRAO_3P_T = re.compile(
-        r"\b3p\s*[\+\-\s]?\s*t\b", re.IGNORECASE
-    )
-    PADRAO_2P_T = re.compile(
-        r"\b2p\s*[\+\-\s]?\s*t\b", re.IGNORECASE
-    )
-    PADRAO_P_T = re.compile(
-        r"\bp\s*[\+\-\s]?\s*t\b", re.IGNORECASE
-    )
+    PADRAO_3P_T = re.compile(r"\b3p\s*[\+\-\s]?\s*t\b", re.IGNORECASE)
+    PADRAO_2P_T = re.compile(r"\b2p\s*[\+\-\s]?\s*t\b", re.IGNORECASE)
+    PADRAO_P_T = re.compile(r"\bp\s*[\+\-\s]?\s*t\b", re.IGNORECASE)
 
     PADRAO_3P = re.compile(r"\b3p\b", re.IGNORECASE)
     PADRAO_2P = re.compile(r"\b2p\b", re.IGNORECASE)
+    PADRAO_1P = re.compile(r"\b1p\b", re.IGNORECASE)  # ✅ extra (sem terra)
 
     COM_TERRA = re.compile(r"\bcom\s+terra\b", re.IGNORECASE)
     SEM_TERRA = re.compile(r"\bsem\s+terra\b", re.IGNORECASE)
+
+    def aplica(self, descricao: str) -> bool:
+        if not descricao:
+            return False
+
+        desc = descricao.upper()
+
+        # 🚫 Não aplicar em disjuntores
+        if "DISJUNTOR" in desc:
+            return False
+
+        # Só aplica se houver algum sinal de polos/terra no texto
+        # (evita rodar à toa em produtos sem relação)
+        return any(
+            padrao.search(descricao)
+            for padrao in (
+                self.PADRAO_3P_T,
+                self.PADRAO_2P_T,
+                self.PADRAO_P_T,
+                self.PADRAO_3P,
+                self.PADRAO_2P,
+                self.PADRAO_1P,
+                self.COM_TERRA,
+                self.SEM_TERRA,
+            )
+        )
 
     def extrair(self, descricao: str) -> dict:
         if not descricao:
@@ -35,6 +55,8 @@ class PolosExtractor:
             polos = "3P"
         elif self.PADRAO_2P.search(desc):
             polos = "2P"
+        elif self.PADRAO_1P.search(desc):
+            polos = "1P"
 
         # Ajustes finais
         if polos and self.SEM_TERRA.search(desc):

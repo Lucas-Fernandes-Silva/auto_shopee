@@ -1,10 +1,8 @@
 import re
 
-from src.categorization.extratores.BaseVariationExtractor import BaseVariationExtractor
 
-
-class PolosDisjuntorExtractor(BaseVariationExtractor):
-    aplica_em = ["DISJ"]
+class PolosDisjuntorExtractor:
+    aplicar_em = ["Disjutor"]
     PADROES = {
         "UNIPOLAR": re.compile(r"\b(1p|unipolar)\b", re.IGNORECASE),
         "BIPOLAR": re.compile(r"\b(2p|bipolar)\b", re.IGNORECASE),
