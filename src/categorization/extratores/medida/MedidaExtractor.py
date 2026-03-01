@@ -9,7 +9,7 @@ class MedidaExtractor:
     PADRAO_FORMATO_CAIXA = re.compile(r"\b(3x3|4x2|4x4)\b", re.IGNORECASE)
 
     # Polegadas (frações e inteiros comuns). Mantém simples; se precisar expande depois.
-    PADRAO_POLEGADA = re.compile(r"\b(1/2|3/4|1/4|5/8|1|1\s*1/2)\s*(pol|\"|')?\b", re.IGNORECASE)
+    PADRAO_POLEGADA = re.compile(r"\b(1/2|3/4|1/4|5/8|1|1\s*1/2|1,1/2|1,1/4)\s*(pol|\"|')?\b", re.IGNORECASE)
 
     PADRAO_DIAMETRO_MM = re.compile(r"\b(\d+(?:[.,]\d+)?)\s*(mm|milimetros?)\b", re.IGNORECASE)
 
