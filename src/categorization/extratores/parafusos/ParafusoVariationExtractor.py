@@ -27,19 +27,4 @@ class ParafusoVariationExtractor:
                 resultado["Tipo_Parafuso"] = tipo
                 break
 
-        # -------------------------
-        # 2. MEDIDA ÚNICA (DIÂMETRO X COMPRIMENTO)
-        # -------------------------
-        texto_norm = texto.replace(",", ".")
-
-        match = re.search(
-            r"\b(\d+(?:\.\d+)?)\s*[Xx]\s*(\d+)\b",
-            texto_norm,
-        )
-
-        if match:
-            diametro = match.group(1)
-            comprimento = match.group(2)
-            resultado["Medida"] = f"{diametro}X{comprimento}"
-
         return resultado

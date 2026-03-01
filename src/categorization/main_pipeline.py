@@ -22,6 +22,7 @@ from src.categorization.extratores.eletrica.lampadas.TemperaturaCorExtractor imp
 from src.categorization.extratores.eletrica.lampadas.TipoLampadaExtractor import (
     TipoLampadaExtractor,
 )
+from src.categorization.extratores.medida.MedidaAxBExtractor import MedidaAxBExtractor
 from src.categorization.extratores.medida.MedidaExtractor import MedidaExtractor
 from src.categorization.extratores.parafusos.ArruelaVariationExtractor import (
     ArruelaVariationExtractor,
@@ -54,6 +55,7 @@ variation_pipeline = VariationPipeline(
     dominio_extractors={
         "PARAFUSOS": [
             ParafusoVariationExtractor(),
+            MedidaAxBExtractor(),
             ChumbadorAncoraVariationExtractor(),
             RebiteVariationExtractor(),
             BuchaVariationExtractor(),
@@ -78,6 +80,10 @@ variation_pipeline = VariationPipeline(
             MedidaExtractor(),
             CorExtractor(),
         ],
+         "HIDRAULICA":[
+            MedidaExtractor(),
+            MedidaAxBExtractor(),
+        ]
     }
 )
 
