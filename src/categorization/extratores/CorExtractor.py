@@ -11,6 +11,7 @@ class CorExtractor:
         "AMARELO": ["amarelo"],
         "VERMELHO": ["vermelho"],
         "TRANSPARENTE": ["transparente", "cristal"],
+        "CROMADO": ["cromado"],
     }
 
     def extrair(self, descricao: str) -> dict:

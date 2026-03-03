@@ -80,11 +80,11 @@ variation_pipeline = VariationPipeline(
             MedidaExtractor(),
             CorExtractor(),
         ],
-         "HIDRAULICA":[
+        "HIDRAULICA": [
             MedidaAxBExtractor(),
             MedidaExtractor(),
-
-        ]
+            CorExtractor(),
+        ],
     }
 )
 

@@ -2,7 +2,7 @@ import re
 
 import pandas as pd
 
-COLUNAS_VARIACAO_POR_DOMINIO = {
+COLUNAS_ATRIBUTOS_POR_DOMINIO = {
     "ELETRICA": [
         "Polos",
         "Amperagem",
@@ -15,26 +15,16 @@ COLUNAS_VARIACAO_POR_DOMINIO = {
         "Potencia_W",
         "Temperatura_Cor",
         "Tipo_Lampada",
-    ]
-}
-
-COLUNAS_REMOVE_TEXTO = {
-    "ELETRICA": [
-        "Polos",
-        "Amperagem",
+    ],
+    "HIDRAULICA": [
+        "Medida",
         "Cor",
-        "Diametro",
-        "Comprimento_Venda",
-        "Formato_Caixa",
-        "Capacidade_Centrinho",
-        "Formato",
-        "Potencia_W",
-        "Temperatura_Cor",
-        "Tipo_Lampada",
-    ]
+    ],
 }
 
-# ✅ Formatação só para NOME DA VARIAÇÃO (não influencia remoção do texto base)
+COLUNAS_REMOVE_TEXTO = COLUNAS_ATRIBUTOS_POR_DOMINIO
+COLUNAS_VARIACAO_POR_DOMINIO = COLUNAS_ATRIBUTOS_POR_DOMINIO
+
 FORMATACAO_VARIACOES = {
     "Amperagem": lambda v: f"{_amp_to_int_str(v)}A",
     "Polos": lambda v: str(v),
@@ -243,11 +233,10 @@ def gerar_nome_base(row, colunas_remove):
 # =========================
 df_eletrica = pd.read_excel(
     "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados_Por_Dominio.xlsx",
-    sheet_name="ELETRICA",
     dtype=str,
 )
 
-dominio = "ELETRICA"
+dominio = "HIDRAULICA"
 campos_remove = COLUNAS_REMOVE_TEXTO[dominio]
 campos_variacao = COLUNAS_VARIACAO_POR_DOMINIO[dominio]
 
