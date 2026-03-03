@@ -1,69 +1,103 @@
 import re
 
+
 class MedidaAxBExtractor:
+    # NUM pode ser:
+    # - decimal/inteiro: 50 | 4,5 | 0,11 | 4.5
+    # - fração: 3/4 | 1/2
+    # - misto padrão: 1 1/2
+    # - misto "zoado": 1,1/2 | 1.1/2 | 1-1/2  (vamos normalizar depois)
+    TOKEN_NUM = r"(?:\d+\s+\d+/\d+|\d+[.,-]\d+/\d+|\d+/\d+|\d+(?:[.,]\d+)?)"
+    TOKEN_UN = r"(?:mm|cm|m|\"|pol|')"
+
+    # AxB (sem \b perto do X pra não quebrar 0,11X0,70)
     PADRAO_AXB = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)(\s*(?:mm|cm|m|\"|pol|')\b)?\s*[xX×]\s*"
-        r"(\d+(?:[.,]\d+)?)(\s*(?:mm|cm|m|\"|pol|')\b)?\b",
+        rf"({TOKEN_NUM})\s*({TOKEN_UN})?\s*[xX×]\s*({TOKEN_NUM})\s*({TOKEN_UN})?",
         re.IGNORECASE
     )
 
-    CTX_PARAFUSO = re.compile(r"\b(parafuso|rosca|sextav|philips|frances|franc[eê]s|bocante|abrocante|maq|maquina)\b", re.I)
-
-    CTX_HIDRAULICA = re.compile(
-        r"\b(tubo|conexao|conexoes|joelho|t[eê]\b|luva|bucha|adaptador|niple|uni[aã]o|registro|valvula|válvula|sif[aã]o|mangueira)\b",
-        re.I
+    # AxBxC
+    PADRAO_AXBXC = re.compile(
+        rf"({TOKEN_NUM})\s*({TOKEN_UN})?\s*[xX×]\s*({TOKEN_NUM})\s*({TOKEN_UN})?\s*[xX×]\s*({TOKEN_NUM})\s*({TOKEN_UN})?",
+        re.IGNORECASE
     )
-    REFORCO_HIDRAULICA = re.compile(r"\b(pvc|cpvc|ppr|pex|agua|água|esgoto|soldavel|soldável|colavel|colável|rosca)\b", re.I)
 
-    CTX_DIMENSIONAL = re.compile(r"\b(caixa|cuba|pia|tanque|gabinete|espelho|porta|janela|grelha|ralo|nicho)\b", re.I)
-
-    def _norm(self, n: str) -> str:
-        return n.replace(",", ".")
+    PADRAO_FRACAO_OU_MISTO = re.compile(r"^\s*(?:\d+\s+\d+/\d+|\d+/\d+|\d+[.,-]\d+/\d+)\s*$")
 
     def _norm_un(self, un: str | None) -> str | None:
         if not un:
             return None
         u = un.strip().lower()
-        # normaliza algumas variações
-        if u in ['pol', '"', "'"]:
-            return '"'
-        return u
+        return '"' if u in ("pol", '"', "'") else u
+
+    def _norm_num(self, s: str) -> str:
+        s = s.strip()
+        s = re.sub(r"\s+", " ", s)
+
+        # corrige misto zoado: 1,1/2 / 1.1/2 / 1-1/2  -> 1 1/2
+        s = re.sub(r"^(\d+)\s*[.,-]\s*(\d+/\d+)$", r"\1 \2", s)
+
+        # se for fração/misto, mantém; se for decimal normal, troca vírgula por ponto
+        if "/" in s:
+            return s
+        return s.replace(",", ".")
+
+    def _is_fracao_ou_misto(self, s: str) -> bool:
+        return self.PADRAO_FRACAO_OU_MISTO.match(s.strip()) is not None
+
+    def _aplicar_unidade_em_falta(self, nums: list[str], uns: list[str | None]) -> list[str]:
+        """
+        Regras:
+        - Se só o último tem unidade (ex: 0,11X0,70CM), aplica a mesma unidade pros anteriores.
+        - Se algum token for fração/misto e não houver unidade, assume polegada (").
+        - Se houver mistura (ex: um lado mm e outro sem), aplica a unidade existente ao que falta.
+        """
+        # 1) se existe alguma unidade explícita, tenta propagar
+        # (prioriza unidade do último valor, pq é bem comum em catálogos)
+        un_preferida = None
+        for u in reversed(uns):
+            if u:
+                un_preferida = u
+                break
+
+        if un_preferida:
+            uns = [u or un_preferida for u in uns]
+
+        # 2) fração/misto sem unidade -> polegada (se ainda estiver None)
+        uns = [u if u is not None else ('"' if self._is_fracao_ou_misto(n) else None) for n, u in zip(nums, uns)]
+
+        # 3) monta com unidade (se houver)
+        partes = []
+        for n, u in zip(nums, uns):
+            partes.append(f"{n}{u or ''}")
+        return partes
 
     def extrair(self, descricao: str) -> dict:
         if not isinstance(descricao, str) or not descricao.strip():
             return {}
 
         texto = descricao.lower()
-        m = self.PADRAO_AXB.search(texto)
-        if not m:
+
+        # 1) tenta AxBxC primeiro
+        m3 = self.PADRAO_AXBXC.search(texto)
+        if m3:
+            a_raw, ua_raw, b_raw, ub_raw, c_raw, uc_raw = m3.group(1), m3.group(2), m3.group(3), m3.group(4), m3.group(5), m3.group(6)
+
+            nums = [self._norm_num(a_raw), self._norm_num(b_raw), self._norm_num(c_raw)]
+            uns = [self._norm_un(ua_raw), self._norm_un(ub_raw), self._norm_un(uc_raw)]
+
+            partes = self._aplicar_unidade_em_falta(nums, uns)
+            return {"Medida": "X".join(partes)}
+
+        # 2) AxB
+        m2 = self.PADRAO_AXB.search(texto)
+        if not m2:
             return {}
 
-        a, ua, b, ub = m.group(1), m.group(2), m.group(3), m.group(4)
-        a = self._norm(a); b = self._norm(b)
-        ua = self._norm_un(ua); ub = self._norm_un(ub)
+        a_raw, ua_raw, b_raw, ub_raw = m2.group(1), m2.group(2), m2.group(3), m2.group(4)
 
-        # 1) Parafuso: diametro x comprimento (não inventa unidade)
-        if self.CTX_PARAFUSO.search(texto):
-            return {"Medida": f"{a}X{b}"}
+        nums = [self._norm_num(a_raw), self._norm_num(b_raw)]
+        uns = [self._norm_un(ua_raw), self._norm_un(ub_raw)]
 
-        # 2) Dimensional: altura x largura (se existir unidade, mantém)
-        if self.CTX_DIMENSIONAL.search(texto):
-            alt = f"{a}{ua or ''}"
-            larg = f"{b}{ub or ''}"
-            return {"Altura": alt, "Largura": larg}
-
-        # 3) Hidráulica: normalmente bitola1 x bitola2
-        if self.CTX_HIDRAULICA.search(texto) and self.REFORCO_HIDRAULICA.search(texto):
-            # se uma unidade é "m", provavelmente é comprimento, não diâmetro
-            if ua == "m" and (ub in (None, "mm", "cm", '"')):
-                return {"Comprimento_Venda": f"{a}m", "Diametro": f"{b}{ub or 'mm'}"}
-            if ub == "m" and (ua in (None, "mm", "cm", '"')):
-                return {"Comprimento_Venda": f"{b}m", "Diametro": f"{a}{ua or 'mm'}"}
-
-            # padrão redução: devolve dois diâmetros
-            d1 = f"{a}{ua or 'mm'}"
-            d2 = f"{b}{ub or 'mm'}"
-            return {"Diametro_1": d1, "Diametro_2": d2, "Medida": f"{d1}x{d2}"}
-
-        # 4) Fallback: retorna só a Medida bruta pra você não “perder”
-        return {"Medida": f"{a}{ua or ''}X{b}{ub or ''}"}
+        partes = self._aplicar_unidade_em_falta(nums, uns)
+        return {"Medida": "X".join(partes)}

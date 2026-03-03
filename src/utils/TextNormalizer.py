@@ -49,13 +49,15 @@ class TextNormalizer:
     # =========================
     # Normalizações específicas
     # =========================
+    def _normalizar_fracao_mista(self, texto: str) -> str:
+        return re.sub(r"\b(\d+)\s*([.,\-])\s*(\d+/\d+)\b", r"\1 \3", texto)
     def _normalizar_decimais(self, texto):
         # 1.50 -> 1,50
         return re.sub(r"(?<=\d)\.(?=\d)", ",", texto)
 
     def _normalizar_simbolos(self, texto):
         return (
-            texto.replace("×", "X")
+            texto.replace("×", " X ")
             .replace("+", " ")
             .replace("-", " ")
             .replace("—", "")
@@ -116,6 +118,7 @@ class TextNormalizer:
         t = str(descricao).upper()
 
         # 🔥 ORDEM IMPORTANTE
+        t = self._normalizar_fracao_mista(t)  # 1.1/2 -> 1 1/2
         t = self._normalizar_decimais(t)  # 1.50 -> 1,50
         t = self._normalizar_simbolos(t)  # símbolos
         t = self._remover_pontos_nao_decimais(t)  # ACR. -> ACR
