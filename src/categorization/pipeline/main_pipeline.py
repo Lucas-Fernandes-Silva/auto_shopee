@@ -1,8 +1,5 @@
 import pandas as pd
 
-from src.categorization.categorize_pipeline import CategorizationPipeline
-from src.categorization.DomainClassifier import DomainClassifier
-from src.categorization.DomainMapLoader import DomainMapLoader
 from src.categorization.extratores.CorExtractor import CorExtractor
 from src.categorization.extratores.eletrica.disjuntores.CentrinhoVariationExtractor import (
     CentrinhoVariationExtractor,
@@ -41,7 +38,10 @@ from src.categorization.extratores.parafusos.RebiteVariationExtractor import (
 from src.categorization.extratores.tomadas.AmperagemExtractor import AmperagemExtractor
 from src.categorization.extratores.tomadas.PolosExtractor import PolosExtractor
 from src.categorization.extratores.tomadas.TipoTomadaExtractor import TipoTomadaExtractor
-from src.categorization.VariationPipeline import VariationPipeline
+from src.categorization.pipeline.categorize_pipeline import CategorizationPipeline
+from src.categorization.pipeline.DomainClassifier import DomainClassifier
+from src.categorization.pipeline.DomainMapLoader import DomainMapLoader
+from src.categorization.pipeline.VariationPipeline import VariationPipeline
 
 # ---- Domínios
 loader = DomainMapLoader("/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx")

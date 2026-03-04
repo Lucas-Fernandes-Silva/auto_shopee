@@ -2,15 +2,6 @@ import pandas as pd
 
 
 class VariationPipeline:
-    """
-    Pipeline de extração de variações por domínio.
-
-    - Não sobrescreve campos já preenchidos (a menos que a prioridade seja maior).
-    - Suporta prioridade por extractor (método priority() ou atributo PRIORITY).
-    - Respeita aplica(descricao) quando existir.
-    - Pode gerar colunas de debug com origem dos campos.
-    """
-
     def __init__(self, dominio_extractors: dict, debug: bool = False):
         self.dominio_extractors = dominio_extractors or {}
         self.debug = debug
@@ -94,7 +85,7 @@ class VariationPipeline:
 
         if self.debug:
             valores, origem = self.extrair(descricao, dominio)
-            s = pd.Series(valores, dtype='object')
+            s = pd.Series(valores, dtype="object")
 
             # adiciona colunas de debug: Origem__Campo
             for campo, info in origem.items():
@@ -109,7 +100,7 @@ class VariationPipeline:
         return pd.concat([df, variacoes], axis=1)
 
 
-df_dominios = pd.read_excel('')
+df_dominios = pd.read_excel("planilhas/outputs/Produtos_Classificados.xlsx")
 
 variation_pipeline = VariationPipeline(dominio_extractors={}, debug=True)
 df_final = variation_pipeline.aplicar(df_dominios)
