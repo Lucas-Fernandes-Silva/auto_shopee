@@ -244,20 +244,25 @@ def gerar_nome_variacao(row: pd.Series, campos_variacao: list[str]) -> str:
     parts = []
     for campo in campos_variacao:
         valor = row.get(campo)
-        if valor is None or str(valor).strip() == "":
+
+        # evita None / NaN / "nan"
+        if valor is None:
             continue
 
-        v = str(valor).strip()
+        s = str(valor).strip()
+        if s == "" or s.lower() == "nan":
+            continue
+
         fmt = FORMATACAO_VARIACOES.get(campo)
         if fmt:
             try:
-                v = fmt(v)
+                s = fmt(s)
             except Exception:
                 pass
 
-        v = str(v).strip()
-        if v:
-            parts.append(v)
+        s = str(s).strip()
+        if s and s.lower() != "nan":
+            parts.append(s)
 
     return " ".join(parts).strip()
 

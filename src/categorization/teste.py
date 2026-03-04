@@ -27,7 +27,7 @@ vp = VariationPipeline(
             CorExtractor(),
         ]
     },
-    debug=True,  # pra ver Origem__...
+    debug=True,  
 )
 
 df2 = vp.aplicar(df)
