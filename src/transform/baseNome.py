@@ -2,7 +2,10 @@ import re
 
 import pandas as pd
 
-COLUNAS_ATRIBUTOS_POR_DOMINIO = {
+# =========================
+# 1) Campos por domínio (1 só fonte)
+# =========================
+CAMPOS_POR_DOMINIO = {
     "ELETRICA": [
         "Polos",
         "Amperagem",
@@ -16,236 +19,284 @@ COLUNAS_ATRIBUTOS_POR_DOMINIO = {
         "Temperatura_Cor",
         "Tipo_Lampada",
     ],
+    "TOMADAS": [
+        "Tipo_Tomada",
+        "Amperagem",
+        "Polos",
+        "Diametro",
+        "Comprimento_Venda",
+        "Formato_Caixa",
+        "Cor",
+    ],
+    "PARAFUSOS": [
+        "Medida",
+        "Diametro",
+        "Comprimento_Venda",
+        "Cor",
+    ],
     "HIDRAULICA": [
         "Medida",
         "Cor",
     ],
 }
 
-COLUNAS_REMOVE_TEXTO = COLUNAS_ATRIBUTOS_POR_DOMINIO
-COLUNAS_VARIACAO_POR_DOMINIO = COLUNAS_ATRIBUTOS_POR_DOMINIO
+# Se um domínio não estiver configurado, você ainda pode gerar com fallback:
+CAMPOS_FALLBACK = ["Medida", "Cor", "Diametro", "Comprimento_Venda"]
 
+# =========================
+# 2) Formatação de variação (opcional)
+# =========================
 FORMATACAO_VARIACOES = {
-    "Amperagem": lambda v: f"{_amp_to_int_str(v)}A",
-    "Polos": lambda v: str(v),
+    "Amperagem": lambda v: v if str(v).upper().endswith("A") else f"{v}A",
+    "Potencia_W": lambda v: v if str(v).upper().endswith("W") else f"{v}W",
+    "Temperatura_Cor": lambda v: v if str(v).upper().endswith("K") else f"{v}K",
+    # Medida/Cor normalmente já vêm ok:
+    "Medida": lambda v: str(v),
     "Cor": lambda v: str(v),
-    "Formato": lambda v: str(v),
-    "Potencia_W": lambda v: str(v),
-    "Temperatura_Cor": lambda v: str(v),
-    "Tipo_Lampada": lambda v: str(v),
-    "Diametro": lambda v: str(v),
-    "Comprimento_Venda": lambda v: str(v),
-    "Formato_Caixa": lambda v: str(v),
-    "Capacidade_Centrinho": lambda v: str(v),
 }
 
 
-def _amp_to_int_str(valor) -> str:
-    if valor is None or (isinstance(valor, float) and pd.isna(valor)):
+# =========================
+# 3) Helpers
+# =========================
+def normalizar_texto_base(s: str) -> str:
+    if not isinstance(s, str):
         return ""
+    s = s.strip()
+    s = re.sub(r"\s+", " ", s)
+    return s
 
-    s = str(valor).strip().replace(",", ".")
-    if not s:
+
+def _safe_remove(texto: str, token: str) -> str:
+    """
+    Remove token sem quebrar palavras.
+    Inclui "/" e aspas como parte do token (3/4" etc).
+    """
+    if not token:
+        return texto
+
+    # normaliza separador de multiplicação no token
+    token = token.replace("×", "X")
+
+    # boundary "segura" (não remove dentro de palavra)
+    # inclui / e " no conjunto pra token com fração e aspas
+    padrao = rf'(?<![A-Z0-9/"]){re.escape(token)}(?![A-Z0-9/"])'
+    return re.sub(padrao, " ", texto, flags=re.IGNORECASE)
+
+
+def _fmt(v: object) -> str:
+    if v is None:
         return ""
-
-    try:
-        f = float(s)
-        if f.is_integer():
-            return str(int(f))
-        return s
-    except ValueError:
-        # se vier "10A" por algum motivo
-        s = s.upper().replace("A", "").strip()
-        try:
-            f = float(s)
-            if f.is_integer():
-                return str(int(f))
-            return s
-        except ValueError:
-            return s
+    s = str(v).strip()
+    return s
 
 
-def _normalizar_numero_tokens(valor) -> set[str]:
-    s = str(valor).strip()
-    if not s:
-        return set()
-
-    s_up = s.upper().replace(",", ".")
-    tokens = {s_up, s_up.replace(".", ",")}
-
-    try:
-        f = float(s_up)
-        if f.is_integer():
-            n = str(int(f))
-            tokens.add(n)
-            tokens.add(n + ".0")
-            tokens.add(n + ",0")
-    except ValueError:
-        pass
-
-    return tokens
-
-
-def gerar_tokens_equivalentes(valor, campo):
-    tokens = []
-
-    v_raw = str(valor).strip()
+# =========================
+# 4) Tokens equivalentes por campo
+# =========================
+def gerar_tokens_equivalentes(campo: str, valor: object) -> list[str]:
+    """
+    Gera variações do valor para remover no texto (nome base).
+    O objetivo é cobrir diferenças de escrita no catálogo:
+    - X / x / ×
+    - com ou sem espaços
+    - ponto vs vírgula
+    - unidades coladas/soltas
+    - frações com/sem aspas (polegadas)
+    """
+    v_raw = _fmt(valor)
     if not v_raw:
         return []
 
-    v = v_raw.upper().replace(",", ".")
-    v_sem_aspas = v.replace('"', "")
+    campo = str(campo)
 
-    if campo == "Amperagem":
-        for n in _normalizar_numero_tokens(valor):
-            n_up = n.upper()
-            tokens.extend(
-                [
-                    n_up,
-                    f"{n_up}A",
-                    f"{n_up} A",
-                ]
-            )
+    # Normalizações gerais
+    v = v_raw.strip()
+    v_up = v.upper().replace("×", "X")
 
-        base_int = _amp_to_int_str(valor)
-        if base_int:
-            tokens.extend([base_int, f"{base_int}A", f"{base_int} A"])
+    tokens = set()
 
-    elif campo == "Polos":
-        tokens.append(v)
-        if v == "1P":
-            tokens.append("UNIPOLAR")
-        elif v == "2P":
-            tokens.append("BIPOLAR")
-        elif v == "3P":
-            tokens.append("TRIPOLAR")
+    # ---------- Medida (AxB, AxBxC, frações) ----------
+    if campo == "Medida":
+        base = v_up
 
-    elif campo == "Comprimento_Venda":
-        s = v.replace("METROS", "").replace("METRO", "").replace("MT", "").replace("M", "").strip()
-        if s:
-            for n in _normalizar_numero_tokens(s):
-                n_up = n.upper()
-                tokens.extend(
-                    [
-                        f"{n_up}M",
-                        f"{n_up} M",
-                        f"{n_up}MT",
-                        f"{n_up} MT",
-                        f"{n_up}METRO",
-                        f"{n_up} METRO",
-                        f"{n_up}METROS",
-                        f"{n_up} METROS",
-                    ]
-                )
+        # variantes de separador e espaços
+        def expand_sep(s: str):
+            outs = set()
+            for sep in ["X", "x", "×"]:
+                s2 = s.replace("X", sep)
+                outs.add(s2)
+                outs.add(s2.replace(sep, f" {sep} "))
+            return outs
 
-    elif campo == "Diametro":
-        if "/" in v_sem_aspas:
-            tokens.extend(
-                [
-                    v_sem_aspas,
-                    f'{v_sem_aspas}"',
-                    v,
-                ]
-            )
-        for n in _normalizar_numero_tokens(v_sem_aspas.replace("MM", "").strip()):
-            n_up = n.upper()
-            tokens.extend([f"{n_up}MM", f"{n_up} MM"])
+        # decimal: ponto/vírgula
+        base_dot = base.replace(",", ".")
+        base_comma = base.replace(".", ",")
 
-        if "X" in v_sem_aspas:
-            tokens.extend(
-                [v_sem_aspas, v_sem_aspas.replace("X", "x"), v_sem_aspas.replace("X", "x") + "MM"]
-            )
+        # remove aspas (às vezes o texto não tem aspas)
+        base_no_quotes = base.replace('"', "")
 
-    elif campo == "Formato_Caixa":
-        tokens.extend(
-            [
-                v,
-                v.replace("X", "x"),
-                v.replace("x", "X"),
-            ]
-        )
+        candidates = {base, base_dot, base_comma, base_no_quotes}
 
-    elif campo == "Capacidade_Centrinho":
-        tokens.append(v)
-        if "/" in v_sem_aspas:
-            tokens.extend([v_sem_aspas, f'{v_sem_aspas}"'])
+        # Se tem fração e não tem aspas, cria com aspas em cada parte: 3/4X1/2 -> 3/4"X1/2"
+        if "/" in base_no_quotes:
+            parts = base_no_quotes.split("X")
+            if len(parts) in (2, 3):
+                with_quotes = "X".join([p + '"' for p in parts])
+                candidates.add(with_quotes)
+                candidates.add(with_quotes.replace("X", "x"))
 
-    elif campo == "Potencia_W":
-        for n in _normalizar_numero_tokens(v_sem_aspas.replace("W", "").strip()):
-            n_up = n.upper()
-            tokens.extend([f"{n_up}W", f"{n_up} W"])
+        # Unidade “só no final” (catálogo): 0,11X0,70CM
+        # Quando a medida vem como 0.11CMX0.70CM, gerar também 0.11X0.70CM
+        for unidade in ["CM", "MM", "M"]:
+            if unidade in base and "X" in base:
+                # remove unidade de todas as partes e deixa só no final
+                compact = base.replace(unidade, "")
+                candidates.add(compact + unidade)
 
-    else:
-        tokens.append(v)
+                compact_dot = base_dot.replace(unidade, "")
+                candidates.add(compact_dot + unidade)
 
-    tokens = list({t for t in tokens if t and t != "NAN" and t != "NONE"})
-    return tokens
+                compact_comma = base_comma.replace(unidade, "")
+                candidates.add(compact_comma + unidade)
+
+        # gera separadores e espaços
+        for c in candidates:
+            for e in expand_sep(c):
+                tokens.add(e)
+
+        # também gera versão sem espaços
+        for t in list(tokens):
+            tokens.add(re.sub(r"\s+", "", t))
+
+        return list(tokens)
+
+    # ---------- Comprimento_Venda / Diametro ----------
+    if campo in ("Comprimento_Venda", "Diametro"):
+        base = v_up
+        base_dot = base.replace(",", ".")
+        base_comma = base.replace(".", ",")
+
+        # com e sem espaço da unidade
+        def unit_space_variants(s: str):
+            # 50MM -> 50 MM
+            return {s, re.sub(r"(\d)([A-Z])", r"\1 \2", s)}
+
+        for b in {base, base_dot, base_comma}:
+            tokens |= unit_space_variants(b)
+
+        return list(tokens)
+
+    # ---------- Amperagem / Potência / Temperatura ----------
+    if campo in ("Amperagem", "Potencia_W", "Temperatura_Cor"):
+        base = v_up
+        # garante unidade nas variantes
+        suffix = "A" if campo == "Amperagem" else ("W" if campo == "Potencia_W" else "K")
+        if not base.endswith(suffix):
+            base2 = base + suffix
+        else:
+            base2 = base
+
+        tokens.add(base)
+        tokens.add(base2)
+        tokens.add(base2.replace(suffix, f" {suffix}"))
+        return list(tokens)
+
+    # ---------- Polos, Cor, Tipo etc ----------
+    # padrão simples: remove exatamente como veio + versão upper
+    tokens.add(v)
+    tokens.add(v_up)
+    return list(tokens)
 
 
-def gerar_nome_variacao(row, campos_variacao, formatacao_map):
-    partes = []
+# =========================
+# 5) Gerador Nome Base
+# =========================
+def gerar_nome_base(row: pd.Series, dominio: str, campos_remover: list[str]) -> str:
+    texto = _fmt(row.get("Descricao_Limpa"))
+    texto = normalizar_texto_base(texto)
+    if not texto:
+        return ""
 
+    tokens_para_remover = []
+
+    for campo in campos_remover:
+        valor = row.get(campo)
+        if valor is None or str(valor).strip() == "":
+            continue
+
+        tokens_para_remover.extend(gerar_tokens_equivalentes(campo, valor))
+
+    # remove maiores primeiro (evita sobrar pedaços)
+    tokens_para_remover = sorted(set(tokens_para_remover), key=len, reverse=True)
+
+    for token in tokens_para_remover:
+        texto = _safe_remove(texto, token)
+
+    texto = re.sub(r"\s+", " ", texto).strip()
+    return texto
+
+
+# =========================
+# 6) Gerador Nome Variação
+# =========================
+def gerar_nome_variacao(row: pd.Series, campos_variacao: list[str]) -> str:
+    parts = []
     for campo in campos_variacao:
         valor = row.get(campo)
-
-        if pd.isna(valor) or valor is None or str(valor).strip() == "":
+        if valor is None or str(valor).strip() == "":
             continue
 
-        formatter = formatacao_map.get(campo, lambda v: str(v))
-        try:
-            partes.append(str(formatter(valor)).strip())
-        except Exception:
-            partes.append(str(valor).strip())
+        v = str(valor).strip()
+        fmt = FORMATACAO_VARIACOES.get(campo)
+        if fmt:
+            try:
+                v = fmt(v)
+            except Exception:
+                pass
 
-    return re.sub(r"\s{2,}", " ", " ".join(partes)).strip()
+        v = str(v).strip()
+        if v:
+            parts.append(v)
 
-
-def gerar_nome_base(row, colunas_remove):
-    desc = row.get("Descricao_Limpa")
-    if not isinstance(desc, str) or not desc.strip():
-        return None
-
-    texto = desc.upper()
-
-    for campo in colunas_remove:
-        valor = row.get(campo)
-
-        if pd.isna(valor) or valor is None or str(valor).strip() == "":
-            continue
-
-        tokens = gerar_tokens_equivalentes(valor, campo)
-
-        for token in tokens:
-            texto = re.sub(
-                rf"(?<![A-Z0-9/]){re.escape(token)}(?![A-Z0-9/])",
-                "",
-                texto,
-                flags=re.IGNORECASE,
-            )
-
-    # limpeza final
-    texto = re.sub(r"\s{2,}", " ", texto).strip(" -_/")
-    return texto if texto else None
+    return " ".join(parts).strip()
 
 
 # =========================
-# EXECUÇÃO
+# 7) Aplicar no DF (multi-domínio)
 # =========================
-df_eletrica = pd.read_excel(
-    "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados_Por_Dominio.xlsx",
-    dtype=str,
-)
+def aplicar_nomes(df: pd.DataFrame) -> pd.DataFrame:
+    def _campos(dominio: str) -> list[str]:
+        return CAMPOS_POR_DOMINIO.get(dominio, CAMPOS_FALLBACK)
 
-dominio = "HIDRAULICA"
-campos_remove = COLUNAS_REMOVE_TEXTO[dominio]
-campos_variacao = COLUNAS_VARIACAO_POR_DOMINIO[dominio]
+    def _process(row: pd.Series) -> pd.Series:
+        dominio = _fmt(row.get("Dominio")).upper()
+        campos = _campos(dominio)
 
-df_eletrica["Nome_Produto_Base"] = df_eletrica.apply(
-    lambda row: gerar_nome_base(row, campos_remove), axis=1
-)
+        nome_base = gerar_nome_base(row, dominio, campos)
+        nome_var = gerar_nome_variacao(row, campos)
 
-df_eletrica["Nome_Variacao"] = df_eletrica.apply(
-    lambda row: gerar_nome_variacao(row, campos_variacao, FORMATACAO_VARIACOES), axis=1
-)
+        return pd.Series(
+            {
+                "Nome_Produto_Base": nome_base,
+                "Nome_Variacao": nome_var,
+            }
+        )
 
-df_eletrica.to_excel("NomeEletrica.xlsx", index=False)
+    nomes = df.apply(_process, axis=1)
+    return pd.concat([df, nomes], axis=1)
+
+
+# =========================
+# 8) Execução (exemplo)
+# =========================
+if __name__ == "__main__":
+    # Ajuste os paths conforme seu projeto
+    in_path = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx"
+    out_path = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Com_Nomes.xlsx"
+
+    df = pd.read_excel(in_path, dtype=str)
+    df_out = aplicar_nomes(df)
+
+    df_out.to_excel(out_path, index=False)
+    print(f"Arquivo gerado: {out_path}")
