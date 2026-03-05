@@ -522,6 +522,7 @@ mapa_abreviacoes = {
     "ZINC": "ZINCADO",
     "COMP": "COMPACTA",
     "A BROCANTE": "AUTO BROCANTE",
+    "R SOB (B)": "ROSCA SOBERBA",
 }
 
 headers = {

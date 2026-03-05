@@ -23,7 +23,7 @@ CAMPOS_POR_DOMINIO = {
         "Tipo_Tomada",
         "Amperagem",
         "Polos",
-        "Diametro",
+        "Diametro", *
         "Comprimento_Venda",
         "Formato_Caixa",
         "Cor",
@@ -33,6 +33,13 @@ CAMPOS_POR_DOMINIO = {
         "Diametro",
         "Comprimento_Venda",
         "Cor",
+        "Tipo_Rebite",
+        "Tipo_Porca",
+        "Tipo_Parafuso",
+        "Tipo_Chumbador",
+        "Tipo_Bucha",
+        "Tipo_Arruela",
+        "Modelo_Rebite",
     ],
     "HIDRAULICA": [
         "Medida",
@@ -50,7 +57,6 @@ FORMATACAO_VARIACOES = {
     "Amperagem": lambda v: v if str(v).upper().endswith("A") else f"{v}A",
     "Potencia_W": lambda v: v if str(v).upper().endswith("W") else f"{v}W",
     "Temperatura_Cor": lambda v: v if str(v).upper().endswith("K") else f"{v}K",
-    # Medida/Cor normalmente já vêm ok:
     "Medida": lambda v: str(v),
     "Cor": lambda v: str(v),
 }
@@ -68,10 +74,6 @@ def normalizar_texto_base(s: str) -> str:
 
 
 def _safe_remove(texto: str, token: str) -> str:
-    """
-    Remove token sem quebrar palavras.
-    Inclui "/" e aspas como parte do token (3/4" etc).
-    """
     if not token:
         return texto
 
@@ -95,15 +97,6 @@ def _fmt(v: object) -> str:
 # 4) Tokens equivalentes por campo
 # =========================
 def gerar_tokens_equivalentes(campo: str, valor: object) -> list[str]:
-    """
-    Gera variações do valor para remover no texto (nome base).
-    O objetivo é cobrir diferenças de escrita no catálogo:
-    - X / x / ×
-    - com ou sem espaços
-    - ponto vs vírgula
-    - unidades coladas/soltas
-    - frações com/sem aspas (polegadas)
-    """
     v_raw = _fmt(valor)
     if not v_raw:
         return []

@@ -1,5 +1,3 @@
-import re
-
 
 class ParafusoVariationExtractor:
     TIPOS_PARAFUSO = {
@@ -28,3 +26,5 @@ class ParafusoVariationExtractor:
                 break
 
         return resultado
+
+    

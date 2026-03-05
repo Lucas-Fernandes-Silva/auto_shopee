@@ -15,7 +15,8 @@ class MedidaExtractor:
 
     # polegadas (frações e mistos)
     PADRAO_POLEGADA = re.compile(
-        r"\b(1/2|3/4|1/4|5/8|1|1\s*1/2|1 1/2|1 1/4)\s*(pol|\"|')?\b", re.IGNORECASE
+        r"\b(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1|1\s*1/2|1 1/2|1 1/4)\s*(pol|\"|')?\b",
+        re.IGNORECASE,
     )
 
     PADRAO_DIAMETRO_MM = re.compile(r"\b(\d+(?:[.,]\d+)?)\s*(mm|milimetros?)\b", re.IGNORECASE)
@@ -94,6 +95,7 @@ class MedidaExtractor:
                 "Volume": None,
                 "Peso": None,
                 "Secao_Cabo": None,
+                
             }
 
         desc = descricao.lower()
