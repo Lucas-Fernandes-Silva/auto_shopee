@@ -23,8 +23,8 @@ CAMPOS_POR_DOMINIO = {
         "Tipo_Tomada",
         "Amperagem",
         "Polos",
-        "Diametro", *
-        "Comprimento_Venda",
+        "Diametro",
+        *"Comprimento_Venda",
         "Formato_Caixa",
         "Cor",
     ],
@@ -41,10 +41,7 @@ CAMPOS_POR_DOMINIO = {
         "Tipo_Arruela",
         "Modelo_Rebite",
     ],
-    "HIDRAULICA": [
-        "Medida",
-        "Cor",
-    ],
+    "HIDRAULICA": ["Medida", "Cor", "Volume", "Diametro"],
 }
 
 # Se um domínio não estiver configurado, você ainda pode gerar com fallback:

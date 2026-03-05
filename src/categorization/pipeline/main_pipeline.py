@@ -95,14 +95,12 @@ variation_pipeline = VariationPipeline(
             TipoTomadaExtractor(),
             AmperagemExtractor(),
             MedidaAxBExtractor(),
-            MedidaExtractor(),
             PolosExtractor(),
             CorExtractor(),
         ],
         "ELETRICA": [
             CentrinhoVariationExtractor(),
             AmperagemExtractor(),
-            # ✅ Ordem correta: disjuntor primeiro (mais específico), depois genérico
             PolosDisjuntorExtractor(),
             PolosExtractor(),
             FormatoLampadaExtractor(),

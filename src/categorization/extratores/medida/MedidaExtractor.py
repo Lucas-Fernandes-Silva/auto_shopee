@@ -19,17 +19,15 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
-    PADRAO_DIAMETRO_MM = re.compile(r"\b(\d+(?:[.,]\d+)?)\s*(mm|milimetros?)\b", re.IGNORECASE)
+    PADRAO_DIAMETRO_MM = re.compile(r"\b(\d+(?:[.,]\d+)?)\s*(cm|mm|milimetros?)\b", re.IGNORECASE)
 
     # comprimento explícito em mm/cm/m (normaliza pra m)
-    PADRAO_COMPRIMENTO = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)\s*(mm|cm|m|mt|metro|metros)\b", re.IGNORECASE
-    )
+    PADRAO_COMPRIMENTO = re.compile(r"\b(\d+(?:[.,]\d+)?)\s*(m|mt|metro|metros)\b", re.IGNORECASE)
 
     PADRAO_VOLUME_L = re.compile(r"\b(\d+(?:[.,]\d+)?)\s*(l|lt|litro|litros)\b", re.IGNORECASE)
 
     PADRAO_PESO = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)\s*(kg|quilo|quilos|g|grama|gramas)\b", re.IGNORECASE
+        r"\b(\d+(?:[.,]\d+)?)\s*(kg|quilo|quilos|g|grama|gramas|gr)\b", re.IGNORECASE
     )
 
     PADRAO_SECAO_MM2 = re.compile(
@@ -95,7 +93,6 @@ class MedidaExtractor:
                 "Volume": None,
                 "Peso": None,
                 "Secao_Cabo": None,
-                
             }
 
         desc = descricao.lower()
