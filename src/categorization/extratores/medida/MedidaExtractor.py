@@ -15,7 +15,7 @@ class MedidaExtractor:
 
     # polegadas (frações e mistos)
     PADRAO_POLEGADA = re.compile(
-        r"\b(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1|1\s*1/2|1 1/2|1 1/4)\s*(pol|\"|')?\b",
+        r"\b(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1|1\s*1/2|1 1/2|1 1/4|11/4)\s*(pol|\"|')?\b",
         re.IGNORECASE,
     )
 
@@ -26,7 +26,7 @@ class MedidaExtractor:
 
     PADRAO_VOLUME_L = re.compile(r"\b(\d+(?:[.,]\d+)?)\s*(l|lt|litro|litros)\b", re.IGNORECASE)
 
-    PADRAO_PESO = re.compile(
+    PADRAO_PESO_VENDA = re.compile(
         r"\b(\d+(?:[.,]\d+)?)\s*(kg|quilo|quilos|g|grama|gramas|gr)\b", re.IGNORECASE
     )
 
@@ -91,7 +91,7 @@ class MedidaExtractor:
                 "Comprimento_Venda": None,
                 "Formato_Caixa": None,
                 "Volume": None,
-                "Peso": None,
+                "Peso_Venda": None,
                 "Secao_Cabo": None,
             }
 
@@ -102,7 +102,7 @@ class MedidaExtractor:
         comprimento = None
         formato_caixa = None
         volume = None
-        peso = None
+        peso_Venda = None
         secao_cabo = None
 
         # 1) Formato caixa
@@ -120,12 +120,12 @@ class MedidaExtractor:
         if m_vol:
             volume = self._fmt_plain(self._to_float(m_vol.group(1))) + "L"
 
-        # 4) Peso (kg/g)
-        m_peso = self.PADRAO_PESO.search(desc)
-        if m_peso:
-            valor = self._fmt_plain(self._to_float(m_peso.group(1)))
-            un = m_peso.group(2).lower()
-            peso = f"{valor}g" if un.startswith("g") else f"{valor}kg"
+        # 4) Peso_Venda (kg/g)
+        m_peso_Venda = self.PADRAO_PESO_VENDA.search(desc)
+        if m_peso_Venda:
+            valor = self._fmt_plain(self._to_float(m_peso_Venda.group(1)))
+            un = m_peso_Venda.group(2).lower()
+            peso_Venda = f"{valor}g" if un.startswith("g") else f"{valor}kg"
 
         # ✅ Se tem AxB/AxBxC: NÃO disputa com o MedidaAxBExtractor
         if tem_axb:
@@ -134,7 +134,7 @@ class MedidaExtractor:
                 "Comprimento_Venda": None,
                 "Formato_Caixa": formato_caixa,
                 "Volume": volume,
-                "Peso": peso,
+                "Peso_Venda": peso_Venda,
                 "Secao_Cabo": secao_cabo,
             }
 
@@ -174,6 +174,6 @@ class MedidaExtractor:
             "Comprimento_Venda": comprimento,
             "Formato_Caixa": formato_caixa,
             "Volume": volume,
-            "Peso": peso,
+            "Peso_Venda": peso_Venda,
             "Secao_Cabo": secao_cabo,
         }

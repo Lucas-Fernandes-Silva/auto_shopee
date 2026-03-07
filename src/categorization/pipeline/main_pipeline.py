@@ -117,8 +117,7 @@ variation_pipeline = VariationPipeline(
             CorExtractor(),
         ],
     },
-    # debug=True  # se quiser colunas Origem__Campo
-)
+    )
 
 # =========================
 # Execução
