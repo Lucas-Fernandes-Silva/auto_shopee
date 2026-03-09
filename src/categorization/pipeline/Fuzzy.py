@@ -7,16 +7,18 @@ class AgrupadorFuzzyPaiFilho:
         self,
         df: pd.DataFrame,
         col_codigo="Codigo Produto",
-        col_Descricao_Limpa="Descricao_Limpa",
+        col_base="Nome_Produto_Base",
+        col_variacao="Nome_Variacao",
         col_dominio="Dominio",
         coluna_marca="Marca",
-        threshold=80,
+        threshold=90,
     ):
         self.df = df.copy()
         self.col_codigo = col_codigo
-        self.col_Descricao_Limpa = col_Descricao_Limpa
+        self.col_base = col_base
+        self.col_variacao = col_variacao
         self.col_dominio = col_dominio
-        self.coluna_marca = coluna_marca   # ✅ agora está salvo
+        self.coluna_marca = coluna_marca
         self.threshold = threshold
 
         self.df["grupo_id"] = None
@@ -27,17 +29,14 @@ class AgrupadorFuzzyPaiFilho:
     def _normalizar(self, texto: str) -> str:
         texto = str(texto).lower()
         texto = "".join(c for c in texto if c.isalnum() or c.isspace())
-        return texto.strip()
+        return " ".join(texto.split()).strip()
 
     def _criar_grupos(self):
         grupo_atual = 0
 
-        # 🔥 AGRUPANDO POR DOMINIO + MARCA
-        for (dominio, marca), df_sub in self.df.groupby(
-            [self.col_dominio, self.coluna_marca]
-        ):
+        for (dominio, marca), df_sub in self.df.groupby([self.col_dominio, self.coluna_marca]):
             indices = df_sub.index.tolist()
-            textos = df_sub[self.col_Descricao_Limpa].apply(self._normalizar).to_dict()
+            textos = df_sub[self.col_base].fillna("").apply(self._normalizar).to_dict()
 
             visitados = set()
 
@@ -47,6 +46,7 @@ class AgrupadorFuzzyPaiFilho:
 
                 grupo_atual += 1
                 self.df.at[i, "grupo_id"] = grupo_atual
+                self.df.at[i, "score_fuzzy"] = 100
                 visitados.add(i)
 
                 for j in indices:
@@ -63,14 +63,23 @@ class AgrupadorFuzzyPaiFilho:
     def _definir_pai_filho(self):
         for grupo, df_grupo in self.df.groupby("grupo_id"):
             if len(df_grupo) == 1:
+                idx = df_grupo.index[0]
+                self.df.at[idx, "tipo_relacionamento"] = "PAI"
+                self.df.at[idx, "codigo_pai"] = None
+                self.df.at[idx, "score_fuzzy"] = 100
                 continue
 
             df_ordenado = df_grupo.copy()
-            df_ordenado["len_desc"] = df_ordenado[self.col_Descricao_Limpa].str.len()
+            df_ordenado["len_base"] = df_ordenado[self.col_base].fillna("").str.len()
+            df_ordenado["tem_variacao"] = df_ordenado[self.col_variacao].fillna("").str.len()
 
-            pai_idx = df_ordenado.sort_values(
-                ["len_desc", self.col_codigo]
-            ).index[0]
+            # prioridade:
+            # 1. menor nome base
+            # 2. menor nome variação
+            # 3. menor código
+            pai_idx = df_ordenado.sort_values(["len_base", "tem_variacao", self.col_codigo]).index[
+                0
+            ]
 
             codigo_pai = self.df.at[pai_idx, self.col_codigo]
 
@@ -87,29 +96,3 @@ class AgrupadorFuzzyPaiFilho:
         self._criar_grupos()
         self._definir_pai_filho()
         return self.df
-
-df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx")
-
-agrupador = AgrupadorFuzzyPaiFilho(
-    df,
-    col_codigo="Codigo Produto",
-    col_Descricao_Limpa="Descricao_Limpa",
-    col_dominio="Dominio",
-    threshold=80,
-)
-
-df_resultado = agrupador.processar()
-
-
-agrupador = AgrupadorFuzzyPaiFilho(
-    df,
-    col_codigo="Codigo Produto",
-    col_Descricao_Limpa="Descricao_Limpa",
-    col_dominio="Dominio",
-    threshold=80,
-)
-
-df_resultado = agrupador.processar()
-
-
-df_resultado.to_excel("Teste.xlsx", index=False)

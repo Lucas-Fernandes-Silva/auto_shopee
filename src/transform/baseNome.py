@@ -10,6 +10,7 @@ CAMPOS_POR_DOMINIO = {
         "Polos",
         "Amperagem",
         "Cor",
+        "Medida",
         "Diametro",
         "Comprimento_Venda",
         "Formato_Caixa",

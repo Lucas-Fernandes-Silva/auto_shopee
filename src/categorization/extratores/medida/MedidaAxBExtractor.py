@@ -2,7 +2,6 @@ import re
 
 
 class MedidaAxBExtractor:
-
     NUM = r"(?:\d+\s+\d+/\d+|\d+/\d+|\d+(?:[.,]\d+)?)"
     UNIDADE = r"(?:mm|cm|m|\"|pol|')"
 
@@ -12,7 +11,7 @@ class MedidaAxBExtractor:
     )
 
     PADRAO_2D = re.compile(
-        rf"({NUM})\s*({UNIDADE})?\s*[xX×]\s*({NUM})\s*({UNIDADE})?",
+        rf"({NUM})\s*({UNIDADE})?\s*[xX×-]\s*({NUM})\s*({UNIDADE})?",
         re.IGNORECASE,
     )
 
@@ -33,7 +32,9 @@ class MedidaAxBExtractor:
             return '"'
         return u
 
-    def _assumir_polegada_se_fracao(self, nums: list[str], uns: list[str | None]) -> list[str | None]:
+    def _assumir_polegada_se_fracao(
+        self, nums: list[str], uns: list[str | None]
+    ) -> list[str | None]:
         # Se tiver "/" e não tiver unidade explícita, assume polegada (")
         for i, n in enumerate(nums):
             if "/" in n and (uns[i] is None):
@@ -59,8 +60,16 @@ class MedidaAxBExtractor:
         # --- AxBxC primeiro ---
         m3 = self.PADRAO_3D.search(texto)
         if m3:
-            nums = [self._norm_num(m3.group(1)), self._norm_num(m3.group(3)), self._norm_num(m3.group(5))]
-            uns = [self._norm_un(m3.group(2)), self._norm_un(m3.group(4)), self._norm_un(m3.group(6))]
+            nums = [
+                self._norm_num(m3.group(1)),
+                self._norm_num(m3.group(3)),
+                self._norm_num(m3.group(5)),
+            ]
+            uns = [
+                self._norm_un(m3.group(2)),
+                self._norm_un(m3.group(4)),
+                self._norm_un(m3.group(6)),
+            ]
 
             uns = self._assumir_polegada_se_fracao(nums, uns)
             uns = self._propagar_unidade_final(uns)

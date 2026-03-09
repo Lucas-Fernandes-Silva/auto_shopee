@@ -45,6 +45,7 @@ from src.categorization.extratores.tomadas.TipoTomadaExtractor import TipoTomada
 from src.categorization.pipeline.categorize_pipeline import CategorizationPipeline
 from src.categorization.pipeline.DomainClassifier import DomainClassifier
 from src.categorization.pipeline.DomainMapLoader import DomainMapLoader
+from src.categorization.pipeline.Fuzzy import AgrupadorFuzzyPaiFilho
 from src.categorization.pipeline.VariationPipeline import VariationPipeline
 
 # ✅ importe o aplicar_nomes do seu baseNome.py
@@ -117,7 +118,7 @@ variation_pipeline = VariationPipeline(
             CorExtractor(),
         ],
     },
-    )
+)
 
 # =========================
 # Execução
@@ -133,10 +134,25 @@ df_classificado = variation_pipeline.aplicar(df_dominios)
 # (opcional) salvar intermediário, ajuda a debugar
 df_classificado.to_excel(OUT_CLASSIFICADO, index=False)
 
-# 3) Gerar Nome_Produto_Base e Nome_Variacao para o DF inteiro (multi-domínio)
 df_final = aplicar_nomes(df_classificado)
 
-df_final.to_excel(OUT_FINAL_COM_NOMES, index=False)
+df_dominios = categorization_pipeline.aplicar(df)
+df_classificado = variation_pipeline.aplicar(df_dominios)
+df_final = aplicar_nomes(df_classificado)
+
+agrupador = AgrupadorFuzzyPaiFilho(
+    df_final,
+    col_codigo="Codigo Produto",
+    col_base="Nome_Produto_Base",
+    col_variacao="Nome_Variacao",
+    col_dominio="Dominio",
+    coluna_marca="Marca",
+    threshold=90,
+)
+
+df_agrupado = agrupador.processar()
+
+df_agrupado.to_excel(OUT_FINAL_COM_NOMES, index=False)
 
 # 4) Relatório fallback de domínio
 df_fallback = categorization_pipeline.get_relatorio_fallback()
