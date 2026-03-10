@@ -10,12 +10,10 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
-    PADRAO_FORMATO_CAIXA = re.compile(r"\b(3x3|4x2|4x4)\b", re.IGNORECASE)
-
     # ✅ Evita pegar o "1" de "1,50" como polegada
     PADRAO_POLEGADA = re.compile(
         r"(?<![\d.,])"
-        r"(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1\s*1/2|1 1/2|1 1/4|11/4|1)"
+        r"(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1\s*1/2|1 1/2|1 1/4|11/4|1|11/2)"
         r"(?![\d,./])\s*(pol|\"|')?\b",
         re.IGNORECASE,
     )
@@ -46,6 +44,8 @@ class MedidaExtractor:
     )
 
     PADRAO_NUMERO_SOLTO = re.compile(r"\b(\d+(?:[.,]\d+)?)\b")
+
+    CTX_ENGATE = re.compile(r"\b(engate|rabicho)\b", re.IGNORECASE)
 
     CTX_HIDRAULICA = re.compile(
         r"\b(tubo|cano|conexao|conexoes|joelho|t[eê]\b|luva|bucha|adaptador|niple|uni[aã]o|registro|valvula|válvula|sif[aã]o|engate|mangueira)\b",
@@ -100,11 +100,6 @@ class MedidaExtractor:
         return self._fmt_m(v_m)
 
     def _extrair_secao_cabo_omitida(self, desc: str) -> str | None:
-        """
-        Ex.: FIO CABO AUTO COBRECOM 1,50 AMARELO -> 1.5mm2
-             FIO CABO AUTO COBRECOM 6,00 AZUL    -> 6mm2
-             FIO CABO AUTO COBRECOM 10,00 PRETO  -> 10mm2
-        """
         if not self.CTX_CABO.search(desc):
             return None
 
@@ -118,7 +113,7 @@ class MedidaExtractor:
 
         # faixa razoável para bitola
         if 0 < v <= 240:
-            return self._fmt_plain(v) + "mm2"
+            return self._fmt_plain(v)
 
         return None
 
@@ -142,11 +137,6 @@ class MedidaExtractor:
         volume = None
         peso_venda = None
         secao_cabo = None
-
-        # 1) Formato caixa
-        m_caixa = self.PADRAO_FORMATO_CAIXA.search(desc)
-        if m_caixa:
-            formato_caixa = m_caixa.group(1)
 
         # 2) Seção cabo explícita (mm²)
         m_mm2 = self.PADRAO_SECAO_MM2.search(desc)
@@ -179,7 +169,7 @@ class MedidaExtractor:
         # 5) Polegada
         m_pol = self.PADRAO_POLEGADA.search(desc)
         if m_pol:
-            diametro = m_pol.group(1).replace(" ", "") + '"'
+            diametro = m_pol.group(1).replace(" ", "")
 
         # 6) mm/cm explícito
         m_mm = self.PADRAO_DIAMETRO_MM.search(desc)
@@ -188,10 +178,10 @@ class MedidaExtractor:
 
             # ✅ em fio/cabo isso é seção, não diâmetro
             if self.CTX_CABO.search(desc):
-                secao_cabo = valor_mm + "mm2"
+                secao_cabo = valor_mm
                 diametro = None
             else:
-                diametro = valor_mm + "mm"
+                diametro = valor_mm
 
         # 7) comprimento explícito
         m_comp = self.PADRAO_COMPRIMENTO.search(desc)
@@ -203,7 +193,11 @@ class MedidaExtractor:
             secao_cabo = self._extrair_secao_cabo_omitida(desc)
 
         # 9) Inferência de diâmetro omitido (somente quando NÃO é cabo/fio)
-        if (diametro is None) and (not self.CTX_CABO.search(desc)):
+        if (
+            (diametro is None)
+            and (not self.CTX_CABO.search(desc))
+            and (not self.CTX_ENGATE.search(desc))
+        ):
             contexto_conduite = self.CTX_CONDUITE.search(desc) is not None
             contexto_hid = (
                 self.CTX_HIDRAULICA.search(desc) is not None
@@ -219,6 +213,15 @@ class MedidaExtractor:
                         if (not self.CTX_ROLO.search(desc)) and (comprimento is None):
                             diametro = self._fmt_plain(v) + "mm"
 
+        if comprimento is None and self.CTX_ENGATE.search(desc):
+            nums = [m.group(1) for m in self.PADRAO_NUMERO_SOLTO.finditer(desc)]
+            if nums:
+                candidato = nums[-1]
+                v = self._to_float(candidato)
+
+                # faixa razoável para comprimento comercial de engate
+                if 0 < v <= 500:
+                    comprimento = self._fmt_plain(v) + "cm"
         return {
             "Diametro": diametro,
             "Comprimento_Venda": comprimento,

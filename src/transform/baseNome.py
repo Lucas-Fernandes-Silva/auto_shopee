@@ -13,7 +13,6 @@ CAMPOS_POR_DOMINIO = {
         "Medida",
         "Diametro",
         "Comprimento_Venda",
-        "Formato_Caixa",
         "Capacidade_Centrinho",
         "Formato",
         "Potencia_W",
@@ -25,9 +24,10 @@ CAMPOS_POR_DOMINIO = {
         "Amperagem",
         "Polos",
         "Diametro",
-        *"Comprimento_Venda",
-        "Formato_Caixa",
+        "Comprimento_Venda",
         "Cor",
+        "Secao_Cabo",
+        "Medida",
     ],
     "PARAFUSOS": [
         "Medida",
@@ -42,7 +42,7 @@ CAMPOS_POR_DOMINIO = {
         "Tipo_Arruela",
         "Modelo_Rebite",
     ],
-    "HIDRAULICA": ["Medida", "Cor", "Volume", "Diametro", "Peso_Venda"],
+    "HIDRAULICA": ["Medida", "Cor", "Volume", "Diametro", "Peso_Venda", "Comprimento_Venda"],
 }
 
 # Se um domínio não estiver configurado, você ainda pode gerar com fallback:
@@ -57,6 +57,7 @@ FORMATACAO_VARIACOES = {
     "Temperatura_Cor": lambda v: v if str(v).upper().endswith("K") else f"{v}K",
     "Medida": lambda v: str(v),
     "Cor": lambda v: str(v),
+    "Diametro": lambda v: str(v),
 }
 
 
