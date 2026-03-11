@@ -42,6 +42,7 @@ from src.categorization.extratores.parafusos.RebiteVariationExtractor import (
 from src.categorization.extratores.tomadas.AmperagemExtractor import AmperagemExtractor
 from src.categorization.extratores.tomadas.PolosExtractor import PolosExtractor
 from src.categorization.extratores.tomadas.TipoTomadaExtractor import TipoTomadaExtractor
+from src.categorization.pipeline.ajustar_produtos_unicos import ajustar_produtos_unicos
 from src.categorization.pipeline.categorize_pipeline import CategorizationPipeline
 from src.categorization.pipeline.DomainClassifier import DomainClassifier
 from src.categorization.pipeline.DomainMapLoader import DomainMapLoader
@@ -150,9 +151,18 @@ agrupador = AgrupadorFuzzyPaiFilho(
     threshold=90,
 )
 
-df_agrupado = agrupador.processar()
 
-df_agrupado.to_excel(OUT_FINAL_COM_NOMES, index=False)
+df_dominios = categorization_pipeline.aplicar(df)
+df_classificado = variation_pipeline.aplicar(df_dominios)
+df_nomes = aplicar_nomes(df_classificado)
+df_agrupado = agrupador.processar()
+df_final = ajustar_produtos_unicos(df_agrupado)
+
+
+df_final.to_excel(OUT_FINAL_COM_NOMES, index=False)
+
+
+
 
 # 4) Relatório fallback de domínio
 df_fallback = categorization_pipeline.get_relatorio_fallback()
