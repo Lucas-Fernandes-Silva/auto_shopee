@@ -74,7 +74,7 @@ class TextNormalizer:
     # Ruídos
     # =========================
     def _remover_ruidos(self, texto):
-        texto = re.sub(r"\bC\/\b", "COM ", texto)
+        texto = re.sub(r"\bC\/\b", "C/ ", texto)
         texto = re.sub(r"\bP\/\b", "PARA ", texto)
         return texto
 

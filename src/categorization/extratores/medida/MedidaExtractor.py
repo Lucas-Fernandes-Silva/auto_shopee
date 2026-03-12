@@ -181,7 +181,7 @@ class MedidaExtractor:
                 secao_cabo = valor_mm
                 diametro = None
             else:
-                diametro = valor_mm
+                diametro = valor_mm + "MM"
 
         # 7) comprimento explícito
         m_comp = self.PADRAO_COMPRIMENTO.search(desc)
@@ -220,8 +220,8 @@ class MedidaExtractor:
                 v = self._to_float(candidato)
 
                 # faixa razoável para comprimento comercial de engate
-                if 0 < v <= 500:
-                    comprimento = self._fmt_plain(v) + "cm"
+                if 0 < v <= 100:
+                    comprimento = self._fmt_plain(v)
         return {
             "Diametro": diametro,
             "Comprimento_Venda": comprimento,

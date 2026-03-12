@@ -14,6 +14,7 @@ class AuditorPipeline:
         col_score="score_fuzzy",
         col_marca="Marca",
         col_dominio="Dominio",
+        col_produto_unico="produto_unico",
         dominios_auditaveis=None,
     ):
         self.col_descricao = col_descricao
@@ -25,6 +26,7 @@ class AuditorPipeline:
         self.col_score = col_score
         self.col_marca = col_marca
         self.col_dominio = col_dominio
+        self.col_produto_unico = col_produto_unico
         self.dominios_auditaveis = set(dominios_auditaveis or [])
 
     def auditar(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -46,6 +48,19 @@ class AuditorPipeline:
         if self.col_score in df.columns:
             df[self.col_score] = pd.to_numeric(df[self.col_score], errors="coerce")
 
+        # produto_unico
+        if self.col_produto_unico in df.columns:
+            df[self.col_produto_unico] = (
+                df[self.col_produto_unico]
+                .fillna(False)
+                .astype(str)
+                .str.upper()
+                .isin(["TRUE", "1", "SIM"])
+            )
+        else:
+            df[self.col_produto_unico] = False
+
+        # domínios auditáveis
         if self.dominios_auditaveis:
             mask_auditavel = df[self.col_dominio].isin(self.dominios_auditaveis)
         else:
@@ -53,11 +68,21 @@ class AuditorPipeline:
 
         df["dominio_auditavel"] = mask_auditavel
 
+        # =========================
+        # Flags linha a linha
+        # =========================
         df["flag_base_vazia"] = mask_auditavel & df[self.col_base].eq("")
-        df["flag_variacao_vazia"] = mask_auditavel & df[self.col_variacao].eq("")
+
+        # ✅ produto único pode ter variação vazia
+        df["flag_variacao_vazia"] = (
+            mask_auditavel
+            & (~df[self.col_produto_unico])
+            & df[self.col_variacao].eq("")
+        )
 
         df["flag_base_igual_descricao"] = (
             mask_auditavel
+            & (~df[self.col_produto_unico])
             & (df[self.col_base].str.upper() == df[self.col_descricao].str.upper())
         )
 
@@ -74,8 +99,10 @@ class AuditorPipeline:
         else:
             df["flag_score_baixo"] = False
 
+        # pai com variação preenchida — só suspeito se NÃO for produto único
         df["flag_pai_com_variacao"] = (
             mask_auditavel
+            & (~df[self.col_produto_unico])
             & (df[self.col_tipo].str.upper() == "PAI")
             & (df[self.col_variacao] != "")
         )
@@ -93,6 +120,9 @@ class AuditorPipeline:
         else:
             df["flag_filho_sem_codigo_pai"] = False
 
+        # =========================
+        # Flags por grupo
+        # =========================
         if self.col_grupo in df.columns:
             grupo_size = df.groupby(self.col_grupo)[self.col_grupo].transform("size")
             df["grupo_tamanho"] = grupo_size
@@ -112,6 +142,7 @@ class AuditorPipeline:
             )
             df["flag_variacao_duplicada_no_grupo"] = (
                 mask_auditavel
+                & (~df[self.col_produto_unico])
                 & (df["variacao_norm"] != "")
                 & (dup_variacao > 1)
             )
@@ -137,6 +168,9 @@ class AuditorPipeline:
             df["flag_multiplos_pais_no_grupo"] = False
             df["flag_grupo_unitario_com_filho"] = False
 
+        # =========================
+        # Status consolidado
+        # =========================
         flags_cols = [c for c in df.columns if c.startswith("flag_")]
 
         def montar_status(row):
@@ -160,6 +194,7 @@ class AuditorPipeline:
                 self.col_descricao,
                 self.col_base,
                 self.col_variacao,
+                self.col_produto_unico,
                 self.col_grupo,
                 self.col_codigo_pai,
                 self.col_tipo,
@@ -199,7 +234,6 @@ if __name__ == "__main__":
     INPUT_XLSX = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Com_Nomes.xlsx"
     OUTPUT_XLSX = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Auditados.xlsx"
 
-    # coloque aqui apenas os domínios que já possuem extractors/nomes prontos
     DOMINIOS_AUDITAVEIS = {
         "HIDRAULICA",
         "ELETRICA",
@@ -210,7 +244,8 @@ if __name__ == "__main__":
     df = pd.read_excel(INPUT_XLSX, dtype=str)
 
     auditor = AuditorPipeline(
-        dominios_auditaveis=DOMINIOS_AUDITAVEIS
+        dominios_auditaveis=DOMINIOS_AUDITAVEIS,
+        col_produto_unico="produto_unico",
     )
 
     df_auditado = auditor.auditar(df)
