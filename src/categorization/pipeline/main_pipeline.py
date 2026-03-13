@@ -48,9 +48,7 @@ from src.categorization.pipeline.DomainClassifier import DomainClassifier
 from src.categorization.pipeline.DomainMapLoader import DomainMapLoader
 from src.categorization.pipeline.Fuzzy import AgrupadorFuzzyPaiFilho
 from src.categorization.pipeline.VariationPipeline import VariationPipeline
-
-# ✅ importe o aplicar_nomes do seu baseNome.py
-# Se baseNome.py estiver na raiz do projeto:
+from src.categorization.pipeline.NomeBaseCleaner import aplicar_limpeza_nome_base
 from src.transform.baseNome import aplicar_nomes
 
 # Se estiver dentro de src/naming, por exemplo:
@@ -157,7 +155,7 @@ df_classificado = variation_pipeline.aplicar(df_dominios)
 df_nomes = aplicar_nomes(df_classificado)
 df_agrupado = agrupador.processar()
 df_final = ajustar_produtos_unicos(df_agrupado)
-
+df_final = aplicar_limpeza_nome_base(df_final)
 
 df_final.to_excel(OUT_FINAL_COM_NOMES, index=False)
 
