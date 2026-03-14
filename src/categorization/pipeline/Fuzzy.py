@@ -27,6 +27,9 @@ class AgrupadorFuzzyPaiFilho:
         self.df["score_fuzzy"] = None
 
     def _normalizar(self, texto: str) -> str:
+        if pd.isna(texto):
+            return ""
+
         texto = str(texto).lower()
         texto = "".join(c for c in texto if c.isalnum() or c.isspace())
         return " ".join(texto.split()).strip()
@@ -34,9 +37,17 @@ class AgrupadorFuzzyPaiFilho:
     def _criar_grupos(self):
         grupo_atual = 0
 
-        for (dominio, marca), df_sub in self.df.groupby([self.col_dominio, self.coluna_marca]):
+        for (dominio, marca), df_sub in self.df.groupby(
+            [self.col_dominio, self.coluna_marca],
+            dropna=False,
+        ):
             indices = df_sub.index.tolist()
-            textos = df_sub[self.col_base].fillna("").apply(self._normalizar).to_dict()
+
+            # ✅ monta o mapa explicitamente com os mesmos índices do grupo
+            textos = {
+                idx: self._normalizar(df_sub.at[idx, self.col_base])
+                for idx in indices
+            }
 
             visitados = set()
 
@@ -49,11 +60,19 @@ class AgrupadorFuzzyPaiFilho:
                 self.df.at[i, "score_fuzzy"] = 100
                 visitados.add(i)
 
+                texto_i = textos.get(i, "")
+                if not texto_i:
+                    continue
+
                 for j in indices:
                     if j in visitados:
                         continue
 
-                    score = fuzz.token_set_ratio(textos[i], textos[j])
+                    texto_j = textos.get(j, "")
+                    if not texto_j:
+                        continue
+
+                    score = fuzz.token_set_ratio(texto_i, texto_j)
 
                     if score >= self.threshold:
                         self.df.at[j, "grupo_id"] = grupo_atual
@@ -61,7 +80,10 @@ class AgrupadorFuzzyPaiFilho:
                         visitados.add(j)
 
     def _definir_pai_filho(self):
-        for grupo, df_grupo in self.df.groupby("grupo_id"):
+        for grupo, df_grupo in self.df.groupby("grupo_id", dropna=False):
+            if pd.isna(grupo):
+                continue
+
             if len(df_grupo) == 1:
                 idx = df_grupo.index[0]
                 self.df.at[idx, "tipo_relacionamento"] = "PAI"
@@ -70,16 +92,18 @@ class AgrupadorFuzzyPaiFilho:
                 continue
 
             df_ordenado = df_grupo.copy()
-            df_ordenado["len_base"] = df_ordenado[self.col_base].fillna("").str.len()
-            df_ordenado["tem_variacao"] = df_ordenado[self.col_variacao].fillna("").str.len()
 
-            # prioridade:
-            # 1. menor nome base
-            # 2. menor nome variação
-            # 3. menor código
-            pai_idx = df_ordenado.sort_values(["len_base", "tem_variacao", self.col_codigo]).index[
-                0
-            ]
+            df_ordenado["len_base"] = (
+                df_ordenado[self.col_base].fillna("").astype(str).str.len()
+            )
+            df_ordenado["len_variacao"] = (
+                df_ordenado[self.col_variacao].fillna("").astype(str).str.len()
+            )
+
+        
+            pai_idx = df_ordenado.sort_values(
+                ["len_base", "len_variacao", self.col_codigo]
+            ).index[0]
 
             codigo_pai = self.df.at[pai_idx, self.col_codigo]
 
