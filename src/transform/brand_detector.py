@@ -1,8 +1,10 @@
 import re
+
 import pandas as pd
 
-from src.utils.normalizer import Normalizer
 from dados import dados
+from src.utils.normalizer import Normalizer
+
 
 class BrandDetector:
     def __init__(self, df, marca_variacoes, marcas_adicionais):

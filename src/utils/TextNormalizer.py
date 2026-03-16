@@ -11,6 +11,11 @@ class TextNormalizer:
         self.marca_variacoes = dados.marca_variacoes or {}
         self.mapa_abreviacoes = dados.mapa_abreviacoes or {}
 
+        self.mapa_abreviacoes = {
+            k: v for k, v in self.mapa_abreviacoes.items()
+            if str(k).upper() != "EMB"
+        }
+
         self.regex_marcas = self._preparar_marcas()
         self.regex_abreviacoes = self._preparar_abreviacoes()
 
@@ -25,7 +30,9 @@ class TextNormalizer:
 
             for v in sorted(todas, key=len, reverse=True):
                 padrao = rf"\b{re.escape(v)}\b"
-                regex_marcas.append((re.compile(padrao, re.IGNORECASE), marca.upper()))
+                regex_marcas.append(
+                    (re.compile(padrao, re.IGNORECASE), marca.upper())
+                )
 
         return regex_marcas
 
@@ -39,40 +46,35 @@ class TextNormalizer:
     # Limpeza base
     # =========================
     def _remover_codigos(self, texto):
-        # remove códigos longos (SKU, códigos internos)
         return re.sub(r"\b\d{5,}\b", "", texto)
 
     def _limpar_caracteres(self, texto):
-        # mantém letras, números e símbolos técnicos
-        return re.sub(r"[^\w\s\+\-\(\)\/X,]", "", texto)
+        # mantém letras, números, espaço, / + - X vírgula e parênteses
+        return re.sub(r"[^\w\s\+\-\/X,x\(\),]", "", texto)
 
-    # =========================
-    # Normalizações específicas
-    # =========================
     def _normalizar_fracao_mista(self, texto: str) -> str:
+        # Ex.: 1.1/2 -> 1 1/2
         return re.sub(r"\b(\d+)\s*([.,\-])\s*(\d+/\d+)\b", r"\1 \3", texto)
+
     def _normalizar_decimais(self, texto):
-        # 1.50 -> 1,50
+        # Ex.: 4.5 -> 4,5
         return re.sub(r"(?<=\d)\.(?=\d)", ",", texto)
 
     def _normalizar_simbolos(self, texto):
         return (
             texto.replace("×", " X ")
+            .replace("x", " X ")
             .replace("+", " ")
-            .replace("-", " ")
-            .replace("—", "")
-            .replace("(", " ")
+            .replace("—", " ")
             .replace("=", " ")
+            .replace("(", " ")
             .replace(")", " ")
         )
 
     def _remover_pontos_nao_decimais(self, texto):
-        # remove pontos de abreviações (EX: ACR. -> ACR)
-        return texto.replace(".", " ")
+        # remove apenas pontos que sobraram e não são decimais
+        return re.sub(r"\.(?!\d)|(?<!\d)\.", " ", texto)
 
-    # =========================
-    # Ruídos
-    # =========================
     def _remover_ruidos(self, texto):
         texto = re.sub(r"\bC\/\b", "C/ ", texto)
         texto = re.sub(r"\bP\/\b", "PARA ", texto)
@@ -88,44 +90,89 @@ class TextNormalizer:
         texto_norm = Normalizer.normalize(texto)
         marca_norm = Normalizer.normalize(marca)
 
-        # se já contém a marca canônica, não faz nada
         if marca_norm in texto_norm:
             return texto
 
-        # remove qualquer variação da marca
         for regex, marca_padrao in self.regex_marcas:
             if marca_padrao == marca.upper():
                 texto = regex.sub("", texto)
 
-        # insere a marca no início
         return f"{marca.upper()} {texto}".strip()
 
     # =========================
-    # Abreviações
+    # Abreviações contextuais
     # =========================
+    def _resolver_emb(self, texto, dominio=None, segmento=None):
+
+
+        contexto_embutir = [
+            r"\bCENTRINHO\b",
+            r"\bQUADRO\b",
+            r"\bQDC\b",
+            r"\bDISTRIBUICAO\b",
+            r"\bDISTRIBUIÇÃO\b",
+            r"\bDISJ\b",
+            r"\bDISJUNTOR(?:ES)?\b",
+            r"\bDIN\b",
+            r"\bTRILHO\b",
+            r"\bBARRAMENTO\b",
+            r"\bSOBREPOR\b",
+            r"\bEMBUT(?:IR)?\b",
+        ]
+
+        eh_embutir = bool(
+            re.search("|".join(contexto_embutir), texto, re.IGNORECASE)
+        )
+
+        if dominio:
+            dominio_norm = str(dominio).upper()
+            if dominio_norm in {"ELETRICA", "ELÉTRICA"}:
+                eh_embutir = True
+
+        if segmento:
+            segmento_norm = str(segmento).upper()
+            if segmento_norm in {"CENTRINHO", "DISJUNTORES", "QUADRO", "QDC"}:
+                eh_embutir = True
+
+        substituto = "EMBUTIR" if eh_embutir else "EMBALAGEM"
+        return re.sub(r"\bEMB\b", substituto, texto, flags=re.IGNORECASE)
+
+    def _padronizar_abreviacoes_contextuais(self, texto, dominio=None, segmento=None):
+        texto = self._resolver_emb(texto, dominio=dominio, segmento=segmento)
+        return texto
+
     def _padronizar_abreviacoes(self, texto):
         for regex, valor in self.regex_abreviacoes.items():
             texto = regex.sub(valor, texto)
         return texto
 
     # =========================
-    # Método público
+    # Pipeline principal
     # =========================
-    def normalizar(self, descricao, marca=None):
+    def normalizar(self, descricao, marca=None, dominio=None, segmento=None):
         if pd.isna(descricao):
             return descricao
 
         t = str(descricao).upper()
 
-        # 🔥 ORDEM IMPORTANTE
-        t = self._normalizar_fracao_mista(t)  # 1.1/2 -> 1 1/2
-        t = self._normalizar_decimais(t)  # 1.50 -> 1,50
-        t = self._normalizar_simbolos(t)  # símbolos
-        t = self._remover_pontos_nao_decimais(t)  # ACR. -> ACR
+        # ordem importante
+        t = self._normalizar_fracao_mista(t)
+        t = self._normalizar_decimais(t)
+        t = self._normalizar_simbolos(t)
+        t = self._remover_pontos_nao_decimais(t)
 
         t = self._remover_codigos(t)
         t = self._limpar_caracteres(t)
         t = self._remover_ruidos(t)
+
+        # primeiro resolve ambiguidades
+        t = self._padronizar_abreviacoes_contextuais(
+            t,
+            dominio=dominio,
+            segmento=segmento
+        )
+
+        # depois aplica o mapa genérico
         t = self._padronizar_abreviacoes(t)
 
         if marca:

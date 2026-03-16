@@ -47,10 +47,9 @@ from src.categorization.pipeline.categorize_pipeline import CategorizationPipeli
 from src.categorization.pipeline.DomainClassifier import DomainClassifier
 from src.categorization.pipeline.DomainMapLoader import DomainMapLoader
 from src.categorization.pipeline.Fuzzy import AgrupadorFuzzyPaiFilho
-from src.categorization.pipeline.VariationPipeline import VariationPipeline
 from src.categorization.pipeline.NomeBaseCleaner import aplicar_limpeza_nome_base
+from src.categorization.pipeline.VariationPipeline import VariationPipeline
 from src.transform.baseNome import aplicar_nomes
-
 
 DOMINIOS_XLSX = "/home/lucas-silva/auto_shopee/planilhas/outputs/Categorizados.xlsx"
 INPUT_XLSX = "/home/lucas-silva/auto_shopee/planilhas/outputs/Descrição_Norm.xlsx"
@@ -115,44 +114,47 @@ variation_pipeline = VariationPipeline(
 # =========================
 df = pd.read_excel(INPUT_XLSX, dtype=str)
 
-# 1) Limpeza de ruídos ANTES dos extractors
-df_limpo = aplicar_limpeza_nome_base(df)
+# 1) Classificação domínio
+df_dominios = categorization_pipeline.aplicar(df)
 
-df_limpo.to_excel('Limpo.xlsx', index=False)
+print(df_dominios[["Descricao_Limpa", "Dominio"]].head(10))
 
-# # 2) Classificação domínio
-# df_dominios = categorization_pipeline.aplicar(df_limpo)
+# 2) Limpeza de ruídos da descrição
+df_limpo = aplicar_limpeza_nome_base(df_dominios)
 
-# # 3) Extração de atributos
-# df_classificado = variation_pipeline.aplicar(df_dominios)
-# df_classificado.to_excel(OUT_CLASSIFICADO, index=False)
+df_limpo.to_excel("Limpo.xlsx", index=False)
 
-# # 4) Geração de nome base e variação
-# df_nomes = aplicar_nomes(df_classificado)
-# df_nomes = df_nomes.loc[:, ~df_nomes.columns.duplicated()]
 
-# # 5) Agrupamento fuzzy
-# agrupador = AgrupadorFuzzyPaiFilho(
-#     df_nomes,
-#     col_codigo="Codigo Produto",
-#     col_base="Nome_Produto_Base",
-#     col_variacao="Nome_Variacao",
-#     col_dominio="Dominio",
-#     coluna_marca="Marca",
-#     threshold=90,
-# )
+df_classificado = variation_pipeline.aplicar(df_limpo)
 
-# df_agrupado = agrupador.processar()
+df_classificado.to_excel(OUT_CLASSIFICADO, index=False)
 
-# # 6) Ajuste para produtos únicos
-# df_final = ajustar_produtos_unicos(df_agrupado)
 
-# # 7) Salvar resultado final
-# df_final.to_excel(OUT_FINAL_COM_NOMES, index=False)
+df_nomes = aplicar_nomes(df_classificado)
 
-# # 8) Relatório fallback
-# df_fallback = categorization_pipeline.get_relatorio_fallback()
-# if not df_fallback.empty:
-#     df_fallback.to_excel(OUT_FALLBACK, index=False)
+df_nomes = df_nomes.loc[:, ~df_nomes.columns.duplicated()]
+# 5) Agrupamento fuzzy
+agrupador = AgrupadorFuzzyPaiFilho(
+    df_nomes,
+    col_codigo="Codigo Produto",
+    col_base="Nome_Produto_Base",
+    col_variacao="Nome_Variacao",
+    col_dominio="Dominio",
+    coluna_marca="Marca",
+    threshold=90,
+)
 
-# print(f"OK: {OUT_FINAL_COM_NOMES}")
+df_agrupado = agrupador.processar()
+
+# 6) Ajuste para produtos únicos
+df_final = ajustar_produtos_unicos(df_agrupado)
+
+# 7) Salvar resultado final
+df_final.to_excel(OUT_FINAL_COM_NOMES, index=False)
+
+# 8) Relatório fallback
+df_fallback = categorization_pipeline.get_relatorio_fallback()
+if not df_fallback.empty:
+    df_fallback.to_excel(OUT_FALLBACK, index=False)
+
+print(f"OK: {OUT_FINAL_COM_NOMES}")

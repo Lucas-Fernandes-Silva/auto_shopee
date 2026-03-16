@@ -427,7 +427,6 @@ mapa_abreviacoes = {
     "HORIZ": "HORIZONTAL",
     "ACRIL": "ACRILICA",
     "ESF": "ESFERA",
-    "EMB": "EMBALAGEM",
     "COAX": "COAXIAL",
     "LAVAT": "LAVATORIO",
     "CONEC": "CONECTOR",
