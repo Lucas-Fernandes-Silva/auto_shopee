@@ -13961,3 +13961,8 @@
 2026-03-16 13:16:19,113 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
 2026-03-16 13:16:19,423 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
 2026-03-16 13:16:19,544 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:
+2026-03-16 16:02:27,752 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_144012802312.xml - xml_processor.py - 41:
+2026-03-16 16:02:27,927 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT06_196012509567.xml - xml_processor.py - 41:
+2026-03-16 16:02:35,275 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/35251048534759000180570110000028511000285190.xml - xml_processor.py - 41:
+2026-03-16 16:02:35,294 - src.utils.logger - INFO - ⚠️ CNPJ não encontrado em dados/nfes/BANDFATELBT08_292000035265.xml - xml_processor.py - 41:
+2026-03-16 16:02:49,190 - src.utils.logger - INFO - Cache salvo. - web_scraper.py - 51:

@@ -71,7 +71,6 @@ categorization_pipeline = CategorizationPipeline(domain_classifier)
 variation_pipeline = VariationPipeline(
     dominio_extractors={
         "PARAFUSOS": [
-            ParafusoVariationExtractor(),
             MedidaAxBExtractor(),
             ChumbadorAncoraVariationExtractor(),
             RebiteVariationExtractor(),

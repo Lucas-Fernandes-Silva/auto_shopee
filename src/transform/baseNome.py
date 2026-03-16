@@ -36,7 +36,6 @@ CAMPOS_POR_DOMINIO = {
         "Cor",
         "Tipo_Rebite",
         "Tipo_Porca",
-        "Tipo_Parafuso",
         "Tipo_Chumbador",
         "Tipo_Bucha",
         "Tipo_Arruela",

@@ -176,6 +176,6 @@ class TextNormalizer:
         t = self._padronizar_abreviacoes(t)
 
         if marca:
-            t = self._normalizar_marca_na_descricao(t, marca)
+            t = self._normalizar_marca_na_descricao(marca, t)
 
         return re.sub(r"\s+", " ", t).strip()
