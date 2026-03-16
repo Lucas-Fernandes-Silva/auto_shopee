@@ -13,12 +13,14 @@ def aplicar_limpeza_nome_base(df):
 
         # remover "caixa" quando for ruído
         .str.replace(r"\bCAIXA\b(?!\s*(D'?AGUA|ACOPLADA|DE\s+(PASSAGEM|LUZ)))", "", regex=True)
-        
+
         # acabamentos comerciais
         .str.replace(r"\bBICR\b", "", regex=True)
         .str.replace(r"\bBICROM\b", "", regex=True)
         .str.replace(r"\bB5\b", "", regex=True)
         .str.replace(r"\bB6\b", "", regex=True)
+        .str.replace(r"\bB8\b", "", regex=True)
+        .str.replace(r"\bB10\b", "", regex=True)
         # normalização
         .str.replace(r"\s+", " ", regex=True)
         .str.strip()
