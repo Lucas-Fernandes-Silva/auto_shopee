@@ -121,6 +121,8 @@ df_dominios = categorization_pipeline.aplicar(df)
 # 2) Limpeza de ruídos da descrição
 df_limpo = aplicar_limpeza_nome_base(df_dominios)
 
+
+
 df_limpo.to_excel("Limpo.xlsx", index=False)
 
 df_classificado = variation_pipeline.aplicar(df_limpo)

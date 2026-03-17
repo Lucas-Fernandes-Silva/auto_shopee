@@ -10,8 +10,8 @@ from src.extract.xml_processor import XMLProcessor
 from src.load.notas_manager import NotasManager
 from src.transform.brand_detector import BrandDetector
 from src.transform.market_price import PrecoVenda
-from src.utils.TextNormalizer import TextNormalizer
 from src.utils.gtin_validator import GTINValidator
+from src.utils.TextNormalizer import TextNormalizer
 
 # email = EmailHandler(env.user, env.pwd)
 # email.baixar_anexos(date.today())

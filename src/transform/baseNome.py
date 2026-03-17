@@ -31,6 +31,7 @@ CAMPOS_POR_DOMINIO = {
     ],
     "PARAFUSOS": [
         "Tipo_Parafuso",
+        "Tipo_Cabeca",
         "Medida",
         "Diametro",
         "Comprimento_Venda",
