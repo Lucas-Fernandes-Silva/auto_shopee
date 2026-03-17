@@ -81,29 +81,9 @@ class TextNormalizer:
         return texto
 
     # =========================
-    # Marca
-    # =========================
-    def _normalizar_marca_na_descricao(self, texto, marca):
-        if not marca or marca == "GENÉRICO":
-            return texto
-
-        texto_norm = Normalizer.normalize(texto)
-        marca_norm = Normalizer.normalize(marca)
-
-        if marca_norm in texto_norm:
-            return texto
-
-        for regex, marca_padrao in self.regex_marcas:
-            if marca_padrao == marca.upper():
-                texto = regex.sub("", texto)
-
-        return f"{marca.upper()} {texto}".strip()
-
-    # =========================
     # Abreviações contextuais
     # =========================
     def _resolver_emb(self, texto, dominio=None, segmento=None):
-
 
         contexto_embutir = [
             r"\bCENTRINHO\b",
@@ -149,7 +129,7 @@ class TextNormalizer:
     # =========================
     # Pipeline principal
     # =========================
-    def normalizar(self, descricao, marca=None, dominio=None, segmento=None):
+    def normalizar(self, descricao, dominio=None, segmento=None):
         if pd.isna(descricao):
             return descricao
 
@@ -168,14 +148,10 @@ class TextNormalizer:
         # primeiro resolve ambiguidades
         t = self._padronizar_abreviacoes_contextuais(
             t,
-            dominio=dominio,
-            segmento=segmento
+
         )
 
         # depois aplica o mapa genérico
         t = self._padronizar_abreviacoes(t)
-
-        if marca:
-            t = self._normalizar_marca_na_descricao(marca, t)
 
         return re.sub(r"\s+", " ", t).strip()

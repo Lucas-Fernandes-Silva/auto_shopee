@@ -30,6 +30,7 @@ CAMPOS_POR_DOMINIO = {
         "Medida",
     ],
     "PARAFUSOS": [
+        "Tipo_Parafuso",
         "Medida",
         "Diametro",
         "Comprimento_Venda",

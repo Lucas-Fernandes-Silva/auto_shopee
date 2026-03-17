@@ -9,9 +9,7 @@ def aplicar_limpeza_nome_base(df):
         .str.replace(r"\bC/\s*\d+\b", "", regex=True)
         .str.replace(r"\b\d+\s*UN\b", "", regex=True)
         .str.replace(r"\b\d+\s*PC\b", "", regex=True)
-        .str.replace(r"\b\d+\s*EMBALAGEM\b", "", regex=True)
-
-        # remover "caixa" quando for ruído
+        .str.replace(r"^((?!\bFITA\b).)*\bEMBALAGEM\b", "", regex=True)
         .str.replace(r"\bCAIXA\b(?!\s*(D'?AGUA|ACOPLADA|DE\s+(PASSAGEM|LUZ)))", "", regex=True)
 
         # acabamentos comerciais

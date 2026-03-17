@@ -71,6 +71,7 @@ categorization_pipeline = CategorizationPipeline(domain_classifier)
 variation_pipeline = VariationPipeline(
     dominio_extractors={
         "PARAFUSOS": [
+            ParafusoVariationExtractor(),
             MedidaAxBExtractor(),
             ChumbadorAncoraVariationExtractor(),
             RebiteVariationExtractor(),
@@ -116,13 +117,11 @@ df = pd.read_excel(INPUT_XLSX, dtype=str)
 # 1) Classificação domínio
 df_dominios = categorization_pipeline.aplicar(df)
 
-print(df_dominios[["Descricao_Limpa", "Dominio"]].head(10))
 
 # 2) Limpeza de ruídos da descrição
 df_limpo = aplicar_limpeza_nome_base(df_dominios)
 
 df_limpo.to_excel("Limpo.xlsx", index=False)
-
 
 df_classificado = variation_pipeline.aplicar(df_limpo)
 

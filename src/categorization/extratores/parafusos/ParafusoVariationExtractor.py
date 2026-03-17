@@ -4,7 +4,7 @@ import re
 class ParafusoVariationExtractor:
     TIPOS_PARAFUSO = {
         "SEXTAVADO": ["SEXTAVADO"],
-        "CHATA_PHILIPS": ["CHATA", "PHILIPS"],
+        "CHATA PHILIPS": ["CHATA", "PHILIPS","CHIPBOARD CABECA CHATA PHILIPS"],
         "FRANCES": ["FRANCES"],
         "MAQUINA": ["MAQ"],
         "ROSCA": ["ROSCA"],
