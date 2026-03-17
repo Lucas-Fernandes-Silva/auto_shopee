@@ -9,16 +9,14 @@ class AgrupadorFuzzyPaiFilho:
         col_codigo="Codigo Produto",
         col_base="Nome_Produto_Base",
         col_variacao="Nome_Variacao",
-        col_dominio="Dominio",
-        coluna_marca="Marca",
+        col_chave="Chave_Agrupamento",
         threshold=90,
     ):
         self.df = df.copy()
         self.col_codigo = col_codigo
         self.col_base = col_base
         self.col_variacao = col_variacao
-        self.col_dominio = col_dominio
-        self.coluna_marca = coluna_marca
+        self.col_chave = col_chave
         self.threshold = threshold
 
         self.df["grupo_id"] = None
@@ -26,8 +24,13 @@ class AgrupadorFuzzyPaiFilho:
         self.df["tipo_relacionamento"] = None
         self.df["score_fuzzy"] = None
 
-    def _normalizar(self, texto: str) -> str:
-        if pd.isna(texto):
+    def _normalizar(self, texto) -> str:
+        if isinstance(texto, pd.Series):
+            if texto.empty:
+                return ""
+            texto = texto.iloc[0]
+
+        if texto is None or pd.isna(texto):
             return ""
 
         texto = str(texto).lower()
@@ -37,17 +40,15 @@ class AgrupadorFuzzyPaiFilho:
     def _criar_grupos(self):
         grupo_atual = 0
 
-        for (dominio, marca), df_sub in self.df.groupby(
-            [self.col_dominio, self.coluna_marca],
-            dropna=False,
-        ):
+        for chave, df_sub in self.df.groupby(self.col_chave, dropna=False):
             indices = df_sub.index.tolist()
 
-            # ✅ monta o mapa explicitamente com os mesmos índices do grupo
-            textos = {
-                idx: self._normalizar(df_sub.at[idx, self.col_base])
-                for idx in indices
-            }
+            textos = {}
+            for idx in indices:
+                valor = df_sub.loc[idx, self.col_base]
+                if isinstance(valor, pd.Series):
+                    valor = valor.iloc[0]
+                textos[idx] = self._normalizar(valor)
 
             visitados = set()
 
@@ -92,15 +93,9 @@ class AgrupadorFuzzyPaiFilho:
                 continue
 
             df_ordenado = df_grupo.copy()
+            df_ordenado["len_base"] = df_ordenado[self.col_base].fillna("").astype(str).str.len()
+            df_ordenado["len_variacao"] = df_ordenado[self.col_variacao].fillna("").astype(str).str.len()
 
-            df_ordenado["len_base"] = (
-                df_ordenado[self.col_base].fillna("").astype(str).str.len()
-            )
-            df_ordenado["len_variacao"] = (
-                df_ordenado[self.col_variacao].fillna("").astype(str).str.len()
-            )
-
-        
             pai_idx = df_ordenado.sort_values(
                 ["len_base", "len_variacao", self.col_codigo]
             ).index[0]

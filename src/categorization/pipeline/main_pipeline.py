@@ -1,5 +1,6 @@
 import pandas as pd
 
+from src.agrupamento.Agrupamento import aplicar_chave_agrupamento, montar_chave_agrupamento
 from src.categorization.extratores.CorExtractor import CorExtractor
 from src.categorization.extratores.eletrica.disjuntores.CentrinhoVariationExtractor import (
     CentrinhoVariationExtractor,
@@ -122,9 +123,6 @@ df_dominios = categorization_pipeline.aplicar(df)
 df_limpo = aplicar_limpeza_nome_base(df_dominios)
 
 
-
-df_limpo.to_excel("Limpo.xlsx", index=False)
-
 df_classificado = variation_pipeline.aplicar(df_limpo)
 
 df_classificado.to_excel(OUT_CLASSIFICADO, index=False)
@@ -133,17 +131,18 @@ df_classificado.to_excel(OUT_CLASSIFICADO, index=False)
 df_nomes = aplicar_nomes(df_classificado)
 
 df_nomes = df_nomes.loc[:, ~df_nomes.columns.duplicated()]
-# 5) Agrupamento fuzzy
+
+df_agrupado = aplicar_chave_agrupamento(df_nomes)
+
+
 agrupador = AgrupadorFuzzyPaiFilho(
-    df_nomes,
+    df_agrupado,
     col_codigo="Codigo Produto",
     col_base="Nome_Produto_Base",
     col_variacao="Nome_Variacao",
-    col_dominio="Dominio",
-    coluna_marca="Marca",
+    col_chave="Chave_Agrupamento",
     threshold=90,
 )
-
 df_agrupado = agrupador.processar()
 
 # 6) Ajuste para produtos únicos
@@ -158,3 +157,5 @@ if not df_fallback.empty:
     df_fallback.to_excel(OUT_FALLBACK, index=False)
 
 print(f"OK: {OUT_FINAL_COM_NOMES}")
+
+
