@@ -11,6 +11,7 @@ from src.categorization.extratores.eletrica.disjuntores.PolosDisjuntorExtractor 
 from src.categorization.extratores.eletrica.lampadas.FormatoLampadaExtractor import (
     FormatoLampadaExtractor,
 )
+from src.categorization.extratores.eletrica.lampadas.LumensExtractor import LumensExtractor
 from src.categorization.extratores.eletrica.lampadas.PotenciaLampadaExtractor import (
     PotenciaLampadaExtractor,
 )
@@ -93,6 +94,7 @@ variation_pipeline = VariationPipeline(
             CentrinhoVariationExtractor(),
             AmperagemExtractor(),
             PolosDisjuntorExtractor(),
+            LumensExtractor(),
             PolosExtractor(),
             FormatoLampadaExtractor(),
             PotenciaLampadaExtractor(),
