@@ -285,16 +285,23 @@ def aplicar_nomes(df: pd.DataFrame) -> pd.DataFrame:
     return pd.concat([df, nomes], axis=1)
 
 
-# =========================
-# 8) Execução (exemplo)
-# =========================
-if __name__ == "__main__":
-    # Ajuste os paths conforme seu projeto
-    in_path = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx"
-    out_path = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Com_Nomes.xlsx"
+# # =========================
+# # 8) Execução (exemplo)
+# # =========================
+# if __name__ == "__main__":
+#     # Ajuste os paths conforme seu projeto
+#     in_path = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Classificados.xlsx"
+#     out_path = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos_Com_Nomes.xlsx"
 
-    df = pd.read_excel(in_path, dtype=str)
-    df_out = aplicar_nomes(df)
+#     df = pd.read_excel(in_path, dtype=str)
+#     # print(df.columns.tolist())
+#     # df_out = aplicar_nomes(df)
+#     row = df.iloc[3026]  # escolha uma das lampadas de cima
+#     print("Descricao_Limpa =>", repr(row.get("Descricao_Limpa")))
+#     print("Nome_Variacao =>", gerar_nome_variacao(row, CAMPOS_POR_DOMINIO["ELETRICA"]))
+#     print("Nome_Base =>", gerar_nome_base(row, "ELETRICA", CAMPOS_POR_DOMINIO["ELETRICA"]))
+#     for campo in CAMPOS_POR_DOMINIO["ELETRICA"]:
+#         print(campo, "=>", repr(row.get(campo)))
 
-    df_out.to_excel(out_path, index=False)
-    print(f"Arquivo gerado: {out_path}")
+#     # df_out.to_excel(out_path, index=False)
+#     print(f"Arquivo gerado: {out_path}")

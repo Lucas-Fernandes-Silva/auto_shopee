@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.agrupamento.Agrupamento import aplicar_chave_agrupamento, montar_chave_agrupamento
+from src.agrupamento.Agrupamento import aplicar_chave_agrupamento
 from src.categorization.extratores.CorExtractor import CorExtractor
 from src.categorization.extratores.eletrica.disjuntores.CentrinhoVariationExtractor import (
     CentrinhoVariationExtractor,
@@ -130,7 +130,8 @@ df_classificado.to_excel(OUT_CLASSIFICADO, index=False)
 
 df_nomes = aplicar_nomes(df_classificado)
 
-df_nomes = df_nomes.loc[:, ~df_nomes.columns.duplicated()]
+
+# df_nomes = df_nomes.loc[:, ~df_nomes.columns.duplicated()]
 
 df_agrupado = aplicar_chave_agrupamento(df_nomes)
 
@@ -148,6 +149,7 @@ df_agrupado = agrupador.processar()
 # 6) Ajuste para produtos únicos
 df_final = ajustar_produtos_unicos(df_agrupado)
 
+df_final = df_agrupado
 # 7) Salvar resultado final
 df_final.to_excel(OUT_FINAL_COM_NOMES, index=False)
 
