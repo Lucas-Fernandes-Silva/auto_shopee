@@ -1,5 +1,5 @@
-import numpy as np
 import pandas as pd
+import numpy as np
 
 
 class AuditorPipeline:
@@ -15,6 +15,7 @@ class AuditorPipeline:
         col_marca="Marca",
         col_dominio="Dominio",
         col_produto_unico="produto_unico",
+        col_chave="Chave_Agrupamento",
         dominios_auditaveis=None,
     ):
         self.col_descricao = col_descricao
@@ -27,11 +28,15 @@ class AuditorPipeline:
         self.col_marca = col_marca
         self.col_dominio = col_dominio
         self.col_produto_unico = col_produto_unico
+        self.col_chave = col_chave
         self.dominios_auditaveis = set(dominios_auditaveis or [])
 
     def auditar(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
 
+        # =========================
+        # Normalizações básicas
+        # =========================
         colunas_texto = [
             self.col_descricao,
             self.col_base,
@@ -39,6 +44,7 @@ class AuditorPipeline:
             self.col_tipo,
             self.col_marca,
             self.col_dominio,
+            self.col_chave,
         ]
 
         for col in colunas_texto:
@@ -48,7 +54,6 @@ class AuditorPipeline:
         if self.col_score in df.columns:
             df[self.col_score] = pd.to_numeric(df[self.col_score], errors="coerce")
 
-        # produto_unico
         if self.col_produto_unico in df.columns:
             df[self.col_produto_unico] = (
                 df[self.col_produto_unico]
@@ -60,7 +65,9 @@ class AuditorPipeline:
         else:
             df[self.col_produto_unico] = False
 
-        # domínios auditáveis
+        # =========================
+        # Máscara de domínios auditáveis
+        # =========================
         if self.dominios_auditaveis:
             mask_auditavel = df[self.col_dominio].isin(self.dominios_auditaveis)
         else:
@@ -69,17 +76,26 @@ class AuditorPipeline:
         df["dominio_auditavel"] = mask_auditavel
 
         # =========================
-        # Flags linha a linha
+        # Flags básicas
         # =========================
-        df["flag_base_vazia"] = mask_auditavel & df[self.col_base].eq("")
+        df["flag_chave_agrupamento_vazia"] = (
+            mask_auditavel
+            & df[self.col_chave].eq("")
+        )
 
-        # ✅ produto único pode ter variação vazia
+        df["flag_base_vazia"] = (
+            mask_auditavel
+            & df[self.col_base].eq("")
+        )
+
+        # produto único pode ter variação vazia
         df["flag_variacao_vazia"] = (
             mask_auditavel
             & (~df[self.col_produto_unico])
             & df[self.col_variacao].eq("")
         )
 
+        # base igual descrição só é suspeita quando não é produto único
         df["flag_base_igual_descricao"] = (
             mask_auditavel
             & (~df[self.col_produto_unico])
@@ -99,7 +115,7 @@ class AuditorPipeline:
         else:
             df["flag_score_baixo"] = False
 
-        # pai com variação preenchida — só suspeito se NÃO for produto único
+        # pai com variação é suspeito apenas se não for produto único
         df["flag_pai_com_variacao"] = (
             mask_auditavel
             & (~df[self.col_produto_unico])
@@ -127,12 +143,29 @@ class AuditorPipeline:
             grupo_size = df.groupby(self.col_grupo)[self.col_grupo].transform("size")
             df["grupo_tamanho"] = grupo_size
 
-            marcas_por_grupo = (
-                df.groupby(self.col_grupo)[self.col_marca]
-                .transform(lambda s: s.nunique(dropna=True))
+            chaves_por_grupo = (
+                df.groupby(self.col_grupo)[self.col_chave]
+                .transform(lambda s: s.fillna("").nunique())
             )
-            df["flag_marcas_multiplas_grupo"] = (
-                mask_auditavel & (marcas_por_grupo > 1)
+            df["flag_grupo_com_chaves_diferentes"] = (
+                mask_auditavel
+                & (chaves_por_grupo > 1)
+            )
+
+            pais_por_grupo = (
+                df.assign(_is_pai=df[self.col_tipo].str.upper().eq("PAI"))
+                .groupby(self.col_grupo)["_is_pai"]
+                .transform("sum")
+            )
+            df["flag_multiplos_pais_no_grupo"] = (
+                mask_auditavel
+                & (pais_por_grupo > 1)
+            )
+
+            df["flag_grupo_unitario_com_filho"] = (
+                mask_auditavel
+                & (df["grupo_tamanho"] == 1)
+                & (df[self.col_tipo].str.upper() == "FILHO")
             )
 
             df["variacao_norm"] = df[self.col_variacao].str.upper().fillna("")
@@ -146,27 +179,41 @@ class AuditorPipeline:
                 & (df["variacao_norm"] != "")
                 & (dup_variacao > 1)
             )
-
-            pais_por_grupo = (
-                df.assign(_is_pai=df[self.col_tipo].str.upper().eq("PAI"))
-                .groupby(self.col_grupo)["_is_pai"]
-                .transform("sum")
-            )
-            df["flag_multiplos_pais_no_grupo"] = (
-                mask_auditavel & (pais_por_grupo > 1)
-            )
-
-            df["flag_grupo_unitario_com_filho"] = (
-                mask_auditavel
-                & (df["grupo_tamanho"] == 1)
-                & (df[self.col_tipo].str.upper() == "FILHO")
-            )
         else:
             df["grupo_tamanho"] = np.nan
-            df["flag_marcas_multiplas_grupo"] = False
-            df["flag_variacao_duplicada_no_grupo"] = False
+            df["flag_grupo_com_chaves_diferentes"] = False
             df["flag_multiplos_pais_no_grupo"] = False
             df["flag_grupo_unitario_com_filho"] = False
+            df["flag_variacao_duplicada_no_grupo"] = False
+
+        # =========================
+        # Flags específicas de PARAFUSOS
+        # =========================
+        if "Tipo_Parafuso" in df.columns and self.col_grupo in df.columns:
+            tipos_parafuso_por_grupo = (
+                df.groupby(self.col_grupo)["Tipo_Parafuso"]
+                .transform(lambda s: s.fillna("").replace("", pd.NA).dropna().nunique())
+            )
+            df["flag_tipos_parafuso_diferentes"] = (
+                mask_auditavel
+                & df[self.col_dominio].eq("PARAFUSOS")
+                & (tipos_parafuso_por_grupo > 1)
+            )
+        else:
+            df["flag_tipos_parafuso_diferentes"] = False
+
+        if "Tipo_Cabeca" in df.columns and self.col_grupo in df.columns:
+            tipos_cabeca_por_grupo = (
+                df.groupby(self.col_grupo)["Tipo_Cabeca"]
+                .transform(lambda s: s.fillna("").replace("", pd.NA).dropna().nunique())
+            )
+            df["flag_tipos_cabeca_diferentes"] = (
+                mask_auditavel
+                & df[self.col_dominio].eq("PARAFUSOS")
+                & (tipos_cabeca_por_grupo > 1)
+            )
+        else:
+            df["flag_tipos_cabeca_diferentes"] = False
 
         # =========================
         # Status consolidado
@@ -181,16 +228,19 @@ class AuditorPipeline:
             return "OK" if not ativos else " | ".join(ativos)
 
         df["status_auditoria"] = df.apply(montar_status, axis=1)
-
         df["tem_suspeita"] = (
             df["dominio_auditavel"]
             & (df["status_auditoria"] != "OK")
         )
 
+        # =========================
+        # Reordenar colunas
+        # =========================
         colunas_inicio = [
             c for c in [
                 self.col_dominio,
                 self.col_marca,
+                self.col_chave,
                 self.col_descricao,
                 self.col_base,
                 self.col_variacao,
@@ -223,11 +273,15 @@ class AuditorPipeline:
 
         resumo = []
         for col in flags_cols:
-            qtd = int(df_base[col].sum())
-            resumo.append({"Regra": col, "Quantidade": qtd})
+            resumo.append({
+                "Regra": col,
+                "Quantidade": int(df_base[col].sum())
+            })
 
-        resumo_df = pd.DataFrame(resumo).sort_values("Quantidade", ascending=False)
-        return resumo_df
+        if not resumo:
+            return pd.DataFrame(columns=["Regra", "Quantidade"])
+
+        return pd.DataFrame(resumo).sort_values("Quantidade", ascending=False)
 
 
 if __name__ == "__main__":
@@ -245,6 +299,7 @@ if __name__ == "__main__":
 
     auditor = AuditorPipeline(
         dominios_auditaveis=DOMINIOS_AUDITAVEIS,
+        col_chave="Chave_Agrupamento",
         col_produto_unico="produto_unico",
     )
 

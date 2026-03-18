@@ -16,6 +16,7 @@ CAMPOS_POR_DOMINIO = {
         "Capacidade_Centrinho",
         "Formato",
         "Potencia_W",
+        "Lumens",
         "Temperatura_Cor",
         "Tipo_Lampada",
     ],

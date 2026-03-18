@@ -10,6 +10,8 @@ def aplicar_limpeza_nome_base(df):
         .str.replace(r"\bC/\s*\d+\b", "", regex=True)
         .str.replace(r"\b\d+\s*UN\b", "", regex=True)
         .str.replace(r"\b\d+\s*PC\b", "", regex=True)
+
+
         # remover "CAIXA" quando for ruído comercial,
         # mas preservar em nomes reais de produto
         .str.replace(r"\bCAIXA\b(?!\s*(D'?AGUA|ACOPLADA|DE\s+(PASSAGEM|LUZ)))", "", regex=True)
@@ -20,6 +22,19 @@ def aplicar_limpeza_nome_base(df):
         .str.replace(r"\bB6\b", "", regex=True)
         .str.replace(r"\bB8\b", "", regex=True)
         .str.replace(r"\bB10\b", "", regex=True)
+        .str.replace(r"\bEZ9X33112\b", "", regex=True)
+        .str.replace(r"\bEZ9X33212\b", "", regex=True)
+        .str.replace(r"\b222-413\b", "", regex=True)
+        .str.replace(r"\b222-412\b", "", regex=True)
+        .str.replace(r"\b221-412\b", "", regex=True)
+        .str.replace(r"\b221-413\b", "", regex=True)
+        .str.replace(r"\b221-612\b", "", regex=True)
+        .str.replace(r"\b1\/2GZ\b", "", regex=True)
+        .str.replace(r"\b12F210B\b", "", regex=True)
+
+
+
+
     )
 
     # remover EMBALAGEM apenas onde NÃO tiver FITA

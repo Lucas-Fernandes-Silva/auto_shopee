@@ -9,7 +9,7 @@ class CentrinhoVariationExtractor(BaseVariationExtractor):
     PADRAO_CAP_NUMERICA = re.compile(r"\b(0?[2348]|12)\b")
 
     # padrão NEMA / DIN (1/2, 3/4, 6/8)
-    PADRAO_NEMA_DIN = re.compile(r"\b(1/2|3/4|6/8|03/04)\b")
+    PADRAO_NEMA_DIN = re.compile(r"\b(1/2|3/4|6/8|03/04|12/16|16/24|06/08)\b")
 
     def extrair(self, descricao: str) -> dict:
         if not descricao:
