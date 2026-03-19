@@ -333,7 +333,6 @@ mapa_abreviacoes = {
     "CX72PC": "CAIXA 72 PC",
     "INOX RED": "INOX REDONDA",
     "CLICK RED": "CLICK REDONDO",
-
     "SER MAR": "SERRA MARMORE",
     "SERRA MAR": "SERRA MARMORE",
     "TRANSP": "TRANSPARENTE",
@@ -540,6 +539,9 @@ mapa_abreviacoes = {
     "COMP": "COMPACTA",
     "A BROCANTE": "AUTO BROCANTE",
     "R SOB (B)": "ROSCA SOBERBA",
+    "0,14A4,0M": "0,14X4,0M",
+    "4509 X1.1/2": "4509 X 1.1/2",
+    "AJUST": "AJUSTAVEL",
 }
 
 headers = {
