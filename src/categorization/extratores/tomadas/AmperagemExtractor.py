@@ -2,8 +2,25 @@ import re
 
 
 class AmperagemExtractor:
-    AMPERAGENS_VALIDAS = ["63", "50", "40", "32", "25", "20", "16", "10", "06", "8", "10", "15", "5", "7"]
-                                #incluir na removação os 0-9
+    AMPERAGENS_VALIDAS = [
+        "63",
+        "50",
+        "40",
+        "32",
+        "25",
+        "20",
+        "16",
+        "10",
+        "06",
+        "8",
+        "10",
+        "15",
+        "5",
+        "7",
+        "41",
+    ]
+
+    # incluir na removação os 0-9
     def __init__(self):
         valores = "|".join(str(a) for a in self.AMPERAGENS_VALIDAS)
         self.PADRAO = re.compile(

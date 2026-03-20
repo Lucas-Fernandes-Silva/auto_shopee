@@ -8,7 +8,7 @@ class PolosExtractor:
 
     PADRAO_3P = re.compile(r"\b3p\b", re.IGNORECASE)
     PADRAO_2P = re.compile(r"\b2p\b", re.IGNORECASE)
-    PADRAO_1P = re.compile(r"\b1p\b", re.IGNORECASE)  # ✅ extra (sem terra)
+    PADRAO_1P = re.compile(r"\b1p\b", re.IGNORECASE) 
 
     COM_TERRA = re.compile(r"\bcom\s+terra\b", re.IGNORECASE)
     SEM_TERRA = re.compile(r"\bsem\s+terra\b", re.IGNORECASE)

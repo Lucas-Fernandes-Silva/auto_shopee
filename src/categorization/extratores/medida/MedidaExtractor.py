@@ -63,8 +63,8 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
-    CTX_CONDUITE = re.compile(r"\b(conduite|eletroduto)\b", re.IGNORECASE)
-    CTX_CABO = re.compile(r"\b(fio|cabo)\b", re.IGNORECASE)
+    CTX_CONDUITE = re.compile(r"\b(conduite|eletroduto|rolo)\b", re.IGNORECASE)
+    CTX_CABO = re.compile(r"\b(fio|cabo|extensao)\b", re.IGNORECASE)
     CTX_ROLO = re.compile(r"\b(rl|rolo|bobina)\b", re.IGNORECASE)
 
     REFORCO_CABO = re.compile(
@@ -113,7 +113,6 @@ class MedidaExtractor:
         self,
         desc: str,
         padrao_ctx: re.Pattern,
-        unidade_saida: str = "CM",
         valor_max: float = 100,
     ) -> str | None:
         if not padrao_ctx.search(desc):
@@ -127,7 +126,7 @@ class MedidaExtractor:
         v = self._to_float(candidato)
 
         if 0 < v <= valor_max:
-            return f"{self._fmt_plain(v)}{unidade_saida}"
+            return f"{self._fmt_plain(v)}"
 
         return None
 
@@ -232,7 +231,6 @@ class MedidaExtractor:
             comprimento = self._inferir_comprimento_por_contexto(
                 desc,
                 self.CTX_ENGATE,
-                unidade_saida="CM",
                 valor_max=100,
             )
 
@@ -241,7 +239,6 @@ class MedidaExtractor:
             comprimento = self._inferir_comprimento_por_contexto(
                 desc,
                 self.CTX_GRELHA,
-                unidade_saida="CM",
                 valor_max=100,
             )
 
@@ -250,7 +247,6 @@ class MedidaExtractor:
             comprimento = self._inferir_comprimento_por_contexto(
                 desc,
                 self.CTX_TUBO_LIGACAO,
-                unidade_saida="CM",
                 valor_max=100,
             )
 

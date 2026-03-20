@@ -93,9 +93,9 @@ variation_pipeline = VariationPipeline(
         "ELETRICA": [
             CentrinhoVariationExtractor(),
             AmperagemExtractor(),
+            PolosExtractor(),
             PolosDisjuntorExtractor(),
             LumensExtractor(),
-            PolosExtractor(),
             FormatoLampadaExtractor(),
             PotenciaLampadaExtractor(),
             TemperaturaCorExtractor(),

@@ -3,7 +3,6 @@ import re
 import pandas as pd
 
 from dados import dados
-from src.utils.normalizer import Normalizer
 
 
 class TextNormalizer:
@@ -12,8 +11,7 @@ class TextNormalizer:
         self.mapa_abreviacoes = dados.mapa_abreviacoes or {}
 
         self.mapa_abreviacoes = {
-            k: v for k, v in self.mapa_abreviacoes.items()
-            if str(k).upper() != "EMB"
+            k: v for k, v in self.mapa_abreviacoes.items() if str(k).upper() != "EMB"
         }
 
         self.regex_marcas = self._preparar_marcas()
@@ -30,9 +28,7 @@ class TextNormalizer:
 
             for v in sorted(todas, key=len, reverse=True):
                 padrao = rf"\b{re.escape(v)}\b"
-                regex_marcas.append(
-                    (re.compile(padrao, re.IGNORECASE), marca.upper())
-                )
+                regex_marcas.append((re.compile(padrao, re.IGNORECASE), marca.upper()))
 
         return regex_marcas
 
@@ -65,6 +61,7 @@ class TextNormalizer:
             texto.replace("×", " X ")
             .replace("x", " X ")
             .replace("+", " ")
+            .replace("-", " - ")
             .replace("—", " ")
             .replace("=", " ")
             .replace("(", " ")
@@ -80,8 +77,6 @@ class TextNormalizer:
         texto = re.sub(r"\bP\/\b", "PARA ", texto)
         texto = re.sub(r"\bR\/\b", "ROLO ", texto)
         texto = re.sub(r"\bRL\/\b", "ROLO ", texto)
-        texto = re.sub(r"\bMT\b", "M", texto)
-
 
         return texto
 
@@ -89,7 +84,6 @@ class TextNormalizer:
     # Abreviações contextuais
     # =========================
     def _resolver_emb(self, texto, dominio=None, segmento=None):
-
         contexto_embutir = [
             r"\bCENTRINHO\b",
             r"\bQUADRO\b",
@@ -105,9 +99,7 @@ class TextNormalizer:
             r"\bEMBUT(?:IR)?\b",
         ]
 
-        eh_embutir = bool(
-            re.search("|".join(contexto_embutir), texto, re.IGNORECASE)
-        )
+        eh_embutir = bool(re.search("|".join(contexto_embutir), texto, re.IGNORECASE))
 
         if dominio:
             dominio_norm = str(dominio).upper()
@@ -153,7 +145,6 @@ class TextNormalizer:
         # primeiro resolve ambiguidades
         t = self._padronizar_abreviacoes_contextuais(
             t,
-
         )
 
         # depois aplica o mapa genérico
