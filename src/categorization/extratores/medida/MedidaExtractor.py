@@ -10,6 +10,7 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
+    # só frações válidas; não pega 03/04
     PADRAO_POLEGADA = re.compile(
         r"(?<![\d.,])"
         r"(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1\s*1/2|1 1/2|1 1/4|11/4|1|11/2)"
@@ -17,29 +18,29 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
+    # mantém o trecho exatamente como veio
     PADRAO_DIAMETRO_MM = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)\s*(mm|milimetros?)\b",
+        r"\b(\d+(?:[.,]\d+)?\s*(?:mm|milimetros?))\b",
         re.IGNORECASE,
     )
 
-    # mantém a unidade do texto
     PADRAO_COMPRIMENTO = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)\s*(cm|m|mt|metro|metros)\b",
+        r"\b(\d+(?:[.,]\d+)?\s*(?:cm|m|mt|metro|metros))\b",
         re.IGNORECASE,
     )
 
     PADRAO_VOLUME_L = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)\s*(l|lt|litro|litros)\b",
+        r"\b(\d+(?:[.,]\d+)?\s*(?:l|lt|litro|litros))\b",
         re.IGNORECASE,
     )
 
     PADRAO_PESO_VENDA = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)\s*(kg|quilo|quilos|g|grama|gramas|gr|grs)\b",
+        r"\b(\d+(?:[.,]\d+)?\s*(?:kg|quilo|quilos|g|grama|gramas|gr|grs))\b",
         re.IGNORECASE,
     )
 
     PADRAO_SECAO_MM2 = re.compile(
-        r"\b(\d+(?:[.,]\d+)?)\s*(?:mm2|mm²|milimetros?\s*quadrados?)\b",
+        r"\b(\d+(?:[.,]\d+)?\s*(?:mm2|mm²|milimetros?\s*quadrados?))\b",
         re.IGNORECASE,
     )
 
@@ -48,7 +49,6 @@ class MedidaExtractor:
     CTX_ENGATE = re.compile(r"\b(engate|rabicho)\b", re.IGNORECASE)
     CTX_GRELHA = re.compile(r"\b(grelha)\b", re.IGNORECASE)
 
-    # novo contexto
     CTX_TUBO_LIGACAO = re.compile(
         r"\b(tubo\s+liga[cç][aã]o|liga[cç][aã]o)\b",
         re.IGNORECASE,
@@ -77,20 +77,8 @@ class MedidaExtractor:
         s = s.replace(",", ".")
         return float(s)
 
-    def _fmt_plain(self, v: float) -> str:
-        txt = f"{v:.6f}".rstrip("0").rstrip(".")
-        return txt
-
-    def _formatar_comprimento(self, valor_str: str, unidade: str) -> str:
-        valor = self._fmt_plain(self._to_float(valor_str))
-        u = unidade.lower()
-
-        if u in ("mt", "metro", "metros", "m"):
-            return f"{valor}M"
-        if u == "cm":
-            return f"{valor}CM"
-
-        return f"{valor}{u.upper()}"
+    def _limpar_match(self, s: str) -> str:
+        return str(s).strip()
 
     def _extrair_secao_cabo_omitida(self, desc: str) -> str | None:
         if not self.CTX_CABO.search(desc):
@@ -100,12 +88,11 @@ class MedidaExtractor:
         if not nums:
             return None
 
-        # Em cabo/fio, geralmente o primeiro número é a bitola
         candidato = nums[0]
         v = self._to_float(candidato)
 
         if 0 < v <= 240:
-            return self._fmt_plain(v)
+            return self._limpar_match(candidato)
 
         return None
 
@@ -126,7 +113,7 @@ class MedidaExtractor:
         v = self._to_float(candidato)
 
         if 0 < v <= valor_max:
-            return f"{self._fmt_plain(v)}"
+            return self._limpar_match(candidato)  # só número, sem unidade
 
         return None
 
@@ -149,22 +136,20 @@ class MedidaExtractor:
         peso_venda = None
         secao_cabo = None
 
-        # 1) seção cabo explícita
-        m_mm2 = self.PADRAO_SECAO_MM2.search(desc)
+        # 1) seção cabo explícita - mantém exatamente como veio
+        m_mm2 = self.PADRAO_SECAO_MM2.search(descricao)
         if m_mm2:
-            secao_cabo = self._fmt_plain(self._to_float(m_mm2.group(1))) + "mm2"
+            secao_cabo = self._limpar_match(m_mm2.group(1))
 
-        # 2) volume
-        m_vol = self.PADRAO_VOLUME_L.search(desc)
+        # 2) volume - mantém exatamente como veio
+        m_vol = self.PADRAO_VOLUME_L.search(descricao)
         if m_vol:
-            volume = self._fmt_plain(self._to_float(m_vol.group(1))) + "L"
+            volume = self._limpar_match(m_vol.group(1))
 
-        # 3) peso
-        m_peso = self.PADRAO_PESO_VENDA.search(desc)
+        # 3) peso - mantém exatamente como veio
+        m_peso = self.PADRAO_PESO_VENDA.search(descricao)
         if m_peso:
-            valor = self._fmt_plain(self._to_float(m_peso.group(1)))
-            un = m_peso.group(2).lower()
-            peso_venda = f"{valor}g" if un.startswith("g") else f"{valor}kg"
+            peso_venda = self._limpar_match(m_peso.group(1))
 
         # 4) se tem AxB, não disputa com MedidaAxBExtractor
         if tem_axb:
@@ -176,33 +161,33 @@ class MedidaExtractor:
                 "Secao_Cabo": secao_cabo,
             }
 
-        # 5) polegada simples (sem aspas na saída)
-        m_pol = self.PADRAO_POLEGADA.search(desc)
+        # 5) polegada simples (sem aspas)
+        m_pol = self.PADRAO_POLEGADA.search(descricao)
         if m_pol:
-            diametro = m_pol.group(1).replace(" ", "")
+            diametro = m_pol.group(1).replace(" ", "").strip()
 
-        # 6) diâmetro em mm explícito
-        m_mm = self.PADRAO_DIAMETRO_MM.search(desc)
+        # 6) diâmetro em mm explícito - mantém exatamente como veio
+        m_mm = self.PADRAO_DIAMETRO_MM.search(descricao)
         if m_mm:
-            valor_mm = self._fmt_plain(self._to_float(m_mm.group(1)))
+            valor_mm = self._limpar_match(m_mm.group(1))
 
             # em fio/cabo isso vira seção, não diâmetro
             if self.CTX_CABO.search(desc):
                 secao_cabo = valor_mm
                 diametro = None
             else:
-                diametro = valor_mm + "MM"
+                diametro = valor_mm
 
-        # 7) comprimento explícito: mantém a unidade do texto
-        m_comp = self.PADRAO_COMPRIMENTO.search(desc)
+        # 7) comprimento explícito - mantém exatamente como veio
+        m_comp = self.PADRAO_COMPRIMENTO.search(descricao)
         if m_comp:
-            comprimento = self._formatar_comprimento(m_comp.group(1), m_comp.group(2))
+            comprimento = self._limpar_match(m_comp.group(1))
 
-        # 8) reforço para cabo/fio com bitola omitida
+        # 8) reforço para cabo/fio com bitola omitida - só número
         if secao_cabo is None and self.CTX_CABO.search(desc):
             secao_cabo = self._extrair_secao_cabo_omitida(desc)
 
-        # 9) inferência de diâmetro omitido
+        # 9) inferência de diâmetro omitido - só número
         if (
             (diametro is None)
             and (not self.CTX_CABO.search(desc))
@@ -224,9 +209,9 @@ class MedidaExtractor:
 
                     if 0 < v <= 999:
                         if (not self.CTX_ROLO.search(desc)) and (comprimento is None):
-                            diametro = self._fmt_plain(v) + "MM"
+                            diametro = self._limpar_match(candidato)
 
-        # 10) engate -> comprimento inferido
+        # 10) engate -> comprimento inferido (só número)
         if comprimento is None:
             comprimento = self._inferir_comprimento_por_contexto(
                 desc,
@@ -234,7 +219,7 @@ class MedidaExtractor:
                 valor_max=100,
             )
 
-        # 11) grelha -> comprimento inferido
+        # 11) grelha -> comprimento inferido (só número)
         if comprimento is None:
             comprimento = self._inferir_comprimento_por_contexto(
                 desc,
@@ -242,7 +227,6 @@ class MedidaExtractor:
                 valor_max=100,
             )
 
-        # 12) tubo ligacao -> comprimento inferido
         if comprimento is None:
             comprimento = self._inferir_comprimento_por_contexto(
                 desc,

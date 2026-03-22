@@ -8,10 +8,10 @@ class PolosExtractor:
 
     PADRAO_3P = re.compile(r"\b3p\b", re.IGNORECASE)
     PADRAO_2P = re.compile(r"\b2p\b", re.IGNORECASE)
-    PADRAO_1P = re.compile(r"\b1p\b", re.IGNORECASE) 
+    PADRAO_1P = re.compile(r"\b1p\b", re.IGNORECASE)
 
-    COM_TERRA = re.compile(r"\bcom\s+terra\b", re.IGNORECASE)
-    SEM_TERRA = re.compile(r"\bsem\s+terra\b", re.IGNORECASE)
+    COM_TERRA = re.compile(r"\bcom\sTerra\b", re.IGNORECASE)
+    SEM_TERRA = re.compile(r"\bsem\sTerra\b", re.IGNORECASE)
 
     def aplica(self, descricao: str) -> bool:
         if not descricao:
@@ -19,12 +19,6 @@ class PolosExtractor:
 
         desc = descricao.upper()
 
-        # 🚫 Não aplicar em disjuntores
-        if "DISJUNTOR" in desc:
-            return False
-
-        # Só aplica se houver algum sinal de polos/terra no texto
-        # (evita rodar à toa em produtos sem relação)
         return any(
             padrao.search(descricao)
             for padrao in (
@@ -48,9 +42,9 @@ class PolosExtractor:
 
         # Prioridade: polos + terra
         if self.PADRAO_3P_T.search(desc):
-            polos = "3P+T"
+            polos = "3PT"
         elif self.PADRAO_2P_T.search(desc) or self.PADRAO_P_T.search(desc):
-            polos = "2P+T"
+            polos = "2PT"
         elif self.PADRAO_3P.search(desc):
             polos = "3P"
         elif self.PADRAO_2P.search(desc):
@@ -60,9 +54,9 @@ class PolosExtractor:
 
         # Ajustes finais
         if polos and self.SEM_TERRA.search(desc):
-            polos = polos.replace("+T", "")
+            polos = polos.replace("T", "")
 
-        if polos and self.COM_TERRA.search(desc) and "+T" not in polos:
-            polos = polos + "+T"
+        if polos and self.COM_TERRA.search(desc) and "T" not in polos:
+            polos = polos + "T"
 
         return {"Polos": polos}

@@ -49,7 +49,7 @@ from src.categorization.pipeline.categorize_pipeline import CategorizationPipeli
 from src.categorization.pipeline.DomainClassifier import DomainClassifier
 from src.categorization.pipeline.DomainMapLoader import DomainMapLoader
 from src.categorization.pipeline.Fuzzy import AgrupadorFuzzyPaiFilho
-from src.categorization.pipeline.NomeBaseCleaner import aplicar_limpeza_nome_base
+from src.categorization.pipeline.RemovedorComercial import aplicar_limpeza_nome_base
 from src.categorization.pipeline.VariationPipeline import VariationPipeline
 from src.transform.baseNome import aplicar_nomes
 
@@ -86,6 +86,7 @@ variation_pipeline = VariationPipeline(
         "TOMADAS": [
             TipoTomadaExtractor(),
             AmperagemExtractor(),
+            MedidaExtractor(),
             MedidaAxBExtractor(),
             PolosExtractor(),
             CorExtractor(),
