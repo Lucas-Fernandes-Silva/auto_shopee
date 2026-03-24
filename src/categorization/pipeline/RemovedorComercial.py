@@ -9,6 +9,7 @@ def aplicar_limpeza_nome_base(df):
         # remover quantidade comercial
         .str.replace(r"\bC/\s*\d+\b", "", regex=True)
         .str.replace(r"\b\d+\s*UN\b", "", regex=True)
+        .str.replace(r"\b\d+\s*UND\b", "", regex=True)
         .str.replace(r"\b\d+\s*PC\b", "", regex=True)
 
 

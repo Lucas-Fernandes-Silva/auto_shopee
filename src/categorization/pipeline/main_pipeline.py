@@ -5,9 +5,6 @@ from src.categorization.extratores.CorExtractor import CorExtractor
 from src.categorization.extratores.eletrica.disjuntores.CentrinhoVariationExtractor import (
     CentrinhoVariationExtractor,
 )
-from src.categorization.extratores.eletrica.disjuntores.PolosDisjuntorExtractor import (
-    PolosDisjuntorExtractor,
-)
 from src.categorization.extratores.eletrica.lampadas.FormatoLampadaExtractor import (
     FormatoLampadaExtractor,
 )
@@ -75,19 +72,19 @@ variation_pipeline = VariationPipeline(
         "PARAFUSOS": [
             ParafusoVariationExtractor(),
             MedidaAxBExtractor(),
+            MedidaExtractor(),
             ChumbadorAncoraVariationExtractor(),
             RebiteVariationExtractor(),
             BuchaVariationExtractor(),
             PorcaVariationExtractor(),
             ArruelaVariationExtractor(),
-            MedidaExtractor(),
             CorExtractor(),
         ],
         "TOMADAS": [
             TipoTomadaExtractor(),
             AmperagemExtractor(),
-            MedidaExtractor(),
             MedidaAxBExtractor(),
+            MedidaExtractor(),
             PolosExtractor(),
             CorExtractor(),
         ],
@@ -95,7 +92,6 @@ variation_pipeline = VariationPipeline(
             CentrinhoVariationExtractor(),
             AmperagemExtractor(),
             PolosExtractor(),
-            PolosDisjuntorExtractor(),
             LumensExtractor(),
             FormatoLampadaExtractor(),
             PotenciaLampadaExtractor(),

@@ -10,14 +10,18 @@ class PolosExtractor:
     PADRAO_2P = re.compile(r"\b2p\b", re.IGNORECASE)
     PADRAO_1P = re.compile(r"\b1p\b", re.IGNORECASE)
 
-    COM_TERRA = re.compile(r"\bcom\sTerra\b", re.IGNORECASE)
-    SEM_TERRA = re.compile(r"\bsem\sTerra\b", re.IGNORECASE)
+    COM_TERRA = re.compile(r"\bcom\s+terra\b", re.IGNORECASE)
+    SEM_TERRA = re.compile(r"\bsem\s+terra\b", re.IGNORECASE)
+
+    PADROES_DISJUNTOR = {
+        "UNIPOLAR": re.compile(r"\bunipolar\b", re.IGNORECASE),
+        "BIPOLAR": re.compile(r"\bbipolar\b", re.IGNORECASE),
+        "TRIPOLAR": re.compile(r"\btripolar\b", re.IGNORECASE),
+    }
 
     def aplica(self, descricao: str) -> bool:
         if not descricao:
             return False
-
-        desc = descricao.upper()
 
         return any(
             padrao.search(descricao)
@@ -30,6 +34,7 @@ class PolosExtractor:
                 self.PADRAO_1P,
                 self.COM_TERRA,
                 self.SEM_TERRA,
+                *self.PADROES_DISJUNTOR.values(),
             )
         )
 
@@ -40,11 +45,11 @@ class PolosExtractor:
         desc = descricao.lower()
         polos = None
 
-        # Prioridade: polos + terra
+        # prioridade 1: padrões tipo 3P+T, 2P, 1P etc.
         if self.PADRAO_3P_T.search(desc):
-            polos = "3PT"
+            polos = "3P T"
         elif self.PADRAO_2P_T.search(desc) or self.PADRAO_P_T.search(desc):
-            polos = "2PT"
+            polos = "2P T"
         elif self.PADRAO_3P.search(desc):
             polos = "3P"
         elif self.PADRAO_2P.search(desc):
@@ -52,11 +57,18 @@ class PolosExtractor:
         elif self.PADRAO_1P.search(desc):
             polos = "1P"
 
-        # Ajustes finais
+        # ajustes com terra
         if polos and self.SEM_TERRA.search(desc):
             polos = polos.replace("T", "")
 
         if polos and self.COM_TERRA.search(desc) and "T" not in polos:
             polos = polos + "T"
+
+        # prioridade 2: padrões textuais de disjuntor
+        if not polos:
+            for valor, regex in self.PADROES_DISJUNTOR.items():
+                if regex.search(descricao):
+                    polos = valor
+                    break
 
         return {"Polos": polos}

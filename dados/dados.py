@@ -562,9 +562,8 @@ mapa_abreviacoes = {
     "4TOM": "4 TOMADAS",
     "5TOM": "5 TOMADAS",
     "LUZ PHILIPS 9/64 ": "LUZ PHILIPS 9/64X",
-    "6,0X 60": "6,0X60",
     "QUINT": "QUINTUPLA",
-    "3INT": "3 INTERRUPTORES",
+    "SIMPL": "SIMPLES",
     "4INT": "4 INTERRUPTORES",
     "5INT": "5 INTERRUPTORES",
     "6INT": "6 INTERRUPTORES",
@@ -572,6 +571,10 @@ mapa_abreviacoes = {
     "2MOD": "2 MODULOS",
     "C/ BRANCO": "BRANCO",
     "2 SIMPLES": "2 INTERRUPTORES",
+    "ACO10M": "ACO 10M",
+    "ACO20M": "ACO 20M",
+    "ACO30M": "ACO 30M",
+    "ACO40M": "ACO 15M",
 }
 
 headers = {

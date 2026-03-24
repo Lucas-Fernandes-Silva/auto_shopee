@@ -10,6 +10,6 @@ class PotenciaLampadaExtractor:
 
         match = self.PADRAO_W.search(descricao.lower())
         if match:
-            return {"Potencia_W": int(match.group(1))}
+            return {"Potencia_W": f"{int(match.group(1))}W"}
 
         return {"Potencia_W": None}

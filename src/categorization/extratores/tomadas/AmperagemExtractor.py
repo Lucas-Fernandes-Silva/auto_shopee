@@ -2,29 +2,19 @@ import re
 
 
 class AmperagemExtractor:
-    AMPERAGENS_VALIDAS = [
-        "63",
-        "50",
-        "40",
-        "32",
-        "25",
-        "20",
-        "16",
-        "10",
-        "06",
-        "8",
-        "10",
-        "15",
-        "5",
-        "7",
-        "41",
-    ]
+    """
+    Extrai amperagem diretamente da descrição SEM lista fixa.
 
-    # incluir na removação os 0-9
+    Regras:
+    - Aceita valores como: 6A, 06A, 6,00A, 6.00A
+    - Mantém apenas o número (int)
+    - Não depende de lista de amperagens válidas
+    """
+
     def __init__(self):
-        valores = "|".join(str(a) for a in self.AMPERAGENS_VALIDAS)
+        # pega número inteiro ou decimal antes de A/AMP/AMPS
         self.PADRAO = re.compile(
-            rf"\b({valores})\s*(a|amp|amps)\b",
+            r"\b(\d{1,3}(?:[\.,]\d{1,2})?)\s*(a|amp|amps)\b",
             re.IGNORECASE,
         )
 
@@ -32,8 +22,21 @@ class AmperagemExtractor:
         if not descricao:
             return {"Amperagem": None}
 
-        match = self.PADRAO.search(descricao.lower())
+        descricao = descricao.lower()
+
+        match = self.PADRAO.search(descricao)
+
         if match:
-            return {"Amperagem": int(match.group(1))}
+            valor = match.group(1)
+
+            # normalizar decimal (6,00 -> 6 | 6.00 -> 6)
+            valor = valor.replace(",", ".")
+
+            try:
+                valor_float = float(valor)
+                valor_int = int(valor_float)
+                return {"Amperagem": f"{valor_int}A"}
+            except Exception:
+                return {"Amperagem": None}
 
         return {"Amperagem": None}

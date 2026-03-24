@@ -1,13 +1,13 @@
-from src.categorization.extratores.eletrica.disjuntores.PolosDisjuntorExtractor import (
-    PolosDisjuntorExtractor,
-)
 from src.categorization.extratores.tomadas.AmperagemExtractor import AmperagemExtractor
+from src.categorization.extratores.tomadas.PolosExtractor import (
+    PolosExtractor,
+)
 
 
 class DisjuntorVariationExtractor:
     def __init__(self):
         self.amperagem = AmperagemExtractor()
-        self.polos = PolosDisjuntorExtractor()
+        self.polos = PolosExtractor()
 
     def extrair(self, descricao: str) -> dict:
         variacoes = {}

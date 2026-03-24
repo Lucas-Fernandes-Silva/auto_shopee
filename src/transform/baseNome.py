@@ -1,6 +1,6 @@
 import re
-import pandas as pd
 
+import pandas as pd
 
 CAMPOS_VARIACAO_POR_DOMINIO = {
     "ELETRICA": [
@@ -12,8 +12,10 @@ CAMPOS_VARIACAO_POR_DOMINIO = {
         "Capacidade_Centrinho",
         "Formato",
         "Potencia_W",
+        "Lumens",
         "Temperatura_Cor",
         "Tipo_Lampada",
+        "Medida",
     ],
     "PARAFUSOS": [
         "Tipo_Parafuso",
@@ -44,6 +46,7 @@ CAMPOS_VARIACAO_POR_DOMINIO = {
         "Diametro",
         "Comprimento_Venda",
         "Cor",
+        "Medida",
     ],
 }
 
@@ -100,6 +103,39 @@ def gerar_tokens_equivalentes(valor, campo):
                 tokens.add(f"{n}{unidade}")
                 if unidade:
                     tokens.add(f"{n} {unidade}")
+
+    elif campo == "Medida":
+        base = v_raw.strip().upper().replace("×", "X")
+
+        # remove aspas antigas, se existirem
+        base = base.replace('"', "").replace("'", "")
+        base = re.sub(r"\s*[X]\s*", "X", base)
+
+        variantes_base = {base, base.replace(",", "."), base.replace(".", ",")}
+
+        tokens = set()
+
+        for v in variantes_base:
+            partes = re.split(r"X", v)
+            if len(partes) >= 2:
+                tokens.add("X".join(partes))
+                tokens.add(" X ".join(partes))
+                tokens.add(" x ".join(partes))
+
+                if len(partes) == 2:
+                    a, b = partes
+                    tokens.add(f"{a}X{b}")
+                    tokens.add(f"{a}X {b}")
+                    tokens.add(f"{a} X{b}")
+                    tokens.add(f"{a} X {b}")
+                    tokens.add(f"{a}x{b}")
+                    tokens.add(f"{a}x {b}")
+                    tokens.add(f"{a} x{b}")
+                    tokens.add(f"{a} x {b}")
+            else:
+                tokens.add(v)
+
+        return list(tokens)
 
     elif campo == "Diametro":
         if "/" in v:
