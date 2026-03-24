@@ -63,7 +63,7 @@ class MedidaExtractor:
         return float(str(s).replace(" ", "").replace(",", "."))
 
     def _inferir_numero_por_contexto(
-        self, descricao: str, ctx: re.Pattern, valor_max: float = 100
+        self, descricao: str, ctx: re.Pattern, valor_max: float = 150
     ) -> str | None:
         if not ctx.search(descricao):
             return None

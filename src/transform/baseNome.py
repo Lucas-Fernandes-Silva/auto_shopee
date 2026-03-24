@@ -93,7 +93,7 @@ def gerar_tokens_equivalentes(valor, campo):
     v = v_raw.upper()
     tokens = set()
 
-    if campo in {"Comprimento_Venda", "Peso_Venda", "Volume"}:
+    if campo in {"Comprimento_Venda", "Peso_Venda", "Volume", "Medida"}:
         match = re.match(r"(\d+(?:[.,]\d+)?)(.*)", v)
         if match:
             numero = match.group(1)
@@ -104,7 +104,7 @@ def gerar_tokens_equivalentes(valor, campo):
                 if unidade:
                     tokens.add(f"{n} {unidade}")
 
-    elif campo == "Medida":
+    elif campo == "Medida" | campo == "Potencia_W":
         base = v_raw.strip().upper().replace("×", "X")
 
         # remove aspas antigas, se existirem
