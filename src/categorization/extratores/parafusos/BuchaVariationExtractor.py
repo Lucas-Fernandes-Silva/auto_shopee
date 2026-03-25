@@ -2,7 +2,7 @@ import re
 
 
 class BuchaVariationExtractor:
-    TAMANHOS_VALIDOS = {"06", "6", "08", "8" "10", "12"}
+    TAMANHOS_VALIDOS = {"06", "6", "08", "8", "10", "12"}
 
     def extrair(self, descricao: str):
         descricao = descricao.upper()
