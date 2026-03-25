@@ -574,7 +574,10 @@ mapa_abreviacoes = {
     "ACO10M": "ACO 10M",
     "ACO20M": "ACO 20M",
     "ACO30M": "ACO 30M",
-    "ACO40M": "ACO 15M",
+    "ACO15M": "ACO 15M",
+    "1,1/": "1 1/",
+    "NEU/TERR": "NEUTRO",
+    "1JOMARCA": "1 JOMARCA",
 }
 
 headers = {

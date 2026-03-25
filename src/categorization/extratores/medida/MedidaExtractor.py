@@ -10,15 +10,13 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
-    # frações válidas só de polegada, sem datas e sem 03/04
     PADRAO_POLEGADA = re.compile(
         r"(?<![\d.,])"
-        r"(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1\s*1/2|1 1/2|1 1/4|11/4|1|11/2)"
+        r"(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1\s*1/2|1 1/2|1 1/4|11/4|1|11/2|3\s*1/2|4\s*1/2)"
         r"(?![\d,./])\s*(?:POL|\"|')?\b",
         re.IGNORECASE,
     )
 
-    # token inteiro, não só o número
     PADRAO_DIAMETRO_MM = re.compile(
         r"(?<![/\d])(\d+(?:[.,]\d+)?\s*(?:MM|MILIMETROS?))\b",
         re.IGNORECASE,
@@ -46,15 +44,25 @@ class MedidaExtractor:
 
     PADRAO_NUMERO_SOLTO = re.compile(r"\b(\d+(?:[.,]\d+)?)\b")
 
+    # comprimento
     CTX_ENGATE = re.compile(r"\b(ENGATE|RABICHO)\b", re.IGNORECASE)
     CTX_GRELHA = re.compile(r"\b(GRELHA)\b", re.IGNORECASE)
-    CTX_TUBO_LIGACAO = re.compile(r"\b(TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O)\b", re.IGNORECASE)
+    CTX_TUBO_LIGACAO = re.compile(
+        r"\b(TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O)\b",
+        re.IGNORECASE,
+    )
 
-    CTX_TUBO = re.compile(r"\b(TUBO)\b", re.IGNORECASE)
+    # diâmetro
+    CTX_HIDRAULICA = re.compile(
+        r"\b(TUBO|CANO|CONEXAO|CONEXOES|JOELHO|T[EÊ]\b|LUVA|BUCHA|ADAPTADOR|NIPLE|UNIAO|UNIÃO|REGISTRO|VALVULA|VÁLVULA|SIFAO|SIFÃO|MANGUEIRA)\b",
+        re.IGNORECASE,
+    )
+    REFORCO_HIDRAULICA = re.compile(
+        r"\b(PVC|CPVC|PPR|PEX|AGUA|ÁGUA|ESGOTO|SOLDAVEL|SOLDÁVEL|COLAVEL|COLÁVEL|ROSCA)\b",
+        re.IGNORECASE,
+    )
 
-    CTX_CABO = re.compile(r"\b(FIO|CABO|EXTENS[AÃ]O)\b", re.IGNORECASE)
-    CTX_CONDUITE_DIAMETRO = re.compile(r"\b(CONDUITE|ELETRODUTO)\b", re.IGNORECASE)
-    CTX_CONDUITE_COMPRIMENTO = re.compile(r"\b(ROLO)\b", re.IGNORECASE)
+    CTX_DIAMETRO = re.compile(r"\b(FIO|CABO|EXTENS[AÃ]O|CONDUITE|ELETRODUTO|CORRUGADO)\b", re.IGNORECASE)
 
     def _limpar_match(self, s: str) -> str:
         return str(s).strip()
@@ -63,7 +71,10 @@ class MedidaExtractor:
         return float(str(s).replace(" ", "").replace(",", "."))
 
     def _inferir_numero_por_contexto(
-        self, descricao: str, ctx: re.Pattern, valor_max: float = 150
+        self,
+        descricao: str,
+        ctx: re.Pattern,
+        valor_max: float = 150,
     ) -> str | None:
         if not ctx.search(descricao):
             return None
@@ -73,6 +84,7 @@ class MedidaExtractor:
             return None
 
         candidato = nums[-1]
+
         try:
             v = self._to_float(candidato)
         except Exception:
@@ -93,7 +105,7 @@ class MedidaExtractor:
                 "Secao_Cabo": None,
             }
 
-        # se tiver AxB/AxBxC, deixa com o MedidaAxBExtractor
+        # se tiver AxB/AxBxC, deixa com MedidaAxBExtractor
         if self.PADRAO_TEM_AXB.search(descricao):
             return {
                 "Diametro": None,
@@ -109,6 +121,7 @@ class MedidaExtractor:
         peso = None
         secao = None
 
+        # explícitos
         m = self.PADRAO_SECAO_MM2.search(descricao)
         if m:
             secao = self._limpar_match(m.group(1))
@@ -128,18 +141,18 @@ class MedidaExtractor:
         m = self.PADRAO_DIAMETRO_MM.search(descricao)
         if m:
             token = self._limpar_match(m.group(1))
-            if self.CTX_CABO.search(descricao):
+            if self.CTX_DIAMETRO.search(descricao):
                 secao = token
             else:
                 diametro = token
 
-        # polegada sem aspas
+        # polegada explícita
         if diametro is None:
             m = self.PADRAO_POLEGADA.search(descricao)
             if m:
-                diametro = m.group(1).replace(" ", "").strip()
+                diametro = self._limpar_match(m.group(1))
 
-        # inferências
+        # inferência de comprimento
         if comprimento is None:
             comprimento = self._inferir_numero_por_contexto(descricao, self.CTX_ENGATE)
 
@@ -149,19 +162,10 @@ class MedidaExtractor:
         if comprimento is None:
             comprimento = self._inferir_numero_por_contexto(descricao, self.CTX_TUBO_LIGACAO)
 
-        if comprimento is None:
-            comprimento = self._inferir_numero_por_contexto(
-                descricao, self.CTX_CONDUITE_COMPRIMENTO
-            )
-
+        # inferência de diâmetro
         if diametro is None:
-            diametro = self._inferir_numero_por_contexto(descricao, self.CTX_CABO)
+            diametro = self._inferir_numero_por_contexto(descricao, self.CTX_DIAMETRO)
 
-        if diametro is None:
-            diametro = self._inferir_numero_por_contexto(descricao, self.CTX_CONDUITE_DIAMETRO)
-
-        if diametro is None:
-            diametro = self._inferir_numero_por_contexto(descricao, self.CTX_TUBO)
 
         return {
             "Diametro": diametro,
