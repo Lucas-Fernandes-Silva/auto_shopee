@@ -46,7 +46,7 @@ class MedidaExtractor:
     CTX_ENGATE = re.compile(r"\b(ENGATE|RABICHO)\b", re.IGNORECASE)
     CTX_GRELHA = re.compile(r"\b(GRELHA)\b", re.IGNORECASE)
     CTX_TUBO_LIGACAO = re.compile(
-        r"\b(TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O)\b",
+        r"\b(TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O|TUBO)\b",
         re.IGNORECASE,
     )
 
@@ -75,7 +75,7 @@ class MedidaExtractor:
     )
 
     PADRAO_CTX_TUBO_LIGACAO_NUM = re.compile(
-        r"\b(?:TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
+        r"\b(?:TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O|TUBO)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
         re.IGNORECASE,
     )
 
@@ -83,6 +83,7 @@ class MedidaExtractor:
         r"\b(?:ROLO)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
         re.IGNORECASE,
     )
+
     def _limpar_match(self, s: str) -> str:
         return str(s).strip()
 
@@ -179,9 +180,7 @@ class MedidaExtractor:
                 descricao, self.PADRAO_CTX_GRELHA_NUM
             )
         if comprimento is None:
-            comprimento = self._inferir_numero_proximo_contexto(
-                descricao, self.PADRAO_CTX_ROLO_NUM
-            )
+            comprimento = self._inferir_numero_proximo_contexto(descricao, self.PADRAO_CTX_ROLO_NUM)
 
         if comprimento is None:
             comprimento = self._inferir_numero_proximo_contexto(
@@ -190,9 +189,7 @@ class MedidaExtractor:
 
         # ---------- INFERÊNCIA DE DIÂMETRO SOMENTE POR CONTEXTO ----------
         if diametro is None:
-            diametro = self._inferir_numero_proximo_contexto(
-                descricao, self.PADRAO_CTX_DIAMETRO
-            )
+            diametro = self._inferir_numero_proximo_contexto(descricao, self.PADRAO_CTX_DIAMETRO)
 
         return {
             "Diametro": diametro,

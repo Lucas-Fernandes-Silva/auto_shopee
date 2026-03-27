@@ -2,7 +2,7 @@ import re
 
 
 class PotenciaLampadaExtractor:
-    PADRAO_W = re.compile(r"\b(\d{1,3})\s*(w|watts?)\b", re.IGNORECASE)
+    PADRAO_W = re.compile(r"\b(\d{1,2})\s*(w|watts?)\b", re.IGNORECASE)
 
 
     def extrair(self, descricao: str) -> dict:
