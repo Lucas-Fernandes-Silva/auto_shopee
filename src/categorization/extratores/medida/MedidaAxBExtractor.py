@@ -16,7 +16,7 @@ class MedidaAxBExtractor:
     EIXO = rf"(?:{MIXED}|{FRAC}|{NUM})"
 
     # unidade opcional
-    UN = r'(?:\s*(?:MM|CM|M|MT|MTS|METRO|METROS|POL|\"|\'))?'
+    UN = r'(?:\s*(?:MM|CM|MT|M|MTS|METRO|METROS|\"|\'))?'
 
     # 3 dimensões
     PADRAO_3D = re.compile(
@@ -40,23 +40,8 @@ class MedidaAxBExtractor:
         re.IGNORECASE,
     )
 
-    def _limpar_match(self, s: str) -> str:
-        s = s.strip()
-        s = s.replace("×", "X")
-
-        # padroniza apenas o separador X
-        s = re.sub(r"\s*[xX]\s*", "X", s)
-
-        # remove aspas antigas, se existirem
-        s = s.replace('"', "").replace("'", "")
-
-        # mantém os espaços internos importantes, como em 1 1/2
-        s = re.sub(r"\s+", " ", s).strip()
-        return s
-
     def _trecho_exato(self, descricao: str, match: re.Match) -> str:
-        trecho = descricao[match.start():match.end()]
-        return self._limpar_match(trecho)
+        return descricao[match.start():match.end()].strip()
 
     def extrair(self, descricao: str) -> dict:
         if not isinstance(descricao, str) or not descricao.strip():
@@ -75,6 +60,6 @@ class MedidaAxBExtractor:
         # 3) barra com unidade
         mb = self.PADRAO_BARRA_UNIDADE.search(descricao)
         if mb:
-            return {"Medida": self._limpar_match(mb.group(1))}
+            return {"Medida": mb.group(1).strip()}
 
         return {"Medida": None}

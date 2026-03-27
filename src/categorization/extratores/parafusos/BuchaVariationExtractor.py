@@ -2,6 +2,7 @@ import re
 
 
 class BuchaVariationExtractor:
+    aplicar_em = ["BUCHA", "PITAO", "PITÃO", "GANCHO", "ESCAPULA"]
     TAMANHOS_VALIDOS = {"06", "6", "08", "8", "10", "12"}
 
     def extrair(self, descricao: str):
@@ -35,7 +36,7 @@ class BuchaVariationExtractor:
             resultado["Anel"] = "SEM ANEL"
 
         # ---------- TAMANHO ----------
-        numeros = re.findall(r"\b\d{2}\b", descricao)
+        numeros = re.findall(r"\b\d{1,2}\b", descricao)
         for n in numeros:
             if n in self.TAMANHOS_VALIDOS:
                 resultado["Medida"] = n

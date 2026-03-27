@@ -47,9 +47,9 @@ class PolosExtractor:
 
         # prioridade 1: padrões tipo 3P+T, 2P, 1P etc.
         if self.PADRAO_3P_T.search(desc):
-            polos = "3P T"
+            polos = "3P+T"
         elif self.PADRAO_2P_T.search(desc) or self.PADRAO_P_T.search(desc):
-            polos = "2P T"
+            polos = "2P+T"
         elif self.PADRAO_3P.search(desc):
             polos = "3P"
         elif self.PADRAO_2P.search(desc):

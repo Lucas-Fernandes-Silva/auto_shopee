@@ -60,8 +60,8 @@ class TextNormalizer:
         return (
             texto.replace("×", " X ")
             .replace("x", " X ")
-            .replace("+", " ")
-            .replace("-", " - ")
+            .replace("+", "+")
+            .replace("-", "-")
             .replace("—", " ")
             .replace("=", " ")
             .replace("(", " ")

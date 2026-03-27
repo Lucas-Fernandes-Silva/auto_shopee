@@ -2,19 +2,17 @@ import re
 
 
 class AmperagemExtractor:
-    """
-    Extrai amperagem diretamente da descrição SEM lista fixa.
-
-    Regras:
-    - Aceita valores como: 6A, 06A, 6,00A, 6.00A
-    - Mantém apenas o número (int)
-    - Não depende de lista de amperagens válidas
-    """
 
     def __init__(self):
-        # pega número inteiro ou decimal antes de A/AMP/AMPS
-        self.PADRAO = re.compile(
-            r"\b(\d{1,3}(?:[\.,]\d{1,2})?)\s*(a|amp|amps)\b",
+        # 1) padrão composto: 10A/20A, 10A / 20A, 10AMP/20AMP
+        self.PADRAO_COMPOSTO = re.compile(
+            r"\b(\d{1,3}(?:[\.,]\d{1,2})?\s*(?:A|AMP|AMPS)\s*/\s*\d{1,3}(?:[\.,]\d{1,2})?\s*(?:A|AMP|AMPS))\b",
+            re.IGNORECASE,
+        )
+
+        # 2) padrão simples: 6A, 06A, 6,00A, 6.00A
+        self.PADRAO_SIMPLES = re.compile(
+            r"\b(\d{1,3}(?:[\.,]\d{1,2})?)\s*(A|AMP|AMPS)\b",
             re.IGNORECASE,
         )
 
@@ -22,21 +20,16 @@ class AmperagemExtractor:
         if not descricao:
             return {"Amperagem": None}
 
-        descricao = descricao.lower()
+        # ---------- 1) PRIORIDADE: AMPERAGEM COMPOSTA ----------
+        match_composto = self.PADRAO_COMPOSTO.search(descricao)
+        if match_composto:
+            valor_original = match_composto.group(1)
+            return {"Amperagem": valor_original}
 
-        match = self.PADRAO.search(descricao)
-
-        if match:
-            valor = match.group(1)
-
-            # normalizar decimal (6,00 -> 6 | 6.00 -> 6)
-            valor = valor.replace(",", ".")
-
-            try:
-                valor_float = float(valor)
-                valor_int = int(valor_float)
-                return {"Amperagem": f"{valor_int}A"}
-            except Exception:
-                return {"Amperagem": None}
+        # ---------- 2) FALLBACK: AMPERAGEM SIMPLES ----------
+        match_simples = self.PADRAO_SIMPLES.search(descricao)
+        if match_simples:
+            valor_original = match_simples.group(1)
+            return {"Amperagem": f"{valor_original}A"}
 
         return {"Amperagem": None}

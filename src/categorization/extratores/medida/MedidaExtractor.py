@@ -42,9 +42,7 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
-    PADRAO_NUMERO_SOLTO = re.compile(r"\b(\d+(?:[.,]\d+)?)\b")
-
-    # comprimento
+    # ---------- CONTEXTOS ----------
     CTX_ENGATE = re.compile(r"\b(ENGATE|RABICHO)\b", re.IGNORECASE)
     CTX_GRELHA = re.compile(r"\b(GRELHA)\b", re.IGNORECASE)
     CTX_TUBO_LIGACAO = re.compile(
@@ -52,38 +50,56 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
-    # diâmetro
-    CTX_HIDRAULICA = re.compile(
-        r"\b(TUBO|CANO|CONEXAO|CONEXOES|JOELHO|T[EÊ]\b|LUVA|BUCHA|ADAPTADOR|NIPLE|UNIAO|UNIÃO|REGISTRO|VALVULA|VÁLVULA|SIFAO|SIFÃO|MANGUEIRA)\b",
-        re.IGNORECASE,
-    )
-    REFORCO_HIDRAULICA = re.compile(
-        r"\b(PVC|CPVC|PPR|PEX|AGUA|ÁGUA|ESGOTO|SOLDAVEL|SOLDÁVEL|COLAVEL|COLÁVEL|ROSCA)\b",
+    CTX_DIAMETRO = re.compile(
+        r"\b(FIO|CABO|EXTENSÃO|EXTENSAO|CONDUITE|ELETRODUTO|CORRUGADO)\b",
         re.IGNORECASE,
     )
 
-    CTX_DIAMETRO = re.compile(r"\b(FIO|CABO|EXTENS[AÃ]O|CONDUITE|ELETRODUTO|CORRUGADO)\b", re.IGNORECASE)
+    # ---------- PADRÕES DE INFERÊNCIA CONTEXTUAL ----------
+    PADRAO_CTX_DIAMETRO = re.compile(
+        r"\b(?:FIO|CABO|EXTENSÃO|EXTENSAO|CONDUITE|ELETRODUTO|CORRUGADO)\b"
+        r"(?:[^\d]{0,20})"
+        r"(\d+(?:[.,]\d+)?)"
+        r"\s*(?:MM|POL|\")?\b",
+        re.IGNORECASE,
+    )
 
+    PADRAO_CTX_ENGATE_NUM = re.compile(
+        r"\b(?:ENGATE|RABICHO)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
+        re.IGNORECASE,
+    )
+
+    PADRAO_CTX_GRELHA_NUM = re.compile(
+        r"\b(?:GRELHA)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
+        re.IGNORECASE,
+    )
+
+    PADRAO_CTX_TUBO_LIGACAO_NUM = re.compile(
+        r"\b(?:TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
+        re.IGNORECASE,
+    )
+
+    PADRAO_CTX_ROLO_NUM = re.compile(
+        r"\b(?:ROLO)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
+        re.IGNORECASE,
+    )
     def _limpar_match(self, s: str) -> str:
         return str(s).strip()
 
     def _to_float(self, s: str) -> float:
         return float(str(s).replace(" ", "").replace(",", "."))
 
-    def _inferir_numero_por_contexto(
+    def _inferir_numero_proximo_contexto(
         self,
         descricao: str,
-        ctx: re.Pattern,
+        padrao_ctx_num: re.Pattern,
         valor_max: float = 150,
     ) -> str | None:
-        if not ctx.search(descricao):
+        match = padrao_ctx_num.search(descricao)
+        if not match:
             return None
 
-        nums = [m.group(1) for m in self.PADRAO_NUMERO_SOLTO.finditer(descricao)]
-        if not nums:
-            return None
-
-        candidato = nums[-1]
+        candidato = match.group(1)
 
         try:
             v = self._to_float(candidato)
@@ -121,7 +137,7 @@ class MedidaExtractor:
         peso = None
         secao = None
 
-        # explícitos
+        # ---------- EXPLÍCITOS ----------
         m = self.PADRAO_SECAO_MM2.search(descricao)
         if m:
             secao = self._limpar_match(m.group(1))
@@ -146,26 +162,37 @@ class MedidaExtractor:
             else:
                 diametro = token
 
-        # polegada explícita
+        # ---------- POLEGADA EXPLÍCITA ----------
         if diametro is None:
             m = self.PADRAO_POLEGADA.search(descricao)
             if m:
                 diametro = self._limpar_match(m.group(1))
 
-        # inferência de comprimento
+        # ---------- INFERÊNCIA DE COMPRIMENTO SOMENTE POR CONTEXTO ----------
         if comprimento is None:
-            comprimento = self._inferir_numero_por_contexto(descricao, self.CTX_ENGATE)
+            comprimento = self._inferir_numero_proximo_contexto(
+                descricao, self.PADRAO_CTX_ENGATE_NUM
+            )
 
         if comprimento is None:
-            comprimento = self._inferir_numero_por_contexto(descricao, self.CTX_GRELHA)
+            comprimento = self._inferir_numero_proximo_contexto(
+                descricao, self.PADRAO_CTX_GRELHA_NUM
+            )
+        if comprimento is None:
+            comprimento = self._inferir_numero_proximo_contexto(
+                descricao, self.PADRAO_CTX_ROLO_NUM
+            )
 
         if comprimento is None:
-            comprimento = self._inferir_numero_por_contexto(descricao, self.CTX_TUBO_LIGACAO)
+            comprimento = self._inferir_numero_proximo_contexto(
+                descricao, self.PADRAO_CTX_TUBO_LIGACAO_NUM
+            )
 
-        # inferência de diâmetro
+        # ---------- INFERÊNCIA DE DIÂMETRO SOMENTE POR CONTEXTO ----------
         if diametro is None:
-            diametro = self._inferir_numero_por_contexto(descricao, self.CTX_DIAMETRO)
-
+            diametro = self._inferir_numero_proximo_contexto(
+                descricao, self.PADRAO_CTX_DIAMETRO
+            )
 
         return {
             "Diametro": diametro,
