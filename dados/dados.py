@@ -294,6 +294,7 @@ SEARCH_ENGINE_ID = "532347d8c03cc4861"
 
 mapa_abreviacoes = {
     "VM": "VERMELHO",
+    "INT. 1S+TOM 2P+T": "INTERRUPTOR + TOMADA 2P + T",
     "AZ": "AZUL",
     "BR": "BRANCO",
     "PT": "PRETO",

@@ -580,6 +580,7 @@ mapa_abreviacoes = {
     "QUINT": "QUINTUPLA",
     "SIMPL": "SIMPLES",
     "C/ PL": "COM PLACA",
+    "C/PL": "COM PLACA","
     "PL MILL": "PLACA MILL",
     "C/CX": "",
     "TRAMON": "",
