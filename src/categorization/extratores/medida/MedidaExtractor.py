@@ -7,23 +7,38 @@ class MedidaExtractor:
     # =========================================================
 
     PADRAO_TEM_AXB = re.compile(
-        r"(?:\d+\s+\d+/\d+|\d+/\d+|\d+(?:[.,]\d+)?)\s*(?:MM|CM|M|MT|MTS|METRO|METROS|POL|\"|')?\s*[xX×]\s*"
-        r"(?:\d+\s+\d+/\d+|\d+/\d+|\d+(?:[.,]\d+)?)"
+        r"(?:\d+\s+\d+/\d+|\d+[.,]\d+/\d+|\d+/\d+|\d+(?:[.,]\d+)?)\s*"
+        r"(?:MM|CM|M|MT|MTS|METRO|METROS|POL|\"|')?\s*[xX×]\s*"
+        r"(?:\d+\s+\d+/\d+|\d+[.,]\d+/\d+|\d+/\d+|\d+(?:[.,]\d+)?)"
         r"(?:\s*(?:MM|CM|M|MT|MTS|METRO|METROS|POL|\"|')?\s*[xX×]\s*"
-        r"(?:\d+\s+\d+/\d+|\d+/\d+|\d+(?:[.,]\d+)?))?",
+        r"(?:\d+\s+\d+/\d+|\d+[.,]\d+/\d+|\d+/\d+|\d+(?:[.,]\d+)?))?",
         re.IGNORECASE,
     )
 
+    # Polegada explícita (com POL, " ou ')
     PADRAO_POLEGADA = re.compile(
         r"(?<![\d])"
         r"("
-        r"\d+\s+\d+/\d+|"      # ex: 1 1/2
-        r"\d+/\d+|"            # ex: 1/2
-        r"\d+(?:[.,]\d+)?"     # ex: 1 ou 1,1
+        r"\d+\s+\d+/\d+|"      # 1 1/2
+        r"\d+[.,]\d+/\d+|"     # 1.1/4 ou 1,1/4
+        r"\d+/\d+|"            # 3/4
+        r"\d+(?:[.,]\d+)?"     # 1, 1.5 etc
         r")"
         r"\s*(?:POL\b|\"|')",
         re.IGNORECASE,
-)
+    )
+
+    # Polegada sem unidade (só usar com contexto técnico)
+    PADRAO_POLEGADA_SEM_UNIDADE = re.compile(
+        r"(?<![\d])"
+        r"("
+        r"\d+\s+\d+/\d+|"      # 1 1/2
+        r"\d+[.,]\d+/\d+|"     # 1.1/4
+        r"\d+/\d+"             # 3/4
+        r")"
+        r"(?![\d])",
+        re.IGNORECASE,
+    )
 
     PADRAO_DIAMETRO_MM = re.compile(
         r"(?<![/\d])(\d+(?:[.,]\d+)?\s*(?:MM|MILIMETROS?))\b",
@@ -62,13 +77,26 @@ class MedidaExtractor:
     )
     CTX_ROLO = re.compile(r"\b(ROLO)\b", re.IGNORECASE)
 
+    # seção elétrica
     CTX_SECAO_CABO = re.compile(
         r"\b(FIO|CABO)\b",
         re.IGNORECASE,
     )
 
+    # diâmetro físico
     CTX_DIAMETRO = re.compile(
         r"\b(CONDUITE|ELETRODUTO|CORRUGADO|TUBO|MANGUEIRA)\b",
+        re.IGNORECASE,
+    )
+
+    # contexto técnico para aceitar polegada sem unidade
+    CTX_POLEGADA_TECNICA = re.compile(
+        r"\b("
+        r"CONDUITE|ELETRODUTO|CORRUGADO|TUBO|MANGUEIRA|"
+        r"JOELHO|LUVA|REGISTRO|ADAPTADOR|CURVA|TE|NIPLE|"
+        r"BUCHA|UNIAO|UNIÃO|COTOVELO|REDUCAO|REDUÇÃO|"
+        r"ENGATE|RABICHO|CONEXAO|CONEXÃO"
+        r")\b",
         re.IGNORECASE,
     )
 
@@ -112,10 +140,14 @@ class MedidaExtractor:
     # =========================================================
 
     PADRAO_AXB_POLEGADA_X_COMPRIMENTO = re.compile(
-        r"(?<![\d.,])"
-        r"(1\s*1/2|1\s*1/4|1\s*1/8|1\s*3/4|2\s*1/2|3\s*1/2|4\s*1/2|"
-        r"1/8|1/4|3/8|1/2|5/8|3/4|7/8|1|2|3|4)"
-        r"(?![\d,./])\s*(?:POL\b|\"|')?\s*[xX×]\s*"
+        r"(?<![\d])"
+        r"("
+        r"\d+\s+\d+/\d+|"      # 1 1/2
+        r"\d+[.,]\d+/\d+|"     # 1.1/4
+        r"\d+/\d+|"            # 3/4
+        r"\d+(?:[.,]\d+)?"     # 1
+        r")"
+        r"\s*(?:POL\b|\"|')?\s*[xX×]\s*"
         r"(\d+(?:[.,]\d+)?\s*(?:CM|M|MT|MTS|METRO|METROS))\b",
         re.IGNORECASE,
     )
@@ -137,7 +169,11 @@ class MedidaExtractor:
         return float(str(s).replace(" ", "").replace(",", "."))
 
     def _normalizar_fracao(self, s: str) -> str:
-        return re.sub(r"\s+", " ", str(s).strip())
+        s = str(s).strip()
+        s = re.sub(r"\s*/\s*", "/", s)   # 3 / 4 -> 3/4
+        s = re.sub(r"\s+", " ", s)       # espaços múltiplos
+        s = re.sub(r"([0-9])[.,]([0-9]+/[0-9]+)", r"\1 \2", s)  # 1.1/4 -> 1 1/4
+        return s
 
     def _inferir_numero_proximo_contexto(
         self,
@@ -184,8 +220,6 @@ class MedidaExtractor:
         peso = None
         secao = None
 
-        tem_axb = bool(self.PADRAO_TEM_AXB.search(descricao))
-
         # =====================================================
         # 1) EXPLÍCITOS
         # =====================================================
@@ -222,13 +256,27 @@ class MedidaExtractor:
                 diametro = token
 
         # =====================================================
-        # 3) POLEGADA EXPLÍCITA
+        # 3) POLEGADA
         # =====================================================
 
         if diametro is None:
+            # primeiro tenta polegada explícita
             m = self.PADRAO_POLEGADA.search(descricao)
             if m:
-                diametro = self._normalizar_fracao(m.group(1))
+                valor = self._normalizar_fracao(m.group(1))
+
+                # fração sempre aceita
+                if "/" in valor or " " in valor:
+                    diametro = valor
+                # inteiro/decimal só se tiver contexto técnico
+                elif self.CTX_POLEGADA_TECNICA.search(descricao):
+                    diametro = valor
+
+            # depois tenta fração sem unidade em contexto técnico
+            if diametro is None and self.CTX_POLEGADA_TECNICA.search(descricao):
+                m = self.PADRAO_POLEGADA_SEM_UNIDADE.search(descricao)
+                if m:
+                    diametro = self._normalizar_fracao(m.group(1))
 
         # =====================================================
         # 4) CASOS AxB ÚTEIS
