@@ -23,7 +23,7 @@ from src.categorization.extratores.medida.MedidaExtractor import MedidaExtractor
 from src.categorization.extratores.parafusos.ArruelaVariationExtractor import (
     ArruelaVariationExtractor,
 )
-from src.categorization.extratores.parafusos.BuchaVariationExtractor import (
+from src.categorization.extratores.parafusos.BuchaVariationExtractor import ( 
     BuchaVariationExtractor,
 )
 from src.categorization.extratores.parafusos.ChumbadorVariationExtractor import (
