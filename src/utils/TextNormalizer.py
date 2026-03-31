@@ -61,7 +61,7 @@ class TextNormalizer:
             texto.replace("×", " X ")
             .replace("x", " X ")
             .replace("+", " + ")
-            .replace("-", "-")
+            .replace("-", " P")
             .replace("—", " ")
             .replace("=", " ")
             .replace("(", " ")

@@ -15,7 +15,7 @@ def aplicar_limpeza_nome_base(df):
 
         # remover "CAIXA" quando for ruído comercial,
         # mas preservar em nomes reais de produto
-        .str.replace(r"\bCAIXA\b(?!\s*(D'?AGUA|ACOPLADA|DE\s+(PASSAGEM|LUZ)))", "", regex=True)
+        .str.replace(r"\bCAIXA\b(?!\s*(D'?AGUA|ACOPLADA|DE\s+(PASSAGEM|LUZ|HIDROMETRO)))", "", regex=True)
         # acabamentos comerciais
         .str.replace(r"\bBICR\b", "", regex=True)
         .str.replace(r"\bBICROM\b", "", regex=True)
