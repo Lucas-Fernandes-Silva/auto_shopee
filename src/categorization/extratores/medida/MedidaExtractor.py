@@ -18,7 +18,7 @@ class MedidaExtractor:
     )
 
     PADRAO_DIAMETRO_MM = re.compile(
-        r"(?<![/\d])(\d+(?:[.,]\d+)?\s*(?:MM|MILIMETROS?))\b",
+        r"(?<![/\d])(\d+(?:[.,]\d+)?\s*(?:MM|MILIMETRO|MILIMETROS))\b",
         re.IGNORECASE,
     )
 
@@ -42,47 +42,33 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
 
-    # ---------- CONTEXTOS ----------
+    PADRAO_NUMERO_SOLTO = re.compile(r"\b(\d+(?:[.,]\d+)?)\b")
+
+    # comprimento
     CTX_ENGATE = re.compile(r"\b(ENGATE|RABICHO)\b", re.IGNORECASE)
     CTX_GRELHA = re.compile(r"\b(GRELHA)\b", re.IGNORECASE)
     CTX_TUBO_LIGACAO = re.compile(
-        r"\b(TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O|TUBO)\b",
+        r"\b(TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O)\b",
         re.IGNORECASE,
     )
 
-    CTX_DIAMETRO = re.compile(
-        r"\b(FIO|CABO|EXTENSÃO|EXTENSAO|CONDUITE|ELETRODUTO|CORRUGADO)\b",
+    # diâmetro
+    CTX_HIDRAULICA = re.compile(
+        r"\b(TUBO|CANO|CONEXAO|CONEXOES|JOELHO|T[EÊ]\b|LUVA|BUCHA|ADAPTADOR|NIPLE|UNIAO|UNIÃO|REGISTRO|VALVULA|VÁLVULA|SIFAO|SIFÃO|MANGUEIRA)\b",
+        re.IGNORECASE,
+    )
+    REFORCO_HIDRAULICA = re.compile(
+        r"\b(PVC|CPVC|PPR|PEX|AGUA|ÁGUA|ESGOTO|SOLDAVEL|SOLDÁVEL|COLAVEL|COLÁVEL|ROSCA)\b",
         re.IGNORECASE,
     )
 
-    # ---------- PADRÕES DE INFERÊNCIA CONTEXTUAL ----------
-    PADRAO_CTX_DIAMETRO = re.compile(
-        r"\b(?:FIO|CABO|EXTENSÃO|EXTENSAO|CONDUITE|ELETRODUTO|CORRUGADO)\b"
-        r"(?:[^\d]{0,20})"
-        r"(\d+(?:[.,]\d+)?)"
-        r"\s*(?:MM|POL|\")?\b",
+    CTX_CONDUITE = re.compile(
+        r"\b(CONDUITE|ELETRODUTO|CORRUGADO)\b",
         re.IGNORECASE,
     )
 
-    PADRAO_CTX_ENGATE_NUM = re.compile(
-        r"\b(?:ENGATE|RABICHO)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
-        re.IGNORECASE,
-    )
-
-    PADRAO_CTX_GRELHA_NUM = re.compile(
-        r"\b(?:GRELHA)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
-        re.IGNORECASE,
-    )
-
-    PADRAO_CTX_TUBO_LIGACAO_NUM = re.compile(
-        r"\b(?:TUBO\s+LIGA[CÇ][AÃ]O|LIGA[CÇ][AÃ]O|TUBO)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
-        re.IGNORECASE,
-    )
-
-    PADRAO_CTX_ROLO_NUM = re.compile(
-        r"\b(?:ROLO)\b(?:[^\d]{0,20})(\d+(?:[.,]\d+)?)\b",
-        re.IGNORECASE,
-    )
+    CTX_CABO = re.compile(r"\b(FIO|CABO|EXTENSAO|EXTENS[ÃA]O)\b", re.IGNORECASE)
+    CTX_ROLO = re.compile(r"\b(RL|ROLO|BOBINA)\b", re.IGNORECASE)
 
     def _limpar_match(self, s: str) -> str:
         return str(s).strip()
@@ -90,17 +76,20 @@ class MedidaExtractor:
     def _to_float(self, s: str) -> float:
         return float(str(s).replace(" ", "").replace(",", "."))
 
-    def _inferir_numero_proximo_contexto(
+    def _inferir_numero_por_contexto(
         self,
         descricao: str,
-        padrao_ctx_num: re.Pattern,
-        valor_max: float = 150,
+        ctx: re.Pattern,
+        valor_max: float = 100,
     ) -> str | None:
-        match = padrao_ctx_num.search(descricao)
-        if not match:
+        if not ctx.search(descricao):
             return None
 
-        candidato = match.group(1)
+        nums = [m.group(1) for m in self.PADRAO_NUMERO_SOLTO.finditer(descricao)]
+        if not nums:
+            return None
+
+        candidato = nums[-1]
 
         try:
             v = self._to_float(candidato)
@@ -122,7 +111,6 @@ class MedidaExtractor:
                 "Secao_Cabo": None,
             }
 
-        # se tiver AxB/AxBxC, deixa com MedidaAxBExtractor
         if self.PADRAO_TEM_AXB.search(descricao):
             return {
                 "Diametro": None,
@@ -138,7 +126,7 @@ class MedidaExtractor:
         peso = None
         secao = None
 
-        # ---------- EXPLÍCITOS ----------
+        # explícitos
         m = self.PADRAO_SECAO_MM2.search(descricao)
         if m:
             secao = self._limpar_match(m.group(1))
@@ -158,38 +146,53 @@ class MedidaExtractor:
         m = self.PADRAO_DIAMETRO_MM.search(descricao)
         if m:
             token = self._limpar_match(m.group(1))
-            if self.CTX_DIAMETRO.search(descricao):
+            if self.CTX_CABO.search(descricao):
                 secao = token
             else:
                 diametro = token
 
-        # ---------- POLEGADA EXPLÍCITA ----------
+        # polegada explícita
         if diametro is None:
             m = self.PADRAO_POLEGADA.search(descricao)
             if m:
                 diametro = self._limpar_match(m.group(1))
 
-        # ---------- INFERÊNCIA DE COMPRIMENTO SOMENTE POR CONTEXTO ----------
+        # inferência de comprimento
         if comprimento is None:
-            comprimento = self._inferir_numero_proximo_contexto(
-                descricao, self.PADRAO_CTX_ENGATE_NUM
-            )
+            comprimento = self._inferir_numero_por_contexto(descricao, self.CTX_ENGATE)
 
         if comprimento is None:
-            comprimento = self._inferir_numero_proximo_contexto(
-                descricao, self.PADRAO_CTX_GRELHA_NUM
-            )
-        if comprimento is None:
-            comprimento = self._inferir_numero_proximo_contexto(descricao, self.PADRAO_CTX_ROLO_NUM)
+            comprimento = self._inferir_numero_por_contexto(descricao, self.CTX_GRELHA)
 
         if comprimento is None:
-            comprimento = self._inferir_numero_proximo_contexto(
-                descricao, self.PADRAO_CTX_TUBO_LIGACAO_NUM
-            )
+            comprimento = self._inferir_numero_por_contexto(descricao, self.CTX_TUBO_LIGACAO)
 
-        # ---------- INFERÊNCIA DE DIÂMETRO SOMENTE POR CONTEXTO ----------
-        if diametro is None:
-            diametro = self._inferir_numero_proximo_contexto(descricao, self.PADRAO_CTX_DIAMETRO)
+        # inferência de diâmetro
+        if (
+            diametro is None
+            and not self.CTX_ENGATE.search(descricao)
+            and not self.CTX_GRELHA.search(descricao)
+            and not self.CTX_TUBO_LIGACAO.search(descricao)
+        ):
+            contexto_conduite = self.CTX_CONDUITE.search(descricao) is not None
+            contexto_hidraulica = (
+                self.CTX_HIDRAULICA.search(descricao) is not None
+                and self.REFORCO_HIDRAULICA.search(descricao) is not None
+            )
+            contexto_cabo = self.CTX_CABO.search(descricao) is not None
+
+            if contexto_conduite or contexto_hidraulica or contexto_cabo:
+                nums = [m.group(1) for m in self.PADRAO_NUMERO_SOLTO.finditer(descricao)]
+                if nums:
+                    candidato = nums[-1]
+                    try:
+                        v = self._to_float(candidato)
+                    except Exception:
+                        v = None
+
+                    if v is not None and 0 < v <= 999:
+                        if not self.CTX_ROLO.search(descricao):
+                            diametro = candidato.strip()
 
         return {
             "Diametro": diametro,
