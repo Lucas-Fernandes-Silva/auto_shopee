@@ -476,7 +476,6 @@ mapa_abreviacoes = {
     "CORR": "CORRER",
     "SEGUR": "SEGURANÇA",
     "AJU": "AJUSTAVEL",
-    "RED" : "REDONDO", #
     "PARAQUED": "PARAQUEDISTA",
     "ACABAM": "ACABAMENTO",
     "PIST": "PISTOLA",
