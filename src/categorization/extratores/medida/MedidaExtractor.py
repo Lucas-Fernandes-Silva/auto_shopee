@@ -11,11 +11,13 @@ class MedidaExtractor:
     )
 
     PADRAO_POLEGADA = re.compile(
-        r"(?<![\d.,])"
-        r"(1/2|3/4|1/4|1/8|5/32|5/16|3/8|3/16|5/8|1\s*1/2|1 1/2|1 1/4|11/4|1|11/2)"
-        r"(?![\d,./])\s*(?:POL|\"|')?\b",
+        r"(?<![\d.,])("
+        r"(?:\d+\s+\d+/\d+)"          # 3 1/2
+        r"|(?:\d+\d/\d)"              # 31/2, 41/2
+        r"|(?:\d+/\d+)"               # 1/2, 3/4, 5/16
+        r")(?![\d,./])\s*(?:POL|POLEGADA|POLEGADAS|\"|')?\b",
         re.IGNORECASE,
-    )
+)
 
     PADRAO_DIAMETRO_MM = re.compile(
         r"(?<![/\d])(\d+(?:[.,]\d+)?\s*(?:MM|MILIMETRO|MILIMETROS))\b",
@@ -49,7 +51,7 @@ class MedidaExtractor:
         re.IGNORECASE,
     )
     CTX_EXTENSAO = re.compile(
-        r"\b(EXTENS[AÃ]O)\b",
+        r"\b(EXTENSÃO|EXTENSAO)\b",
         re.IGNORECASE,
     )
     CTX_ROLO = re.compile(
