@@ -126,7 +126,7 @@ class TextNormalizer:
     # =========================
     # Pipeline principal
     # =========================
-    def normalizar(self, descricao, dominio=None, segmento=None):
+    def normalizar(self, descricao, *, dominio=None, segmento=None):
         if pd.isna(descricao):
             return descricao
 
@@ -145,6 +145,8 @@ class TextNormalizer:
         # primeiro resolve ambiguidades
         t = self._padronizar_abreviacoes_contextuais(
             t,
+            dominio=dominio,
+            segmento=segmento,
         )
 
         # depois aplica o mapa genérico
