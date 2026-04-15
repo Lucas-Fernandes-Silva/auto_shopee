@@ -43,7 +43,7 @@ df = marca.aplicar()
 text_normalizer = TextNormalizer()
 
 df["Descricao_Limpa"] = df.apply(
-    lambda r: text_normalizer.normalizar(r["Descrição"], r["Marca"]), axis=1
+    lambda r: text_normalizer.normalizar(r["Descrição"]), axis=1
 )
 
 manager.salvar_excel(df, "Descrição_Norm")
