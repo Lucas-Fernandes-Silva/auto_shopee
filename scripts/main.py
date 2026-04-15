@@ -46,7 +46,7 @@ df["Descricao_Limpa"] = df.apply(
     lambda r: text_normalizer.normalizar(r["Descrição"]), axis=1
 )
 
-manager.salvar_excel(df, "Descrição_Norm")
+manager.salvar_excel(df, "Descrição_Limpa")
 print(df.columns)
 
 
