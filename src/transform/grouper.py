@@ -1,12 +1,13 @@
 import re
-import pandas as pd
 from typing import Dict, List, Tuple
+
+import pandas as pd
 
 # =========================================================
 # CONFIGURAÇÕES
 # =========================================================
 
-ARQUIVO_ENTRADA = "produtos_lotes_processados.xlsx"
+ARQUIVO_ENTRADA = "/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx"
 ARQUIVO_SAIDA = "produtos_variacoes_separadas_v2.xlsx"
 ABA_ENTRADA = "processados"
 COLUNA_NOME_BASE = "nome_base"
@@ -37,27 +38,76 @@ ABREVIACOES = {
 }
 
 CORES = {
-    "PRETO", "PRETA", "BRANCO", "BRANCA", "AZUL", "VERDE",
-    "VERMELHO", "VERMELHA", "AMARELO", "AMARELA", "TRANSPARENTE",
-    "ROSA", "ROXO", "ROXA", "LARANJA", "CINZA", "MARROM", "BEGE",
-    "PRATA", "DOURADO", "DOURADA"
+    "PRETO",
+    "PRETA",
+    "BRANCO",
+    "BRANCA",
+    "AZUL",
+    "VERDE",
+    "VERMELHO",
+    "VERMELHA",
+    "AMARELO",
+    "AMARELA",
+    "TRANSPARENTE",
+    "ROSA",
+    "ROXO",
+    "ROXA",
+    "LARANJA",
+    "CINZA",
+    "MARROM",
+    "BEGE",
+    "PRATA",
+    "DOURADO",
+    "DOURADA",
 }
 
 TAMANHOS = {
-    "PP", "P", "M", "G", "GG", "XG", "XGG",
-    "PEQUENO", "PEQUENA", "MEDIO", "MEDIA", "GRANDE"
+    "PP",
+    "P",
+    "M",
+    "G",
+    "GG",
+    "XG",
+    "XGG",
+    "PEQUENO",
+    "PEQUENA",
+    "MEDIO",
+    "MEDIA",
+    "GRANDE",
 }
 
 ACABAMENTOS = {
-    "CROMADO", "CROMADA", "GALVANIZADO", "GALVANIZADA",
-    "POLIDO", "POLIDA", "FOSCO", "FOSCA", "BRILHANTE",
-    "ACETINADO", "ACETINADA", "ESMALTADO", "ESMALTADA"
+    "CROMADO",
+    "CROMADA",
+    "GALVANIZADO",
+    "GALVANIZADA",
+    "POLIDO",
+    "POLIDA",
+    "FOSCO",
+    "FOSCA",
+    "BRILHANTE",
+    "ACETINADO",
+    "ACETINADA",
+    "ESMALTADO",
+    "ESMALTADA",
 }
 
 MATERIAIS = {
-    "PVC", "METAL", "ALUMINIO", "INOX", "LATAO", "LATÃO",
-    "NYLON", "PLASTICO", "PLÁSTICO", "ACO", "AÇO",
-    "COBRE", "BORRACHA", "MADEIRA", "VIDRO"
+    "PVC",
+    "METAL",
+    "ALUMINIO",
+    "INOX",
+    "LATAO",
+    "LATÃO",
+    "NYLON",
+    "PLASTICO",
+    "PLÁSTICO",
+    "ACO",
+    "AÇO",
+    "COBRE",
+    "BORRACHA",
+    "MADEIRA",
+    "VIDRO",
 }
 
 TIPOS_COMPOSTOS = {
@@ -101,9 +151,7 @@ REGEX_MEDIDA_COMPOSTA = re.compile(
 )
 
 # captura 200MM / 200 MM / 1,5 M / 3 POL / 3 POLEGADAS
-REGEX_MEDIDA_SIMPLES = re.compile(
-    r"\b\d+(?:[.,]\d+)?\s*(?:MM|CM|M|POL|POLEGADA|POLEGADAS)\b"
-)
+REGEX_MEDIDA_SIMPLES = re.compile(r"\b\d+(?:[.,]\d+)?\s*(?:MM|CM|M|POL|POLEGADA|POLEGADAS)\b")
 
 REGEX_FRACAO = re.compile(r"\b\d+/\d+\b")
 
@@ -118,23 +166,36 @@ REGEX_MODELO_SIMPLES = re.compile(r"\b[A-Z]{1,6}\-?\d{1,6}[A-Z0-9\-]*\b")
 # =========================================================
 
 BASES_TECNICAS = {
-    "BROCA", "SERRA", "DISCO", "PARAFUSO", "BUCHA", "ABRACADEIRA",
-    "CABO", "TORNEIRA", "CHAVE", "FITA", "LAMPADA", "LAMPADA", "PLUG"
+    "BROCA",
+    "SERRA",
+    "DISCO",
+    "PARAFUSO",
+    "BUCHA",
+    "ABRACADEIRA",
+    "CABO",
+    "TORNEIRA",
+    "CHAVE",
+    "FITA",
+    "LAMPADA",
+    "LAMPADA",
+    "PLUG",
 }
 
-BASES_QUE_USAM_TIPO = {
-    "BROCA", "DISCO", "SERRA", "PARAFUSO", "CHAVE", "FITA", "LAMPADA"
-}
+BASES_QUE_USAM_TIPO = {"BROCA", "DISCO", "SERRA", "PARAFUSO", "CHAVE", "FITA", "LAMPADA"}
+
 
 def nome_base_tokens(nome_base: str) -> set:
     return set(limpar_texto(nome_base).split())
+
 
 # =========================================================
 # FUNÇÕES BÁSICAS
 # =========================================================
 
+
 def normalizar_espacos(texto: str) -> str:
     return re.sub(r"\s+", " ", texto).strip()
+
 
 def limpar_texto(texto: str) -> str:
     texto = str(texto or "").upper().strip()
@@ -152,11 +213,13 @@ def limpar_texto(texto: str) -> str:
     texto = normalizar_espacos(texto)
     return texto
 
+
 def normalizar_medida(valor: str) -> str:
     valor = valor.upper()
     valor = re.sub(r"\s*[Xx]\s*", "X", valor)
     valor = re.sub(r"\s+", " ", valor)
     return valor.strip()
+
 
 def extrair_regex(texto: str, pattern: re.Pattern) -> Tuple[List[str], str]:
     encontrados = []
@@ -172,6 +235,7 @@ def extrair_regex(texto: str, pattern: re.Pattern) -> Tuple[List[str], str]:
     restante = normalizar_espacos(restante)
     return encontrados, restante
 
+
 def extrair_compostos(texto: str, compostos: set) -> Tuple[List[str], str]:
     encontrados = []
     restante = texto
@@ -184,6 +248,7 @@ def extrair_compostos(texto: str, compostos: set) -> Tuple[List[str], str]:
 
     restante = normalizar_espacos(restante)
     return encontrados, restante
+
 
 def extrair_modelos_compostos(texto: str) -> Tuple[List[str], str]:
     encontrados = []
@@ -200,9 +265,11 @@ def extrair_modelos_compostos(texto: str) -> Tuple[List[str], str]:
     restante = normalizar_espacos(restante)
     return encontrados, restante
 
+
 # =========================================================
 # EXTRAÇÃO
 # =========================================================
+
 
 def extrair_atributos_variacao(nome_base: str, variacao: str) -> Dict[str, str]:
     base_ctx = nome_base_tokens(nome_base)
@@ -317,7 +384,11 @@ def extrair_atributos_variacao(nome_base: str, variacao: str) -> Dict[str, str]:
             resultado["modelo"] = sobra_txt
 
         # se o contexto for técnico e a sobra for curta, tende a ser tipo
-        elif not resultado["tipo"] and len(sobra_txt.split()) <= 3 and any(p in palavras_base for p in BASES_QUE_USAM_TIPO):
+        elif (
+            not resultado["tipo"]
+            and len(sobra_txt.split()) <= 3
+            and any(p in palavras_base for p in BASES_QUE_USAM_TIPO)
+        ):
             resultado["tipo"] = sobra_txt
 
         else:
@@ -329,7 +400,8 @@ def extrair_atributos_variacao(nome_base: str, variacao: str) -> Dict[str, str]:
 
     # 9) status
     campos_preenchidos = sum(
-        1 for k, v in resultado.items()
+        1
+        for k, v in resultado.items()
         if k not in {"outra_variacao", "status_extracao"} and str(v).strip()
     )
 
@@ -341,6 +413,7 @@ def extrair_atributos_variacao(nome_base: str, variacao: str) -> Dict[str, str]:
         resultado["status_extracao"] = "nao_classificado"
 
     return resultado
+
 
 # =========================================================
 # PROCESSAMENTO DA PLANILHA
@@ -360,11 +433,13 @@ COLUNAS_NOVAS = [
     "status_extracao",
 ]
 
+
 def ler_planilha(caminho: str, aba: str) -> pd.DataFrame:
     try:
         return pd.read_excel(caminho, sheet_name=aba)
     except Exception:
         return pd.read_excel(caminho)
+
 
 def processar_planilha() -> None:
     df = ler_planilha(ARQUIVO_ENTRADA, ABA_ENTRADA)
@@ -383,8 +458,7 @@ def processar_planilha() -> None:
 
     resultados = [
         extrair_atributos_variacao(
-            nome_base=row.get(COLUNA_NOME_BASE, ""),
-            variacao=row.get(COLUNA_VARIACAO, "")
+            nome_base=row.get(COLUNA_NOME_BASE, ""), variacao=row.get(COLUNA_VARIACAO, "")
         )
         for _, row in df.fillna("").iterrows()
     ]
@@ -407,6 +481,7 @@ def processar_planilha() -> None:
         )
 
     print(f"Arquivo salvo com sucesso em: {ARQUIVO_SAIDA}")
+
 
 if __name__ == "__main__":
     processar_planilha()

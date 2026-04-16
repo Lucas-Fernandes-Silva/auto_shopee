@@ -1,11 +1,13 @@
 import os
 import sys
+
 import pandas as pd
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 
 from dados import dados, env
+from src.extract.img_extract.url import Download
 from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
 from src.load.notas_manager import NotasManager
@@ -13,7 +15,6 @@ from src.transform.brand_detector import BrandDetector
 from src.transform.market_price import PrecoVenda
 from src.utils.gtin_validator import GTINValidator
 from src.utils.TextNormalizer import TextNormalizer
-from src.extract.img_extract.url import Download
 
 # email = EmailHandler(env.user, env.pwd)
 # email.baixar_anexos(date.today())
@@ -59,6 +60,8 @@ df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos.xls
 
 download = Download(df)
 df = download.run()
+
+
 
 manager = NotasManager()
 manager.salvar_excel(df, "download")
