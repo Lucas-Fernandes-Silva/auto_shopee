@@ -1,5 +1,6 @@
 import os
 import sys
+import pandas as pd
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
@@ -12,6 +13,7 @@ from src.transform.brand_detector import BrandDetector
 from src.transform.market_price import PrecoVenda
 from src.utils.gtin_validator import GTINValidator
 from src.utils.TextNormalizer import TextNormalizer
+from src.extract.img_extract.url import Download
 
 # email = EmailHandler(env.user, env.pwd)
 # email.baixar_anexos(date.today())
@@ -53,8 +55,10 @@ print(df.columns)
 # classifier = HeavyClassifier(df)
 # df_pesados, df_restante = classifier.classify()
 
-# download = Download(df_restante)
-# df = download.run()
+df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos.xlsx')
 
-# manager = NotasManager()
-# manager.salvar_excel(df, "download")
+download = Download(df)
+df = download.run()
+
+manager = NotasManager()
+manager.salvar_excel(df, "download")
