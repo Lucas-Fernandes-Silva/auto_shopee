@@ -6,9 +6,10 @@ from typing import Dict, List, Tuple
 # CONFIGURAÇÕES
 # =========================================================
 
-ARQUIVO_ENTRADA = "/home/lucas-silva/auto_shopee/planilhas/outputs/final_urls_cloudinary.xlsx"
-ARQUIVO_SAIDA = "produtos_variacoes_separadas.xlsx"
-ABA_ENTRADA = "processados"   # se não existir, tenta a primeira aba
+ARQUIVO_ENTRADA = "produtos_lotes_processados.xlsx"
+ARQUIVO_SAIDA = "produtos_variacoes_separadas_v2.xlsx"
+ABA_ENTRADA = "processados"
+COLUNA_NOME_BASE = "nome_base"
 COLUNA_VARIACAO = "variacao"
 
 # =========================================================
@@ -83,34 +84,50 @@ MODELOS_COMPOSTOS_REGEX = [
     r"\bMODELO\s+[A-Z0-9\-\/]+\b",
     r"\bMOD\s+[A-Z0-9\-\/]+\b",
     r"\bLINHA\s+[A-Z0-9\-\/]+\b",
-    r"\bTIPO\s+[A-Z0-9\-\/]+\b",
 ]
 
 # =========================================================
-# REGEX
+# REGEX MELHORADOS
 # =========================================================
 
-REGEX_MEDIDAS = [
-    r"\b\d+(?:[.,]\d+)?X\d+(?:[.,]\d+)?(?:X\d+(?:[.,]\d+)?)?\b",     # 10X160 / 10,0X160 / 10X20X30
-    r"\b\d+(?:[.,]\d+)?\s?(?:MM|CM|M)\b",                           # 200MM
-    r"\b\d+/\d+\b",                                                 # 1/2
-    r"\b\d+(?:[.,]\d+)?\s?POL\b",                                   # 3 POL
-    r"\b\d+(?:[.,]\d+)?\s?POLEGADAS?\b",
-]
+# captura:
+# 10X160
+# 10,0X160
+# 10,0 X 160
+# 10 X 16
+# 10X20X30
+REGEX_MEDIDA_COMPOSTA = re.compile(
+    r"\b\d+(?:[.,]\d+)?\s*[Xx]\s*\d+(?:[.,]\d+)?(?:\s*[Xx]\s*\d+(?:[.,]\d+)?)?\b"
+)
 
-REGEX_VOLTAGEM = [
-    r"\b110V\b", r"\b127V\b", r"\b220V\b", r"\bBIVOLT\b", r"\b12V\b", r"\b24V\b"
-]
+# captura 200MM / 200 MM / 1,5 M / 3 POL / 3 POLEGADAS
+REGEX_MEDIDA_SIMPLES = re.compile(
+    r"\b\d+(?:[.,]\d+)?\s*(?:MM|CM|M|POL|POLEGADA|POLEGADAS)\b"
+)
 
-REGEX_CAPACIDADE = [
-    r"\b\d+(?:[.,]\d+)?\s?(?:ML|L|LT|G|KG)\b"
-]
+REGEX_FRACAO = re.compile(r"\b\d+/\d+\b")
 
-# padrões para classificar como modelo se não entrou em outras classes
-REGEX_MODELO = [
-    r"\b[A-Z]{1,5}\-?\d{1,5}[A-Z]?\b",      # ex: T50, GSB13, ABC-200
-    r"\b\d{3,5}[A-Z]{1,4}\b",               # ex: 2000W? cuidado, depois filtramos
-]
+REGEX_VOLTAGEM = re.compile(r"\b(?:110V|127V|220V|BIVOLT|12V|24V)\b")
+REGEX_CAPACIDADE = re.compile(r"\b\d+(?:[.,]\d+)?\s*(?:ML|L|LT|G|KG)\b")
+
+# modelo simples mais conservador
+REGEX_MODELO_SIMPLES = re.compile(r"\b[A-Z]{1,6}\-?\d{1,6}[A-Z0-9\-]*\b")
+
+# =========================================================
+# CONTEXTO POR NOME_BASE
+# =========================================================
+
+BASES_TECNICAS = {
+    "BROCA", "SERRA", "DISCO", "PARAFUSO", "BUCHA", "ABRACADEIRA",
+    "CABO", "TORNEIRA", "CHAVE", "FITA", "LAMPADA", "LAMPADA", "PLUG"
+}
+
+BASES_QUE_USAM_TIPO = {
+    "BROCA", "DISCO", "SERRA", "PARAFUSO", "CHAVE", "FITA", "LAMPADA"
+}
+
+def nome_base_tokens(nome_base: str) -> set:
+    return set(limpar_texto(nome_base).split())
 
 # =========================================================
 # FUNÇÕES BÁSICAS
@@ -132,22 +149,26 @@ def limpar_texto(texto: str) -> str:
         texto = re.sub(padrao, repl, texto, flags=re.IGNORECASE)
 
     texto = re.sub(r"[;,|_=*#~`]+", " ", texto)
-    texto = re.sub(r"\s+", " ", texto).strip()
+    texto = normalizar_espacos(texto)
     return texto
 
-def extrair_multiplos_por_regex(texto: str, regex_list: List[str]) -> Tuple[List[str], str]:
-    encontrados: List[str] = []
+def normalizar_medida(valor: str) -> str:
+    valor = valor.upper()
+    valor = re.sub(r"\s*[Xx]\s*", "X", valor)
+    valor = re.sub(r"\s+", " ", valor)
+    return valor.strip()
+
+def extrair_regex(texto: str, pattern: re.Pattern) -> Tuple[List[str], str]:
+    encontrados = []
     restante = texto
 
-    for regex in regex_list:
-        matches = list(re.finditer(regex, restante, flags=re.IGNORECASE))
-        for m in matches:
-            valor = normalizar_espacos(m.group(0).upper())
-            if valor not in encontrados:
-                encontrados.append(valor)
+    matches = list(pattern.finditer(restante))
+    for m in matches:
+        v = normalizar_medida(m.group(0))
+        if v not in encontrados:
+            encontrados.append(v)
 
-        restante = re.sub(regex, " ", restante, flags=re.IGNORECASE)
-
+    restante = pattern.sub(" ", restante)
     restante = normalizar_espacos(restante)
     return encontrados, restante
 
@@ -155,7 +176,6 @@ def extrair_compostos(texto: str, compostos: set) -> Tuple[List[str], str]:
     encontrados = []
     restante = texto
 
-    # ordenar por tamanho desc para casar primeiro os maiores
     for termo in sorted(compostos, key=len, reverse=True):
         padrao = r"\b" + re.escape(termo) + r"\b"
         if re.search(padrao, restante, flags=re.IGNORECASE):
@@ -181,10 +201,11 @@ def extrair_modelos_compostos(texto: str) -> Tuple[List[str], str]:
     return encontrados, restante
 
 # =========================================================
-# EXTRAÇÃO POR TOKENS
+# EXTRAÇÃO
 # =========================================================
 
-def extrair_atributos_variacao(variacao: str) -> Dict[str, str]:
+def extrair_atributos_variacao(nome_base: str, variacao: str) -> Dict[str, str]:
+    base_ctx = nome_base_tokens(nome_base)
     texto = limpar_texto(variacao)
 
     resultado = {
@@ -205,18 +226,28 @@ def extrair_atributos_variacao(variacao: str) -> Dict[str, str]:
         resultado["status_extracao"] = "sem_variacao"
         return resultado
 
-    # 1) compostos de tipo
+    # 1) tipo composto
     tipos_compostos, texto = extrair_compostos(texto, TIPOS_COMPOSTOS)
 
-    # 2) modelos compostos
+    # 2) modelo composto
     modelos_compostos, texto = extrair_modelos_compostos(texto)
 
-    # 3) regex de medida, voltagem, capacidade
-    medidas, texto = extrair_multiplos_por_regex(texto, REGEX_MEDIDAS)
-    voltagens, texto = extrair_multiplos_por_regex(texto, REGEX_VOLTAGEM)
-    capacidades, texto = extrair_multiplos_por_regex(texto, REGEX_CAPACIDADE)
+    # 3) medidas antes da tokenização
+    medidas1, texto = extrair_regex(texto, REGEX_MEDIDA_COMPOSTA)
+    medidas2, texto = extrair_regex(texto, REGEX_MEDIDA_SIMPLES)
+    fracoes, texto = extrair_regex(texto, REGEX_FRACAO)
 
-    # 4) tokenização do restante
+    # 4) voltagem e capacidade
+    voltagens, texto = extrair_regex(texto, REGEX_VOLTAGEM)
+    capacidades, texto = extrair_regex(texto, REGEX_CAPACIDADE)
+
+    medidas = []
+    for grupo in (medidas1, medidas2, fracoes):
+        for item in grupo:
+            if item not in medidas:
+                medidas.append(item)
+
+    # 5) tokenização do restante
     tokens = texto.split()
     sobras = []
 
@@ -239,16 +270,20 @@ def extrair_atributos_variacao(variacao: str) -> Dict[str, str]:
             resultado["material"] = tok
             continue
 
-        # modelo simples
-        if any(re.fullmatch(rx, tok) for rx in REGEX_MODELO):
-            # evita jogar medida/capacidade errada em modelo
-            if not re.fullmatch(r"\d+(?:[.,]\d+)?(?:ML|L|LT|G|KG|V|W|A|MM|CM|M)", tok):
-                resultado["modelo"] = f"{resultado['modelo']} {tok}".strip()
+        # modelo simples só quando realmente parece código/modelo
+        if REGEX_MODELO_SIMPLES.fullmatch(tok):
+            # evita jogar coisas técnicas comuns em modelo
+            if tok not in CORES and tok not in TAMANHOS and tok not in MATERIAIS:
+                # se contexto sugere item técnico, prefira tipo/modelo conforme base
+                if "MODELO" in base_ctx:
+                    resultado["modelo"] = f"{resultado['modelo']} {tok}".strip()
+                else:
+                    sobras.append(tok)
                 continue
 
         sobras.append(tok)
 
-    # 5) consolidação
+    # 6) consolidação principal
     if medidas:
         resultado["medida"] = " ".join(medidas)
 
@@ -264,17 +299,35 @@ def extrair_atributos_variacao(variacao: str) -> Dict[str, str]:
     if tipos_compostos:
         resultado["tipo"] = " ".join(tipos_compostos)
 
-    # 6) regras finais para sobras
+    # 7) usar contexto do nome_base para decidir sobras
     sobra_txt = " ".join(sobras).strip()
 
-    # se não houve tipo e a sobra for curta/textual, joga em tipo
     if sobra_txt:
-        if not resultado["tipo"] and len(sobra_txt.split()) <= 3:
+        palavras_base = nome_base_tokens(nome_base)
+
+        # se já achou medida e a sobra for curta, pode ser tipo
+        if resultado["medida"] and not resultado["tipo"] and len(sobra_txt.split()) <= 3:
+            if any(p in palavras_base for p in BASES_QUE_USAM_TIPO):
+                resultado["tipo"] = sobra_txt
+            else:
+                resultado["outra_variacao"] = sobra_txt
+
+        # se não há medida e sobra parece código/modelo
+        elif REGEX_MODELO_SIMPLES.fullmatch(sobra_txt.replace(" ", "")) and not resultado["modelo"]:
+            resultado["modelo"] = sobra_txt
+
+        # se o contexto for técnico e a sobra for curta, tende a ser tipo
+        elif not resultado["tipo"] and len(sobra_txt.split()) <= 3 and any(p in palavras_base for p in BASES_QUE_USAM_TIPO):
             resultado["tipo"] = sobra_txt
+
         else:
             resultado["outra_variacao"] = sobra_txt
 
-    # 7) status
+    # 8) limpeza final para evitar duplicidade
+    for chave in ["tipo", "modelo", "material", "acabamento", "cor", "tamanho", "medida"]:
+        resultado[chave] = normalizar_espacos(resultado[chave])
+
+    # 9) status
     campos_preenchidos = sum(
         1 for k, v in resultado.items()
         if k not in {"outra_variacao", "status_extracao"} and str(v).strip()
@@ -322,10 +375,22 @@ def processar_planilha() -> None:
             f"Colunas disponíveis: {list(df.columns)}"
         )
 
-    resultados = df[COLUNA_VARIACAO].fillna("").apply(extrair_atributos_variacao)
-    resultado_df = pd.DataFrame(list(resultados))
+    if COLUNA_NOME_BASE not in df.columns:
+        raise ValueError(
+            f"A coluna '{COLUNA_NOME_BASE}' não foi encontrada. "
+            f"Colunas disponíveis: {list(df.columns)}"
+        )
 
-    # garante ordem das colunas
+    resultados = [
+        extrair_atributos_variacao(
+            nome_base=row.get(COLUNA_NOME_BASE, ""),
+            variacao=row.get(COLUNA_VARIACAO, "")
+        )
+        for _, row in df.fillna("").iterrows()
+    ]
+
+    resultado_df = pd.DataFrame(resultados)
+
     for col in COLUNAS_NOVAS:
         if col not in resultado_df.columns:
             resultado_df[col] = ""
@@ -342,10 +407,6 @@ def processar_planilha() -> None:
         )
 
     print(f"Arquivo salvo com sucesso em: {ARQUIVO_SAIDA}")
-
-# =========================================================
-# EXECUÇÃO
-# =========================================================
 
 if __name__ == "__main__":
     processar_planilha()
