@@ -1,7 +1,8 @@
-import json
 import os
+import json
 import time
-from typing import Any, Dict, List
+import shutil
+from typing import Any, Dict, List, Optional
 
 import pandas as pd
 from openai import OpenAI
@@ -11,18 +12,24 @@ from openai import OpenAI
 # =========================================================
 
 ARQUIVO_ENTRADA = "/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx"
-ARQUIVO_SAIDA = "produtos_variacoes_api.xlsx"
+ARQUIVO_SAIDA = "produtos_variacoes_shopee_api.xlsx"
 ABA_ENTRADA = "Sheet1"
 
 COLUNA_NOME_BASE = "nome_base"
 COLUNA_VARIACAO = "variacao"
 
-MODELO = "gpt-4.1-mini"  # você pode trocar depois
+MODELO = "gpt-4.1-mini"
 TAMANHO_LOTE = 10
 PAUSA_ENTRE_LOTES = 1.0
 
-# para testar só 1 lote
-MAX_LOTES = None  # depois troque para None
+# 1 = testa 1 lote / None = processa tudo
+MAX_LOTES = None
+
+# Se True, reprocessa somente linhas com outra_variacao preenchida
+REPROCESSAR_OUTRA_VARIACAO = False
+
+# Prefixo do grupo
+PREFIXO_GRUPO = "G"
 
 # =========================================================
 # CLIENTE OPENAI
@@ -39,19 +46,22 @@ client = OpenAI(api_key=api_key)
 # =========================================================
 
 INSTRUCOES = """
-Você é um classificador de variações de catálogo de produtos.
+Você é um classificador de variações de catálogo de produtos no padrão Shopee.
 
 Receberá uma lista JSON. Cada item terá:
 - id_linha
 - nome_base
 - variacao
 
-Sua tarefa é analisar a variacao usando o contexto do nome_base e devolver,
-para cada item, os atributos separados nos campos corretos.
+Sua tarefa é analisar a variacao usando o contexto do nome_base.
 
-Se outra_variacao não estiver vazia, tente redistribuir corretamente os termos nas categorias antes de manter em outra_variacao.
+Objetivo:
+A Shopee aceita no máximo 2 variações por produto.
+Portanto, você deve:
+1. extrair corretamente os atributos técnicos da variacao;
+2. escolher no máximo 2 eixos principais de variação no padrão Shopee.
 
-Preencha estes campos:
+Retorne, para cada item:
 - cor
 - tamanho
 - medida
@@ -69,6 +79,10 @@ Preencha estes campos:
 - material
 - acabamento
 - outra_variacao
+- variacao_1_nome
+- variacao_1_valor
+- variacao_2_nome
+- variacao_2_valor
 - status_extracao
 - motivo_extracao
 
@@ -103,51 +117,38 @@ Regras obrigatórias:
    - CEGA REDONDO
 19. Se a variacao contiver um código ou nome de linha/modelo, classifique em modelo.
 20. O que não couber claramente nas categorias principais deve ir para outra_variacao.
-21. status_extracao deve ser:
-   - "ok" quando a classificação estiver clara
-   - "revisar" quando houver ambiguidade relevante
-   - "sem_variacao" quando variacao estiver vazia
-22. Preserve exatamente o id_linha recebido.
-23. Retorne um item para cada item de entrada.
-24. Responda apenas no schema fornecido.
-
-Exemplos:
-nome_base: BROCA VIDEA SDS PLUS IRWIN
-variacao: 10,0 X 16
-=> medida: 10,0X16
-
-nome_base: ABRACADEIRA NYLON
-variacao: 200MM PRETA
-=> medida: 200MM
-=> cor: PRETA
-
-nome_base: TORNEIRA METAL
-variacao: 1/2 CROMADA
-=> medida: 1/2
-=> acabamento: CROMADA
-
-nome_base: TOMADA
-variacao: 2P+T 10A
-=> tipo: 2P+T 10A
-
-nome_base: PLACA TOMADA
-variacao: 2 MODULOS CEGA REDONDO
-=> tipo: 2 MODULOS CEGA REDONDO
-
-nome_base: LAMPADA LED
-variacao: 9W 6500K 806LM
-=> potencia_watts: 9W
-=> temperatura_cor: 6500K
-=> lumens: 806LM
-
-nome_base: DISCO LIXA
-variacao: GRAO 120 REDONDO
-=> granulacao: 120
-=> formato: REDONDO
-
-nome_base: CIMENTO
-variacao: 5KG
-=> peso: 5KG
+21. Depois de extrair todos os atributos, escolha no máximo 2 variações principais para Shopee:
+   - variacao_1_nome
+   - variacao_1_valor
+   - variacao_2_nome
+   - variacao_2_valor
+22. Se houver apenas 1 atributo relevante, preencha apenas variacao_1.
+23. Se não houver variação, deixe variacao_1 e variacao_2 vazias.
+24. Se houver mais de 2 atributos, escolha os 2 mais importantes comercialmente para diferenciar o produto.
+25. Critério de prioridade padrão para escolher as 2 variações principais:
+   1. voltagem
+   2. medida
+   3. tamanho
+   4. cor
+   5. capacidade
+   6. peso
+   7. amperagem
+   8. potencia_watts
+   9. temperatura_cor
+   10. modelo
+   11. tipo
+   12. acabamento
+   13. material
+   14. lumens
+   15. granulacao
+   16. formato
+26. Preserve exatamente o id_linha recebido.
+27. Retorne um item para cada item de entrada.
+28. Responda apenas no schema fornecido.
+29. Use nomes amigáveis para variacao_1_nome e variacao_2_nome, como:
+   Cor, Tamanho, Medida, Voltagem, Capacidade, Peso, Amperagem,
+   Potência, Lumens, Temperatura de Cor, Granulação, Formato,
+   Modelo, Tipo, Material, Acabamento.
 """
 
 # =========================================================
@@ -180,6 +181,10 @@ SCHEMA = {
                     "material": {"type": "string"},
                     "acabamento": {"type": "string"},
                     "outra_variacao": {"type": "string"},
+                    "variacao_1_nome": {"type": "string"},
+                    "variacao_1_valor": {"type": "string"},
+                    "variacao_2_nome": {"type": "string"},
+                    "variacao_2_valor": {"type": "string"},
                     "status_extracao": {
                         "type": "string",
                         "enum": ["ok", "revisar", "sem_variacao"]
@@ -205,6 +210,10 @@ SCHEMA = {
                     "material",
                     "acabamento",
                     "outra_variacao",
+                    "variacao_1_nome",
+                    "variacao_1_valor",
+                    "variacao_2_nome",
+                    "variacao_2_valor",
                     "status_extracao",
                     "motivo_extracao"
                 ],
@@ -217,7 +226,7 @@ SCHEMA = {
 }
 
 # =========================================================
-# COLUNAS DE RESULTADO
+# COLUNAS
 # =========================================================
 
 COLUNAS_RESULTADO = [
@@ -238,13 +247,71 @@ COLUNAS_RESULTADO = [
     "material",
     "acabamento",
     "outra_variacao",
+    "variacao_1_nome",
+    "variacao_1_valor",
+    "variacao_2_nome",
+    "variacao_2_valor",
     "status_extracao",
     "motivo_extracao",
     "modo_classificacao_variacao",
+    "grupo_id",
+    "tipo_grupo",
 ]
 
 # =========================================================
-# FUNÇÕES AUXILIARES
+# LEITURA SEGURA
+# =========================================================
+
+def arquivo_existe_e_nao_vazio(caminho: str) -> bool:
+    return os.path.exists(caminho) and os.path.getsize(caminho) > 0
+
+def ler_excel_seguro(caminho: str, aba_preferida: Optional[str] = None) -> pd.DataFrame:
+    if not arquivo_existe_e_nao_vazio(caminho):
+        raise FileNotFoundError(f"Arquivo não encontrado ou vazio: {caminho}")
+
+    try:
+        xls = pd.ExcelFile(caminho, engine="openpyxl")
+    except Exception as e:
+        raise RuntimeError(
+            f"Não foi possível abrir o arquivo Excel '{caminho}'. "
+            f"Provável arquivo corrompido ou formato inválido. Erro: {e}"
+        )
+
+    abas = xls.sheet_names
+    if not abas:
+        raise RuntimeError(f"O arquivo '{caminho}' não possui abas legíveis.")
+
+    if aba_preferida and aba_preferida in abas:
+        return pd.read_excel(caminho, sheet_name=aba_preferida, engine="openpyxl")
+
+    return pd.read_excel(caminho, sheet_name=abas[0], engine="openpyxl")
+
+# =========================================================
+# SALVAMENTO SEGURO
+# =========================================================
+
+def salvar_checkpoint_seguro(df: pd.DataFrame) -> None:
+    arquivo_temp = ARQUIVO_SAIDA + ".tmp.xlsx"
+    arquivo_backup = ARQUIVO_SAIDA + ".bak"
+
+    with pd.ExcelWriter(arquivo_temp, engine="openpyxl", mode="w") as writer:
+        df.to_excel(writer, index=False, sheet_name="Sheet1")
+
+        if "status_extracao" in df.columns:
+            df[df["status_extracao"] == "revisar"].to_excel(
+                writer, index=False, sheet_name="revisar_variacoes"
+            )
+            df[df["status_extracao"] == "sem_variacao"].to_excel(
+                writer, index=False, sheet_name="sem_variacao"
+            )
+
+    if os.path.exists(ARQUIVO_SAIDA):
+        shutil.copy2(ARQUIVO_SAIDA, arquivo_backup)
+
+    os.replace(arquivo_temp, ARQUIVO_SAIDA)
+
+# =========================================================
+# AUXILIARES
 # =========================================================
 
 def garantir_colunas(df: pd.DataFrame) -> pd.DataFrame:
@@ -257,23 +324,19 @@ def linha_processada(row: pd.Series) -> bool:
     valor = row.get("modo_classificacao_variacao")
     return pd.notna(valor) and str(valor).strip() != ""
 
-def salvar_checkpoint(df: pd.DataFrame) -> None:
-    with pd.ExcelWriter(ARQUIVO_SAIDA, engine="openpyxl", mode="w") as writer:
-        df.to_excel(writer, index=False, sheet_name="Sheet1")
+def limpar_flag_reprocessamento(df: pd.DataFrame) -> pd.DataFrame:
+    if not REPROCESSAR_OUTRA_VARIACAO:
+        return df
 
-        if "status_extracao" in df.columns:
-            df[df["status_extracao"] == "revisar"].to_excel(
-                writer,
-                index=False,
-                sheet_name="revisar_variacoes"
-            )
-            df[df["status_extracao"] == "sem_variacao"].to_excel(
-                writer,
-                index=False,
-                sheet_name="sem_variacao"
-            )
+    if "outra_variacao" not in df.columns:
+        return df
 
+    for i in range(len(df)):
+        outra = str(df.at[i, "outra_variacao"]).strip() if pd.notna(df.at[i, "outra_variacao"]) else ""
+        if outra:
+            df.at[i, "modo_classificacao_variacao"] = None
 
+    return df
 
 def montar_lotes_pendentes(df: pd.DataFrame) -> List[List[int]]:
     pendentes = [i for i in range(len(df)) if not linha_processada(df.iloc[i])]
@@ -302,12 +365,72 @@ def preencher_fallback(df: pd.DataFrame, indices: List[int], erro: str) -> None:
         df.at[idx, "material"] = ""
         df.at[idx, "acabamento"] = ""
         df.at[idx, "outra_variacao"] = variacao
+        df.at[idx, "variacao_1_nome"] = ""
+        df.at[idx, "variacao_1_valor"] = ""
+        df.at[idx, "variacao_2_nome"] = ""
+        df.at[idx, "variacao_2_valor"] = ""
         df.at[idx, "status_extracao"] = "revisar" if variacao else "sem_variacao"
         df.at[idx, "motivo_extracao"] = f"Erro no lote: {erro}"
         df.at[idx, "modo_classificacao_variacao"] = "erro_lote"
 
 # =========================================================
-# CHAMADA DA API
+# AGRUPAMENTO
+# =========================================================
+
+def chave_ordenacao_grupo(row: pd.Series) -> tuple:
+    v1 = str(row.get("variacao_1_valor") or "").strip()
+    v2 = str(row.get("variacao_2_valor") or "").strip()
+    var = str(row.get(COLUNA_VARIACAO) or "").strip()
+    return (v1, v2, var)
+
+def gerar_grupos(df: pd.DataFrame) -> pd.DataFrame:
+    df["grupo_id"] = None
+    df["tipo_grupo"] = None
+
+    if COLUNA_NOME_BASE not in df.columns:
+        return df
+
+    base_series = df[COLUNA_NOME_BASE].fillna("").astype(str).str.strip()
+
+    nomes_base_unicos = sorted([nb for nb in base_series.unique() if nb])
+
+    mapa_grupo: Dict[str, str] = {}
+    for i, nome_base in enumerate(nomes_base_unicos, start=1):
+        mapa_grupo[nome_base] = f"{PREFIXO_GRUPO}{i:05d}"
+
+    for nome_base, grupo_df in df.groupby(COLUNA_NOME_BASE, dropna=False, sort=False):
+        nome_base_limpo = str(nome_base).strip() if pd.notna(nome_base) else ""
+
+        if not nome_base_limpo:
+            for idx in grupo_df.index:
+                df.at[idx, "grupo_id"] = ""
+                df.at[idx, "tipo_grupo"] = "unico"
+            continue
+
+        grupo_id = mapa_grupo[nome_base_limpo]
+        indices = list(grupo_df.index)
+
+        if len(indices) == 1:
+            idx = indices[0]
+            df.at[idx, "grupo_id"] = grupo_id
+            df.at[idx, "tipo_grupo"] = "unico"
+            continue
+
+        ordenado = grupo_df.sort_values(
+            by=[],
+            key=None
+        )
+
+        indices_ordenados = sorted(indices, key=lambda idx: chave_ordenacao_grupo(df.loc[idx]))
+
+        for pos, idx in enumerate(indices_ordenados):
+            df.at[idx, "grupo_id"] = grupo_id
+            df.at[idx, "tipo_grupo"] = "pai" if pos == 0 else "filho"
+
+    return df
+
+# =========================================================
+# API
 # =========================================================
 
 def enviar_lote_api(lote: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -318,7 +441,7 @@ def enviar_lote_api(lote: List[Dict[str, Any]]) -> Dict[str, Any]:
         text={
             "format": {
                 "type": "json_schema",
-                "name": "classificacao_variacoes",
+                "name": "classificacao_variacoes_shopee",
                 "schema": SCHEMA,
                 "strict": True
             }
@@ -327,23 +450,16 @@ def enviar_lote_api(lote: List[Dict[str, Any]]) -> Dict[str, Any]:
     return json.loads(response.output_text)
 
 # =========================================================
-# PROCESSAMENTO PRINCIPAL
+# PROCESSAMENTO
 # =========================================================
 
-def processar_planilha() -> None:
-    caminho_base = ARQUIVO_SAIDA if os.path.exists(ARQUIVO_SAIDA) else ARQUIVO_ENTRADA
+def carregar_base() -> pd.DataFrame:
+    if arquivo_existe_e_nao_vazio(ARQUIVO_SAIDA):
+        return ler_excel_seguro(ARQUIVO_SAIDA, "Sheet1")
 
-    if not os.path.exists(caminho_base):
-        raise FileNotFoundError(f"Arquivo não encontrado: {caminho_base}")
+    return ler_excel_seguro(ARQUIVO_ENTRADA, ABA_ENTRADA)
 
-    if caminho_base == ARQUIVO_SAIDA:
-        df = pd.read_excel(caminho_base, sheet_name="Sheet1")
-    else:
-        try:
-            df = pd.read_excel(caminho_base, sheet_name=ABA_ENTRADA)
-        except Exception:
-            df = pd.read_excel(caminho_base)
-
+def validar_colunas(df: pd.DataFrame) -> None:
     if COLUNA_NOME_BASE not in df.columns:
         raise ValueError(
             f"Coluna '{COLUNA_NOME_BASE}' não encontrada. Colunas disponíveis: {list(df.columns)}"
@@ -354,15 +470,13 @@ def processar_planilha() -> None:
             f"Coluna '{COLUNA_VARIACAO}' não encontrada. Colunas disponíveis: {list(df.columns)}"
         )
 
+def processar_planilha() -> None:
+    df = carregar_base()
+    validar_colunas(df)
+
     df = garantir_colunas(df)
-    REPROCESSAR_OUTRA_VARIACAO = True
+    df = limpar_flag_reprocessamento(df)
 
-    if REPROCESSAR_OUTRA_VARIACAO:
-        for i in range(len(df)):
-            outra = str(df.at[i, "outra_variacao"]).strip() if pd.notna(df.at[i, "outra_variacao"]) else ""
-
-            if outra:
-                df.at[i, "modo_classificacao_variacao"] = None
     lotes = montar_lotes_pendentes(df)
     if MAX_LOTES is not None:
         lotes = lotes[:MAX_LOTES]
@@ -371,7 +485,8 @@ def processar_planilha() -> None:
 
     if total_lotes == 0:
         print("Nenhum lote pendente. Tudo já foi classificado.")
-        salvar_checkpoint(df)
+        df = gerar_grupos(df)
+        salvar_checkpoint_seguro(df)
         return
 
     for n_lote, indices in enumerate(lotes, start=1):
@@ -426,26 +541,38 @@ def processar_planilha() -> None:
                 df.at[idx, "material"] = item["material"]
                 df.at[idx, "acabamento"] = item["acabamento"]
                 df.at[idx, "outra_variacao"] = item["outra_variacao"]
+                df.at[idx, "variacao_1_nome"] = item["variacao_1_nome"]
+                df.at[idx, "variacao_1_valor"] = item["variacao_1_valor"]
+                df.at[idx, "variacao_2_nome"] = item["variacao_2_nome"]
+                df.at[idx, "variacao_2_valor"] = item["variacao_2_valor"]
                 df.at[idx, "status_extracao"] = item["status_extracao"]
                 df.at[idx, "motivo_extracao"] = item["motivo_extracao"]
                 df.at[idx, "modo_classificacao_variacao"] = "api_lote"
 
                 print(
                     f"[linha {idx}] "
-                    f"VAR='{df.at[idx, COLUNA_VARIACAO]}' -> "
-                    f"tipo='{item['tipo']}' | medida='{item['medida']}' | "
-                    f"potencia='{item['potencia_watts']}' | lumens='{item['lumens']}'"
+                    f"V1='{item['variacao_1_nome']}: {item['variacao_1_valor']}' | "
+                    f"V2='{item['variacao_2_nome']}: {item['variacao_2_valor']}'"
                 )
 
-            salvar_checkpoint(df)
+            df = gerar_grupos(df)
+            salvar_checkpoint_seguro(df)
             print(f"Lote {n_lote} salvo com sucesso em {ARQUIVO_SAIDA}.")
             time.sleep(PAUSA_ENTRE_LOTES)
+
+        except KeyboardInterrupt:
+            print("\nInterrompido manualmente. Salvando progresso...")
+            df = gerar_grupos(df)
+            salvar_checkpoint_seguro(df)
+            print("Progresso salvo.")
+            raise
 
         except Exception as e:
             erro = f"{type(e).__name__}: {e}"
             print(f"Erro no lote {n_lote}: {erro}")
             preencher_fallback(df, indices, erro)
-            salvar_checkpoint(df)
+            df = gerar_grupos(df)
+            salvar_checkpoint_seguro(df)
             print(f"Lote {n_lote} salvo como revisão manual.")
 
     print(f"\nConcluído. Arquivo salvo em: {ARQUIVO_SAIDA}")
