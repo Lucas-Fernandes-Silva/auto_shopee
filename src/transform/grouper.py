@@ -1,7 +1,7 @@
-import os
 import json
-import time
+import os
 import shutil
+import time
 from typing import Any, Dict, List, Optional
 
 import pandas as pd
@@ -416,7 +416,7 @@ def gerar_grupos(df: pd.DataFrame) -> pd.DataFrame:
             df.at[idx, "tipo_grupo"] = "unico"
             continue
 
-        ordenado = grupo_df.sort_values(
+        grupo_df.sort_values(
             by=[],
             key=None
         )
