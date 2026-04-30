@@ -56,11 +56,10 @@ print(df.columns)
 # classifier = HeavyClassifier(df)
 # df_pesados, df_restante = classifier.classify()
 
-df = pd.read_excel('/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos.xlsx')
+df = pd.read_excel('/home/lucas-silva/auto_shopee/produtos_com_embalagem.xlsx')
 
 download = Download(df)
 df = download.run()
-
 
 
 manager = NotasManager()
