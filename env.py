@@ -41,3 +41,7 @@ fornecedores = [
     fornecedores_web_scraping,
     fornecedores_noweb_scraping,
 ]
+
+R2_ACCESS_KEY= "9dd3885ed95876e48fc483e76255c331"
+R2_SECRET_KEY= "bfed508be1361f9a2e349c48a808dfed76e607cb4d7f7a9867b2dd633d572b5b"
+R2_ENDPOINT= "https://b209505a8fe075f42ab69ee28cccc35c.r2.cloudflarestorage.com"
