@@ -12,7 +12,7 @@ import pandas as pd
 from dotenv import load_dotenv
 from PIL import Image
 from tqdm import tqdm
-
+from rapidfuzz import process, fuzz
 # =========================
 # CONFIGURAÇÕES
 # =========================
@@ -90,6 +90,31 @@ def extrair_info_imagem(nome_arquivo):
 # =========================
 # IMAGEM
 # =========================
+
+def buscar_chave_imagem(chave_produto, imagens_por_chave, limite=92):
+    # 1. tenta bater exatamente
+    if chave_produto in imagens_por_chave:
+        return chave_produto, 100
+
+    # 2. tenta por prefixo
+    for chave_img in imagens_por_chave.keys():
+        if chave_produto.startswith(chave_img) or chave_img.startswith(chave_produto):
+            return chave_img, 98
+
+    # 3. tenta similaridade
+    resultado = process.extractOne(
+        chave_produto,
+        imagens_por_chave.keys(),
+        scorer=fuzz.ratio
+    )
+
+    if resultado:
+        chave_encontrada, score, _ = resultado
+
+        if score >= limite:
+            return chave_encontrada, score
+
+    return None, 0
 
 
 def otimizar_imagem(caminho_original, nome_arquivo):
@@ -255,13 +280,19 @@ def main():
             continue
 
         chave_produto = normalizar(descricao)
-        imagens_produto = imagens_por_chave.get(chave_produto, [])
+        chave_encontrada, score = buscar_chave_imagem(chave_produto, imagens_por_chave)
+
+        if chave_encontrada:
+            imagens_produto = imagens_por_chave.get(chave_encontrada, [])
+        else:
+            imagens_produto = []
 
         if not imagens_produto:
             produtos_sem_imagem.append(
-                {"linha_excel": list(df.index).index(idx) + 2, "descricao": descricao, "chave_procurada": chave_produto}
+                {"linha_excel": list(df.index).index(idx) + 2, "descricao": descricao, "chave_procurada": chave_produto,  "melhor_chave_encontrada": chave_encontrada, "score": score}
             )
             continue
+
 
         for imagem in imagens_produto:
             imagens_usadas.add(imagem["arquivo"])
