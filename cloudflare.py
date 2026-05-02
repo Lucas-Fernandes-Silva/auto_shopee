@@ -37,6 +37,8 @@ PASTA_OTIMIZADAS = "imagens_otimizadas"
 CHECKPOINT_FILE = "checkpoint_upload_r2.json"
 
 
+CAMINHO_ENV = "/home/lucas-silva/auto_shopee/dados/.env.py"
+
 # =========================
 # CHECKPOINT
 # =========================
@@ -157,8 +159,8 @@ def listar_imagens():
 
 
 def conectar_r2():
-    load_dotenv()
 
+    load_dotenv(dotenv_path=CAMINHO_ENV)
     access_key = os.getenv("R2_ACCESS_KEY", "")
     secret_key = os.getenv("R2_SECRET_KEY", "")
     endpoint = os.getenv("R2_ENDPOINT", "")
