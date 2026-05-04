@@ -4,9 +4,9 @@ import sys
 import pandas as pd
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from dotenv import load_dotenv
 
-
-from dados import dados, env
+from dados import dados
 from src.extract.img_extract.url import Download
 from src.extract.web_scraper import WebScraper
 from src.extract.xml_processor import XMLProcessor
@@ -15,6 +15,13 @@ from src.transform.brand_detector import BrandDetector
 from src.transform.market_price import PrecoVenda
 from src.utils.gtin_validator import GTINValidator
 from src.utils.TextNormalizer import TextNormalizer
+
+CAMINHO_ENV = "/home/lucas-silva/auto_shopee/dados/.env.py"
+
+load_dotenv(dotenv_path=CAMINHO_ENV)
+
+
+
 
 # email = EmailHandler(env.user, env.pwd)
 # email.baixar_anexos(date.today())
@@ -28,7 +35,7 @@ df_produtos = manager.cria_dataframe(lista_produtos)
 
 manager.copiar_xmls("dados/nfes", "dados/processados")
 
-scraper = WebScraper(env.headers)
+scraper = WebScraper(os.getenv("headers"))
 df = scraper.enriquecer_dataframe(df_produtos)
 
 
@@ -45,9 +52,7 @@ df = marca.aplicar()
 
 text_normalizer = TextNormalizer()
 
-df["Descricao_Limpa"] = df.apply(
-    lambda r: text_normalizer.normalizar(r["Descrição"]), axis=1
-)
+df["Descricao_Limpa"] = df.apply(lambda r: text_normalizer.normalizar(r["Descrição"]), axis=1)
 
 manager.salvar_excel(df, "Descrição_Limpa")
 print(df.columns)
@@ -56,7 +61,7 @@ print(df.columns)
 # classifier = HeavyClassifier(df)
 # df_pesados, df_restante = classifier.classify()
 
-df = pd.read_excel('/home/lucas-silva/auto_shopee/produtos_com_embalagem.xlsx')
+df = pd.read_excel("/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos.xlsx")
 
 download = Download(df)
 df = download.run()

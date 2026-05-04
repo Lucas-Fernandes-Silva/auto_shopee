@@ -11,8 +11,9 @@ import boto3
 import pandas as pd
 from dotenv import load_dotenv
 from PIL import Image
+from rapidfuzz import fuzz, process
 from tqdm import tqdm
-from rapidfuzz import process, fuzz
+
 # =========================
 # CONFIGURAÇÕES
 # =========================
@@ -38,6 +39,8 @@ CHECKPOINT_FILE = "checkpoint_upload_r2.json"
 
 
 CAMINHO_ENV = "/home/lucas-silva/auto_shopee/dados/.env.py"
+
+COLUNA_DESCRICAO_LIMPA = "Descrição Limpa"
 
 # =========================
 # CHECKPOINT
@@ -91,6 +94,7 @@ def extrair_info_imagem(nome_arquivo):
 # IMAGEM
 # =========================
 
+
 def buscar_chave_imagem(chave_produto, imagens_por_chave, limite=92):
     # 1. tenta bater exatamente
     if chave_produto in imagens_por_chave:
@@ -102,11 +106,7 @@ def buscar_chave_imagem(chave_produto, imagens_por_chave, limite=92):
             return chave_img, 98
 
     # 3. tenta similaridade
-    resultado = process.extractOne(
-        chave_produto,
-        imagens_por_chave.keys(),
-        scorer=fuzz.ratio
-    )
+    resultado = process.extractOne(chave_produto, imagens_por_chave.keys(), scorer=fuzz.ratio)
 
     if resultado:
         chave_encontrada, score, _ = resultado
@@ -184,7 +184,6 @@ def listar_imagens():
 
 
 def conectar_r2():
-
     load_dotenv(dotenv_path=CAMINHO_ENV)
     access_key = os.getenv("R2_ACCESS_KEY", "")
     secret_key = os.getenv("R2_SECRET_KEY", "")
@@ -204,6 +203,50 @@ def conectar_r2():
     )
 
     return s3, bucket, public_url.rstrip("/")
+
+def encontrar_imagens_do_produto(row, imagens_por_chave):
+    tentativas = []
+
+    descricao = row.get(COLUNA_DESCRICAO, "")
+    if pd.notna(descricao) and str(descricao).strip():
+        tentativas.append(("Descrição", descricao))
+
+    descricao_limpa = row.get(COLUNA_DESCRICAO_LIMPA, "")
+    if pd.notna(descricao_limpa) and str(descricao_limpa).strip():
+        tentativas.append(("Descrição Limpa", descricao_limpa))
+
+    melhor_resultado = {
+        "imagens": [],
+        "chave_usada": None,
+        "chave_encontrada": None,
+        "score": 0,
+        "origem_match": None,
+    }
+
+    for origem, texto in tentativas:
+        chave = normalizar(texto)
+        chave_encontrada, score = buscar_chave_imagem(chave, imagens_por_chave)
+
+        if chave_encontrada:
+            imagens = imagens_por_chave.get(chave_encontrada, [])
+            if imagens:
+                return {
+                    "imagens": imagens,
+                    "chave_usada": chave,
+                    "chave_encontrada": chave_encontrada,
+                    "score": score,
+                    "origem_match": origem,
+                }
+
+        if score > melhor_resultado["score"]:
+            melhor_resultado.update({
+                "chave_usada": chave,
+                "chave_encontrada": chave_encontrada,
+                "score": score,
+                "origem_match": origem,
+            })
+
+    return melhor_resultado
 
 
 def upload_com_retry(s3, bucket, imagem, checkpoint, public_url):
@@ -279,20 +322,25 @@ def main():
         if pd.isna(descricao) or str(descricao).strip() == "":
             continue
 
-        chave_produto = normalizar(descricao)
-        chave_encontrada, score = buscar_chave_imagem(chave_produto, imagens_por_chave)
+        resultado_match = encontrar_imagens_do_produto(row, imagens_por_chave)
 
-        if chave_encontrada:
-            imagens_produto = imagens_por_chave.get(chave_encontrada, [])
-        else:
-            imagens_produto = []
+        imagens_produto = resultado_match["imagens"]
+        chave_produto = resultado_match["chave_usada"]
+        chave_encontrada = resultado_match["chave_encontrada"]
+        score = resultado_match["score"]
+        origem_match = resultado_match["origem_match"]
 
         if not imagens_produto:
-            produtos_sem_imagem.append(
-                {"linha_excel": list(df.index).index(idx) + 2, "descricao": descricao, "chave_procurada": chave_produto,  "melhor_chave_encontrada": chave_encontrada, "score": score}
-            )
+            produtos_sem_imagem.append({
+            "linha_excel": list(df.index).index(idx) + 2,
+            "descricao": descricao,
+            "descricao_limpa": row.get(COLUNA_DESCRICAO_LIMPA, ""),
+            "chave_procurada": chave_produto,
+            "melhor_chave_encontrada": chave_encontrada,
+            "score": score,
+            "origem_match": origem_match,
+        })
             continue
-
 
         for imagem in imagens_produto:
             imagens_usadas.add(imagem["arquivo"])
@@ -324,8 +372,8 @@ def main():
         if pd.isna(descricao) or str(descricao).strip() == "":
             continue
 
-        chave_produto = normalizar(descricao)
-        imagens_produto = imagens_por_chave.get(chave_produto, [])
+        resultado_match = encontrar_imagens_do_produto(row, imagens_por_chave)
+        imagens_produto = resultado_match["imagens"]
 
         for pos, col in enumerate(COLUNAS_IMAGENS):
             if pos < len(imagens_produto):

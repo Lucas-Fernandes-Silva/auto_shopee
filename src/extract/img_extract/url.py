@@ -16,7 +16,6 @@ class Download:
         keys_file="/home/lucas-silva/auto_shopee/src/extract/img_extract/json_files/api_keys.json",
         output_folder="/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens",
     ):
-
         # Remove duplicados por descrição
         self.df = df.drop_duplicates(subset=["Descrição"], keep="first").reset_index(drop=True)
 
@@ -110,10 +109,7 @@ class Download:
             return True
 
         # Bloqueia se o domínio terminar com algum domínio proibido
-        return any(
-            dominio == b or dominio.endswith(b)
-            for b in self.blacklist
-        )
+        return any(dominio == b or dominio.endswith(b) for b in self.blacklist)
 
     # ============================================================
     # BUSCAR IMAGENS
@@ -164,8 +160,7 @@ class Download:
         print(f"🚀 Iniciando busca com chave {current_key_index+1}/{len(self.keys)}")
 
         for i in tqdm(range(len(self.df)), desc="Buscando imagens"):
-
-            produto = str(self.df.loc[i, "Descrição"]).strip()
+            produto = str(self.df.loc[i, "descricao_limpa"]).strip()
             codigo_produto = str(self.df.loc[i, "Codigo Produto"]).strip()
 
             # (1) Já processado antes?
@@ -186,7 +181,19 @@ class Download:
                 self.salvar_progresso()
                 continue
 
+                # Se tiver URL do fornecedor, baixa ela como imagem 1
             if tem_fornecedor:
+                nome_limpo = re.sub(r'[\\/*?:"<>|]', "_", produto[:80])
+                nome_arquivo = f"1_{nome_limpo.replace(' ', '_')}.jpg"
+                caminho = os.path.join(self.output_folder, nome_arquivo)
+
+                sucesso = self.baixar_imagem(str(url_fornecedor).strip(), caminho)
+
+                if sucesso:
+                    print(f"✅ Baixada do fornecedor: {nome_arquivo}")
+                else:
+                    print(f"⚠️ Falha ao baixar fornecedor: {url_fornecedor}")
+
                 produtos_processados[codigo_produto] = True
                 self.salvar_progresso()
                 continue
@@ -253,5 +260,3 @@ class Download:
             time.sleep(1)
 
         return self.df
-
-
