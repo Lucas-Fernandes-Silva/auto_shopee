@@ -18,7 +18,7 @@ from tqdm import tqdm
 # CONFIGURAÇÕES
 # =========================
 
-CAMINHO_PLANILHA = "/home/lucas-silva/auto_shopee/planilhas/outputs/download.xlsx"
+CAMINHO_PLANILHA = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos.xlsx"
 PASTA_IMAGENS = "/home/lucas-silva/auto_shopee/src/extract/img_extract/imagens_otimizadas"
 
 COLUNA_DESCRICAO = "Descrição"
@@ -40,7 +40,7 @@ CHECKPOINT_FILE = "checkpoint_upload_r2.json"
 
 CAMINHO_ENV = "/home/lucas-silva/auto_shopee/dados/.env.py"
 
-COLUNA_DESCRICAO_LIMPA = "Descrição Limpa"
+COLUNA_DESCRICAO_LIMPA = "descricao_limpa"
 
 # =========================
 # CHECKPOINT
@@ -70,24 +70,43 @@ def salvar_checkpoint(checkpoint):
 
 def normalizar(texto):
     texto = str(texto).strip().upper()
+
     texto = unicodedata.normalize("NFD", texto)
     texto = "".join(c for c in texto if unicodedata.category(c) != "Mn")
+
+    texto = texto.replace("C/", "C ")
+    texto = texto.replace("P/", "P ")
+    texto = texto.replace("-", " ")
+    texto = texto.replace(",", " ")
+
     texto = re.sub(r"[^A-Z0-9]+", "_", texto)
     texto = re.sub(r"_+", "_", texto)
+
     return texto.strip("_")
 
 
 def extrair_info_imagem(nome_arquivo):
-    nome_sem_extensao = os.path.splitext(nome_arquivo)[0]
-    match = re.match(r"^([1-3])_(.+)$", nome_sem_extensao)
+    nome_sem_extensao = os.path.splitext(nome_arquivo)[0].strip()
 
-    if not match:
-        return None, None
+    # Caso 1: padrão correto no começo
+    # Ex: 1_PRODUTO
+    match_inicio = re.match(r"^([1-3])_(.+)$", nome_sem_extensao)
+    if match_inicio:
+        ordem = int(match_inicio.group(1))
+        nome_base = match_inicio.group(2)
+        return ordem, normalizar(nome_base)
 
-    ordem = int(match.group(1))
-    chave = normalizar(match.group(2))
+    # Caso 2: número no final
+    # Ex: PRODUTO_1
+    match_fim = re.match(r"^(.+)_([1-3])$", nome_sem_extensao)
+    if match_fim:
+        nome_base = match_fim.group(1)
+        ordem = int(match_fim.group(2))
+        return ordem, normalizar(nome_base)
 
-    return ordem, chave
+    # Caso 3: sem número
+    # Ex: PRODUTO
+    return 1, normalizar(nome_sem_extensao)
 
 
 # =========================
@@ -106,7 +125,9 @@ def buscar_chave_imagem(chave_produto, imagens_por_chave, limite=92):
             return chave_img, 98
 
     # 3. tenta similaridade
-    resultado = process.extractOne(chave_produto, imagens_por_chave.keys(), scorer=fuzz.ratio)
+    resultado = process.extractOne(
+        chave_produto, imagens_por_chave.keys(), scorer=fuzz.token_set_ratio
+    )
 
     if resultado:
         chave_encontrada, score, _ = resultado
@@ -204,6 +225,7 @@ def conectar_r2():
 
     return s3, bucket, public_url.rstrip("/")
 
+
 def encontrar_imagens_do_produto(row, imagens_por_chave):
     tentativas = []
 
@@ -239,12 +261,14 @@ def encontrar_imagens_do_produto(row, imagens_por_chave):
                 }
 
         if score > melhor_resultado["score"]:
-            melhor_resultado.update({
-                "chave_usada": chave,
-                "chave_encontrada": chave_encontrada,
-                "score": score,
-                "origem_match": origem,
-            })
+            melhor_resultado.update(
+                {
+                    "chave_usada": chave,
+                    "chave_encontrada": chave_encontrada,
+                    "score": score,
+                    "origem_match": origem,
+                }
+            )
 
     return melhor_resultado
 
@@ -331,15 +355,17 @@ def main():
         origem_match = resultado_match["origem_match"]
 
         if not imagens_produto:
-            produtos_sem_imagem.append({
-            "linha_excel": list(df.index).index(idx) + 2,
-            "descricao": descricao,
-            "descricao_limpa": row.get(COLUNA_DESCRICAO_LIMPA, ""),
-            "chave_procurada": chave_produto,
-            "melhor_chave_encontrada": chave_encontrada,
-            "score": score,
-            "origem_match": origem_match,
-        })
+            produtos_sem_imagem.append(
+                {
+                    "linha_excel": list(df.index).index(idx) + 2,
+                    "descricao": descricao,
+                    "descricao_limpa": row.get(COLUNA_DESCRICAO_LIMPA, ""),
+                    "chave_procurada": chave_produto,
+                    "melhor_chave_encontrada": chave_encontrada,
+                    "score": score,
+                    "origem_match": origem_match,
+                }
+            )
             continue
 
         for imagem in imagens_produto:
