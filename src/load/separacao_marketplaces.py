@@ -1,36 +1,50 @@
+import pandas as pd
 from typing import Optional
 
-import pandas as pd
 
 # ======================================================
-# ARQUIVOS
+# ARQUIVO DE ENTRADA
 # ======================================================
 
-ARQUIVO_ENTRADA = "produtos_com_embalagem.xlsx"
+ARQUIVO_BLING = "bling.xlsx"
 
-ARQUIVO_SAIDA = "resultado_marketplaces.xlsx"
+# ======================================================
+# SAÍDAS
+# ======================================================
+
+ARQUIVO_RESULTADO = (
+    "resultado_marketplaces.xlsx"
+)
+
+ARQUIVO_CUSTOMIZADOS = (
+    "bling_campos_customizados.csv"
+)
 
 
 # ======================================================
-# LIMITES DOS MARKETPLACES
+# LIMITES MARKETPLACES
 # ======================================================
 
 LIMITES = {
+
     "shopee_padrao": {
         "peso_max": 30,
-        "lado_max": 120,
-        "soma_max": 200,
+        "lado_max": 150,
+        "soma_max": 300,
     },
+
     "ml_correios": {
         "peso_max": 30,
         "lado_max": 100,
         "soma_max": 200,
     },
+
     "ml_agencia_coleta": {
         "peso_max": 50,
         "lado_max": 200,
         "soma_max": 300,
     },
+
     "ml_full": {
         "peso_max": 25,
         "lado_max": 120,
@@ -44,6 +58,7 @@ LIMITES = {
 # ======================================================
 
 COLUNAS_POSSIVEIS = {
+
     "sku": [
         "Sku",
         "SKU",
@@ -51,6 +66,7 @@ COLUNAS_POSSIVEIS = {
         "codigo",
         "Código Produto",
     ],
+
     "descricao": [
         "Descrição",
         "descricao",
@@ -58,27 +74,31 @@ COLUNAS_POSSIVEIS = {
         "Nome",
         "nome_original",
     ],
+
     "peso": [
         "Peso",
         "peso",
         "Peso bruto (Kg)",
         "Peso líquido (Kg)",
     ],
+
     "largura": [
         "Largura",
         "largura",
         "Largura do Produto",
     ],
+
     "altura": [
         "Altura",
         "altura",
         "Altura do Produto",
     ],
+
     "comprimento": [
         "Comprimento",
         "comprimento",
-        "Profundidade do produto",
         "Profundidade",
+        "Profundidade do produto",
     ],
 }
 
@@ -120,21 +140,21 @@ def converter_numero(valor) -> Optional[float]:
 # ======================================================
 
 def validar_limite(
-    peso: Optional[float],
-    largura: Optional[float],
-    altura: Optional[float],
-    comprimento: Optional[float],
+    peso,
+    largura,
+    altura,
+    comprimento,
     limite,
-) -> bool:
+):
 
-    if None in [peso, largura, altura, comprimento]:
+    if None in [
+        peso,
+        largura,
+        altura,
+        comprimento,
+    ]:
 
         return False
-
-    assert peso is not None
-    assert largura is not None
-    assert altura is not None
-    assert comprimento is not None
 
     peso = float(peso)
     largura = float(largura)
@@ -154,9 +174,16 @@ def validar_limite(
     )
 
     return (
+
         peso <= limite["peso_max"]
-        and maior_lado <= limite["lado_max"]
-        and soma_lados <= limite["soma_max"]
+
+        and
+
+        maior_lado <= limite["lado_max"]
+
+        and
+
+        soma_lados <= limite["soma_max"]
     )
 
 
@@ -165,16 +192,6 @@ def validar_limite(
 # ======================================================
 
 def classificar_produto(row):
-
-    sku = pegar_valor(
-        row,
-        COLUNAS_POSSIVEIS["sku"],
-    )
-
-    descricao = pegar_valor(
-        row,
-        COLUNAS_POSSIVEIS["descricao"],
-    )
 
     peso = converter_numero(
         pegar_valor(
@@ -216,26 +233,37 @@ def classificar_produto(row):
     ]:
 
         return {
-            "sku_validado": sku,
-            "descricao_validada": descricao,
-            "canal_shopee": "REVISAR",
-            "canal_ml": "REVISAR",
-            "tipo_envio_ml_sugerido": "REVISAR_DADOS",
-            "tipos_ml_possiveis": "REVISAR_DADOS",
-            "classificacao_final": "REVISAR_DADOS",
-            "peso_validado": peso,
-            "largura_validada": largura,
-            "altura_validada": altura,
-            "comprimento_validado": comprimento,
-            "maior_lado": "",
-            "soma_lados": "",
-            "motivo": "Peso ou dimensões inválidas",
-        }
 
-    assert peso is not None
-    assert largura is not None
-    assert altura is not None
-    assert comprimento is not None
+            "canal_ml":
+                "REVISAR",
+
+            "canal_shopee":
+                "REVISAR",
+
+            "tipo_envio_ml_sugerido":
+                "REVISAR_DADOS",
+
+            "classificacao_marketplace":
+                "REVISAR_DADOS",
+
+            "peso_validado":
+                peso,
+
+            "largura_validada":
+                largura,
+
+            "altura_validada":
+                altura,
+
+            "comprimento_validado":
+                comprimento,
+
+            "maior_lado":
+                "",
+
+            "soma_lados":
+                "",
+        }
 
     peso = float(peso)
     largura = float(largura)
@@ -267,7 +295,7 @@ def classificar_produto(row):
     )
 
     # ==================================================
-    # MERCADO LIVRE
+    # ML
     # ==================================================
 
     ml_correios_ok = validar_limite(
@@ -294,34 +322,14 @@ def classificar_produto(row):
         LIMITES["ml_full"],
     )
 
-    tipos_ml_possiveis = []
-
-    if ml_correios_ok:
-
-        tipos_ml_possiveis.append(
-            "ML_CORREIOS"
-        )
-
-    if ml_agencia_ok:
-
-        tipos_ml_possiveis.append(
-            "ML_AGENCIA_COLETA"
-        )
-
-    if ml_full_ok:
-
-        tipos_ml_possiveis.append(
-            "ML_FULL"
-        )
-
-    ml_ok = (
-        len(
-            tipos_ml_possiveis
-        ) > 0
-    )
+    ml_ok = any([
+        ml_correios_ok,
+        ml_agencia_ok,
+        ml_full_ok,
+    ])
 
     # ==================================================
-    # PRIORIDADE ML
+    # TIPO ENVIO ML
     # ==================================================
 
     if ml_correios_ok:
@@ -354,25 +362,25 @@ def classificar_produto(row):
 
     if shopee_ok and ml_ok:
 
-        classificacao_final = (
+        classificacao = (
             "VALIDO_AMBOS"
         )
 
     elif shopee_ok and not ml_ok:
 
-        classificacao_final = (
+        classificacao = (
             "SOMENTE_SHOPEE"
         )
 
     elif ml_ok and not shopee_ok:
 
-        classificacao_final = (
+        classificacao = (
             "SOMENTE_ML"
         )
 
     else:
 
-        classificacao_final = (
+        classificacao = (
             "FORA_LIMITE"
         )
 
@@ -382,34 +390,21 @@ def classificar_produto(row):
 
     return {
 
-        "sku_validado":
-            sku,
-
-        "descricao_validada":
-            descricao,
+        "canal_ml":
+            "SIM"
+            if ml_ok
+            else "NAO",
 
         "canal_shopee":
             "SIM"
             if shopee_ok
             else "NAO",
 
-        "canal_ml":
-            "SIM"
-            if ml_ok
-            else "NAO",
-
         "tipo_envio_ml_sugerido":
             tipo_envio_ml,
 
-        "tipos_ml_possiveis":
-            ", ".join(
-                tipos_ml_possiveis
-            )
-            if tipos_ml_possiveis
-            else "FORA_ML",
-
-        "classificacao_final":
-            classificacao_final,
+        "classificacao_marketplace":
+            classificacao,
 
         "peso_validado":
             peso,
@@ -428,17 +423,6 @@ def classificar_produto(row):
 
         "soma_lados":
             soma_lados,
-
-        "motivo":
-            f"Peso: {peso} kg | "
-            f"Medidas: "
-            f"{largura} x "
-            f"{altura} x "
-            f"{comprimento} cm | "
-            f"Soma lados: "
-            f"{soma_lados} cm | "
-            f"Maior lado: "
-            f"{maior_lado} cm",
     }
 
 
@@ -448,15 +432,21 @@ def classificar_produto(row):
 
 def processar():
 
-    print("Lendo planilha...")
+    print(
+        "Lendo planilha..."
+    )
 
     df = pd.read_excel(
-        ARQUIVO_ENTRADA
+        ARQUIVO_BLING
     )
 
     print(
         f"Produtos encontrados: {len(df)}"
     )
+
+    # ==================================================
+    # CLASSIFICAÇÃO
+    # ==================================================
 
     resultados = df.apply(
         classificar_produto,
@@ -467,27 +457,37 @@ def processar():
         resultados.tolist()
     )
 
-    df_final = pd.concat(
+    # ==================================================
+    # RESULTADO COMPLETO
+    # ==================================================
+
+    df_resultado = pd.concat(
         [df, resultados_df],
         axis=1,
     )
 
-    print("Gerando planilha...")
+    # ==================================================
+    # RESULTADO MARKETPLACES
+    # ==================================================
+
+    print(
+        "Gerando resultado marketplaces..."
+    )
 
     with pd.ExcelWriter(
-        ARQUIVO_SAIDA,
+        ARQUIVO_RESULTADO,
         engine="openpyxl",
     ) as writer:
 
-        df_final.to_excel(
+        df_resultado.to_excel(
             writer,
             sheet_name="todos_classificados",
             index=False,
         )
 
-        df_final[
-            df_final[
-                "classificacao_final"
+        df_resultado[
+            df_resultado[
+                "classificacao_marketplace"
             ]
             == "VALIDO_AMBOS"
         ].to_excel(
@@ -496,9 +496,9 @@ def processar():
             index=False,
         )
 
-        df_final[
-            df_final[
-                "classificacao_final"
+        df_resultado[
+            df_resultado[
+                "classificacao_marketplace"
             ].isin(
                 [
                     "SOMENTE_ML",
@@ -511,9 +511,9 @@ def processar():
             index=False,
         )
 
-        df_final[
-            df_final[
-                "classificacao_final"
+        df_resultado[
+            df_resultado[
+                "classificacao_marketplace"
             ]
             == "FORA_LIMITE"
         ].to_excel(
@@ -522,9 +522,9 @@ def processar():
             index=False,
         )
 
-        df_final[
-            df_final[
-                "classificacao_final"
+        df_resultado[
+            df_resultado[
+                "classificacao_marketplace"
             ]
             == "REVISAR_DADOS"
         ].to_excel(
@@ -533,27 +533,93 @@ def processar():
             index=False,
         )
 
-        resumo = (
-            df_final[
-                "classificacao_final"
-            ]
-            .value_counts()
-            .reset_index()
-        )
-
-        resumo.columns = [
-            "classificacao",
-            "quantidade",
-        ]
-
-        resumo.to_excel(
-            writer,
-            sheet_name="resumo",
-            index=False,
-        )
+    # ==================================================
+    # CAMPOS CUSTOMIZADOS
+    # ==================================================
 
     print(
-        f"✅ Arquivo gerado: {ARQUIVO_SAIDA}"
+        "Gerando CSV campos customizados..."
+    )
+
+    df_customizados = pd.DataFrame()
+
+    # ==================================================
+    # IDENTIFICADOR
+    # ==================================================
+
+    if "Código" in df_resultado.columns:
+
+        df_customizados[
+            "Código"
+        ] = df_resultado[
+            "Código"
+        ]
+
+    elif "SKU" in df_resultado.columns:
+
+        df_customizados[
+            "SKU"
+        ] = df_resultado[
+            "SKU"
+        ]
+
+    # ==================================================
+    # CAMPOS CUSTOMIZADOS
+    # ==================================================
+
+    df_customizados[
+        "classificacao_marketplace"
+    ] = df_resultado[
+        "classificacao_marketplace"
+    ]
+
+    df_customizados[
+        "canal_ml"
+    ] = df_resultado[
+        "canal_ml"
+    ]
+
+    df_customizados[
+        "canal_shopee"
+    ] = df_resultado[
+        "canal_shopee"
+    ]
+
+    df_customizados[
+        "tipo_envio_ml_sugerido"
+    ] = df_resultado[
+        "tipo_envio_ml_sugerido"
+    ]
+
+    # ==================================================
+    # REMOVE NAN
+    # ==================================================
+
+    df_customizados = (
+        df_customizados.fillna("")
+    )
+
+    # ==================================================
+    # SALVA CSV
+    # ==================================================
+
+    df_customizados.to_csv(
+        ARQUIVO_CUSTOMIZADOS,
+        sep=";",
+        index=False,
+        encoding="utf-8-sig",
+    )
+
+    # ==================================================
+    # FINAL
+    # ==================================================
+
+    print(
+        f"✅ {ARQUIVO_RESULTADO}"
+    )
+
+    print(
+        f"✅ {ARQUIVO_CUSTOMIZADOS}"
     )
 
 
