@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Caminho da planilha
-arquivo = "/home/lucas-silva/auto_shopee/produtos_com_descricoes.xlsx"
+arquivo = "/home/lucas-silva/auto_shopee/planilhas/outputs/Temp.xlsx"
 
 # Ler planilha
 df = pd.read_excel(arquivo)
@@ -18,7 +18,7 @@ pais = df[df["tipo_grupo"] == "pai"].groupby("grupo_id")["Codigo Produto"].first
 # =========================================
 # Adicionar código do pai nos filhos
 # =========================================
-df["codigo_pai"] = df["grupo_id"].map(pais)
+df[""] = df["grupo_id"].map(pais)
 
 # Se quiser deixar vazio para pai/unico:
 df.loc[df["tipo_grupo"] != "filho", "codigo_pai"] = ""
@@ -26,7 +26,7 @@ df.loc[df["tipo_grupo"] != "filho", "codigo_pai"] = ""
 # =========================================
 # Salvar resultado
 # =========================================
-saida = "/home/lucas-silva/auto_shopee/produtos_com_descricoes.xlsx"
+saida = "/home/lucas-silva/auto_shopee/planilhas/outputs/Produtos.xlsx"
 df.to_excel(saida, index=False)
 
 print(f"Arquivo salvo: {saida}")
