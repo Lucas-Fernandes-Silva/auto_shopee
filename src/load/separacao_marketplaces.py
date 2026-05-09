@@ -1,6 +1,6 @@
-import pandas as pd
 from typing import Optional
 
+import pandas as pd
 
 # ======================================================
 # ARQUIVO DE ENTRADA
@@ -29,8 +29,8 @@ LIMITES = {
 
     "shopee_padrao": {
         "peso_max": 30,
-        "lado_max": 150,
-        "soma_max": 300,
+        "lado_max": 120,
+        "soma_max": 200,
     },
 
     "ml_correios": {
@@ -118,13 +118,22 @@ def pegar_valor(row, nomes):
     return ""
 
 
-def converter_numero(valor) -> Optional[float]:
+def converter_numero(
+    valor
+) -> Optional[float]:
 
-    if pd.isna(valor) or valor == "":
+    if (
+        pd.isna(valor)
+        or valor == ""
+    ):
 
         return None
 
-    valor = str(valor).replace(",", ".").strip()
+    valor = (
+        str(valor)
+        .replace(",", ".")
+        .strip()
+    )
 
     try:
 
@@ -140,10 +149,10 @@ def converter_numero(valor) -> Optional[float]:
 # ======================================================
 
 def validar_limite(
-    peso,
-    largura,
-    altura,
-    comprimento,
+    peso: Optional[float],
+    largura: Optional[float],
+    altura: Optional[float],
+    comprimento: Optional[float],
     limite,
 ):
 
@@ -155,6 +164,11 @@ def validar_limite(
     ]:
 
         return False
+
+    assert peso is not None
+    assert largura is not None
+    assert altura is not None
+    assert comprimento is not None
 
     peso = float(peso)
     largura = float(largura)
@@ -264,6 +278,11 @@ def classificar_produto(row):
             "soma_lados":
                 "",
         }
+
+    assert peso is not None
+    assert largura is not None
+    assert altura is not None
+    assert comprimento is not None
 
     peso = float(peso)
     largura = float(largura)

@@ -1,0 +1,250 @@
+Não é possível transformar o produto Cor:BRANCO;Tamanho:30 com variações em uma variação.
+Não é possível transformar o produto Tipo:2 PONTO;Tamanho:XG com variações em uma variação.
+Não é possível transformar o produto Cor:Amarelo;Medida:50ml com variações em uma variação.
+Código 14230 do produto Cor:Amarelo;Medida:50ml é duplicado.
+Não é possível transformar o produto Cor:AMARELO;Medida:50ML com variações em uma variação.
+Código 185355 do produto Cor:AMARELO;Medida:50ML é duplicado.
+Não é possível transformar o produto Cor:Ocre;Medida:50ml com variações em uma variação.
+Código 14234 do produto Cor:Ocre;Medida:50ml é duplicado.
+Não é possível transformar o produto Cor:OCRE;Medida:50ML com variações em uma variação.
+Código 185359 do produto Cor:OCRE;Medida:50ML é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 4669 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 7699 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 7698 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 15820 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 132588 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75mm com variações em uma variação.
+Código 10422 do produto Medida:75mm é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 334227 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 327387 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 11747 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 161632 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:75MM com variações em uma variação.
+Código 003 do produto Medida:75MM é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 7701 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 15821 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 132589 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:100mm com variações em uma variação.
+Código 10423 do produto Medida:100mm é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 334235 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 408820 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 143200 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 11748 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 002 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:100MM com variações em uma variação.
+Código 161640 do produto Medida:100MM é duplicado.
+Não é possível transformar o produto Medida:3,5x12 com variações em uma variação.
+Código 19106 do produto Medida:3,5x12 é duplicado.
+Não é possível transformar o produto Medida:3,5X12 com variações em uma variação.
+Código 191547 do produto Medida:3,5X12 é duplicado.
+Não é possível transformar o produto Cor:AZUL;Medida:3/4X1/2 com variações em uma variação.
+Código 7067 do produto Cor:AZUL;Medida:3/4X1/2 é duplicado.
+Não é possível transformar o produto Cor:Azul;Medida:3/4x1/2 com variações em uma variação.
+Código 104141 do produto Cor:Azul;Medida:3/4x1/2 é duplicado.
+Não é possível transformar o produto Cor:Azul;Medida:3/4x1/2 com variações em uma variação.
+Código 104145 do produto Cor:Azul;Medida:3/4x1/2 é duplicado.
+Não é possível transformar o produto Cor:AZUL;Medida:3/4X1/2 com variações em uma variação.
+Código 104147 do produto Cor:AZUL;Medida:3/4X1/2 é duplicado.
+Não é possível transformar o produto Medida:20X10X2M;Cor:Branco com variações em uma variação.
+Código 13716 do produto Medida:20X10X2M;Cor:Branco é duplicado.
+Não é possível transformar o produto Medida:20X10X2M;Cor:BRANCO com variações em uma variação.
+Código 112175 do produto Medida:20X10X2M;Cor:BRANCO é duplicado.
+Não é possível transformar o produto Medida:20X10X2M;Cor:BRANCO com variações em uma variação.
+Código 120523 do produto Medida:20X10X2M;Cor:BRANCO é duplicado.
+Não é possível transformar o produto Tipo:2P + T;Amperagem:20A com variações em uma variação.
+Não é possível transformar o produto Tipo:2P + T;Amperagem:20A com variações em uma variação.
+Não é possível transformar o produto Tipo:2P;Amperagem:10A com variações em uma variação.
+Não é possível transformar o produto Tipo:2P;Amperagem:10A com variações em uma variação.
+Não é possível transformar o produto Tipo:2P;Amperagem:10A com variações em uma variação.
+Não é possível transformar o produto Medida:2,0MM com variações em uma variação.
+Código 181140 do produto Medida:2,0MM é duplicado.
+Não é possível transformar o produto Medida:2,0MM com variações em uma variação.
+Código 135486 do produto Medida:2,0MM é duplicado.
+Não é possível transformar o produto Medida:2,0MM com variações em uma variação.
+Código 355135 do produto Medida:2,0MM é duplicado.
+Não é possível transformar o produto Medida:2,0MM com variações em uma variação.
+Código 76422 do produto Medida:2,0MM é duplicado.
+Não é possível transformar o produto Medida:2,0mm com variações em uma variação.
+Código 181187 do produto Medida:2,0mm é duplicado.
+Não é possível transformar o produto Medida:2,0MM com variações em uma variação.
+Código 181153 do produto Medida:2,0MM é duplicado.
+Não é possível transformar o produto Medida:2,0MM com variações em uma variação.
+Código 164627 do produto Medida:2,0MM é duplicado.
+Não é possível transformar o produto Medida:2,0MM com variações em uma variação.
+Código 403200 do produto Medida:2,0MM é duplicado.
+Não é possível transformar o produto Medida:2,0MM com variações em uma variação.
+Código 331171 do produto Medida:2,0MM é duplicado.
+Não é possível transformar o produto Cor:BRANCO com variações em uma variação.
+Não é possível transformar o produto Tamanho:GRANDE com variações em uma variação.
+Código 188333 do produto Tamanho:GRANDE é duplicado.
+Não é possível transformar o produto Tamanho:GRANDE com variações em uma variação.
+Código 188330 do produto Tamanho:GRANDE é duplicado.
+Não é possível transformar o produto Tamanho:grande com variações em uma variação.
+Código 405710 do produto Tamanho:grande é duplicado.
+Não é possível transformar o produto Medida:1/4X2 com variações em uma variação.
+Código 191299 do produto Medida:1/4X2 é duplicado.
+Não é possível transformar o produto Medida:1/4X2 com variações em uma variação.
+Código 58971 do produto Medida:1/4X2 é duplicado.
+Não é possível transformar o produto Medida:1/4X2 com variações em uma variação.
+Código 69728 do produto Medida:1/4X2 é duplicado.
+Não é possível transformar o produto Medida:1/4x2 com variações em uma variação.
+Código 19197 do produto Medida:1/4x2 é duplicado.
+Não é possível transformar o produto Medida:6,0X50 com variações em uma variação.
+Código 191450 do produto Medida:6,0X50 é duplicado.
+Não é possível transformar o produto Medida:6,0x50 com variações em uma variação.
+Código 411110 do produto Medida:6,0x50 é duplicado.
+Não é possível transformar o produto Cor:PRETO/AMARELO;Tamanho:CURTO com variações em uma variação.
+Não é possível transformar o produto Medida:25MM com variações em uma variação.
+Não é possível transformar o produto Capacidade:19L;Tamanho:GRANDE com variações em uma variação.
+Não é possível transformar o produto Medida:1MT;Material:ZINCADO com variações em uma variação.
+Não é possível transformar o produto Amperagem:10A;Medida:3X0,75 com variações em uma variação.
+Não é possível transformar o produto Material:PVC;Tipo:Ajustável Sanfonada com variações em uma variação.
+Não é possível transformar o produto Acabamento:BRILHANTE;Outra variação:MARITIMO TRANSPARENTE com variações em uma variação.
+Não é possível transformar o produto Cor:MOGNO com variações em uma variação.
+Não é possível transformar o produto Medida:900ML com variações em uma variação.
+Código 449520 do produto Medida:900ML é duplicado.
+Não é possível transformar o produto Medida:900ML com variações em uma variação.
+Código 163463 do produto Medida:900ML é duplicado.
+Não é possível transformar o produto Medida:900ML com variações em uma variação.
+Código 163387 do produto Medida:900ML é duplicado.
+Não é possível transformar o produto Medida:900ML com variações em uma variação.
+Código 254312 do produto Medida:900ML é duplicado.
+Não é possível transformar o produto Medida:900ML com variações em uma variação.
+Código 47627 do produto Medida:900ML é duplicado.
+Não é possível transformar o produto Medida:900ML com variações em uma variação.
+Código 399870 do produto Medida:900ML é duplicado.
+Não é possível transformar o produto Medida:900ML com variações em uma variação.
+Código 417050 do produto Medida:900ML é duplicado.
+Não é possível transformar o produto Medida:900ML com variações em uma variação.
+Código 13690 do produto Medida:900ML é duplicado.
+Não é possível transformar o produto Medida:900ml com variações em uma variação.
+Código 428130 do produto Medida:900ml é duplicado.
+Não é possível transformar o produto Medida:900ml com variações em uma variação.
+Código 428110 do produto Medida:900ml é duplicado.
+Não é possível transformar o produto Peso:25KG com variações em uma variação.
+Não é possível transformar o produto Peso:1KG;Modelo:FD 15KG com variações em uma variação.
+Não é possível transformar o produto Tipo:TRANCADA;Medida:50MT com variações em uma variação.
+Não é possível transformar o produto Voltagem:BIVOLT;Medida:3,00M com variações em uma variação.
+Não é possível transformar o produto Medida:6,00MM;Tamanho:100M com variações em uma variação.
+Não é possível transformar o produto Medida:6,00MM;Tamanho:100M com variações em uma variação.
+Não é possível transformar o produto Cor:AZUL;Tipo:ROSCA com variações em uma variação.
+Não é possível transformar o produto Cor:AZUL;Tipo:ROSCA com variações em uma variação.
+Não é possível transformar o produto Tipo:PAREDE;Medida:LONGA com variações em uma variação.
+Não é possível transformar o produto Medida:10X1X3MM com variações em uma variação.
+Não é possível transformar o produto Material:Zincado;Tamanho:850X3 com variações em uma variação.
+Não é possível transformar o produto Cor:PRETO;Capacidade:400ML com variações em uma variação.
+Não é possível transformar o produto Cor:BRANCO;Capacidade:400ML com variações em uma variação.
+Não é possível transformar o produto Modelo:RG6/59;Medida:7MM com variações em uma variação.
+Código 113147 do produto Modelo:RG6/59;Medida:7MM é duplicado.
+Não é possível transformar o produto Modelo:RG6/59;Medida:7mm com variações em uma variação.
+Código 118282 do produto Modelo:RG6/59;Medida:7mm é duplicado.
+Não é possível transformar o produto Medida:0,75;Amperagem:10A com variações em uma variação.
+Não é possível transformar o produto Medida:0,75;Amperagem:10A com variações em uma variação.
+Não é possível transformar o produto Medida:350ML;Acabamento:Brilhante com variações em uma variação.
+Não é possível transformar o produto Medida:22X34;Cor:AZUL com variações em uma variação.
+Não é possível transformar o produto Tipo:COLA SELANTE PU40 CIBRAFLEX;Peso:400GR com variações em uma variação.
+Não é possível transformar o produto Tipo:COLA SELANTE PU40 CIBRAFLEX;Peso:400GR com variações em uma variação.
+Não é possível transformar o produto Tipo:3P;Amperagem:10A com variações em uma variação.
+Não é possível transformar o produto Tipo:3P;Amperagem:10A com variações em uma variação.
+Não é possível transformar o produto Medida:0,75;Tipo:2P + T 10A com variações em uma variação.
+Não é possível transformar o produto Medida:0,75;Tipo:2P + T 10A com variações em uma variação.
+Não é possível transformar o produto Medida:4X100;Cor:PRETA com variações em uma variação.
+Não é possível transformar o produto Medida:4X100;Cor:PRETO com variações em uma variação.
+Não é possível transformar o produto Medida:4X100;Cor:PRETO com variações em uma variação.
+Não é possível transformar o produto Medida:18X27;Modelo:GUEPAR com variações em uma variação.
+Não é possível transformar o produto Cor:PRETO/AMARELO;Tamanho:43 com variações em uma variação.
+Não é possível transformar o produto Cor:PRETO/AMARELO;Tamanho:44 com variações em uma variação.
+Não é possível transformar o produto Medida:3/4X10 com variações em uma variação.
+Não é possível transformar o produto Medida:50MM;Outra Variação:BARRA 6MT com variações em uma variação.
+Código 401310 do produto Medida:50MM;Outra Variação:BARRA 6MT é duplicado.
+Não é possível transformar o produto Medida:50MM;Outra variação:BARRA 6MT com variações em uma variação.
+Código 279323 do produto Medida:50MM;Outra variação:BARRA 6MT é duplicado.
+Não é possível transformar o produto Medida:50MM com variações em uma variação.
+Código 15819 do produto Medida:50MM é duplicado.
+Não é possível transformar o produto Medida:50MM com variações em uma variação.
+Código 132587 do produto Medida:50MM é duplicado.
+Não é possível transformar o produto Medida:50MM com variações em uma variação.
+Código 1009255 do produto Medida:50MM é duplicado.
+Não é possível transformar o produto Medida:50MM com variações em uma variação.
+Código 347165 do produto Medida:50MM é duplicado.
+Não é possível transformar o produto Medida:50mm com variações em uma variação.
+Código 10421 do produto Medida:50mm é duplicado.
+Não é possível transformar o produto Medida:50mm com variações em uma variação.
+Código 10416 do produto Medida:50mm é duplicado.
+Não é possível transformar o produto Medida:50MM com variações em uma variação.
+Código 334219 do produto Medida:50MM é duplicado.
+Não é possível transformar o produto Medida:50MM com variações em uma variação.
+Código 11746 do produto Medida:50MM é duplicado.
+Não é possível transformar o produto Medida:50MM com variações em uma variação.
+Código 161624 do produto Medida:50MM é duplicado.
+Não é possível transformar o produto Capacidade:300ml;Peso:200g com variações em uma variação.
+Código 156310 do produto Capacidade:300ml;Peso:200g é duplicado.
+Não é possível transformar o produto Capacidade:300ML;Peso:200G com variações em uma variação.
+Código 384500 do produto Capacidade:300ML;Peso:200G é duplicado.
+Não é possível transformar o produto Cor:MARROM com variações em uma variação.
+Código 86800 do produto Cor:MARROM é duplicado.
+Não é possível transformar o produto Cor:MARROM com variações em uma variação.
+Código 290548 do produto Cor:MARROM é duplicado.
+Não é possível transformar o produto Cor:Marrom com variações em uma variação.
+Código 364862 do produto Cor:Marrom é duplicado.
+Não é possível transformar o produto Medida:3/4X25 com variações em uma variação.
+Não é possível transformar o produto Granulação:180 com variações em uma variação.
+Não é possível transformar o produto Granulação:220 com variações em uma variação.
+Não é possível transformar o produto Medida:3/4;Cor:Marrom com variações em uma variação.
+Código 101461 do produto Medida:3/4;Cor:Marrom é duplicado.
+Não é possível transformar o produto Medida:3/4;Cor:MARROM com variações em uma variação.
+Código 401140 do produto Medida:3/4;Cor:MARROM é duplicado.
+Não é possível transformar o produto Medida:3/4;Cor:MARROM com variações em uma variação.
+Código 401830 do produto Medida:3/4;Cor:MARROM é duplicado.
+Não é possível transformar o produto Medida:3/4;Cor:MARROM com variações em uma variação.
+Código 320587 do produto Medida:3/4;Cor:MARROM é duplicado.
+Não é possível transformar o produto Medida:3/4;Cor:MARROM com variações em uma variação.
+Código 290440 do produto Medida:3/4;Cor:MARROM é duplicado.
+Não é possível transformar o produto Medida:3/4;Cor:MARROM com variações em uma variação.
+Código 451000 do produto Medida:3/4;Cor:MARROM é duplicado.
+Não é possível transformar o produto Medida:3/4;Cor:MARROM com variações em uma variação.
+Código 35823 do produto Medida:3/4;Cor:MARROM é duplicado.
+Não é possível transformar o produto Medida:3/4;Cor:MARROM com variações em uma variação.
+Código 36145 do produto Medida:3/4;Cor:MARROM é duplicado.
+Não é possível transformar o produto Medida:3/4;Cor:MARROM com variações em uma variação.
+Código 400190 do produto Medida:3/4;Cor:MARROM é duplicado.
+Não é possível transformar o produto Medida:150MM com variações em uma variação.
+Código 7705 do produto Medida:150MM é duplicado.
+Não é possível transformar o produto Medida:150mm com variações em uma variação.
+Código 10424 do produto Medida:150mm é duplicado.
+Não é possível transformar o produto Medida:150MM com variações em uma variação.
+Código 001 do produto Medida:150MM é duplicado.
+Não é possível transformar o produto Medida:1/2;Outra Variação:A com variações em uma variação.
+Código 140210 do produto Medida:1/2;Outra Variação:A é duplicado.
+Não é possível transformar o produto Medida:1/2;Outra variação:A com variações em uma variação.
+Código 161131 do produto Medida:1/2;Outra variação:A é duplicado.
+Não é possível transformar o produto Medida:1/2;Outra variação:A com variações em uma variação.
+Código 83585 do produto Medida:1/2;Outra variação:A é duplicado.
+Não é possível transformar o produto Medida:3/4;Outra Variação:B com variações em uma variação.
+Código 23302 do produto Medida:3/4;Outra Variação:B é duplicado.
+Não é possível transformar o produto Medida:3/4;Outra variação:B com variações em uma variação.
+Código 16125 do produto Medida:3/4;Outra variação:B é duplicado.
+Não é possível transformar o produto Medida:3/4;Outra Variação:B com variações em uma variação.
+Código 112526 do produto Medida:3/4;Outra Variação:B é duplicado.
+Não é possível transformar o produto Medida:3/4;Outra Variação:B com variações em uma variação.
+Código 204862 do produto Medida:3/4;Outra Variação:B é duplicado.
+Não é possível transformar o produto Medida:3/4;Outra variação:B com variações em uma variação.
+Código 83593 do produto Medida:3/4;Outra variação:B é duplicado.
+Não é possível transformar o produto Outra Variação:1/4V com variações em uma variação.
