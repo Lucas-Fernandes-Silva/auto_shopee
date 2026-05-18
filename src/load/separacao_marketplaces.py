@@ -455,8 +455,11 @@ def processar():
         "Lendo planilha..."
     )
 
-    df = pd.read_excel(
-        ARQUIVO_BLING
+    df = pd.read_csv(
+        ARQUIVO_BLING,
+        sep=";",
+        encoding="utf-8-sig",
+        low_memory=False,
     )
 
     print(
