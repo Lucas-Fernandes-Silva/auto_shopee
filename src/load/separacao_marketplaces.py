@@ -6,7 +6,7 @@ import pandas as pd
 # ARQUIVO DE ENTRADA
 # ======================================================
 
-ARQUIVO_BLING = "bling.xlsx"
+ARQUIVO_BLING = "/home/lucas-silva/auto_shopee/planilhas/input/produtos_bling_ajustado.csv"
 
 # ======================================================
 # SAÍDAS
@@ -609,6 +609,13 @@ def processar():
     ] = df_resultado[
         "tipo_envio_ml_sugerido"
     ]
+    df_customizados[
+        "produtoPersonalizado"
+    ] = "Não"
+
+    df_customizados[
+        "necessitaMontagem"
+    ] = "Não"
 
     # ==================================================
     # REMOVE NAN
