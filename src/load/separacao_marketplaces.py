@@ -554,10 +554,9 @@ def processar():
             sheet_name="revisar_dados",
             index=False,
         )
-
-    # ==================================================
-    # CAMPOS CUSTOMIZADOS
-    # ==================================================
+# ==================================================
+# CAMPOS CUSTOMIZADOS
+# ==================================================
 
     print(
         "Gerando CSV campos customizados..."
@@ -566,36 +565,58 @@ def processar():
     df_customizados = pd.DataFrame()
 
     # ==================================================
-    # IDENTIFICADOR
+    # ID
+    # ==================================================
+
+    if "ID" in df_resultado.columns:
+
+        df_customizados["ID"] = df_resultado["ID"]
+
+    else:
+
+        df_customizados["ID"] = ""
+
+    # ==================================================
+    # CÓDIGO
     # ==================================================
 
     if "Código" in df_resultado.columns:
 
-        df_customizados[
-            "Código"
-        ] = df_resultado[
-            "Código"
-        ]
+        df_customizados["Código"] = df_resultado["Código"]
 
     elif "SKU" in df_resultado.columns:
 
-        df_customizados[
-            "SKU"
-        ] = df_resultado[
-            "SKU"
-        ]
+        df_customizados["Código"] = df_resultado["SKU"]
+
+    else:
+
+        df_customizados["Código"] = ""
+
+    # ==================================================
+    # DESCRIÇÃO
+    # ==================================================
+
+    if "Descrição" in df_resultado.columns:
+
+        df_customizados["Descrição"] = df_resultado["Descrição"]
+
+    elif "descricao" in df_resultado.columns:
+
+        df_customizados["Descrição"] = df_resultado["descricao"]
+
+    elif "Produto" in df_resultado.columns:
+
+        df_customizados["Descrição"] = df_resultado["Produto"]
+
+    else:
+
+        df_customizados["Descrição"] = ""
 
     # ==================================================
     # CAMPOS CUSTOMIZADOS
     # ==================================================
 
     df_customizados[
-        "classificacao_marketplace"
-    ] = df_resultado[
-        "classificacao_marketplace"
-    ]
-
-    df_customizados[
         "canal_ml"
     ] = df_resultado[
         "canal_ml"
@@ -612,6 +633,13 @@ def processar():
     ] = df_resultado[
         "tipo_envio_ml_sugerido"
     ]
+
+    df_customizados[
+        "classificacao_marketplace"
+    ] = df_resultado[
+        "classificacao_marketplace"
+    ]
+
     df_customizados[
         "produtoPersonalizado"
     ] = "Não"
@@ -619,6 +647,24 @@ def processar():
     df_customizados[
         "necessitaMontagem"
     ] = "Não"
+
+    # ==================================================
+    # ORDEM FINAL DAS COLUNAS
+    # ==================================================
+
+    df_customizados = df_customizados[
+        [
+            "ID",
+            "Código",
+            "Descrição",
+            "canal_ml",
+            "canal_shopee",
+            "tipo_envio_ml_sugerido",
+            "classificacao_marketplace",
+            "produtoPersonalizado",
+            "necessitaMontagem",
+        ]
+    ]
 
     # ==================================================
     # REMOVE NAN
@@ -638,7 +684,6 @@ def processar():
         index=False,
         encoding="utf-8-sig",
     )
-
     # ==================================================
     # FINAL
     # ==================================================
